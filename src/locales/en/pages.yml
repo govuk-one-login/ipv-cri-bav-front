@@ -1,0 +1,9 @@
+# title is managed in default.yml
+            
+nameEntry:
+  title: "Enter your name exactly as it appears on your photo ID"
+  surname: "Last name"
+  givenNames: "Given names"
+  firstName: "First name"
+  middleName: "Middle names"
+  middleNameHint: "Leave this blank if you do not have middle names"
