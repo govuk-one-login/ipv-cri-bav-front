@@ -130,7 +130,7 @@ Mappings:
       SESSIONTABLENAME: "cic-front-sessions-integration"
       GTMIDGA4: "GTM-KD86CMZ"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
-    production:/Users/sconstantinoubriggs/F2F Code/di-ipv-cri-cic-front/README.md
+    production:
       EXTERNALWEBSITEHOST: "https://review-c.account.gov.uk"
       APIBASEURL: "https://api.review-c.account.gov.uk"
       DNSSUFFIX: "review-c.account.gov.uk"
@@ -394,7 +394,7 @@ Resources:
     Properties:
       ContainerDefinitions:
         - Essential: true
-          Image: CONTAINER-IMAGE-PLACEHOLDER
+          Image: 576724867321.dkr.ecr.eu-west-2.amazonaws.com/bav-cri-front-ecr-containerrepository-aj7fp6n9xajx:test-stelios
           Name: app
           Environment:
             - Name: API_BASE_URL
@@ -708,8 +708,7 @@ Resources:
       ApiId: !Ref ApiGwHttpEndpoint
       Stage: !Ref APIStageDefault
 
-
-  BAVFrontSessionsTable:
+  BavFrontSessionsTable:
     Type: AWS::DynamoDB::Table
     Properties:
       # checkov:skip=CKV_AWS_28: Point in time recovery is not necessary for this table.
