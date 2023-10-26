@@ -97,45 +97,40 @@ Mappings:
     ### These environment variables are referenced further down the file.
     ### Please ensure that any variables defined for an environment are defined for _all_ environments.
     dev:
-      EXTERNALWEBSITEHOST: "https://cic-cri-front.review-c.dev.account.gov.uk"
-      APIBASEURL: "https://api-cic-cri-api.review-c.dev.account.gov.uk" 
-      DNSSUFFIX: "review-c.dev.account.gov.uk"
-      SESSIONTABLENAME: "cic-front-sessions-dev"
-      GTMIDGA4: "GTM-KD86CMZ"
+      EXTERNALWEBSITEHOST: "https://bav-cri-front.review-bav.dev.account.gov.uk"
+      APIBASEURL: "https://api-bav-cri-api.review-bav.dev.account.gov.uk"
+      DNSSUFFIX: "review-bav.dev.account.gov.uk"
+      SESSIONTABLENAME: "bav-front-sessions-dev"
       ANALYTICSDOMAIN: "dev.account.gov.uk"
-      TESTHARNESSURL: "https://cic-test-harness-testharness.review-c.dev.account.gov.uk"
-      BACKENDURL: "https://api-cic-cri-api.review-c.dev.account.gov.uk"
-      BACKENDSESSIONTABLE: "session-cic-cri-ddb"
+      TESTHARNESSURL: "https://testharness.review-bav.dev.account.gov.uk"
+      BACKENDURL: "https://api-bav-cri-api.review-bav.dev.account.gov.uk"
+      BACKENDSESSIONTABLE: "session-bav-cri-ddb"
     build:
-      EXTERNALWEBSITEHOST: "https://review-c.build.account.gov.uk"
-      APIBASEURL: "https://api.review-c.build.account.gov.uk"
-      DNSSUFFIX: "review-c.build.account.gov.uk"
-      SESSIONTABLENAME: "cic-front-sessions-build"
-      GTMIDGA4: "GTM-KD86CMZ"
+      EXTERNALWEBSITEHOST: "https://review-bav.build.account.gov.uk"
+      APIBASEURL: "https://api.review-bav.build.account.gov.uk"
+      DNSSUFFIX: "review-bav.build.account.gov.uk"
+      SESSIONTABLENAME: "bav-front-sessions-build"
       ANALYTICSDOMAIN: "build.account.gov.uk"
-      TESTHARNESSURL: "https://testharness.review-c.build.account.gov.uk"
-      BACKENDURL: "https://api.review-c.build.account.gov.uk"
-      BACKENDSESSIONTABLE: "session-cic-cri-ddb"
+      TESTHARNESSURL: "https://testharness.review-bav.build.account.gov.uk"
+      BACKENDURL: "https://api.review-bav.build.account.gov.uk"
+      BACKENDSESSIONTABLE: "session-bav-cri-ddb"
     staging:
-      EXTERNALWEBSITEHOST: "https://review-c.staging.account.gov.uk"
-      APIBASEURL: "https://api.review-c.staging.account.gov.uk"
-      DNSSUFFIX: "review-c.staging.account.gov.uk"
-      SESSIONTABLENAME: "cic-front-sessions-staging"
-      GTMIDGA4: "GTM-KD86CMZ"
+      EXTERNALWEBSITEHOST: "https://review-bav.staging.account.gov.uk"
+      APIBASEURL: "https://api.review-bav.staging.account.gov.uk"
+      DNSSUFFIX: "review-bav.staging.account.gov.uk"
+      SESSIONTABLENAME: "bav-front-sessions-staging"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
     integration:
-      EXTERNALWEBSITEHOST: "https://review-c.integration.account.gov.uk"
-      APIBASEURL: "https://api.review-c.integration.account.gov.uk"
-      DNSSUFFIX: "review-c.integration.account.gov.uk"
-      SESSIONTABLENAME: "cic-front-sessions-integration"
-      GTMIDGA4: "GTM-KD86CMZ"
+      EXTERNALWEBSITEHOST: "https://review-bav.integration.account.gov.uk"
+      APIBASEURL: "https://api.review-bav.integration.account.gov.uk"
+      DNSSUFFIX: "review-bav.integration.account.gov.uk"
+      SESSIONTABLENAME: "bav-front-sessions-integration"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
-    production:/Users/sconstantinoubriggs/F2F Code/di-ipv-cri-cic-front/README.md
-      EXTERNALWEBSITEHOST: "https://review-c.account.gov.uk"
-      APIBASEURL: "https://api.review-c.account.gov.uk"
-      DNSSUFFIX: "review-c.account.gov.uk"
-      SESSIONTABLENAME: "cic-front-sessions-production"
-      GTMIDGA4: "GTM-K4PBJH3"
+    production:
+      EXTERNALWEBSITEHOST: "https://review-bav.account.gov.uk"
+      APIBASEURL: "https://api.review-bav.account.gov.uk"
+      DNSSUFFIX: "review-bav.account.gov.uk"
+      SESSIONTABLENAME: "bav-front-sessions-production"
       ANALYTICSDOMAIN: "account.gov.uk"
 
 Resources:
@@ -342,14 +337,14 @@ Resources:
       LogGroupName: !Sub /aws/ecs/${AWS::StackName}-BAVFront-ECS
       RetentionInDays: 14
 
-  CSLSECSAccessSubscriptionFilter:
-    Type: AWS::Logs::SubscriptionFilter
-    # Condition: IsNotDevelopment
-    Properties:
-      DestinationArn:
-        !FindInMap [PlatformConfiguration, !Ref Environment, CSLSEGRESS]
-      FilterPattern: ""
-      LogGroupName: !Ref ECSAccessLogsGroup
+  # CSLSECSAccessSubscriptionFilter:
+  #   Type: AWS::Logs::SubscriptionFilter
+  #   # Condition: IsNotDevelopment
+  #   Properties:
+  #     DestinationArn:
+  #       !FindInMap [PlatformConfiguration, !Ref Environment, CSLSEGRESS]
+  #     FilterPattern: ""
+  #     LogGroupName: !Ref ECSAccessLogsGroup
 
   ECSFatalErorMetricFilter:
     Type: AWS::Logs::MetricFilter
@@ -394,7 +389,8 @@ Resources:
     Properties:
       ContainerDefinitions:
         - Essential: true
-          Image: CONTAINER-IMAGE-PLACEHOLDER
+          # Image: CONTAINER-IMAGE-PLACEHOLDER        
+          Image: 576724867321.dkr.ecr.eu-west-2.amazonaws.com/bav-cri-front-ecr-containerrepository-aj7fp6n9xajx:test-stelios
           Name: app
           Environment:
             - Name: API_BASE_URL
@@ -405,8 +401,6 @@ Resources:
               Value: !Ref BavFrontSessionsTable
             - Name: FRONT_END_URL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
-            - Name: GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID
-              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTMIDGA4 ]
             - Name: ANALYTICS_DOMAIN
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, ANALYTICSDOMAIN ]
 
@@ -580,14 +574,14 @@ Resources:
       LogGroupName: !Sub /aws/apigateway/${AWS::StackName}-BAVFront-API-GW-AccessLogs
       RetentionInDays: 14
 
-  CSLSAPIGWAccessSubscriptionFilter:
-    Type: AWS::Logs::SubscriptionFilter
-    Condition: IsNotDevelopment
-    Properties:
-      DestinationArn:
-        !FindInMap [PlatformConfiguration, !Ref Environment, CSLSEGRESS]
-      FilterPattern: ""
-      LogGroupName: !Ref APIGWAccessLogsGroup
+  # CSLSAPIGWAccessSubscriptionFilter:
+  #   Type: AWS::Logs::SubscriptionFilter
+  #   Condition: IsNotDevelopment
+  #   Properties:
+  #     DestinationArn:
+  #       !FindInMap [PlatformConfiguration, !Ref Environment, CSLSEGRESS]
+  #     FilterPattern: ""
+  #     LogGroupName: !Ref APIGWAccessLogsGroup
 
   APIGWFatalErorMetricFilter:
     Type: AWS::Logs::MetricFilter
@@ -709,7 +703,7 @@ Resources:
       Stage: !Ref APIStageDefault
 
 
-  BAVFrontSessionsTable:
+  BavFrontSessionsTable:
     Type: AWS::DynamoDB::Table
     Properties:
       # checkov:skip=CKV_AWS_28: Point in time recovery is not necessary for this table.
