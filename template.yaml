@@ -389,8 +389,7 @@ Resources:
     Properties:
       ContainerDefinitions:
         - Essential: true
-          # Image: CONTAINER-IMAGE-PLACEHOLDER        
-          Image: 576724867321.dkr.ecr.eu-west-2.amazonaws.com/bav-cri-front-ecr-containerrepository-aj7fp6n9xajx:test-stelios
+          Image: CONTAINER-IMAGE-PLACEHOLDER        
           Name: app
           Environment:
             - Name: API_BASE_URL
