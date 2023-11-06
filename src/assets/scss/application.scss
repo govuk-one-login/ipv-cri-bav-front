@@ -84,7 +84,7 @@ $govuk-assets-path: "/public/";
   margin-bottom: 20px;
 }
 
-.instruction {
+.bav__instruction {
   @include govuk-responsive-margin(4, "bottom");
   @include govuk-responsive-margin(4, "top");
 }
