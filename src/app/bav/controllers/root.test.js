@@ -1,6 +1,6 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const RootController = require('./root.js');
-const {setupDefaultMocks} = require('../../../../test/utils/mocha-helpers')
+const {setupDefaultMocks} = require('../../../../test/utils/test-helpers.js')
 
 describe("RootController", () => {
   const rootController = new RootController({ route: '/test' });
