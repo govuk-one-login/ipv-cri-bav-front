@@ -32,7 +32,7 @@ govuk:
     cookieLinkText: "Find out more about cookies"
   phaseBanner:
     tag: beta
-    content: This is a new service – your <a href="https://signin.account.gov.uk/contact-us" target="_blank" class="govuk-link" rel="noopener" target="_blank">feedback (opens in new tab)</a> will help us to improve it.
+    content: This is a new service – your <a href="https://home.account.gov.uk/contact-gov-uk-one-login?fromURL=https://www.review-bav.account.gov.uk/prove-identity-bank-account" class="govuk-link" rel="noopener" target="_blank">feedback (opens in new tab)</a> will help us to improve it.
   footerNavItems:
     meta:
       items:
@@ -60,8 +60,4 @@ error:
     contactMeLink: Contact the GOV.UK One Login team (opens in a new tab)
     buttonText: Go to the GOV.UK homepage
     buttonLink: https://www.gov.uk/
-
-common:
-    confirmIdentityAnotherWay:
-      confirmIdentity: "I want to prove my identity another way"
 

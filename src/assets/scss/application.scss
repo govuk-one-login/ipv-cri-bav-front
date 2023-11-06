@@ -3,7 +3,6 @@ $govuk-assets-path: "/public/";
 @import "../../../node_modules/govuk-frontend/govuk/all";
 @import "../../../node_modules/hmpo-components/all";
 
-// Adding a new rule in case adjusting the component CSS directly is bad practice
 .govuk-radios__item {
   @include govuk-responsive-margin(6, $direction: "bottom", $important: false, $adjustment: false);
 }
@@ -17,7 +16,8 @@ $govuk-assets-path: "/public/";
 }
 
 .govuk-list--bullet>li, .govuk-list--number>li {
-  @include govuk-responsive-margin(3, "bottom")
+  @include govuk-responsive-margin(0, "bottom");
+  @include govuk-responsive-margin(3, "left")
 }
 
 .govuk-input {
@@ -35,8 +35,8 @@ $govuk-assets-path: "/public/";
 }
 
 .govuk-button {
-  @include govuk-responsive-margin(6, "bottom");
-  @include govuk-responsive-margin(6, "top")
+  @include govuk-responsive-margin(0, "bottom");
+  @include govuk-responsive-margin(0, "top")
 }
 
 
@@ -82,4 +82,9 @@ $govuk-assets-path: "/public/";
 .govuk-cookie-banner .govuk-button {
   margin-top: 0; 
   margin-bottom: 20px;
+}
+
+.bav__instruction {
+  @include govuk-responsive-margin(4, "bottom");
+  @include govuk-responsive-margin(4, "top");
 }
