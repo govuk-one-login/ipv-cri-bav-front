@@ -1,3 +1,5 @@
+//WIP: placeholder values for BAV input fields 
+
 module.exports = {
   surname: {
     type: "text",

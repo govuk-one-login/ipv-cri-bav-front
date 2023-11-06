@@ -61,7 +61,3 @@ error:
     buttonText: Go to the GOV.UK homepage
     buttonLink: https://www.gov.uk/
 
-common:
-    confirmIdentityAnotherWay:
-      confirmIdentity: "I want to prove my identity another way"
-

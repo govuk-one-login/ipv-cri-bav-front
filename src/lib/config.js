@@ -12,7 +12,8 @@ module.exports = {
     BASE_URL: process.env.EXTERNAL_WEBSITE_HOST || "http://localhost:8000",
     PATHS: {
       BAV: "/",
-      NAME_ENTRY: "/enter-name-photo-id"
+      LANDING_PAGE: "/landing-page",
+      ACCOUNT_DETAILS: "/account-details"
     },
     ANALYTICS: {
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",

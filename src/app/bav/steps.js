@@ -1,4 +1,4 @@
-const nameEntry = require("./controllers/nameEntry");
+const landingPage = require("./controllers/landingPage");
 const root = require("./controllers/root");
 const { APP } = require("../../lib/config");
 
@@ -9,10 +9,10 @@ module.exports = {
     entryPoint: true,
     skip: true,
     controller: root,
-    next: APP.PATHS.NAME_ENTRY,
+    next: APP.PATHS.LANDING_PAGE,
   },
-  [`${APP.PATHS.NAME_ENTRY}`]: {
-    fields: ["surname", "firstName", "middleName"],
-    controller: nameEntry
+  [`${APP.PATHS.LANDING_PAGE}`]: {
+    controller: landingPage,
+    next: APP.PATHS.ACCOUNT_DETAILS
   }
 };

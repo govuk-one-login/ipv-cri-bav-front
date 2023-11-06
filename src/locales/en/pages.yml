@@ -1,9 +1,29 @@
 # title is managed in default.yml
             
-nameEntry:
-  title: "Enter your name exactly as it appears on your photo ID"
-  surname: "Last name"
-  givenNames: "Given names"
-  firstName: "First name"
-  middleName: "Middle names"
-  middleNameHint: "Leave this blank if you do not have middle names"
+landingPage:
+  title: "Continue to your bank or building society account details"
+  infoText1: "We'll now ask you some questions about your UK bank or building society account."
+  infoText2: "You must be the named account holder."
+  list1: 
+    list1Text: "You can use details from any:"
+    list1Bullet1: "current account"
+    list1Bullet2: "joint current account"
+  list2: 
+    list2Text: "You cannot use a:"
+    list2Bullet1: "business account"
+    list2Bullet2: "savings account, including an Individual Savings Account (ISAs)"
+  infoTitle: "What to expect"
+  list3: 
+    list3Text: "You'll need to tell us the:"
+    list3Bullet1: "sort code"
+    list3Bullet2: "account number"
+  infoText3: "We'll check your acount name and details with your bank or building society."
+  infoText4: "Your name and account details must match."
+  infoText5: "If we cannot find a match for the details you've given, you'll need to prove your identity another way."
+  detailDropdown:
+    summaryText: "How we use your bank details"
+    detailContent: <p class="instruction">We will not save or share your account details.</p><p class="instruction">We do not use your account details to:</p><ul class="govuk-list govuk-list--bullet"><li>take any payments</li><li>check any transactions</li></ul>
+  confirmIdentityAnotherWay: 
+    abortText1: "Go to the service you want to use and "
+    abortLink: "https://www.gov.uk/tell-dvla-changed-address"
+    abortText2: "find other ways to prove your identity"
