@@ -5,15 +5,17 @@ module.exports = {
     BASE_URL: process.env.API_BASE_URL || "http://localhost:8090",
     PATHS: {
       SESSION: "/session",
-      AUTHORIZATION: "/authorization"
+      AUTHORIZATION: "/authorization",
+      ABORT: "/abort",
     },
   },
   APP: {
     BASE_URL: process.env.EXTERNAL_WEBSITE_HOST || "http://localhost:8000",
     PATHS: {
       BAV: "/",
-      LANDING_PAGE: "/landing-page",
-      ACCOUNT_DETAILS: "/account-details"
+      LANDING_PAGE: "/prove-identity-bank-account",
+      ACCOUNT_DETAILS: "/account-details",
+      ABORT: "/abort",
     },
     ANALYTICS: {
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",

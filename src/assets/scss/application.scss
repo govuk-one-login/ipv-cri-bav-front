@@ -35,8 +35,8 @@ $govuk-assets-path: "/public/";
 }
 
 .govuk-button {
-  @include govuk-responsive-margin(6, "bottom");
-  @include govuk-responsive-margin(6, "top")
+  @include govuk-responsive-margin(0, "bottom");
+  @include govuk-responsive-margin(0, "top")
 }
 
 
@@ -85,5 +85,6 @@ $govuk-assets-path: "/public/";
 }
 
 .instruction {
-  @include govuk-responsive-margin(5, "bottom");
+  @include govuk-responsive-margin(4, "bottom");
+  @include govuk-responsive-margin(4, "top");
 }
