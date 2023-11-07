@@ -40,3 +40,4 @@ package-lock.json
 .aws-sam/
 test/reports/cic-reports/
 test/reports/cucumber_report.json
+.env
