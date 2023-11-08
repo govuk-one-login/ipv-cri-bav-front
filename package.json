@@ -18,7 +18,7 @@
     "build-js:all": "mkdir -p dist/public/javascripts; uglifyjs node_modules/govuk-frontend/govuk/all.js node_modules/hmpo-components/all.js --beautify -o dist/public/javascripts/all.js",
     "test": "node_modules/.bin/jest --testPathPattern=app/bav --coverage",
     "mocks": "yarn run wiremock --verbose --port 8090 --root-dir test/mocks",
-    "test:browser": "wait-on tcp:127.0.0.1:8090 tcp:127.0.0.1:5040 && API_BASE_URL=http://127.0.0.1:8090 cucumber-js test/browser/features/**/*.feature --require test/browser/support/env.js  --require test/browser/support/setup.js --require test/browser/step_definitions/**/*.js --require ./babel.config.js",
+    "test:browser": "wait-on tcp:127.0.0.1:8090 tcp:127.0.0.1:5040 && API_BASE_URL=http://127.0.0.1:8090 cucumber-js test/browser/features/**/*.feature --require test/browser/support/env.js  --require test/browser/support/setup.js --require test/browser/step_definitions/**/*.js",
     "test:browser:ci": "npm-run-all -p -r start:ci mocks test:browser && npm run test:browser:report"
   },
   "repository": {
@@ -35,6 +35,7 @@
   "devDependencies": {
     "@cucumber/cucumber": "^10.0.1",
     "@jest/globals": "^29.7.0",
+    "@playwright/test": "^1.39.0",
     "jest-cucumber": "^3.0.1",
     "npm-run-all": "^4.1.5",
     "sass": "1.63.6",
