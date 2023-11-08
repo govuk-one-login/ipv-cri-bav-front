@@ -1,7 +1,6 @@
 const { Given, Then, When } = require("@cucumber/cucumber");
-const { RelyingPartyPage, NameEntryPage }  = require("../pages");
-//const { expect } = require("@playwright/test");
-//import {expect, jest, test} from '@jest/globals';
+const { RelyingPartyPage, ProveIdentityPage, BavLandingPage }  = require("../pages");
+const { expect } = require("@playwright/test");
 
 Given(/^([A-Za-z ])+is using the system$/, {timeout: 2 * 5000}, async function (name) {
   this.user = this.allUsers[name];
@@ -17,10 +16,10 @@ When("they have provided their details", {
 );
 
 
-Then("they should be redirected to the nameEntry", async function () {
-  const nameEntry = new NameEntryPage(await this.page);
+Then("they should be redirected to the Landing Page", async function () {
+  const proveId = new BavLandingPage(await this.page);
   
-  expect(await nameEntry.isCurrentPage()).toBeTruthy();
+  expect(await proveId.isCurrentPage()).toBeTruthy();
 });
 
 

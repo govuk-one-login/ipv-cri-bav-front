@@ -1,4 +1,4 @@
 module.exports = {
   RelyingPartyPage: require("./relying-party.js"),
-  NameEntryPage: require("./nameEntryPage"),
+  BavLandingPage: require("./landingPage.js"),
 };

@@ -4,8 +4,8 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.path = "/enter-name-photo-id";
-    this.firstName;
+    this.path = "/prove-identity-bank-account";
+   // this.firstName;
   }
 
   async isCurrentPage() {
@@ -15,26 +15,6 @@ module.exports = class PlaywrightDevPage {
 
   async continue() {
     await this.page.click("#continue");
-  }
-
-  async enterSurname() {
-    await this.page.locator("#surname").fill("Hartley");
-  }
-
-  async enterFirstName() {
-    await this.page.locator("#firstName").fill("James");
-  }
-
-  async returnFirstName() {
-    return this.firstName;
-  }
-
-  async enterMiddleName() {
-    await this.page.locator("#middleName").fill("Robert");
-  }
-
-  async back() {
-    await this.page.click("#back");
   }
 
   async checkErrorText() {

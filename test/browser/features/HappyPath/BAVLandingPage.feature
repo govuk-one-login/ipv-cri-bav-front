@@ -3,9 +3,9 @@ Feature: Continue on from landing page
 
 
    Background:
-      Given Authenticatable Anita is using the system
+      Given a user is using the system
       When they have provided their details
-      Then they should be redirected to the nameEntry
+      Then they should be redirected to the Landing Page
 
    Scenario: User routed to Account Details Screen
       Given the user wishes to proceed

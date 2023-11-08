@@ -3,7 +3,7 @@ const { setWorldConstructor } = require("@cucumber/cucumber");
 require("playwright");
 
 const users = {
-  "Authenticatable Anita": {},
+  "A user": {},
   "Erroring Ethem": {},
   "Not Authenticatable Neil": {},
   "Validating Valerie": {},
