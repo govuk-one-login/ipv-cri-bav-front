@@ -35,7 +35,7 @@
   "dependencies": {
     "aws-sdk": "^2.1407.0",
     "@aws-sdk/lib-dynamodb": "3.363.0",
-    "axios": "^1.4.0",
+    "axios": "^1.6.1",
     "cfenv": "1.2.4",
     "connect-dynamodb": "^2.0.6",
     "copyfiles": "2.4.1",
