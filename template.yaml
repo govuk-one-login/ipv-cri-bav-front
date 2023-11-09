@@ -105,6 +105,7 @@ Mappings:
       TESTHARNESSURL: "https://testharness.review-bav.dev.account.gov.uk"
       BACKENDURL: "https://api-bav-cri-api.review-bav.dev.account.gov.uk"
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
+      LOGLEVEL: "debug"
     build:
       EXTERNALWEBSITEHOST: "https://review-bav.build.account.gov.uk"
       APIBASEURL: "https://api.review-bav.build.account.gov.uk"
@@ -114,24 +115,28 @@ Mappings:
       TESTHARNESSURL: "https://testharness.review-bav.build.account.gov.uk"
       BACKENDURL: "https://api.review-bav.build.account.gov.uk"
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
+      LOGLEVEL: "warn"
     staging:
       EXTERNALWEBSITEHOST: "https://review-bav.staging.account.gov.uk"
       APIBASEURL: "https://api.review-bav.staging.account.gov.uk"
       DNSSUFFIX: "review-bav.staging.account.gov.uk"
       SESSIONTABLENAME: "bav-front-sessions-staging"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
+      LOGLEVEL: "warn"
     integration:
       EXTERNALWEBSITEHOST: "https://review-bav.integration.account.gov.uk"
       APIBASEURL: "https://api.review-bav.integration.account.gov.uk"
       DNSSUFFIX: "review-bav.integration.account.gov.uk"
       SESSIONTABLENAME: "bav-front-sessions-integration"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
+      LOGLEVEL: "warn"
     production:
       EXTERNALWEBSITEHOST: "https://review-bav.account.gov.uk"
       APIBASEURL: "https://api.review-bav.account.gov.uk"
       DNSSUFFIX: "review-bav.account.gov.uk"
       SESSIONTABLENAME: "bav-front-sessions-production"
       ANALYTICSDOMAIN: "account.gov.uk"
+      LOGLEVEL: "warn"
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -402,6 +407,8 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
             - Name: ANALYTICS_DOMAIN
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, ANALYTICSDOMAIN ]
+            - Name: LOG_LEVEL
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, LOGLEVEL ]
 
           PortMappings:
             - ContainerPort: 8080
