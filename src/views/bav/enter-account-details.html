@@ -1,0 +1,55 @@
+{% extends "base-form.njk" %}
+{# the content for this page is controlled by locales/en/default.yml #}
+{% set hmpoPageKey = "enterAccountDetails" %}
+{% set gtmJourney = "bav - enterAccountDetails" %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+
+
+{% block mainContent %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <h1 id="header" class="gov" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+        {{ translate("accountDetails.title") }}
+    </h1>
+  </div>
+</div>
+    
+    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
+
+    {{ hmpoText(ctx, {
+        id: "sortCode",
+        classes: "govuk-input--width-5 govuk-input--extra-letter-spacing"
+    })}}
+
+    {{ hmpoText(ctx, {
+      id: "accountNumber",
+      classes: "govuk-input--width-10 govuk-input--extra-letter-spacing"
+  })}}
+
+
+    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+
+    {% endcall %}
+
+{% endblock %}
+
+{# generate the specific footer items required for the PYI flows #}
+{% set footerNavItems = translate("govuk.footerNavItems") %}
+
+{% block footer %}
+    {{ govukFooter( footerNavItems ) }}
+{% endblock %}
+
+
+{% block bodyEnd %}
+  {% block scripts %}
+    <script type="text/javascript" src="/public/javascripts/analytics.js"></script>
+    <script type="text/javascript" src="/public/javascripts/all.js"></script>
+    <script type="text/javascript" src="/public/javascripts/application.js"></script>
+    <script type="text/javascript" nonce='{{cspNonce}}'>window.DI.appInit({uaContainerId: '{{uaContainerId}}', analyticsCookieDomain: '{{analyticsCookieDomain}}', isGa4Enabled: '{{isGa4Enabled}}', ga4ContainerId: '{{ga4ContainerId}}'})</script>
+  {% endblock %}
+{% endblock %}
