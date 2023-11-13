@@ -1,11 +1,10 @@
 module.exports = {
   sortCode: {
-    type: "number",
+    type: "text",
     journeyKey: "sortCode",
     validate: [
       "required",
-      // Subject to change, potential to allow dashes ("-") etc
-      { type: "exactlength", arguments: [6] },
+      {type: "regexNumber", fn: (value) => value.match(/^\d{6}$|^\d{2}-\d{2}-\d{2}$|^\d{2} \d{2} \d{2}$/)}
     ]
   },
   accountNumber: {
