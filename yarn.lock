@@ -10,18 +10,18 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@aws-sdk/lib-dynamodb@3.363.0":
-  version "3.363.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/lib-dynamodb/-/lib-dynamodb-3.363.0.tgz#a5e8fd168d3ac9b1fe0b2dab08b08256f83fb6c1"
-  integrity sha512-6sa/dbZACurhjqV9GxM/iXOgV4hzOTd1/jlhzP7KLJW7UVoGXTBf0rRLpLUE0SxozML0jhDkqJ0hOUVY7Q1Xew==
+"@aws-sdk/lib-dynamodb@3.449.0":
+  version "3.449.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/lib-dynamodb/-/lib-dynamodb-3.449.0.tgz#1815014d8f052fef4316c3f4c495001df7b34960"
+  integrity sha512-w9cxP0b3aafufPhNlJ7bLW6bdv5+ccZlNzEY1khv43j+IomwAugLFwCeDrae/h8n1b2BAePRhut1bdbnnI3CsQ==
   dependencies:
-    "@aws-sdk/util-dynamodb" "3.363.0"
+    "@aws-sdk/util-dynamodb" "3.449.0"
     tslib "^2.5.0"
 
-"@aws-sdk/util-dynamodb@3.363.0":
-  version "3.363.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/util-dynamodb/-/util-dynamodb-3.363.0.tgz#3732bc512077236c659447ffdb13e4cc14faadc9"
-  integrity sha512-zzY2PnNFxqJYIrbd/C2VMWhPMWP+XQG4C/V/yEfU2LY+HNAZ0aJPUwvXnMJTumZjcfYr+20qRiowsw8dnXEVgA==
+"@aws-sdk/util-dynamodb@3.449.0":
+  version "3.449.0"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/util-dynamodb/-/util-dynamodb-3.449.0.tgz#ced922c6146dc0539ef431e4912294cf0d84c631"
+  integrity sha512-3Y0ZMcMTcwP8EM/twMVcA0mr7rnarcmRchLM+Lxgt4172K9YJ5Iy895Xy03g0aOgiAwAE8ogkzum0hwbv6RClg==
   dependencies:
     tslib "^2.5.0"
 
