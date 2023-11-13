@@ -27,3 +27,6 @@ landingPage:
     abortText1: "Go to the service you want to use and "
     abortLink: "/abort"
     abortText2: "find other ways to prove your identity"
+
+accountDetails:
+  title: "Enter your account details"

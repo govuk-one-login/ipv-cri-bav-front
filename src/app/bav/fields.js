@@ -1,16 +1,19 @@
-//WIP: placeholder values for BAV input fields 
-
 module.exports = {
-  surname: {
+  sortCode: {
     type: "text",
-    journeyKey: "surname",
+    journeyKey: "sortCode",
+    validate: [
+      "required",
+      {type: "regexNumber", fn: (value) => value.match(/^\d{6}$|^\d{2}-\d{2}-\d{2}$|^\d{2} \d{2} \d{2}$/)}
+    ]
   },
-  firstName: {
-    type: "text",
-    journeyKey: "firstName",
-  },
-  middleName: {
-    type: "text",
-    journeyKey: "middleName",
+  accountNumber: {
+    type: "number",
+    journeyKey: "accountNumber",
+    validate: [
+      "required",
+      { type: "minlength", arguments: [6] },
+      { type: "maxlength", arguments: [8] },
+    ] 
   }
 };

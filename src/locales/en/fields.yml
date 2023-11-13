@@ -1,29 +1,14 @@
-#WIP: placeholder values for BAV input fields 
-
-surname:
-  label: Last name
-  hint:
+sortCode:
+  label: Sort code
+  hint: A sort code is 6 digits long. It's usually formatted as three pairs of numbers. For example, 12-34-56
   validation:
-    default: "Enter your last name as it appears on your photo ID"
-    maxlength: "Enter your last name as it appears on your photo ID"
-    regexNumber: "Your last name cannot include numbers"
-    regexSpecialCharacters: "Enter your last name as it appears on your photo ID"
+    default: "Enter a sort code"
+    regexNumber: "Enter a valid sort code like 12-34-56"
 
-
-firstName:
-  label: First name
-  hint:
+accountNumber:
+  label: Account number
+  hint: An account number is between 6 and 8 digits long. For example, 31926819
   validation:
-    default: "Enter your first name as it appears on your photo ID"
-    maxlength: "Enter your first name as it appears on your photo ID"
-    regexNumber: "Your first name cannot include numbers"
-    regexSpecialCharacters: "Enter your first name as it appears on your photo ID"
-
-middleName:
-  label: Middle name(s)
-  hint: Leave this blank if you do not have any middle names
-  validation:
-    default: "Enter your middle name as it appears on your photo ID"
-    maxlength: "Enter your middle name as it appears on your photo ID"
-    regexNumber: "Your middle name cannot include numbers"
-    regexSpecialCharacters: "Enter your middle name as it appears on your photo ID"
+    default: "Enter an account number"
+    minlength: "Account number must be between 6 and 8 digits"
+    maxlength: "Account number must be between 6 and 8 digits"
