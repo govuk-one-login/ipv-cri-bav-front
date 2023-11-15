@@ -15,7 +15,11 @@
     "build-js": "yarn build-js:application && yarn build-js:all",
     "build-js:application": "mkdir -p dist/public/javascripts; uglifyjs src/assets/javascripts/application.js --beautify -o dist/public/javascripts/application.js",
     "build-js:all": "mkdir -p dist/public/javascripts; uglifyjs node_modules/govuk-frontend/govuk/all.js node_modules/hmpo-components/all.js --beautify -o dist/public/javascripts/all.js",
-    "test": "node_modules/.bin/jest --testPathPattern=app/bav --coverage"
+    "test": "node_modules/.bin/jest --testPathPattern=app/bav --coverage",
+    "lint": "eslint .",
+    "prettier": "prettier \"**/*.{js,md}\" --check",
+    "prettier:fix": "yarn prettier --write",
+    "format": "yarn prettier:fix && yarn lint"
   },
   "repository": {
     "type": "git",
@@ -29,6 +33,9 @@
   "homepage": "https://github.com/govuk-one-login/ipv-cri-bav-front#readme",
   "packageManager": "yarn@2.4.3",
   "devDependencies": {
+    "eslint": "8.43.0",
+    "eslint-config-prettier": "8.8.0",
+    "prettier": "2.8.8",
     "sass": "1.63.6",
     "uglify-js": "3.17.4"
   },
