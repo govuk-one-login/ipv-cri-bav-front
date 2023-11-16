@@ -10,7 +10,6 @@ module.exports = class PlaywrightDevPage {
   }
 
   async goto() {
-    require('dotenv').config()
     const axios = require("axios");
     const claim = require("../support/shared_claim")
 
