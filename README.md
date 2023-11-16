@@ -44,6 +44,15 @@ Note the following parameters can be used to specify whether or not to deploy th
 In order to support consistent use of headers for API requests, [middleware](./src/lib/axios) is applied to add an instance of
 [axios](https://axios-http.com/) on each request onto `req.axios`. This is then reused in any code that uses the API.
 
+# Running Local Tests
+
+Clone this repository and export "QA Environment Variables" in .env.sample and then run
+
+```bash
+yarn build
+yarn install
+yarn test:browser:ci
+```
 ### Code Owners
 
 This repo has a `CODEOWNERS` file in the root and is configured to require PRs to reviewed by Code Owners.
