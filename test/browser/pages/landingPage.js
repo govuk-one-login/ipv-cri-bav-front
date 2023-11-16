@@ -5,16 +5,42 @@ module.exports = class PlaywrightDevPage {
   constructor(page) {
     this.page = page;
     this.path = "/prove-identity-bank-account";
-   // this.firstName;
   }
 
   async isCurrentPage() {
     const { pathname } = new URL(this.page.url());
+    console.log("Landing Page Pathname" + pathname);
+    console.log("Landing Page Path" + this.path);
     return pathname === this.path;
   }
 
-  async continue() {
-    await this.page.click("#continue");
+  async continueToAccountDetails() {
+    await this.page.click("#landingPageContinue");
+  }
+
+  async clickHowWeUseBankDetails() {
+    await this.page.click(".govuk-details__summary-text");
+  }
+
+  async clickFindOtherWaysToProveIdentity() {
+    await this.page.click('[href*="/abort"]');
+  }
+
+  async checkHowWeUseBankDetailsText() {
+    const instructionHeading = await this.page.locator(".instruction:nth-child(1)").textContent();
+    console.log(instructionHeading.trim())
+  }
+
+  
+
+  async isHowWeUseBankDetailsElementExpanded() {
+    const { expect } = require("@playwright/test");
+    expect(await this.page.locator(".instruction:nth-child(1)").textContent()).toEqual("We will not save or share your account details.")
+    expect(await this.page.locator(".instruction:nth-child(2)").textContent()).toEqual("We do not use your account details to:")
+  }
+
+  async clickHowWeUseBankDetails() {
+    await this.page.click(".govuk-details__summary-text");
   }
 
   async checkErrorText() {

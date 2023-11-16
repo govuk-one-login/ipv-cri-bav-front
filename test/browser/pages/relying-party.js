@@ -10,12 +10,11 @@ module.exports = class PlaywrightDevPage {
   }
 
   async goto() {
+    require('dotenv').config()
     const axios = require("axios");
     const claim = require("../support/shared_claim")
 
     const postRequest = await axios.post(process.env.IPV_STUB_URL, claim);
-    console.log("=======goto postRequest: ", postRequest.data.AuthorizeLocation);
-
     await this.page.goto(postRequest.data.AuthorizeLocation);
   }
 
