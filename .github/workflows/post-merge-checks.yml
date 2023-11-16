@@ -43,7 +43,7 @@ jobs:
         with:
           cmd: install # will run `yarn install` command
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.SH_CIC_ACCESS_TOKEN }} # if needed
+          NODE_AUTH_TOKEN: ${{ secrets.SH_BAV_ACCESS_TOKEN }} # if needed
 
       - name: Build production bundle
         uses: borales/actions-yarn@v4
@@ -71,23 +71,3 @@ jobs:
           test_results: ./report/cucumber-html-report
           gh_pages: gh-pages
           results_history: results-history
-
-      # - name: Deploy report to Github Pages
-      #   if: always()
-      #   uses: peaceiris/actions-gh-pages@v2
-      #   with:
-      #      deploy_key: ${{ secrets.SH_CIC_ACCESS_TOKEN }}
-      #   env:
-      #      PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #      PUBLISH_BRANCH: gh-pages
-      #      PUBLISH_DIR: results-history
-      #      KEEP_FILES: true
-
-      - name: Publish Github Pages
-        if: ${{ github.actor != 'dependabot[bot]' }}
-        uses: peaceiris/actions-gh-pages@v3.8.0
-        with:
-          github_token: ${{ secrets.SH_CIC_ACCESS_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: results-history
-          keep_files: true
