@@ -1,4 +1,4 @@
-@mock-api:cri-bav-success @success
+@success
 Feature: Continue on from landing page
 
 

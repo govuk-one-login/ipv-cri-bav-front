@@ -29,8 +29,6 @@ module.exports = class PlaywrightDevPage {
     console.log(instructionHeading.trim())
   }
 
-  
-
   async isHowWeUseBankDetailsElementExpanded() {
     const { expect } = require("@playwright/test");
     expect(await this.page.locator(".instruction:nth-child(1)").textContent()).toEqual("We will not save or share your account details.")
