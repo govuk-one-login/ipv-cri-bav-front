@@ -1,5 +1,5 @@
 module.exports = {
-  RelyingPartyPage: require("./relying-party.js"),
+  RelyingPartyPage: require("./relyingPartyPage.js"),
   BavLandingPage: require("./landingPage.js"),
   AccountDetailsPage: require("./accountDetailsPage.js"),
   AbortPage: require("./abortPage.js"),

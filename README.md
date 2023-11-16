@@ -45,7 +45,7 @@ In order to support consistent use of headers for API requests, [middleware](./s
 
 # Running Local Tests
 
-Clone this repository and export environment variables using example exports in .env.sample and then run
+Clone this repository and export "QA Environment Variables" in .env.sample and then run
 
 ```bash
 yarn build
