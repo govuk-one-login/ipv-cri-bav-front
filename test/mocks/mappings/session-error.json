@@ -1,0 +1,38 @@
+{
+  "mappings": [
+    {
+      "scenarioName": "bav-session-error",
+      "request": {
+        "method": "GET",
+        "url": "/__reset/bav-session-error"
+      },
+      "response": {
+        "status": 200
+      }
+    },
+    {
+      "scenarioName": "bav-session-error",
+      "request": {
+        "method": "POST",
+        "url": "/session",
+        "headers": {
+          "x-scenario-id": {
+            "equalTo": "bav-session-error"
+          }
+        },
+        "bodyPatterns": [
+          {
+            "equalToJson": {
+              "request": "${json-unit.any-string}",
+              "client_id": "${json-unit.any-string}"
+            },
+            "ignoreArrayOrder": true
+          }
+        ]
+      },
+      "response": {
+        "status": 500
+      }
+    }
+  ]
+}
