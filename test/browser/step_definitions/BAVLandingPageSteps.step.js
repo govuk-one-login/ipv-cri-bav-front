@@ -18,7 +18,7 @@ When("the user clicks on 'How we use your bank details' link", async function ()
 
 Then("the 'How we use your bank details' information is presented to the user", async function () {
   const landingPage = new BavLandingPage(await this.page);
-  await landingPage.isHowWeUseBankDetailsElementExpanded();
+  await landingPage.isHowWeUseBankDetailsSectionDisplayed();
 });
 
 When("the user clicks on 'Find other ways to prove your identity' link", async function () {  

@@ -24,19 +24,10 @@ module.exports = class PlaywrightDevPage {
     await this.page.click('[href*="/abort"]');
   }
 
-  async checkHowWeUseBankDetailsText() {
-    const instructionHeading = await this.page.locator(".instruction:nth-child(1)").textContent();
-    console.log(instructionHeading.trim())
-  }
-
-  async isHowWeUseBankDetailsElementExpanded() {
+  async isHowWeUseBankDetailsSectionDisplayed() {
     const { expect } = require("@playwright/test");
     expect(await this.page.locator(".instruction:nth-child(1)").textContent()).toEqual("We will not save or share your account details.")
     expect(await this.page.locator(".instruction:nth-child(2)").textContent()).toEqual("We do not use your account details to:")
-  }
-
-  async clickHowWeUseBankDetails() {
-    await this.page.click(".govuk-details__summary-text");
   }
 
   async checkErrorText() {
