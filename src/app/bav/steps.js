@@ -1,6 +1,7 @@
 const root = require("./controllers/root");
 const landingPage = require("./controllers/landingPage");
 const accountDetails = require("./controllers/accountDetails");
+const confirmDetails = require("./controllers/confirmDetails")
 const { APP } = require("../../lib/config");
 
 module.exports = {
@@ -21,4 +22,8 @@ module.exports = {
     controller: accountDetails,
     next: APP.PATHS.CONFIRM_DETAILS,
   },
+  [`${APP.PATHS.CONFIRM_DETAILS}`]: {
+    controller: confirmDetails,
+    next: APP.PATHS.DONE
+  }
 };
