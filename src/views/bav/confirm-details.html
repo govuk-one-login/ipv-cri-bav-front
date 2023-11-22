@@ -5,51 +5,105 @@
 
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 
 {% block mainContent %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
-    <h1 id="header" class="gov" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-        {{ translate("Hello Joe") }}
+    <h1 id="confirm-details-header" class="gov" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+        {{ translate("confirmDetails.title") }}
     </h1>
   </div>
 </div>
 
 {{ govukSummaryList({
-        classes: 'govuk-!-margin-bottom-6',
-        rows: [
-          {
-            key: {
-              text: translate("confirmDetails.firstName")
-            },
-            value: {
-              text: "First"
+    classes: 'govuk-!-margin-bottom-6',
+    rows: [
+      {
+        key: {
+          text: ""
+        },
+        value: {
+          text: ""
+        }
+      },
+      {
+        key: {
+          text: translate("confirmDetails.firstName")
+        },
+        value: {
+          text: "First"
+        }
+      },
+      {
+        key: {
+          text: translate("confirmDetails.middleName")
+        },
+        value: {
+          text: "Middle"
+        }
+      },
+      {
+        key: {
+          text: translate("confirmDetails.lastName")
+        },
+        value: {
+          text: "Last"
+        }
+      },
+      {
+        key: {
+          text: translate("confirmDetails.sortCode")
+        },
+        value: {
+          text: "Sort code"
+        },
+        actions: {
+          items: [
+            {
+              href: "/enter-account-details/edit",
+              text: translate("confirmDetails.changeLink"),
+              visuallyHiddenText: translate("confirmDetails.sortCode")
             }
-          },
-          {
-            key: {
-              text: translate("confirmDetails.middleName")
-            },
-            value: {
-              text: "Middle"
+          ]
+        }
+      },
+      {
+        key: {
+          text: translate("confirmDetails.accountNumber")
+        },
+        value: {
+          text: "Account number"
+        },
+        actions: {
+          items: [
+            {
+              href: "/enter-account-details/edit",
+              text: translate("confirmDetails.changeLink"),
+              visuallyHiddenText: translate("confirmDetails.accountNumber")
             }
-          },
-          {
-            key: {
-              text: translate("confirmDetails.lastName")
-            },
-            value: {
-              text: "Last"
-            }
-          }
-        ]
-      })}}
+          ]
+        }
+      }
+    ]
+  })
+}}
+
+{% set insetBody %}
+  {{- "confirmDetails.insetText" | translate -}}
+{% endset %}  
+
+{{ govukInsetText({
+  html: insetBody
+}) }}
 
 {% call hmpoForm(ctx) %}
-    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+    {{ hmpoSubmit(ctx, {id: "submitDetails", text: translate("confirmDetails.submitDetails")}) }}
 {% endcall %}
+
+<p class="bav__instruction"><a href={{ "landingPage.confirmIdentityAnotherWay.abortLink" | translate }}> {{ "confirmDetails.noSubmitDetails" | translate }}</a></p>
 
 {% endblock %}
 

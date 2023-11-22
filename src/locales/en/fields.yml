@@ -13,7 +13,4 @@ accountNumber:
     minlength: "Account number must be between 6 and 8 digits"
     maxlength: "Account number must be between 6 and 8 digits"
 
-confirmDetails:
-  firstName: "First Name"
-  middleName: "Middle Name"
-  lastName: "Last Name"
+

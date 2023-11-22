@@ -30,3 +30,15 @@ landingPage:
 
 accountDetails:
   title: "Enter your account details"
+
+confirmDetails:
+  title: "Check your details match with your bank or building society account"
+  firstName: "First Name"
+  middleName: "Middle Name"
+  lastName: "Last Name"
+  sortCode: "Sort code"
+  accountNumber: "Account number"
+  changeLink: "Change"
+  insetText: "We will not use your account details to check or take any payments."
+  submitDetails: "Submit details for bank check"
+  noSubmitDetails: "I do not want continue to bank details check"
