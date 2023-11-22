@@ -20,6 +20,8 @@ module.exports = {
   [`${APP.PATHS.ACCOUNT_DETAILS}`]: {
     fields: ["sortCode", "accountNumber"],
     controller: accountDetails,
+    editable: true,
+    editBackStep: APP.PATHS.CONFIRM_DETAILS,
     next: APP.PATHS.CONFIRM_DETAILS,
   },
   [`${APP.PATHS.CONFIRM_DETAILS}`]: {
