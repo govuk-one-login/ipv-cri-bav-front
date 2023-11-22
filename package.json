@@ -37,7 +37,7 @@
     "url": "https://github.com/govuk-one-login/ipv-cri-bav-front/issues"
   },
   "homepage": "https://github.com/govuk-one-login/ipv-cri-bav-front#readme",
-  "packageManager": "yarn@2.4.3",
+  "packageManager": "yarn@1.22.21.",
   "devDependencies": {
     "eslint": "8.43.0",
     "eslint-config-prettier": "8.8.0",
