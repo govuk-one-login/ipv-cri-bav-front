@@ -21,4 +21,4 @@ module.exports = {
     controller: accountDetails,
     next: APP.PATHS.CONFIRM_DETAILS,
   },
-};
+};;;;;;;;;;;;;;
