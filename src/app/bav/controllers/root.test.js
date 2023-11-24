@@ -1,9 +1,9 @@
 const BaseController = require("hmpo-form-wizard").Controller;
-const RootController = require('./root.js');
-const {setupDefaultMocks} = require('../../../../test/utils/test-helpers.js')
+const RootController = require("./root.js");
+const { setupDefaultMocks } = require("../../../../test/utils/test-helpers.js");
 
 describe("RootController", () => {
-  const rootController = new RootController({ route: '/test' });
+  const rootController = new RootController({ route: "/test" });
   let req;
   let res;
   let next;
@@ -25,16 +25,16 @@ describe("RootController", () => {
 
   describe("saveValues", () => {
     it("should save all values to sessionModel with full shared_claims object", async () => {
-     
       req.session.shared_claims = {
         name: [
           {
             nameParts: [
               { value: "First" },
               { value: "Middle" },
-              { value: "Last" }
-            ]
-          }]
+              { value: "Last" },
+            ],
+          },
+        ],
       };
 
       await rootController.saveValues(req, res, next);
@@ -47,7 +47,6 @@ describe("RootController", () => {
   });
 
   it("should not update sessionModel if no shared_claims attributes present", async () => {
-
     req.session.shared_claims = {
       name: [],
     };
