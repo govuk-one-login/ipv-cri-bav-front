@@ -25,6 +25,7 @@ Given(
     const accDetailsPage = new AccountDetailsPage(await this.page);
     expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
     const validSortCode = await accDetailsPage.enterSortCode();
+    expect(validSortCode).toBe(1);
   }
 );
 
@@ -34,8 +35,9 @@ Given(
     const accDetailsPage = new AccountDetailsPage(await this.page);
     expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
     const validSCFormat = await accDetailsPage.verifySCFormat();
-    const validAccNo = await accDetailsPage.enterAccountNumber();
     expect(validSCFormat).toBe(0);
+    const validAccNo = await accDetailsPage.enterAccountNumber();
+    expect(validAccNo).toBe(1);
   }
 );
 
@@ -45,6 +47,7 @@ Given(
     const accDetailsPage = new AccountDetailsPage(await this.page);
     expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
     const validSortCode = await accDetailsPage.enterSortCode();
+    expect(validSortCode).toBe(1);
     const validAccNoFormat = await accDetailsPage.verifyANFormat();
     expect(validAccNoFormat).toBe(0);
   }
