@@ -7,7 +7,8 @@ class RootController extends BaseController {
     if (sharedClaims && sharedClaims?.name?.length > 0) {
         let names = sharedClaims.name[0].nameParts
         req.sessionModel.set("firstName", names[0].value);
-        req.sessionModel.set("surname", names[names.length-1].value);
+        req.sessionModel.set("middleName", names[names.length-2].value);
+        req.sessionModel.set("lastName", names[names.length-1].value);
     }
     super.saveValues(req, res, next);
   }

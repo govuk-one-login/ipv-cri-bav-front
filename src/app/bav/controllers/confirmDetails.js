@@ -12,8 +12,13 @@ class ConfirmDetailsController extends BaseController {
     sortCode.splice(5, 0, "-")
     const displaySortCode = sortCode.join("")
     
+    locals.firstName = req.sessionModel.get("firstName")
+    locals.middleName = req.sessionModel.get("middleName")
+    locals.lastName = req.sessionModel.get("lastName")
     locals.sortCode = displaySortCode
     locals.accountNumber = req.form.values.accountNumber
+
+    console.log(locals.middleName)
     
     callback(err, locals);
     })
