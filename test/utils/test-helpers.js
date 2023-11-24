@@ -3,7 +3,7 @@ const reqres = require("reqres");
 const JourneyModel = require("hmpo-form-wizard/lib/journey-model");
 const WizardModel = require("hmpo-form-wizard/lib/wizard-model.js");
 
-function setupDefaultMocks () {
+function setupDefaultMocks() {
   const req = reqres.req({
     form: { values: {} },
     axios: {
@@ -32,6 +32,6 @@ function setupDefaultMocks () {
     res,
     next,
   };
-};
+}
 
 module.exports = { setupDefaultMocks };

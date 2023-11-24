@@ -1,2 +1,2 @@
 /* global window */
-window.GOVUKFrontend.initAll()
+window.GOVUKFrontend.initAll();
