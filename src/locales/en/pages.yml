@@ -28,7 +28,7 @@ landingPage:
     abortLink: "/abort"
     abortText2: "find other ways to prove your identity"
 
-accountDetails:
+enterAccountDetails:
   title: "Enter your account details"
 
 confirmDetails:

@@ -1,7 +1,8 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
-{% set hmpoPageKey = "enterAccountDetails" %}
-{% set gtmJourney = "bav - enterAccountDetails" %}
+{% set hmpoTitle = confirmDetails.title %}
+{% set hmpoPageKey = "confirmDetails" %}
+{% set gtmJourney = "bav - confirmDetails" %}
 
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
@@ -18,78 +19,11 @@
   </div>
 </div>
 
-{{ govukSummaryList({
-    classes: 'govuk-!-margin-bottom-6',
-    rows: [
-      {
-        key: {
-          text: ""
-        },
-        value: {
-          text: ""
-        }
-      },
-      {
-        key: {
-          text: translate("confirmDetails.firstName")
-        },
-        value: {
-          text: "First"
-        }
-      },
-      {
-        key: {
-          text: translate("confirmDetails.middleName")
-        },
-        value: {
-          text: "Middle"
-        }
-      },
-      {
-        key: {
-          text: translate("confirmDetails.lastName")
-        },
-        value: {
-          text: "Last"
-        }
-      },
-      {
-        key: {
-          text: translate("confirmDetails.sortCode")
-        },
-        value: {
-          text: "Sort code"
-        },
-        actions: {
-          items: [
-            {
-              href: "/enter-account-details/edit",
-              text: translate("confirmDetails.changeLink"),
-              visuallyHiddenText: translate("confirmDetails.sortCode")
-            }
-          ]
-        }
-      },
-      {
-        key: {
-          text: translate("confirmDetails.accountNumber")
-        },
-        value: {
-          text: "Account number"
-        },
-        actions: {
-          items: [
-            {
-              href: "/enter-account-details/edit",
-              text: translate("confirmDetails.changeLink"),
-              visuallyHiddenText: translate("confirmDetails.accountNumber")
-            }
-          ]
-        }
-      }
-    ]
-  })
-}}
+{% if (1 == 1) %}
+  {% include "../components/confirm-details-middle-name.njk" %}
+{% else %}
+  {% include "../components/confirm-details-no-middle-name.njk" %}
+{% endif %}
 
 {% set insetBody %}
   {{- "confirmDetails.insetText" | translate -}}

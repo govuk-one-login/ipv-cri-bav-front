@@ -89,8 +89,12 @@ $govuk-assets-path: "/public/";
   @include govuk-responsive-margin(4, "top");
 }
 
+.govuk-summary-list {
+  @include govuk-responsive-margin(0, "top");
+}
+
 #confirm-details-header {
-  margin-bottom: govuk-spacing(-3);
+  @include govuk-responsive-margin(0, "bottom");
 }
 
 #submitDetails {

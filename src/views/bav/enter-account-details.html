@@ -1,5 +1,6 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
+{% set hmpoTitle = enterAccountDetails.title %}
 {% set hmpoPageKey = "enterAccountDetails" %}
 {% set gtmJourney = "bav - enterAccountDetails" %}
 
@@ -13,7 +14,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-three-quarters">
     <h1 id="account-details-header" class="gov" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-        {{ translate("accountDetails.title") }}
+        {{ translate("enterAccountDetails.title") }}
     </h1>
   </div>
 </div>
