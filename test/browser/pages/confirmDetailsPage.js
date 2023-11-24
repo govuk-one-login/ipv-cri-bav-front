@@ -11,8 +11,4 @@ module.exports = class PlaywrightDevPage {
     const { pathname } = new URL(this.page.url());
     return pathname === this.path;
   }
-
 };
-
-
-
