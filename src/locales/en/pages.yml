@@ -39,5 +39,6 @@ confirmDetails:
   sortCode: "Sort code"
   accountNumber: "Account number"
   changeLink: "Change"
-  insetText: "We will not use your account details to take any payments or check any transactions."
-  submitDetails: "Continue to bank details check"
+  insetText: "We will not use your account details to check or take any payments."
+  submitDetails: "Submit details for bank check"
+  noSubmitDetails: "I do not want continue to bank details check"
