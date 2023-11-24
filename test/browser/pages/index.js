@@ -3,4 +3,5 @@ module.exports = {
   BavLandingPage: require("./landingPage.js"),
   AccountDetailsPage: require("./accountDetailsPage.js"),
   AbortPage: require("./abortPage.js"),
+  ConfirmDetailsPage: require("./confirmDetailsPage.js")
 };
