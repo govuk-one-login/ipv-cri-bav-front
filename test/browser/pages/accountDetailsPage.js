@@ -12,6 +12,3 @@ module.exports = class PlaywrightDevPage {
     return pathname === this.path;
   }
 };
-
-
-
