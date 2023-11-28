@@ -59,6 +59,7 @@ jobs:
         if: failure()
         run: yarn test:browser:report
       - uses: actions/upload-artifact@v3
+        if: always()
         with:
           name: bav-cri-test-report
           path: test/reports/bav-reports
