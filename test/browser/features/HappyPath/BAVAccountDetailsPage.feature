@@ -8,7 +8,7 @@ Feature: Enter Bank Account Details
       Then the user is directed to the Account Details screen
 
     Scenario: User routed to Check Your Answers Screen
-      Given the user has entered a Sort Code of "12-34 56"
+      Given the user has entered a Sort Code of "12-34-56"
       Given the user has entered an Account Number of "31926819"
       When the user clicks the Continue button
       Then the user is directed to the Check Your Answers screen
