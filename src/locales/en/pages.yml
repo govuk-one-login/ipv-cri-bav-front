@@ -31,7 +31,11 @@ cannotProceed:
   title: How would you like to continue?
   
 enterAccountDetails:
-  title: "Enter your account details"
+  title: Enter your account details
+
+escapeJourney: 
+  title: How would you like to continue?
+  
 
 confirmDetails:
   title: "Check your details match with your bank or building society account"

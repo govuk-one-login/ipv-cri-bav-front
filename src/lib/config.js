@@ -19,9 +19,14 @@ module.exports = {
       ABORT: "/abort",
       CANNOT_PROCEED: "/cannot-proceed",
       DONE: "/done",
+      CANNOT_PROCEED: "/cannot-proceed"
     },
     ANALYTICS: {
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",
+    },
+    HAS_EXPIRY_DATE: {
+      YES: "yes",
+      NO: "no"
     },
   },
   PORT: process.env.PORT || 5040,
