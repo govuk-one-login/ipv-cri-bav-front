@@ -25,7 +25,7 @@
     "test:coverage": "nyc --reporter=lcov --reporter=text-summary yarn test",
     "test:browser:report": "node ./test/utils/multiReportGenerator.js",
     "test:browser": "wait-on tcp:127.0.0.1:8090 tcp:127.0.0.1:5040 && API_BASE_URL=http://127.0.0.1:8090 cucumber-js test/browser/features/**/*.feature --require test/browser/support/env.js  --require test/browser/support/setup.js --require test/browser/step_definitions/**/*.js -f json:./test/reports/cucumber_report.json",
-    "test:browser:ci": "IPV_BASE_URL=http://localhost:5030 npm-run-all -p -r start:ci mocks test:browser"
+    "test:browser:ci": "IPV_STUB_URL=http://localhost:5030 npm-run-all -p -r start:ci mocks test:browser ; npm run test:browser:report"
   },
   "repository": {
     "type": "git",
