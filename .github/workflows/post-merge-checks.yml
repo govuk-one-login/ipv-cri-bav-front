@@ -54,6 +54,10 @@ jobs:
         uses: borales/actions-yarn@v4
         with:
           cmd: test:browser:ci # will run `yarn test:browser:ci` command
+      - uses: actions/upload-artifact@v3
+        with:
+          name: bav-cri-test-report
+          path: test/reports/bav-reports
 
       - name: Get Test Results history
         uses: actions/checkout@v3
