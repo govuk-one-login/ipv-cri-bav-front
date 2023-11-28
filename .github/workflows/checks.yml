@@ -35,8 +35,10 @@ jobs:
         run: yarn test:browser:ci
         env: 
             IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
-      - uses: actions/upload-artifact@v3
+      - name: Generate HTML Report
         if: failure()
+        run: yarn test:browser:report
+      - uses: actions/upload-artifact@v3
         with:
           name: bav-cri-test-report
           path: test/reports/bav-reports
