@@ -56,6 +56,7 @@ jobs:
           cmd: test:browser:ci # will run `yarn test:browser:ci` command
 
       - uses: actions/upload-artifact@v3
+        if: failure()
         with:
           name: bav-cri-test-report
           path: test/reports/bav-reports
