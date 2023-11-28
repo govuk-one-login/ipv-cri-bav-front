@@ -57,10 +57,10 @@ jobs:
           cmd: test:browser:ci # will run `yarn test:browser:ci` command
 
       - name: Generate HTML Report
-        if: steps.bavBrowserTests.outcome == 'failure'
+        if: always() && steps.bavBrowserTests.outcome == 'failure'
         run: yarn test:browser:report
       - uses: actions/upload-artifact@v3
-        if: steps.bavBrowserTests.outcome == 'failure'
+        if: always() && steps.bavBrowserTests.outcome == 'failure'
         with:
           name: bav-cri-test-report
           path: test/reports/bav-reports
