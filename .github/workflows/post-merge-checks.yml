@@ -51,15 +51,16 @@ jobs:
           cmd: build # will run `yarn build` command
 
       - name: Test the app
+        id: bavBrowserTests
         uses: borales/actions-yarn@v4
         with:
           cmd: test:browser:ci # will run `yarn test:browser:ci` command
 
       - name: Generate HTML Report
-        if: failure()
+        if: steps.bavBrowserTests.outcome == 'failure'
         run: yarn test:browser:report
       - uses: actions/upload-artifact@v3
-        if: always()
+        if: steps.bavBrowserTests.outcome == 'failure'
         with:
           name: bav-cri-test-report
           path: test/reports/bav-reports
