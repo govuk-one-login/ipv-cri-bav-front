@@ -1,0 +1,44 @@
+{% extends "base-form.njk" %}
+{% set hmpoPageKey = "cannotProceed" %}
+{% set gtmJourney = "bav - cannotProceed" %}
+
+{% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block mainContent %}
+
+{% set title = translate("escapeJourney.title") %}
+      
+      {% call hmpoForm(ctx) %}
+              {{ hmpoRadios(ctx, {
+                id: "escapeChoice",
+                namePrefix: "escapeChoice",
+                fieldset: {
+                    legend: {
+                        text: title,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                }
+            }) }}
+
+    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+  
+    {% endcall %}
+
+{% endblock %} 
+
+{% set footerNavItems = translate("govuk.footerNavItems") %}
+
+{% block footer %}
+    {{ govukFooter( footerNavItems ) }}
+{% endblock %}
+
+  {% block bodyEnd %}
+  {% block scripts %}
+    <script type="text/javascript" src="/public/javascripts/all.js"></script>
+    <script type="text/javascript" src="/public/javascripts/application.js"></script>
+  {% endblock %}
+{% endblock %}

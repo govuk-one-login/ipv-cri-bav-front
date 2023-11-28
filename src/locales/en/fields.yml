@@ -2,13 +2,27 @@ sortCode:
   label: Sort code
   hint: A sort code is 6 digits long. It's usually formatted as three pairs of numbers. For example, 12-34-56
   validation:
-    default: "Enter a sort code"
-    regexNumber: "Enter a valid sort code like 12-34-56"
+    default: Enter a sort code
+    regexNumber: Enter a valid sort code like 12-34-56
 
 accountNumber:
   label: Account number
   hint: An account number is between 6 and 8 digits long. For example, 31926819
   validation:
-    default: "Enter an account number"
-    minlength: "Account number must be between 6 and 8 digits"
-    maxlength: "Account number must be between 6 and 8 digits"
+    default: Enter an account number
+    minlength: Account number must be between 6 and 8 digits
+    maxlength: Account number must be between 6 and 8 digits
+
+escapeChoice:
+  validation:
+    required: Choose an option
+  items:
+    findAnotherWay: 
+      label: Find another way to prove your identity
+      hint: You will not be able to change your mind and use your bank details
+      reveal: ""
+    goBackToBAV: 
+      label: Go back and prove your identity using your bank details
+      hint: ""
+      reveal: ""
+

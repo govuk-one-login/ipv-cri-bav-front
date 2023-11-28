@@ -1,6 +1,5 @@
 {% extends "base-form.njk" %}
 
-{# the content for this page is controlled by locales/en/default.yml #}
 {% set hmpoTitle = landingPage.pageTitle %}
 {% set hmpoPageKey = "landingPage" %}
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
@@ -51,7 +50,7 @@
     {% endblock %}
     {% endcall %}
 
-    <p class="bav__instruction">{{ "landingPage.confirmIdentityAnotherWay.abortText1" | translate }}<a href={{ "landingPage.confirmIdentityAnotherWay.abortLink" | translate }}> {{ "landingPage.confirmIdentityAnotherWay.abortText2" | translate }}</a></p>
+    <p class="bav__instruction">{{ "landingPage.escapeJourneyLandingPage.escapeText1" | translate }}<a href={{ "landingPage.escapeJourneyLandingPage.escapeLink" | translate }}> {{ "landingPage.escapeJourneyLandingPage.escapeText2" | translate }}</a></p>
 
 
   </div>

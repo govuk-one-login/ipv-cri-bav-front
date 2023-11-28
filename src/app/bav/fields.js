@@ -21,4 +21,24 @@ module.exports = {
       { type: "maxlength", arguments: [8] },
     ],
   },
+  escapeChoice: {
+    type: "radios",
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      {
+        value: "proveAnotherWay",
+        conditional: {
+          html: ""
+        }
+      },
+      { value: "goBack",
+        conditional: {
+          html: ""
+        }
+      }
+    ],
+    validate: ["required"]
+  },
 };

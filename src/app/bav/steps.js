@@ -1,6 +1,7 @@
 const root = require("./controllers/root");
 const landingPage = require("./controllers/landingPage");
 const accountDetails = require("./controllers/accountDetails");
+const escapeJourney = require("./controllers/escapeJourney");
 const { APP } = require("../../lib/config");
 
 module.exports = {
@@ -19,6 +20,28 @@ module.exports = {
   [`${APP.PATHS.ACCOUNT_DETAILS}`]: {
     fields: ["sortCode", "accountNumber"],
     controller: accountDetails,
-    next: APP.PATHS.CONFIRM_DETAILS,
+    next: APP.PATHS.CANNOT_PROCEED
+  },
+  [`${APP.PATHS.CANNOT_PROCEED}`]: {
+    fields: ["escapeChoice"],
+    controller: escapeJourney,
+    checkJourney: false,
+    next: [
+      {
+        field: "escapeChoice",
+        value: "proveAnotherWay",
+        next: APP.PATHS.LANDING_PAGE
+      },
+      {
+        field: "escapeChoice",
+        value: "goBack",
+        next: {fn: (req.sessionModel.get("isLanding")), next: APP.PATHS.LANDING_PAGE }
+      },
+      {
+        field: "escapeChoice",
+        value: "goBack",
+        next: {fn: (req.sessionModel.get("isLanding")), next: APP.PATHS.CANNOT_PROCEED }
+      }
+    ]
   },
 };

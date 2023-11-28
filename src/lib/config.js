@@ -17,9 +17,14 @@ module.exports = {
       ACCOUNT_DETAILS: "/enter-account-details",
       CONFIRM_DETAILS: "/confirm-details",
       ABORT: "/abort",
+      CANNOT_PROCEED: "/cannot-proceed"
     },
     ANALYTICS: {
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",
+    },
+    HAS_EXPIRY_DATE: {
+      YES: "yes",
+      NO: "no"
     },
   },
   PORT: process.env.PORT || 5040,
