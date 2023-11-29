@@ -22,8 +22,6 @@ Feature: Enter Incorrect Bank Account Details
          | "319268190"   |
          | "31926"       |
 
-
-
    Scenario Outline: On-screen error when Sort Code in wrong format
       Given the user has entered a Sort Code of <sortCode>
       Given the user has entered an Account Number of "31926819"
