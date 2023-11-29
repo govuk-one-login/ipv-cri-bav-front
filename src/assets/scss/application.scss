@@ -3,6 +3,8 @@ $govuk-assets-path: "/public/";
 @import "../../../node_modules/govuk-frontend/govuk/all";
 @import "../../../node_modules/hmpo-components/all";
 
+@import "components/button-spinner";
+
 .govuk-radios__item {
   @include govuk-responsive-margin(6, $direction: "bottom", $important: false, $adjustment: false);
 }

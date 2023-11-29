@@ -17,8 +17,6 @@ class ConfirmDetailsController extends BaseController {
     locals.lastName = req.sessionModel.get("lastName")
     locals.sortCode = displaySortCode
     locals.accountNumber = req.form.values.accountNumber
-
-    console.log(locals.middleName)
     
     callback(err, locals);
     })
