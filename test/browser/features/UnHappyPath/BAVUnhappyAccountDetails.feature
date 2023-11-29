@@ -13,19 +13,26 @@ Feature: Enter Incorrect Bank Account Details
 
    Scenario Outline:  On-screen error when Account Number in wrong format
       Given the user has entered a Sort Code of "123456"
-      Given the user has entered an Account Number of "319268190"
+      Given the user has entered an Account Number of <accountNumber>
       When the user clicks the Continue button
       Then an error message is shown to the user
 
-Scenario Outline: On-screen error when Sort Code in wrong format
-   Given the user has entered a Sort Code of <sortCode>
-   Given the user has entered an Account Number of "31926819"
-   When the user clicks the Continue button
-   Then an error message is shown to the user
+      Examples:
+         | accountNumber |
+         | "319268190"   |
+         | "31926"       |
 
-   Examples:
-      | sortCode   |
-      | "12/34/56" |
-      | "12*34*56" |
-      | "123 456"  |
-      | "12-34 56" |
+
+
+   Scenario Outline: On-screen error when Sort Code in wrong format
+      Given the user has entered a Sort Code of <sortCode>
+      Given the user has entered an Account Number of "31926819"
+      When the user clicks the Continue button
+      Then an error message is shown to the user
+
+      Examples:
+         | sortCode   |
+         | "12/34/56" |
+         | "12*34*56" |
+         | "123 456"  |
+         | "12-34 56" |
