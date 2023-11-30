@@ -32,7 +32,7 @@
     "url": "https://github.com/govuk-one-login/ipv-cri-bav-front/issues"
   },
   "homepage": "https://github.com/govuk-one-login/ipv-cri-bav-front#readme",
-  "packageManager": "yarn@2.4.3",
+  "packageManager": "yarn@1.22.21",
   "devDependencies": {
     "sass": "1.63.6",
     "uglify-js": "3.17.4",
