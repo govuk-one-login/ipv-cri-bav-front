@@ -11,3 +11,11 @@ jobs:
     - uses: pre-commit/action@v3.0.0
       with:
         extra_args: "detect-secrets --all-files"
+    - name: Login to GDS DEV Dynatrace Container Registry
+      uses: docker/login/action@v3
+      with:
+        registry: khw46367.live.dynatrace.com
+        username: khw46367
+        password: ${{ secrets.DYNATRACE_PAAS_TOKEN }}
+
+    
