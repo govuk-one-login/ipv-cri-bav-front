@@ -7,6 +7,7 @@ class RootController extends BaseController {
 		// req.sessionModel.set("fullName", data.full_name);
 
 		req.sessionModel.set("fullName", "John Peter Smith");
+
     super.saveValues(req, res, next);
   }
 }

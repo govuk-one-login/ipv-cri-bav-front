@@ -15,7 +15,7 @@ module.exports = {
   },
   [`${APP.PATHS.LANDING_PAGE}`]: {
     controller: landingPage,
-    next: APP.PATHS.ACCOUNT_DETAILS
+    next: APP.PATHS.ACCOUNT_DETAILS,
   },
   [`${APP.PATHS.ACCOUNT_DETAILS}`]: {
     fields: ["sortCode", "accountNumber"],

@@ -1,0 +1,46 @@
+name: Pre-merge checks
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - ready_for_review
+      - synchronize
+  push:
+    branches:
+      - main
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install
+      - name: Run prettier
+        run: yarn prettier
+      - name: Run lint
+        run: yarn lint
+      - name: Run build
+        run: yarn build
+      - name: Run test and write coverage
+        run: yarn test:coverage
+      - name: Run browser tests
+        id: bavBrowserTests
+        run: yarn test:browser:ci
+        env: 
+            IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
+      - name: Generate HTML Report
+        if: always() && steps.bavBrowserTests.outcome == 'failure'
+        run: yarn test:browser:report
+      - uses: actions/upload-artifact@v3
+        if: always() && steps.bavBrowserTests.outcome == 'failure'
+        with:
+          name: bav-cri-test-report
+          path: test/reports/bav-reports
