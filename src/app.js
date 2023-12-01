@@ -8,14 +8,16 @@ const DynamoDBStore = require("connect-dynamodb")(session);
 const wizard = require("hmpo-form-wizard");
 const logger = require("hmpo-logger");
 
-const commonExpress = require("di-ipv-cri-common-express");
+const commonExpress = require("@govuk-one-login/di-ipv-cri-common-express");
 
 const setHeaders = commonExpress.lib.headers;
 const setScenarioHeaders = commonExpress.lib.scenarioHeaders;
 const setAxiosDefaults = commonExpress.lib.axios;
 
 const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
-const { setI18n } = require("di-ipv-cri-common-express/src/lib/i18next");
+const {
+  setI18n,
+} = require("@govuk-one-login/di-ipv-cri-common-express/src/lib/i18next");
 const steps = require("./app/bav/steps");
 const fields = require("./app/bav/fields");
 
@@ -54,7 +56,7 @@ const sessionConfig = {
   ...(SESSION_TABLE_NAME && { sessionStore: dynamoDBSessionStore }),
 };
 
-const helmetConfig = require("di-ipv-cri-common-express/src/lib/helmet");
+const helmetConfig = require("@govuk-one-login/di-ipv-cri-common-express/src/lib/helmet");
 
 const { app, router } = setup({
   config: { APP_ROOT: __dirname },
@@ -69,7 +71,9 @@ const { app, router } = setup({
   publicDirs: ["../dist/public"],
   views: [
     path.resolve(
-      path.dirname(require.resolve("di-ipv-cri-common-express")),
+      path.dirname(
+        require.resolve("@govuk-one-login/di-ipv-cri-common-express")
+      ),
       "components"
     ),
     "views",
