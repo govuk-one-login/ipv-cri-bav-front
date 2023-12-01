@@ -19,11 +19,62 @@
   </div>
 </div>
 
-{% if (values.middleName) %}
-  {% include "../components/confirm-details-middle-name.njk" %}
-{% else %}
-  {% include "../components/confirm-details-no-middle-name.njk" %}
-{% endif %}
+{{ govukSummaryList({
+  classes: 'govuk-!-margin-bottom-6',
+  rows: [
+    {
+      key: {
+        text: ""
+      },
+      value: {
+        text: ""
+      }
+    },
+    {
+      key: {
+        text: translate("confirmDetails.fullName")
+      },
+      value: {
+        text: fullName
+      }
+    },
+    {
+      key: {
+        text: translate("confirmDetails.sortCode")
+      },
+      value: {
+        html: sortCode
+      },
+      actions: {
+        items: [
+          {
+            href: "/enter-account-details/edit",
+            text: translate("confirmDetails.changeLink"),
+            visuallyHiddenText: translate("confirmDetails.sortCode")
+          }
+        ]
+      }
+    },
+    {
+      key: {
+        text: translate("confirmDetails.accountNumber")
+      },
+      value: {
+        html: accountNumber
+      },
+      actions: {
+        items: [
+          {
+            href: "/enter-account-details/edit",
+            text: translate("confirmDetails.changeLink"),
+            visuallyHiddenText: translate("confirmDetails.accountNumber")
+          }
+        ]
+      }
+    }
+  ]
+})
+}}
 
 {% set insetBody %}
   {{- "confirmDetails.insetText" | translate -}}

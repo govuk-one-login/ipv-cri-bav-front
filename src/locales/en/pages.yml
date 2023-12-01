@@ -33,9 +33,7 @@ enterAccountDetails:
 
 confirmDetails:
   title: "Check your details match with your bank or building society account"
-  firstName: "First Name"
-  middleName: "Middle Name"
-  lastName: "Last Name"
+  fullName: "Name"
   sortCode: "Sort code"
   accountNumber: "Account number"
   changeLink: "Change"
