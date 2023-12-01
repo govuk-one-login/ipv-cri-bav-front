@@ -17,11 +17,11 @@ escapeChoice:
   validation:
     required: Choose an option
   items:
-    findAnotherWay: 
+    proveAnotherWay: 
       label: Find another way to prove your identity
       hint: You will not be able to change your mind and use your bank details
       reveal: ""
-    goBackToBAV: 
+    goBack: 
       label: Go back and prove your identity using your bank details
       hint: ""
       reveal: ""
