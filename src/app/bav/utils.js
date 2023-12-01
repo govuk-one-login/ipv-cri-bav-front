@@ -6,5 +6,4 @@ function formatSortCode (sortCode) {
     return displaySortCode
   }
 
-
 module.exports = { formatSortCode }
