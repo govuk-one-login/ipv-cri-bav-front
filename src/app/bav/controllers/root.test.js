@@ -24,30 +24,29 @@ describe("RootController", () => {
   });
 
   // Pending introduction of lambda to bring shared claims name values in from IPV
-  
+
   // describe("saveValues", () => {
 
+  // it("should save all values to sessionModel with full shared_claims object", async () => {
 
-    // it("should save all values to sessionModel with full shared_claims object", async () => {
-     
-    //   req.session.shared_claims = {
-    //     name: [
-    //       {
-    //         nameParts: [
-    //           { value: "First" },
-    //           { value: "Middle" },
-    //           { value: "Last" }
-    //         ]
-    //       }]
-    //   };
+  //   req.session.shared_claims = {
+  //     name: [
+  //       {
+  //         nameParts: [
+  //           { value: "First" },
+  //           { value: "Middle" },
+  //           { value: "Last" }
+  //         ]
+  //       }]
+  //   };
 
-    //   await rootController.saveValues(req, res, next);
-    //   const firstName = req.sessionModel.get("firstName");
-    //   const surname = req.sessionModel.get("surname");
+  //   await rootController.saveValues(req, res, next);
+  //   const firstName = req.sessionModel.get("firstName");
+  //   const surname = req.sessionModel.get("surname");
 
-    //   expect(firstName).toEqual("First");
-    //   expect(surname).toEqual("Last");
-    // });
+  //   expect(firstName).toEqual("First");
+  //   expect(surname).toEqual("Last");
+  // });
   // });
 
   it("should not update sessionModel if no shared_claims attributes present", async () => {

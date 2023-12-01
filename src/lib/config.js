@@ -17,7 +17,7 @@ module.exports = {
       ACCOUNT_DETAILS: "/enter-account-details",
       CONFIRM_DETAILS: "/confirm-details",
       ABORT: "/abort",
-      DONE: "/done"
+      DONE: "/done",
     },
     ANALYTICS: {
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",
