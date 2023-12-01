@@ -17,6 +17,7 @@
     "build-js:application": "mkdir -p dist/public/javascripts; uglifyjs src/assets/javascripts/application.js --beautify -o dist/public/javascripts/application.js",
     "build-js:all": "mkdir -p dist/public/javascripts; uglifyjs node_modules/govuk-frontend/govuk/all.js node_modules/hmpo-components/all.js --beautify -o dist/public/javascripts/all.js",
     "copy-assets": "mkdir -p dist/public/images && cp -R src/assets/images/* dist/public/images",
+    "test": "jest",
     "mocks": "yarn run wiremock --verbose --port 8090 --root-dir test/mocks",
     "test:browser:report": "node ./test/utils/multiReportGenerator.js",
     "test:browser": "wait-on tcp:127.0.0.1:8090 tcp:127.0.0.1:5040 && API_BASE_URL=http://127.0.0.1:8090 cucumber-js test/browser/features/**/*.feature --require test/browser/support/env.js  --require test/browser/support/setup.js --require test/browser/step_definitions/**/*.js -f json:./test/reports/cucumber_report.json",

@@ -1,4 +1,5 @@
 const BaseController = require("hmpo-form-wizard").Controller;
+const { formatSortCode } = require("../utils")
 
 class ConfirmDetailsController extends BaseController {
     locals(req, res, callback) {
@@ -7,15 +8,9 @@ class ConfirmDetailsController extends BaseController {
               return callback(err, locals);
             }
     
-    const formatSortCode = () => {
-      const sortCode = req.form.values.sortCode.split("").filter((char) => char != " " && char != "-")
-      sortCode.splice(2, 0, "-")
-      sortCode.splice(5, 0, "-")
-      const displaySortCode = sortCode.join("")
-      locals.sortCode = displaySortCode
-    }
+    const sortCode = req.form.values.sortCode
     
-    formatSortCode()
+    locals.sortCode = formatSortCode(sortCode)
     locals.fullName = req.sessionModel.get("fullName")
     locals.accountNumber = req.form.values.accountNumber
     
