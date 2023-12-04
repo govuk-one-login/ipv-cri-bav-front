@@ -84,7 +84,7 @@
   html: insetBody
 }) }}
 
-{% call hmpoForm(ctx) %}
+{% call hmpoForm(ctx, {id: "form"}) %}
     {{ hmpoSubmit(ctx, {id: "submitDetails", text: translate("confirmDetails.submitDetails")}) }}
 {% endcall %}
 
@@ -103,19 +103,6 @@
   {% block scripts %}
     <script nonce="{{ cspNonce }}">
 
-<!--Disable enter button from submitting the form but allow if form submit button is focused-->
-    var form = document.getElementsByTagName('form')[0];
-    console.log(form);
-    form.addEventListener("keydown", function (event) {
-
-        var submitButton = document.getElementById('submitDetails')
-        var submitButtonIsNotFocused = document.activeElement !== submitButton;
-
-        if ((event.code === 'Enter') && submitButtonIsNotFocused){
-            event.preventDefault();
-        }
-    });
-
     var formSubmitted = false;
 
     submitSpinner()
@@ -123,14 +110,14 @@
     function delayDisableButton (button) {
         button.className += ' button--spinner'
         setTimeout(function() {
-            button.setAttribute('disabled', 'disabled')
+            button.setAttribute('disabled', true)
         }, 200);
     }
 
     function submitSpinner() {
-        var selects = document.getElementById('submitDetails')
+        var select = document.getElementById('submitDetails')
 
-        selects.addEventListener('click', function (event) {
+        select.addEventListener('click', function (event) {
             if(!formSubmitted) {
                 formSubmitted = true;
 
