@@ -22,7 +22,7 @@ module.exports = {
     fields: ["sortCode", "accountNumber"],
     editable: true,
     editBackStep: APP.PATHS.CONFIRM_DETAILS,
-    next: APP.PATHS.CANNOT_PROCEED
+    next: APP.PATHS.CONFIRM_DETAILS
   },
   [`${APP.PATHS.CANNOT_PROCEED}`]: {
     fields: ["escapeChoice"],
@@ -32,7 +32,7 @@ module.exports = {
       {
         field: "escapeChoice",
         value: "proveAnotherWay",
-        next: APP.PATHS.LANDING_PAGE
+        next: APP.PATHS.ABORT
       },
       {
         field: "escapeChoice",
