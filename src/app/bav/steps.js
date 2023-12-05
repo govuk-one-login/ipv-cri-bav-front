@@ -21,7 +21,7 @@ module.exports = {
     fields: ["sortCode", "accountNumber"],
     controller: accountDetails,
     checkJourney: false,
-    next: APP.PATHS.CANNOT_PROCEED
+    next: APP.PATHS.CONFIRM_DETAILS
   },
   [`${APP.PATHS.CANNOT_PROCEED}`]: {
     fields: ["escapeChoice"],
@@ -31,15 +31,16 @@ module.exports = {
       {
         field: "escapeChoice",
         value: "proveAnotherWay",
-        next: APP.PATHS.LANDING_PAGE
+        next: APP.PATHS.ABORT
       },
       {
         field: "escapeChoice",
         value: "goBack",
         next: [{
-          fn: (req) => req.sessionModel.get("isLanding"), next: APP.PATHS.LANDING_PAGE },
-              APP.PATHS.ACCOUNT_DETAILS
-    ]}
+          fn: (req) => req.sessionModel.get("isLanding"), next: APP.PATHS.CONFIRM_DETAILS },
+              APP.PATHS.LANDING_PAGE
+    ]
+      }
     ]
   },
 };
