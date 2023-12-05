@@ -63,7 +63,8 @@ When(
 Then(
   "the Loading Bank Details check Screen is served by the FE",
   async function () {
-    //const loadBankDetails = new LoadBankDetailsPage(await this.page);
+    const loadBankDetails = new LoadBankDetailsPage(await this.page);
+    await loadBankDetails.isCurrentPage();
   }
 );
 
@@ -86,5 +87,6 @@ Then("they are routed to the Account Details Page", async function () {
 });
 
 Then("the Escape choice Screen is served by the FE", async function () {
-  //const abortPage = new AbortPage(await this.page);
+  const abortPage = new AbortPage(await this.page);
+  await abortPage.isCurrentPage();
 });
