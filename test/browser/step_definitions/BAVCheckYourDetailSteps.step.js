@@ -1,5 +1,11 @@
 const { Given, Then, When } = require("@cucumber/cucumber");
-const { ConfirmDetailsPage, AccountDetailsEditPage, AbortPage, LoadBankDetailsPage, AccountDetailsPage } = require("../pages");
+const {
+  ConfirmDetailsPage,
+  AccountDetailsEditPage,
+  AbortPage,
+  LoadBankDetailsPage,
+  AccountDetailsPage,
+} = require("../pages");
 const { expect } = require("@playwright/test");
 
 Given("the user wishes to proceed", async function () {
@@ -7,12 +13,13 @@ Given("the user wishes to proceed", async function () {
   expect(await cyaPage.isCurrentPage()).toBeTruthy();
 });
 
-
-When("they click on the Continue to bank details check button", async function(){
-  const cyaPage = new ConfirmDetailsPage(await this.page);
-  await cyaPage.clickSubmitDetailsButton();
-});
-
+When(
+  "they click on the Continue to bank details check button",
+  async function () {
+    const cyaPage = new ConfirmDetailsPage(await this.page);
+    await cyaPage.clickSubmitDetailsButton();
+  }
+);
 
 When(
   "the user clicks the Change button to change their Sort code or Account number",
@@ -37,11 +44,13 @@ When("the user clicks the “Back” link on the CYA page", async function () {
   await cyaPage.back();
 });
 
-When("the user clicks the browser Back button on the CYA page", async function () {
-  const cyaPage = new ConfirmDetailsPage(await this.page);
-  await cyaPage.goBack();
-});
-
+When(
+  "the user clicks the browser Back button on the CYA page",
+  async function () {
+    const cyaPage = new ConfirmDetailsPage(await this.page);
+    await cyaPage.goBack();
+  }
+);
 
 When(
   "they click on the “I do not want to continue to bank details check” link",
@@ -51,17 +60,17 @@ When(
   }
 );
 
-Then("the Loading Bank Details check Screen is served by the FE", async function(){
-   const loadBankDetails = new LoadBankDetailsPage(await this.page);
-
-})
-
+Then(
+  "the Loading Bank Details check Screen is served by the FE",
+  async function () {
+    //const loadBankDetails = new LoadBankDetailsPage(await this.page);
+  }
+);
 
 Then("the Account details screen is served by the FE", async function () {
   const accDetailsPage = new AccountDetailsEditPage(await this.page);
   expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
 });
-
 
 Then(
   "the user is redirected to the check your details page",
@@ -76,8 +85,6 @@ Then("they are routed to the Account Details Page", async function () {
   expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
 });
 
-
 Then("the Escape choice Screen is served by the FE", async function () {
-  const abortPage = new AbortPage(await this.page);
- 
+  //const abortPage = new AbortPage(await this.page);
 });

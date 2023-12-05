@@ -19,15 +19,18 @@ module.exports = class PlaywrightDevPage {
   async goBack() {
     await this.page.goBack();
   }
-  
-  async clickChangeLink(){
-    await this.page.locator('[href*="/enter-account-details/edit"]').first().click();
+
+  async clickChangeLink() {
+    await this.page
+      .locator('[href*="/enter-account-details/edit"]')
+      .first()
+      .click();
   }
 
-  async clickDoNotContinueToBankDetailsCheck(){
+  async clickDoNotContinueToBankDetailsCheck() {
     await this.page.locator('[href*="/abort"]').click();
   }
-  
+
   async clickSubmitDetailsButton() {
     await this.page.locator("#submitDetails").click();
   }

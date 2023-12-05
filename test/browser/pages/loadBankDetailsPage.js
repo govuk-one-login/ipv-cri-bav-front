@@ -12,12 +12,14 @@ module.exports = class PlaywrightDevPage {
     return pathname === this.path;
   }
 
-  async clickChangeLink(){
-    await this.page.locator('[href*="/enter-account-details/edit"]').first().click();
+  async clickChangeLink() {
+    await this.page
+      .locator('[href*="/enter-account-details/edit"]')
+      .first()
+      .click();
   }
 
-  async clickDoNotContinueToBankDetailsCheck(){
+  async clickDoNotContinueToBankDetailsCheck() {
     await this.page.locator('[href*="/abort"]').click();
   }
-  
 };

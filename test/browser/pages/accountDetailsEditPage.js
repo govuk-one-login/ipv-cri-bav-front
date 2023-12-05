@@ -38,5 +38,4 @@ module.exports = class PlaywrightDevPage {
   async editAccountNumber(accountNo) {
     await this.page.locator("#accountNumber").fill(accountNo);
   }
-
 };
