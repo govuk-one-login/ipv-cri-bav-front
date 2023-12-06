@@ -21,4 +21,4 @@ Feature: Navigate away from the Check Your Details Screen
 
   Scenario: Exit link routes to Escape choice Screen
     When they click on the “I do not want to continue to bank details check” link
-    Then the Escape choice Screen is served by the FE
+    Then the user is directed to the Escape choice screen

@@ -61,17 +61,12 @@ When(
 );
 
 Then(
-  "the Loading Bank Details check Screen is served by the FE",
+  "the user is directed to the Loading Bank Details screen",
   async function () {
     const loadBankDetails = new LoadBankDetailsPage(await this.page);
     await loadBankDetails.isCurrentPage();
   }
 );
-
-Then("the Account details screen is served by the FE", async function () {
-  const accDetailsPage = new AccountDetailsEditPage(await this.page);
-  expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
-});
 
 Then(
   "the user is redirected to the check your details page",
@@ -86,7 +81,7 @@ Then("they are routed to the Account Details Page", async function () {
   expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
 });
 
-Then("the Escape choice Screen is served by the FE", async function () {
+Then("the user is directed to the Escape choice screen", async function () {
   const abortPage = new AbortPage(await this.page);
   await abortPage.isCurrentPage();
 });

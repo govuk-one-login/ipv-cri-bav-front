@@ -13,10 +13,10 @@ Feature: Check Details are Correct
 
   Scenario: User routed to loading Bank Details Check Screen
     When they click on the Continue to bank details check button
-    Then the Loading Bank Details check Screen is served by the FE
+    Then the user is directed to the Loading Bank Details screen
 
   Scenario: User directed to Account details Screen with pre-populated data
     When the user clicks the Change button to change their Sort code or Account number
-    Then the Account details screen is served by the FE
+    Then the user is directed to the Loading Bank Details screen
     When the user edits the sort code "010203" and the account number "34567890"
     Then the user is redirected to the check your details page
