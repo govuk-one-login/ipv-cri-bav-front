@@ -25,4 +25,6 @@ escapeChoice:
       label: Go back and prove your identity using your bank details
       hint: ""
       reveal: ""
-
+    default: "Enter an account number"
+    minlength: "Account number must be between 6 and 8 digits"
+    maxlength: "Account number must be between 6 and 8 digits"

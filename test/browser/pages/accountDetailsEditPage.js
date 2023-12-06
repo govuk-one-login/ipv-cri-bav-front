@@ -4,7 +4,7 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.path = "/enter-account-details";
+    this.path = "/enter-account-details/edit";
   }
 
   async isCurrentPage() {
@@ -13,7 +13,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async continueButton() {
-    await this.page.click("#continue");
+    await this.page.locator("#continue").click();
   }
 
   async back() {
@@ -31,11 +31,11 @@ module.exports = class PlaywrightDevPage {
     return errorText.trim();
   }
 
-  async enterSortCode(sortCode) {
+  async editSortCode(sortCode) {
     await this.page.locator("#sortCode").fill(sortCode);
   }
 
-  async enterAccountNumber(accountNo) {
+  async editAccountNumber(accountNo) {
     await this.page.locator("#accountNumber").fill(accountNo);
   }
 };

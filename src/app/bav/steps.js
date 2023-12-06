@@ -2,6 +2,7 @@ const root = require("./controllers/root");
 const landingPage = require("./controllers/landingPage");
 const accountDetails = require("./controllers/accountDetails");
 const escapeJourney = require("./controllers/escapeJourney");
+const confirmDetails = require("./controllers/confirmDetails");
 const { APP } = require("../../lib/config");
 
 module.exports = {
@@ -20,6 +21,9 @@ module.exports = {
   [`${APP.PATHS.ACCOUNT_DETAILS}`]: {
     fields: ["sortCode", "accountNumber"],
     controller: accountDetails,
+    editable: true,
+    editBackStep: APP.PATHS.CONFIRM_DETAILS,
+    next: APP.PATHS.CONFIRM_DETAILS,
     checkJourney: false,
     next: APP.PATHS.CONFIRM_DETAILS
   },
@@ -42,5 +46,9 @@ module.exports = {
     ]
       }
     ]
+  },
+  [`${APP.PATHS.CONFIRM_DETAILS}`]: {
+    controller: confirmDetails,
+    next: APP.PATHS.DONE,
   },
 };

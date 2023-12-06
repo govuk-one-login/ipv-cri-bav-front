@@ -23,10 +23,11 @@ landingPage:
   detailDropdown:
     summaryText: How we use your bank details
     detailContent: <p class="instruction">We will not save or share your account details.</p><p class="instruction">We do not use your account details to:</p><ul class="govuk-list govuk-list--bullet"><li>take any payments</li><li>check any transactions</li></ul>
-  escapeJourneyLanding: 
-    escapeText1: "Go to the service you want to use and "
-    escapeLink: /cannot-proceed
-    escapeText2: "find other ways to prove your identity"
+  
+escapeJourneyLanding: 
+  escapeText1: "Go to the service you want to use and "
+  escapeLink: /cannot-proceed
+  escapeText2: "find other ways to prove your identity"
 
 accountDetails:
   title: Enter your account details
@@ -34,3 +35,15 @@ accountDetails:
 escapeJourney: 
   title: How would you like to continue?
   
+enterAccountDetails:
+  title: "Enter your account details"
+
+confirmDetails:
+  title: "Check your details match with your bank or building society account"
+  fullName: "Name"
+  sortCode: "Sort code"
+  accountNumber: "Account number"
+  changeLink: "Change"
+  insetText: "We will not use your account details to check or take any payments."
+  submitDetails: "Submit details for bank check"
+  noSubmitDetails: "I do not want continue to bank details check"

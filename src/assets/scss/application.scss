@@ -3,6 +3,8 @@ $govuk-assets-path: "/public/";
 @import "../../../node_modules/govuk-frontend/govuk/all";
 @import "../../../node_modules/hmpo-components/all";
 
+@import "components/button-spinner";
+
 .govuk-radios__item {
   @include govuk-responsive-margin(6, $direction: "bottom", $important: false, $adjustment: false);
 }
@@ -27,7 +29,7 @@ $govuk-assets-path: "/public/";
 .govuk-inset-text {
   @include govuk-responsive-margin(0, "bottom");
   @include govuk-responsive-margin(2, "top"); 
-  @include govuk-responsive-padding(1, "top");
+  @include govuk-responsive-padding(3, "top");
 }
 
 .govuk-body, main p, .govuk-body-m {
@@ -86,5 +88,17 @@ $govuk-assets-path: "/public/";
 
 .bav__instruction {
   @include govuk-responsive-margin(4, "bottom");
+  @include govuk-responsive-margin(4, "top");
+}
+
+.govuk-summary-list {
+  @include govuk-responsive-margin(0, "top");
+}
+
+#confirm-details-header {
+  @include govuk-responsive-margin(0, "bottom");
+}
+
+#submitDetails {
   @include govuk-responsive-margin(4, "top");
 }
