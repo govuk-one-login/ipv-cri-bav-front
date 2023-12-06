@@ -2,13 +2,11 @@ const { Controller: BaseController } = require("hmpo-form-wizard");
 
 class RootController extends BaseController {
   async saveValues(req, res, next) {
-    const sharedClaims = req.session?.shared_claims;
+    //TODO: Call new fetchNameInfo Lambda to users name as single string
+    // req.sessionModel.set("fullName", data.full_name);
 
-    if (sharedClaims && sharedClaims?.name?.length > 0) {
-      let names = sharedClaims.name[0].nameParts;
-      req.sessionModel.set("firstName", names[0].value);
-      req.sessionModel.set("surname", names[names.length - 1].value);
-    }
+    req.sessionModel.set("fullName", "John Peter Smith");
+
     super.saveValues(req, res, next);
   }
 }
