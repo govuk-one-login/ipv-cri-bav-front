@@ -24,12 +24,14 @@ module.exports = {
     editable: true,
     editBackStep: APP.PATHS.CONFIRM_DETAILS,
     next: APP.PATHS.CONFIRM_DETAILS,
-    checkJourney: false,
-    next: APP.PATHS.CONFIRM_DETAILS
+  },
+  [`${APP.PATHS.CONFIRM_DETAILS}`]: {
+    controller: confirmDetails,
+    next: APP.PATHS.DONE,
   },
   [`${APP.PATHS.CANNOT_PROCEED}`]: {
-    fields: ["escapeChoice"],
     controller: escapeJourney,
+    fields: ["escapeChoice"],
     checkJourney: false,
     next: [
       {
@@ -40,15 +42,19 @@ module.exports = {
       {
         field: "escapeChoice",
         value: "goBack",
-        next: [{
-          fn: (req) => req.sessionModel.get("isLanding"), next: APP.PATHS.CONFIRM_DETAILS },
-              APP.PATHS.LANDING_PAGE
+        next: [
+          {
+            field: "start",
+            value: true,
+            next: APP.PATHS.LANDING_PAGE
+          },
+          {
+            field: "start",
+            value: false,
+            next: APP.PATHS.CONFIRM_DETAILS
+          }
     ]
       }
     ]
-  },
-  [`${APP.PATHS.CONFIRM_DETAILS}`]: {
-    controller: confirmDetails,
-    next: APP.PATHS.DONE,
-  },
+  }
 };
