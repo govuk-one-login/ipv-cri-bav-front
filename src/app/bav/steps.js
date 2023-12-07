@@ -22,11 +22,15 @@ module.exports = {
     fields: ["sortCode", "accountNumber"],
     editable: true,
     editBackStep: APP.PATHS.CONFIRM_DETAILS,
-    next: APP.PATHS.CONFIRM_DETAILS
+    next: APP.PATHS.CONFIRM_DETAILS,
+  },
+  [`${APP.PATHS.CONFIRM_DETAILS}`]: {
+    controller: confirmDetails,
+    next: APP.PATHS.DONE,
   },
   [`${APP.PATHS.CANNOT_PROCEED}`]: {
-    fields: ["escapeChoice"],
     controller: escapeJourney,
+    fields: ["escapeChoice"],
     checkJourney: false,
     next: [
       {
