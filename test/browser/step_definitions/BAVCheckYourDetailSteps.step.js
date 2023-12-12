@@ -7,7 +7,7 @@ const {
   AbortPage,
 } = require("../pages");
 const { expect } = require("@playwright/test");
-let newSortCode, newAccountNo, validSortCode, validAccNo;
+let newSortCode, newAccountNo, validAccNo;
 
 Given("the user wishes to proceed", async function () {
   const cyaPage = new ConfirmDetailsPage(await this.page);
