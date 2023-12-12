@@ -69,14 +69,6 @@ Then(
   }
 );
 
-Then(
-  "the user is redirected to the check your details page",
-  async function () {
-    const cyaPage = new ConfirmDetailsPage(await this.page);
-    expect(await cyaPage.isCurrentPage()).toBeTruthy();
-  }
-);
-
 Then("they are routed to the Account Details Page", async function () {
   const accDetailsPage = new AccountDetailsPage(await this.page);
   expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
@@ -88,10 +80,21 @@ Then("the user is directed to the Escape choice screen", async function () {
 });
 
 Then(
-  "the exact amended details are displayed on the cya page in right format",
+  "Check Your Answers screen has a sort code '12-34-56' and account number '319268'",
   async function () {
     const cyaPage = new ConfirmDetailsPage(await this.page);
-    validSortCode = await cyaPage.getAmendedSortCode(newSortCode);
+    const savedSC = await cyaPage.getSavedSC();
+    expect(savedSC).toEqual("12-34-56");
+    const savedAC = await cyaPage.getSavedAccNo();
+    expect(savedAC).toEqual("319268");
+  }
+);
+
+Then(
+  "the Check Your Answers screen displays the amended sort code and account number",
+  async function () {
+    const cyaPage = new ConfirmDetailsPage(await this.page);
+    const validSortCode = await cyaPage.getAmendedSortCode(newSortCode);
     expect(validSortCode).toEqual(newSortCode);
     validAccNo = await cyaPage.getAmendedAccNo();
     expect(validAccNo).toEqual(newAccountNo);
