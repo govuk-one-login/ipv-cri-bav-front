@@ -1,7 +1,6 @@
 @success
 Feature: Check Details are Correct
 
-
   Background:
     Given a user has navigated to the BAV Landing Page
     When the user clicks on Continue button
