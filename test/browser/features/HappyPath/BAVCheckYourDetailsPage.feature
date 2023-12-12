@@ -15,8 +15,16 @@ Feature: Check Details are Correct
     When they click on the Continue to bank details check button
     Then the user is directed to the Loading Bank Details screen
 
-  Scenario: User directed to Account details Screen with pre-populated data
+  Scenario: User directed to Account details Screen with pre-populated data <sortCode> and <accountNumber>
     When the user clicks the Change button to change their Sort code or Account number
     Then the user is directed to the Loading Bank Details screen
-    When the user edits the sort code "010203" and the account number "34567890"
+    When the user edits the sort code <sortCode> and the account number <accountNumber>
     Then the user is redirected to the check your details page
+    Then the exact amended details are displayed on the cya page in right format
+    
+     Examples:
+      | sortCode   | accountNumber |
+      | "01-02-03" | "319268"      |
+      | "01 02 03" | "3192681"     |
+      | "010203"   | "31926819"    |
+  

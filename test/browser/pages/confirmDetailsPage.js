@@ -34,4 +34,34 @@ module.exports = class PlaywrightDevPage {
   async clickSubmitDetailsButton() {
     await this.page.locator("#submitDetails").click();
   }
+
+  async getAmendedSortCode(newSortcode) {
+    const sort_code = this.page.locator("dd.govuk-summary-list__value").nth(1);
+    let scInputVal = await sort_code.textContent();
+    scInputVal = scInputVal.trim();
+
+    if (scInputVal.length == newSortcode.length) {
+      if (newSortcode.match(/^\d{2}\s\d{2}\s\d{2}$/)) {
+        scInputVal = scInputVal.replaceAll("-", " ");
+        return scInputVal;
+      }
+
+      if (newSortcode.match(/^\d\d-\d\d-\d\d$/)) {
+        return scInputVal;
+      }
+    }
+
+    if (scInputVal.length != newSortcode.length) {
+      if (newSortcode.match(/^\d{6}$/)) {
+        scInputVal = scInputVal.replaceAll("-", "");
+        return scInputVal;
+      }
+    }
+  }
+
+  async getAmendedAccNo() {
+    const accNo = this.page.locator(".govuk-summary-list__value").nth(2);
+    const accNoInputVal = await accNo.textContent();
+    return accNoInputVal.trim();
+  }
 };

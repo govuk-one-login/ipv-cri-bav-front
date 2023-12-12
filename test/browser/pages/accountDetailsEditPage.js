@@ -33,9 +33,11 @@ module.exports = class PlaywrightDevPage {
 
   async editSortCode(sortCode) {
     await this.page.locator("#sortCode").fill(sortCode);
+    return sortCode;
   }
 
   async editAccountNumber(accountNo) {
     await this.page.locator("#accountNumber").fill(accountNo);
+    return accountNo;
   }
 };

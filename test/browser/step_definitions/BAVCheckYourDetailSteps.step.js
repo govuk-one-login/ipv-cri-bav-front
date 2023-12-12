@@ -7,6 +7,7 @@ const {
   AbortPage,
 } = require("../pages");
 const { expect } = require("@playwright/test");
+let newSortCode, newAccountNo, validSortCode, validAccNo;
 
 Given("the user wishes to proceed", async function () {
   const cyaPage = new ConfirmDetailsPage(await this.page);
@@ -33,8 +34,8 @@ When(
   "the user edits the sort code {string} and the account number {string}",
   async function (sortCode, accountNo) {
     const accDetailsEditPage = new AccountDetailsEditPage(await this.page);
-    await accDetailsEditPage.editSortCode(sortCode);
-    await accDetailsEditPage.editAccountNumber(accountNo);
+    newSortCode = await accDetailsEditPage.editSortCode(sortCode);
+    newAccountNo = await accDetailsEditPage.editAccountNumber(accountNo);
     await accDetailsEditPage.continueButton();
   }
 );
@@ -85,3 +86,14 @@ Then("the user is directed to the Escape choice screen", async function () {
   const abortPage = new AbortPage(await this.page);
   await abortPage.isCurrentPage();
 });
+
+Then(
+  "the exact amended details are displayed on the cya page in right format",
+  async function () {
+    const cyaPage = new ConfirmDetailsPage(await this.page);
+    validSortCode = await cyaPage.getAmendedSortCode(newSortCode);
+    expect(validSortCode).toEqual(newSortCode);
+    validAccNo = await cyaPage.getAmendedAccNo();
+    expect(validAccNo).toEqual(newAccountNo);
+  }
+);
