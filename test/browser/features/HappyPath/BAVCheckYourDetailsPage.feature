@@ -10,8 +10,8 @@ Feature: Check Details are Correct
     When the user clicks the Continue button
     Then the user is directed to the Check Your Answers screen
 
-  Scenario: User routed to loading Bank Details Check Screen
-    When they click on the Continue to bank details check button
+   Scenario: User directed to Account details Screen with pre-populated data <sortCode> and <accountNumber>
+    When the user clicks the Change button to change their Sort code or Account number
     Then the user is directed to the Loading Bank Details screen
 
   Scenario: User directed to Account details Screen with pre-populated data <sortCode> and <accountNumber>
@@ -26,4 +26,5 @@ Feature: Check Details are Correct
       | "01-02-03" | "319268"      |
       | "01 02 03" | "3192681"     |
       | "010203"   | "31926819"    |
+
   
