@@ -7,3 +7,12 @@ pageNotFound:
     - Gallwch hefyd fynd yn ôl i'r gwasanaeth roeddech yn ceisio ei ddefnyddio a dechrau eto. Gallwch chwilio am y gwasanaeth gan ddefnyddio'ch peiriant chwilio neu dewch o hyd iddo o hafan GOV.UK.
     - <a href=\"https://www.gov.uk/\" class=\"govuk-button\" data-module=\"govuk-button\">Ewch i hafan GOV.UK</a>
     - <a href=\"https://home.account.gov.uk/contact-gov-uk-one-login?fromURL=https://www.review-bav.account.gov.uk/prove-identity-bank-account" target=\"_blank\" class=\"govuk-link\">Cysylltwch â'r tîm GOV.UK One Login (agor mewn tab newydd)</a>
+error:
+  unrecoverable:
+    title: Mae'n ddrwg gennym, mae problem gyda'r gwasanaeth
+    subTitle: Ni allwn brofi eich hunaniaeth ar hyn o bryd.
+    subHeading: Beth allwch chi ei wneud
+    description: Ewch yn ôl i'r gwasanaeth roeddech yn ceisio ei ddefnyddio a dechrau eto. Gallwch chwilio am y gwasanaeth gan ddefnyddio'ch peiriant chwilio neu dewch o hyd iddo o hafan GOV.UK.
+    contactMeLink: Cysylltwch â'r tîm GOV.UK One Login (agor mewn tab newydd)
+    buttonText: Ewch i hafan GOV.UK
+    buttonLink: https://home.account.gov.uk/contact-gov-uk-one-login?fromURL=https://www.review-o.account.gov.uk/prove-identity-post-office

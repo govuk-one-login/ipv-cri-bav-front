@@ -20,6 +20,7 @@ module.exports = {
       CANNOT_PROCEED: "/cannot-proceed",
       FAIL: "/fail",
       DONE: "/done",
+      ERROR: "/error",
     },
     ANALYTICS: {
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",
