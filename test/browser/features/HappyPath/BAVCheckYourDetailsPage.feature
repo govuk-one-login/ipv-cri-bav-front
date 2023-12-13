@@ -1,4 +1,4 @@
-@success @test
+@success
 Feature: Check Details are Correct
 
   Background:
@@ -12,7 +12,7 @@ Feature: Check Details are Correct
     And the Check Your Answers screen has a sort code "12-34-56" and account number "319268"
 
 
-  Scenario: User directed to Account details Screen with pre-populated data <sortCode> and <accountNumber>
+  Scenario: User directed to Check Details Screen with pre-populated data <sortCode> and <accountNumber>
     When the user clicks the Change button to change their Sort code or Account number
     Then the user is directed to the Loading Bank Details screen
 
@@ -20,7 +20,7 @@ Feature: Check Details are Correct
     When the user clicks the Change button to change their Sort code or Account number
     Then the user is directed to the Loading Bank Details screen
     When the user edits the sort code <sortCode> and the account number <accountNumber>
-    Then the user is redirected to the check your details page
+    Then the user is directed to the Check Your Answers screen
     And the Check Your Answers screen has a sort code "01-02-03" and account number <accountNumber>
 
     Examples:

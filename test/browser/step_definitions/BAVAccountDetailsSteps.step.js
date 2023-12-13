@@ -1,9 +1,5 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
-const {
-  AccountDetailsPage,
-  BavLandingPage,
-  ConfirmDetailsPage,
-} = require("../pages");
+const { AccountDetailsPage, AccountDetailsEditPage } = require("../pages");
 const { expect } = require("@playwright/test");
 
 Given("the user is on the Account Details Screen", async function () {
@@ -42,21 +38,28 @@ When("the user clicks on the Back button on their browser", async function () {
   await accDetailsPage.goBack();
 });
 
-Then("they are routed to the BAV Landing Page", async function () {
-  const landingPage = new BavLandingPage(await this.page);
-  expect(await landingPage.isCurrentPage()).toBeTruthy();
-});
-
-Then(
-  "the user is directed to the Check Your Answers screen",
-  async function () {
-    const cyaPage = new ConfirmDetailsPage(await this.page);
-    expect(await cyaPage.isCurrentPage()).toBeTruthy();
+When(
+  "the user edits the sort code {string} and the account number {string}",
+  async function (sortCode, accountNo) {
+    const accDetailsEditPage = new AccountDetailsEditPage(await this.page);
+    await accDetailsEditPage.editSortCode(sortCode);
+    await accDetailsEditPage.editAccountNumber(accountNo);
+    await accDetailsEditPage.continueButton();
   }
 );
+
+Then("the user is directed to the Account Details screen", async function () {
+  const accountDetailsPage = new AccountDetailsPage(await this.page);
+  await accountDetailsPage.isCurrentPage();
+});
 
 Then("an error message is shown to the user", async function () {
   const accDetailsPage = new AccountDetailsPage(await this.page);
   expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
   expect(await accDetailsPage.checkErrorText()).toContain("There is a problem");
+});
+
+Then("they are routed to the Account Details Page", async function () {
+  const accDetailsPage = new AccountDetailsPage(await this.page);
+  expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
 });

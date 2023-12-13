@@ -29,16 +29,6 @@ When(
   }
 );
 
-When(
-  "the user edits the sort code {string} and the account number {string}",
-  async function (sortCode, accountNo) {
-    const accDetailsEditPage = new AccountDetailsEditPage(await this.page);
-    await accDetailsEditPage.editSortCode(sortCode);
-    await accDetailsEditPage.editAccountNumber(accountNo);
-    await accDetailsEditPage.continueButton();
-  }
-);
-
 When("the user clicks the “Back” link on the CYA page", async function () {
   const cyaPage = new ConfirmDetailsPage(await this.page);
   await cyaPage.back();
@@ -61,17 +51,28 @@ When(
 );
 
 Then(
+  "the user is directed to the Check Your Answers screen",
+  async function () {
+    const cyaPage = new ConfirmDetailsPage(await this.page);
+    expect(await cyaPage.isCurrentPage()).toBeTruthy();
+  }
+);
+
+Then(
+  "the user is directed to the Check Your Answers screen",
+  async function () {
+    const cyaPage = new ConfirmDetailsPage(await this.page);
+    expect(await cyaPage.isCurrentPage()).toBeTruthy();
+  }
+);
+
+Then(
   "the user is directed to the Loading Bank Details screen",
   async function () {
     const loadBankDetails = new LoadBankDetailsPage(await this.page);
     await loadBankDetails.isCurrentPage();
   }
 );
-
-Then("they are routed to the Account Details Page", async function () {
-  const accDetailsPage = new AccountDetailsPage(await this.page);
-  expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
-});
 
 Then("the user is directed to the Escape choice screen", async function () {
   const abortPage = new AbortPage(await this.page);
