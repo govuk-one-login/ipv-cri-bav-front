@@ -137,6 +137,6 @@ router.use((err, req, res, next) => {
     next(err);
     router.use(commonExpress.lib.errorHandling.redirectAsErrorToCallback);
   } else {
-    res.redirect("/error");
+    res.redirect(APP.PATHS.ERROR);
   }
 });

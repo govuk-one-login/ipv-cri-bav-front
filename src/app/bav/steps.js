@@ -65,4 +65,7 @@ module.exports = {
     skip: true,
     controller: abort,
   },
+  [`${APP.PATHS.ERROR}`]: {
+    entryPoint: true,
+  },
 };
