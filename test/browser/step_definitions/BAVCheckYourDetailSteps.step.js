@@ -7,7 +7,7 @@ const {
   AbortPage,
 } = require("../pages");
 const { expect } = require("@playwright/test");
-let newSortCode, newAccountNo, validAccNo;
+let newSortCode, newAccountNo;
 
 Given("the user wishes to proceed", async function () {
   const cyaPage = new ConfirmDetailsPage(await this.page);
@@ -80,23 +80,20 @@ Then("the user is directed to the Escape choice screen", async function () {
 });
 
 Then(
-  "Check Your Answers screen has a sort code '12-34-56' and account number '319268'",
+  "the user is redirected to the check your details page",
   async function () {
     const cyaPage = new ConfirmDetailsPage(await this.page);
-    const savedSC = await cyaPage.getSavedSC();
-    expect(savedSC).toEqual("12-34-56");
-    const savedAC = await cyaPage.getSavedAccNo();
-    expect(savedAC).toEqual("319268");
+    expect(await cyaPage.isCurrentPage()).toBeTruthy();
   }
 );
 
 Then(
-  "the Check Your Answers screen displays the amended sort code and account number",
-  async function () {
+  "the Check Your Answers screen has a sort code {string} and account number {string}",
+  async function (sortCode, accountNumber) {
     const cyaPage = new ConfirmDetailsPage(await this.page);
-    const validSortCode = await cyaPage.getAmendedSortCode(newSortCode);
-    expect(validSortCode).toEqual(newSortCode);
-    validAccNo = await cyaPage.getAmendedAccNo();
-    expect(validAccNo).toEqual(newAccountNo);
+    const savedSC = await cyaPage.getSavedSC();
+    expect(savedSC).toEqual(sortCode);
+    const savedAC = await cyaPage.getSavedAccNo();
+    expect(savedAC).toEqual(accountNumber);
   }
 );
