@@ -1,6 +1,5 @@
 const root = require("./controllers/root");
 const landingPage = require("./controllers/landingPage");
-const accountDetails = require("./controllers/accountDetails");
 const escapeJourney = require("./controllers/escapeJourney");
 const confirmDetails = require("./controllers/confirmDetails");
 const { APP } = require("../../lib/config");
@@ -20,7 +19,6 @@ module.exports = {
   },
   [`${APP.PATHS.ACCOUNT_DETAILS}`]: {
     fields: ["sortCode", "accountNumber"],
-    controller: accountDetails,
     editable: true,
     editBackStep: APP.PATHS.CONFIRM_DETAILS,
     next: APP.PATHS.CONFIRM_DETAILS,
@@ -44,12 +42,12 @@ module.exports = {
         value: "goBack",
         next: [
           {
-            field: "start",
+            field: "isLanding",
             value: true,
             next: APP.PATHS.LANDING_PAGE
           },
           {
-            field: "start",
+            field: "isLanding",
             value: false,
             next: APP.PATHS.CONFIRM_DETAILS
           }

@@ -1,12 +1,15 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 
 class LandingPageController extends BaseController {
-    async saveValues(req, res, next) {
-        req.sessionModel.set("isLanding", true);
-        console.log("LANDING",req.sessionModel.get("start"))
-        super.saveValues(req, res, next);
-    }   
-}
-
+    locals(req, res, callback) {
+        super.locals(req, res, (err, locals) => {
+          if (err) {
+            return callback(err, locals);
+          }
+          req.sessionModel.set("isLanding", true)    
+          callback(err, locals);
+        });
+      }
+    }
 
 module.exports = LandingPageController;

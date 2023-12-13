@@ -5,7 +5,6 @@ class RootController extends BaseController {
     //TODO: Call new fetchNameInfo Lambda to users name as single string
     // req.sessionModel.set("fullName", data.full_name);
 
-    req.sessionModel.set("start", true)
     req.sessionModel.set("fullName", "John Peter Smith");
 
     super.saveValues(req, res, next);
