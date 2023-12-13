@@ -7,7 +7,6 @@ const {
   AbortPage,
 } = require("../pages");
 const { expect } = require("@playwright/test");
-let newSortCode, newAccountNo;
 
 Given("the user wishes to proceed", async function () {
   const cyaPage = new ConfirmDetailsPage(await this.page);
@@ -34,8 +33,8 @@ When(
   "the user edits the sort code {string} and the account number {string}",
   async function (sortCode, accountNo) {
     const accDetailsEditPage = new AccountDetailsEditPage(await this.page);
-    newSortCode = await accDetailsEditPage.editSortCode(sortCode);
-    newAccountNo = await accDetailsEditPage.editAccountNumber(accountNo);
+    await accDetailsEditPage.editSortCode(sortCode);
+    await accDetailsEditPage.editAccountNumber(accountNo);
     await accDetailsEditPage.continueButton();
   }
 );
