@@ -1,5 +1,5 @@
 const BaseController = require("hmpo-form-wizard").Controller;
-const { APP, API } = require("../../../lib/config")
+const { APP, API } = require("../../../lib/config");
 const { formatSortCode } = require("../utils");
 
 class ConfirmDetailsController extends BaseController {
@@ -11,37 +11,37 @@ class ConfirmDetailsController extends BaseController {
 
       const sortCode = req.form.values.sortCode;
 
-      req.sessionModel.set("sortCode", sortCode)
-      req.sessionModel.set("accountNumber", req.form.values.accountNumber)
+      req.sessionModel.set("sortCode", sortCode);
+      req.sessionModel.set("accountNumber", req.form.values.accountNumber);
 
       locals.sortCode = formatSortCode(sortCode);
       locals.fullName = req.sessionModel.get("fullName");
-      locals.accountNumber = req.sessionModel.get("accountNumber")
+      locals.accountNumber = req.sessionModel.get("accountNumber");
 
       callback(err, locals);
     });
   }
   next() {
-    return APP.PATHS.DONE
+    return APP.PATHS.DONE;
   }
   async saveValues(req, res, callback) {
     try {
       const bavData = {
-        "sort_code": req.sessionModel.get("sortCode"),
-        "account_number": req.sessionModel.get("accountNumber")
-    }
+        sort_code: req.sessionModel.get("sortCode"),
+        account_number: req.sessionModel.get("accountNumber"),
+      };
       await this.saveBavData(req.axios, bavData, req);
       callback();
-    } catch(error) {
+    } catch (error) {
       callback(error);
     }
   }
   async saveBavData(axios, bavData, req) {
     const headers = {
-      "x-govuk-signin-session-id": req.session.tokenId
-    }
+      "x-govuk-signin-session-id": req.session.tokenId,
+    };
     const res = await axios.post(`${API.PATHS.SAVE_BAVDATA}`, bavData, {
-      headers
+      headers,
     });
     return res.data;
   }
