@@ -11,9 +11,12 @@ class ConfirmDetailsController extends BaseController {
 
       const sortCode = req.form.values.sortCode;
 
+      req.sessionModel.set("sortCode", sortCode)
+      req.sessionModel.set("accountNumber", req.form.values.accountNumber)
+
       locals.sortCode = formatSortCode(sortCode);
       locals.fullName = req.sessionModel.get("fullName");
-      locals.accountNumber = req.form.values.accountNumber;
+      locals.accountNumber = req.sessionModel.get("accountNumber")
 
       callback(err, locals);
     });
@@ -24,12 +27,9 @@ class ConfirmDetailsController extends BaseController {
   async saveValues(req, res, callback) {
     try {
       const bavData = {
-        "bank_details": {
-          "sort_code": this.locals.sortCode,
-          "account_number": this.locals.accountNumber
-        }
-      }
-      console.log(bavData)
+        "sort_code": req.sessionModel.get("sortCode"),
+        "account_number": req.sessionModel.get("accountNumber")
+    }
       await this.saveBavData(req.axios, bavData, req);
       callback();
     } catch(error) {
