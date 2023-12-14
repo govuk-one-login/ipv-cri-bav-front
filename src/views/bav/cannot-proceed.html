@@ -1,5 +1,6 @@
 {% extends "base-form.njk" %}
 {% set hmpoPageKey = "cannotProceed" %}
+{% set hmpoTitle = cannotProceed.title %}
 {% set gtmJourney = "bav - cannotProceed" %}
 {% set backLink = false %}
 
@@ -10,7 +11,7 @@
 
 {% block mainContent %}
 
-{% set title = translate("escapeJourney.title") %}
+{% set title = translate("cannotProceed.title") %}
       
       {% call hmpoForm(ctx) %}
               {{ hmpoRadios(ctx, {

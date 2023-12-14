@@ -30,7 +30,7 @@ landingPage:
 accountDetails:
   title: Enter your account details
 
-escapeJourney: 
+cannotProceed: 
   title: How would you like to continue?
   
 enterAccountDetails:
