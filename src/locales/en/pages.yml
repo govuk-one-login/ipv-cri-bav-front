@@ -33,7 +33,7 @@ cannotProceed:
 enterAccountDetails:
   title: Enter your account details
 
-escapeJourney: 
+cannotProceed: 
   title: How would you like to continue?
   
 
