@@ -23,11 +23,7 @@ module.exports = {
     },
     ANALYTICS: {
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",
-    },
-    HAS_EXPIRY_DATE: {
-      YES: "yes",
-      NO: "no"
-    },
+    }
   },
   PORT: process.env.PORT || 5040,
   SESSION_SECRET: process.env.SESSION_SECRET,

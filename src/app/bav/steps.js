@@ -29,17 +29,17 @@ module.exports = {
     next: APP.PATHS.DONE,
   },
   [`${APP.PATHS.CANNOT_PROCEED}`]: {
-    controller: escapeJourney,
-    fields: ["escapeChoice"],
+    controller: cannotProceed,
+    fields: ["cannotProceedChoice"],
     checkJourney: false,
     next: [
       {
-        field: "escapeChoice",
+        field: "cannotProceedChoice",
         value: "proveAnotherWay",
         next: APP.PATHS.ABORT
       },
       {
-        field: "escapeChoice",
+        field: "cannotProceedChoice",
         value: "goBack",
         next: {fn: (req.sessionModel.get("isLanding")), next: APP.PATHS.LANDING_PAGE }
       },
