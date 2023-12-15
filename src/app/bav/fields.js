@@ -21,7 +21,7 @@ module.exports = {
       { type: "maxlength", arguments: [8] },
     ],
   },
-  escapeChoice: {
+  cannotProceedChoice: {
     type: "radios",
     legend: "",
     label: "",

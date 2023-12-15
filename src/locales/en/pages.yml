@@ -23,9 +23,9 @@ landingPage:
   detailDropdown:
     summaryText: How we use your bank details
     detailContent: <p class="instruction">We will not save or share your account details.</p><p class="instruction">We do not use your account details to:</p><ul class="govuk-list govuk-list--bullet"><li>take any payments</li><li>check any transactions</li></ul>
-  escapeJourneyLanding: 
-    escapeLink: /cannot-proceed
-    escapeText: "I cannot provide UK current account details"
+  cannotProceedLanding: 
+    cannotProceedLink: /cannot-proceed
+    cannotProceedText: "I cannot provide UK current account details"
 
 accountDetails:
   title: Enter your account details

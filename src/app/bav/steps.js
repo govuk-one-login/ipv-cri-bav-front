@@ -1,6 +1,6 @@
 const root = require("./controllers/root");
 const landingPage = require("./controllers/landingPage");
-const escapeJourney = require("./controllers/escapeJourney");
+const cannotProceed = require("./controllers/cannotProceed");
 const confirmDetails = require("./controllers/confirmDetails");
 const { APP } = require("../../lib/config");
 
@@ -28,17 +28,17 @@ module.exports = {
     next: APP.PATHS.DONE,
   },
   [`${APP.PATHS.CANNOT_PROCEED}`]: {
-    controller: escapeJourney,
-    fields: ["escapeChoice"],
+    controller: cannotProceed,
+    fields: ["cannotProceedChoice"],
     checkJourney: false,
     next: [
       {
-        field: "escapeChoice",
+        field: "cannotProceedChoice",
         value: "proveAnotherWay",
         next: APP.PATHS.ABORT
       },
       {
-        field: "escapeChoice",
+        field: "cannotProceedChoice",
         value: "goBack",
         next: [
           {
