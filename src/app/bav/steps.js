@@ -35,7 +35,7 @@ module.exports = {
       {
         field: "cannotProceedChoice",
         value: "proveAnotherWay",
-        next: APP.PATHS.ABORT
+        next: APP.PATHS.ABORT,
       },
       {
         field: "cannotProceedChoice",
@@ -44,15 +44,15 @@ module.exports = {
           {
             field: "isLanding",
             value: true,
-            next: APP.PATHS.LANDING_PAGE
+            next: APP.PATHS.LANDING_PAGE,
           },
           {
             field: "isLanding",
             value: false,
-            next: APP.PATHS.CONFIRM_DETAILS
-          }
-    ]
-      }
-    ]
-  }
+            next: APP.PATHS.CONFIRM_DETAILS,
+          },
+        ],
+      },
+    ],
+  },
 };

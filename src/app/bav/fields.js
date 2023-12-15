@@ -30,15 +30,16 @@ module.exports = {
       {
         value: "proveAnotherWay",
         conditional: {
-          html: ""
-        }
+          html: "",
+        },
       },
-      { value: "goBack",
+      {
+        value: "goBack",
         conditional: {
-          html: ""
-        }
-      }
+          html: "",
+        },
+      },
     ],
-    validate: ["required"]
+    validate: ["required"],
   },
 };

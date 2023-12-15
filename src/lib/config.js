@@ -22,7 +22,7 @@ module.exports = {
     },
     ANALYTICS: {
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",
-    }
+    },
   },
   PORT: process.env.PORT || 5040,
   SESSION_SECRET: process.env.SESSION_SECRET,

@@ -13,7 +13,7 @@ class ConfirmDetailsController extends BaseController {
       locals.sortCode = formatSortCode(sortCode);
       locals.fullName = req.sessionModel.get("fullName");
       locals.accountNumber = req.form.values.accountNumber;
-      req.sessionModel.set("isLanding", false)
+      req.sessionModel.set("isLanding", false);
 
       callback(err, locals);
     });
