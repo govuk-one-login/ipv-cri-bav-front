@@ -27,9 +27,6 @@ landingPage:
     cannotProceedLink: /cannot-proceed
     cannotProceedText: "I cannot provide UK current account details"
 
-accountDetails:
-  title: Enter your account details
-
 cannotProceed: 
   title: How would you like to continue?
   
