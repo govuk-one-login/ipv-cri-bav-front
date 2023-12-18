@@ -2,7 +2,7 @@ const root = require("./controllers/root");
 const landingPage = require("./controllers/landingPage");
 const cannotProceed = require("./controllers/cannotProceed");
 const confirmDetails = require("./controllers/confirmDetails");
-const abort = require('./controllers/abort')
+const abort = require("./controllers/abort");
 const { APP } = require("../../lib/config");
 
 module.exports = {

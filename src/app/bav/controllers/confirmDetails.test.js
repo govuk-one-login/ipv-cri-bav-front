@@ -6,13 +6,13 @@ describe("ConfirmDetailsController", () => {
   let confirmDetailsController;
   let req;
   let res;
-  
+
   beforeEach(() => {
     const setup = setupDefaultMocks();
     req = setup.req;
     res = setup.res;
 
-  confirmDetailsController = new ConfirmDetailsController({ route: "/test" });
+    confirmDetailsController = new ConfirmDetailsController({ route: "/test" });
   });
 
   it("should be an instance of BaseController", () => {
@@ -20,8 +20,8 @@ describe("ConfirmDetailsController", () => {
   });
 
   it("should set the isLanding sessionModel property to false", () => {
-    req.form.values.sortCode = "123456"
-    confirmDetailsController.locals(req, res)
-    expect(req.sessionModel.get("isLanding")).toEqual(false)
+    req.form.values.sortCode = "123456";
+    confirmDetailsController.locals(req, res);
+    expect(req.sessionModel.get("isLanding")).toEqual(false);
   });
 });
