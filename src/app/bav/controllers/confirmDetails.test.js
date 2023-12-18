@@ -19,8 +19,9 @@ describe("ConfirmDetailsController", () => {
     expect(confirmDetailsController).toBeInstanceOf(BaseController);
   });
 
-  // it("should set the isLanding sessionModel property to false", () => {
-  //   confirmDetailsController.locals(req, res)
-  //   expect(req.sessionModel.get("isLanding")).toEqual(false)
-  // });
+  it("should set the isLanding sessionModel property to false", () => {
+    req.form.values.sortCode = "123456"
+    confirmDetailsController.locals(req, res)
+    expect(req.sessionModel.get("isLanding")).toEqual(false)
+  });
 });
