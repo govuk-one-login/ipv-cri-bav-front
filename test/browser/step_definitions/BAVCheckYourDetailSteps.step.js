@@ -81,7 +81,9 @@ Then("they are routed to the Account Details Page", async function () {
   expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
 });
 
-Then("the user is directed to the Cannot Proceed choice screen", async function () {
+Then(
+  "the user is directed to the Cannot Proceed choice screen",
+  async function () {
     const abortPage = new AbortPage(await this.page);
     await abortPage.isCurrentPage();
   }
