@@ -31,11 +31,7 @@ cannotProceed:
   title: How would you like to continue?
   
 enterAccountDetails:
-  title: Enter your account details
-
-cannotProceed: 
-  title: How would you like to continue?
-  
+  title: Enter your account details  
 
 confirmDetails:
   title: "Check your details match with your bank or building society account"

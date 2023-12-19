@@ -28,28 +28,6 @@ module.exports = {
     controller: confirmDetails,
     next: APP.PATHS.DONE,
   },
-  [`${APP.PATHS.CANNOT_PROCEED}`]: {
-    controller: cannotProceed,
-    fields: ["cannotProceedChoice"],
-    checkJourney: false,
-    next: [
-      {
-        field: "cannotProceedChoice",
-        value: "proveAnotherWay",
-        next: APP.PATHS.ABORT
-      },
-      {
-        field: "cannotProceedChoice",
-        value: "goBack",
-        next: {fn: (req.sessionModel.get("isLanding")), next: APP.PATHS.LANDING_PAGE }
-      },
-      {
-        field: "escapeChoice",
-        value: "goBack",
-        next: {fn: (req.sessionModel.get("isLanding")), next: APP.PATHS.CANNOT_PROCEED }
-      }
-    ]
-  },
   [`${APP.PATHS.CONFIRM_DETAILS}`]: {
     controller: confirmDetails,
     next: APP.PATHS.DONE,

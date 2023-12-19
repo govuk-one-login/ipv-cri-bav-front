@@ -13,8 +13,8 @@ class ConfirmDetailsController extends BaseController {
 
       locals.sortCode = formatSortCode(sortCode);
       locals.accountNumber = req.form.values.accountNumber;
+      locals.fullName = req.sessionModel.get("fullName");
       callback(err, locals);
-      console.log("-------------------",this.locals.length)
     });
   }
 }

@@ -22,7 +22,5 @@ describe("LandingPageController", () => {
   it("should set the isLanding sessionModel property to true", () => {
     landingPageController.locals(req, res);
     expect(req.sessionModel.get("isLanding")).toEqual(true);
-    landingPageController.locals(req, res);
-    expect(req.sessionModel.get("isLanding")).toEqual(true);
   });
 });

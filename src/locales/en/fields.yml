@@ -26,5 +26,4 @@ cannotProceedChoice:
       hint: ""
       reveal: ""
     default: "Enter an account number"
-    minlength: "Account number must be between 6 and 8 digits"
-    maxlength: "Account number must be between 6 and 8 digits"
+    

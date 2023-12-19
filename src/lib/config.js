@@ -18,8 +18,7 @@ module.exports = {
       CONFIRM_DETAILS: "/confirm-details",
       ABORT: "/abort",
       CANNOT_PROCEED: "/cannot-proceed",
-      DONE: "/done",
-      CANNOT_PROCEED: "/cannot-proceed"
+      DONE: "/done"
     },
     ANALYTICS: {
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",
