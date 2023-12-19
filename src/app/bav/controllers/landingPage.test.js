@@ -12,7 +12,6 @@ describe("LandingPageController", () => {
     const setup = setupDefaultMocks();
     req = setup.req;
     res = setup.res;
-    callback = setup.next
 
     landingPageController = new LandingPageController({ route: "/test" });
   });
@@ -22,7 +21,7 @@ describe("LandingPageController", () => {
   });
 
   it("should set the isLanding sessionModel property to true", () => {
-    landingPageController.locals(req, res, callback);
+    landingPageController.locals(req, res);
     expect(req.sessionModel.get("isLanding")).toEqual(true);
   });
 });
