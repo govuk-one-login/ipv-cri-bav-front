@@ -6,13 +6,13 @@ describe("ConfirmDetailsController", () => {
   let confirmDetailsController;
   let req;
   let res;
-  let callback
+  let callback;
 
   beforeEach(() => {
     const setup = setupDefaultMocks();
     req = setup.req;
     res = setup.res;
-    callback = setup.next
+    callback = setup.next;
 
     confirmDetailsController = new ConfirmDetailsController({ route: "/test" });
   });

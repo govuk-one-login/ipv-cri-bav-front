@@ -18,11 +18,11 @@ module.exports = {
       CONFIRM_DETAILS: "/confirm-details",
       ABORT: "/abort",
       CANNOT_PROCEED: "/cannot-proceed",
-      DONE: "/done"
+      DONE: "/done",
     },
     ANALYTICS: {
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",
-    }
+    },
   },
   PORT: process.env.PORT || 5040,
   SESSION_SECRET: process.env.SESSION_SECRET,
