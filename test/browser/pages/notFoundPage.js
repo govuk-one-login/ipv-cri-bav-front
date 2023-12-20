@@ -22,5 +22,3 @@ module.exports = class PlaywrightDevPage {
     expect(headerText.trim()).toBe("Page not found");
   }
 };
-
-
