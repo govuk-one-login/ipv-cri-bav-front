@@ -1,4 +1,4 @@
-const { chromium } = require('playwright');
+const { chromium } = require("playwright");
 
 module.exports = class PlaywrightDevPage {
   /**
@@ -21,8 +21,12 @@ module.exports = class PlaywrightDevPage {
 
   async validateErrorScreen() {
     const { expect } = require("@playwright/test");
-    const headerText = await this.page.locator("#main-content > div > div > h1").textContent();
-    expect(headerText.trim()).toBe("Sorry, there is a problem with the service");
+    const headerText = await this.page
+      .locator("#main-content > div > div > h1")
+      .textContent();
+    expect(headerText.trim()).toBe(
+      "Sorry, there is a problem with the service"
+    );
   }
 
   async clickGovUkHomeButton() {
@@ -33,6 +37,4 @@ module.exports = class PlaywrightDevPage {
     const { expect } = require("@playwright/test");
     expect(new URL(this.page.url()).href).toBe("https://www.gov.uk/");
   }
-
 };
-
