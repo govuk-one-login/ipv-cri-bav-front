@@ -6,4 +6,5 @@ module.exports = {
   AbortPage: require("./abortPage.js"),
   ConfirmDetailsPage: require("./confirmDetailsPage.js"),
   LoadBankDetailsPage: require("./loadBankDetailsPage.js"),
+  NotFoundPage: require("./notFoundPage.js"),
 };
