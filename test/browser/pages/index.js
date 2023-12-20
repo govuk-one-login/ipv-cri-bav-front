@@ -8,4 +8,5 @@ module.exports = {
   ConfirmDetailsPage: require("./confirmDetailsPage.js"),
   LoadBankDetailsPage: require("./loadBankDetailsPage.js"),
   NotFoundPage: require("./notFoundPage.js"),
+  ErrorPage: require("./errorPage.js"),
 };
