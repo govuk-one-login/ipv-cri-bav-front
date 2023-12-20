@@ -1,5 +1,3 @@
-const { chromium } = require("playwright");
-
 module.exports = class PlaywrightDevPage {
   /**
    * @param {import('@playwright/test').Page} page
