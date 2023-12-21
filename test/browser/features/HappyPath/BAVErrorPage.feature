@@ -10,5 +10,5 @@ Feature: Navigate to Internal Error Page
 
    Scenario: User successfully sent to GOV.UK-homepage
       When the user clicks the Gov.UK Homepage button
-      Then the user is are routed to the Gov.UK Homepage
+      Then the user is routed to the Gov.UK Homepage
 

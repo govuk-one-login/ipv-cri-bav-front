@@ -20,7 +20,7 @@ When("the user clicks the Gov.UK Homepage button", async function () {
   await errorPage.clickGovUkHomeButton();
 });
 
-Then("the user is are routed to the Gov.UK Homepage", async function () {
+Then("the user is routed to the Gov.UK Homepage", async function () {
   const errorPage = new ErrorPage(await this.page);
   await errorPage.isGovUkHomepage();
 });

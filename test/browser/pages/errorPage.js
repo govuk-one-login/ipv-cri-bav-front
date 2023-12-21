@@ -5,7 +5,7 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.path = "/not-found";
+    this.path = "/error";
   }
 
   async returnUrl() {
