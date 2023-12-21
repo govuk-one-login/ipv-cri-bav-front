@@ -27,8 +27,8 @@ module.exports = class PlaywrightDevPage {
       .click();
   }
 
-  async clickDoNotContinueToBankDetailsCheck() {
-    await this.page.locator('[href*="/abort"]').click();
+  async clickCannotProvideUkAccDetails() {
+    await this.page.click('[href*="/cannot-proceed"]');
   }
 
   async clickSubmitDetailsButton() {

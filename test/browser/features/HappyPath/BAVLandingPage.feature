@@ -14,8 +14,5 @@ Feature: Continue on from landing page
       Then the 'How we use your bank details' information is presented to the user
 
    Scenario: User routed to Abort Screen
-      When the user clicks on 'Find other ways to prove your identity' link
-      Then the user is directed to the Abort screen
-
-
-            
+      When the user clicks the 'I cannot provide UK current account details' link
+      Then the user is directed to the Escape Choice screen

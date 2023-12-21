@@ -19,6 +19,6 @@ Feature: Navigate away from the Check Your Details Screen
     When the user clicks the browser Back button on the CYA page
     Then they are routed to the Account Details Page
 
-  Scenario: Exit link routes to Cannot Proceed choice Screen
-    When they click on the “I do not want to continue to bank details check” link
-    Then the user is directed to the Cannot Proceed choice screen
+  Scenario: Exit link routes to Escape choice Screen
+    When the user clicks on 'I cannot provide UK account details' link
+    Then the user is directed to the Escape Choice screen
