@@ -278,7 +278,6 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.22.5"
 
-
 "@babel/runtime@^7.22.5":
   version "7.23.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.23.5.tgz#11edb98f8aeec529b82b211028177679144242db"
@@ -6032,10 +6031,10 @@ playwright-core@1.35.1:
   resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.35.1.tgz#52c1e6ffaa6a8c29de1a5bdf8cce0ce290ffb81d"
   integrity sha512-pNXb6CQ7OqmGDRspEjlxE49w+4YtR6a3X6mT1hZXeJHWmsEz7SunmvZeiG/+y1yyMZdHnnn73WKYdtV1er0Xyg==
 
-playwright-core@1.40.1:
-  version "1.40.1"
-  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.40.1.tgz#442d15e86866a87d90d07af528e0afabe4c75c05"
-  integrity sha512-+hkOycxPiV534c4HhpfX6yrlawqVUzITRKwHAmYfmsVreltEl6fAZJ3DPfLMOODw0H3s1Itd6MDCWmP1fl/QvQ==
+playwright-core@1.39.0:
+  version "1.39.0"
+  resolved "https://registry.yarnpkg.com/playwright-core/-/playwright-core-1.39.0.tgz#efeaea754af4fb170d11845b8da30b2323287c63"
+  integrity sha512-+k4pdZgs1qiM+OUkSjx96YiKsXsmb59evFoqv8SKO067qBA+Z2s/dCzJij/ZhdQcs2zlTAgRKfeiiLm8PQ2qvw==
 
 playwright@1.35.1:
   version "1.35.1"
@@ -6574,10 +6573,10 @@ sane@^4.0.3:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-sass@1.63.6:
-  version "1.63.6"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.63.6.tgz#481610e612902e0c31c46b46cf2dad66943283ea"
-  integrity sha512-MJuxGMHzaOW7ipp+1KdELtqKbfAWbH7OLIdoSMnVe3EXPMTmxTmlaZDCTsgIpPCs3w99lLo9/zDKkOrJuT5byw==
+sass@1.69.6:
+  version "1.69.6"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.69.6.tgz#88ae1f93facc46d2da9b0bdd652d65068bcfa397"
+  integrity sha512-qbRr3k9JGHWXCvZU77SD2OTwUlC+gNT+61JOLcmLm+XqH4h/5D+p4IIsxvpkB89S9AwJOyb5+rWNpIucaFxSFQ==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
