@@ -2,7 +2,6 @@ const { Given, Then, When } = require("@cucumber/cucumber");
 const {
   ConfirmDetailsPage,
   AccountDetailsEditPage,
-  AbortPage,
   LoadBankDetailsPage,
   AccountDetailsPage,
 } = require("../pages");
@@ -53,10 +52,10 @@ When(
 );
 
 When(
-  "they click on the “I do not want to continue to bank details check” link",
+  "the user clicks on 'I cannot provide UK account details' link",
   async function () {
     const cyaPage = new ConfirmDetailsPage(await this.page);
-    await cyaPage.clickDoNotContinueToBankDetailsCheck();
+    await cyaPage.clickCannotProvideUkAccDetails();
   }
 );
 
@@ -81,10 +80,7 @@ Then("they are routed to the Account Details Page", async function () {
   expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
 });
 
-Then(
-  "the user is directed to the Cannot Proceed choice screen",
-  async function () {
-    const abortPage = new AbortPage(await this.page);
-    await abortPage.isCurrentPage();
-  }
-);
+Then("the user is directed to the Escape choice screen", async function () {
+  const abortPage = new AbortPage(await this.page);
+  await abortPage.isCurrentPage();
+});
