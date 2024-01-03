@@ -7,6 +7,7 @@ module.exports = {
       SESSION: "/session",
       AUTHORIZATION: "/authorization",
       ABORT: "/abort",
+      SAVE_BAVDATA: "/verify-account",
     },
   },
   APP: {
