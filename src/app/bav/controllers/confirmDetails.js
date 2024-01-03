@@ -22,7 +22,7 @@ class ConfirmDetailsController extends BaseController {
       callback(err, locals);
     });
   }
-  
+
   async saveValues(req, res, callback) {
     try {
       const bavData = {
@@ -35,7 +35,7 @@ class ConfirmDetailsController extends BaseController {
       callback(error);
     }
   }
-  
+
   async saveBavData(axios, bavData, req) {
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId,
