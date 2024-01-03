@@ -21,7 +21,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async clickFindOtherWaysToProveIdentity() {
-    await this.page.click('[href*="/abort"]');
+    await this.page.click('[href*="/cannot-proceed"]');
   }
 
   async isHowWeUseBankDetailsSectionDisplayed() {
@@ -36,7 +36,7 @@ module.exports = class PlaywrightDevPage {
 
   async checkErrorText() {
     const errorText = await this.page
-      .locator("#error-summary-title")
+      .locator("h2.govuk-error-summary__title")
       .textContent();
     return errorText.trim();
   }

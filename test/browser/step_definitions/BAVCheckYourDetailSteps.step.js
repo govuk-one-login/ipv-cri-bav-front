@@ -2,9 +2,9 @@ const { Given, Then, When } = require("@cucumber/cucumber");
 const {
   ConfirmDetailsPage,
   AccountDetailsEditPage,
-  AbortPage,
   LoadBankDetailsPage,
   AccountDetailsPage,
+  AbortPage,
 } = require("../pages");
 const { expect } = require("@playwright/test");
 
@@ -53,10 +53,10 @@ When(
 );
 
 When(
-  "they click on the “I do not want to continue to bank details check” link",
+  "the user clicks on 'I cannot provide UK account details' link",
   async function () {
     const cyaPage = new ConfirmDetailsPage(await this.page);
-    await cyaPage.clickDoNotContinueToBankDetailsCheck();
+    await cyaPage.clickCannotProvideUkAccDetails();
   }
 );
 

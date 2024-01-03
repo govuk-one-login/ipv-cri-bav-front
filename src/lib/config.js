@@ -18,6 +18,7 @@ module.exports = {
       ACCOUNT_DETAILS: "/enter-account-details",
       CONFIRM_DETAILS: "/confirm-details",
       ABORT: "/abort",
+      CANNOT_PROCEED: "/cannot-proceed",
       DONE: "/done",
     },
     ANALYTICS: {

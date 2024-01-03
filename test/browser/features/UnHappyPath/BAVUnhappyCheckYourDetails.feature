@@ -20,5 +20,5 @@ Feature: Navigate away from the Check Your Details Screen
     Then they are routed to the Account Details Page
 
   Scenario: Exit link routes to Escape choice Screen
-    When they click on the “I do not want to continue to bank details check” link
-    Then the user is directed to the Escape choice screen
+    When the user clicks on 'I cannot provide UK account details' link
+    Then the user is directed to the Escape Choice screen
