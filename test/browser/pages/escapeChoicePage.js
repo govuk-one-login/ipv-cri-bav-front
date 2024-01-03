@@ -16,17 +16,15 @@ module.exports = class PlaywrightDevPage {
     await this.page.click("#continue");
   }
 
-  async radioButtonContinue(){
+  async radioButtonContinue() {
     await this.page.locator("#cannotProceedChoice-goBack").click();
-
   }
 
-  async radioButtonExitBav(){
+  async radioButtonExitBav() {
     await this.page.locator("#cannotProceedChoice").check();
   }
 
   async goBack() {
-   await this.page.goBack();
+    await this.page.goBack();
   }
-
 };

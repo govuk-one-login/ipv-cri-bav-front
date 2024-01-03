@@ -40,5 +40,4 @@ module.exports = class PlaywrightDevPage {
       .textContent();
     return errorText.trim();
   }
-
 };

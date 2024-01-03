@@ -1,5 +1,5 @@
 const { When, Then } = require("@cucumber/cucumber");
-const { BavLandingPage, AccountDetailsPage} = require("../pages");
+const { BavLandingPage, AccountDetailsPage } = require("../pages");
 
 When("the user clicks on Continue button", async function () {
   const landingPage = new BavLandingPage(await this.page);
@@ -35,7 +35,7 @@ When(
   }
 );
 
-Then("the user is redirected to the BAV landing page", async function(){
+Then("the user is redirected to the BAV landing page", async function () {
   const landingPage = new BavLandingPage(await this.page);
   expect(await landingPage.isCurrentPage()).toBeTruthy();
 });
