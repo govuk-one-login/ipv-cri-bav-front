@@ -8,6 +8,7 @@ Feature: Exit out of BAV Journey
     When the user clicks the 'I cannot provide UK current account details' link
     Then the user is directed to the Escape Choice screen
     Given the user wishes to exit the BAV process
+    Then the user is directed to the Abort screen
   
 
   Scenario: User routed to BAV landing page from Escape Choice screen
@@ -20,4 +21,4 @@ Feature: Exit out of BAV Journey
      When the user clicks on 'I cannot provide UK account details' link
     Then the user is directed to the Escape Choice screen
     Given the user wishes to exit the BAV process
-
+    Then the user is directed to the Abort screen

@@ -1,5 +1,5 @@
 const { Given, Then } = require ("@cucumber/cucumber");
-const { EscapeChoicePage, BavLandingPage, ConfirmDetailsPage } = require ("../pages");
+const { EscapeChoicePage, AbortPage, ConfirmDetailsPage } = require ("../pages");
 const { expect } = require ("@playwright/test");
 
 Given("the user wishes to continue with the BAV process", async function () {
@@ -34,3 +34,8 @@ Then("the user is redirected to the cya page", async function(){
     const cyaPage = new ConfirmDetailsPage(await this.page);
     expect(await cyaPage.isCurrentPage()).toBeTruthy();
 });
+
+Then("the user is directed to the Abort screen", async function () {
+    const abortPage = new AbortPage(await this.page);
+    await abortPage.isCurrentPage();
+  });
