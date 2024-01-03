@@ -1,5 +1,5 @@
 const { When, Then } = require("@cucumber/cucumber");
-const { BavLandingPage, AccountDetailsPage, AbortPage } = require("../pages");
+const { BavLandingPage, AccountDetailsPage } = require("../pages");
 
 When("the user clicks on Continue button", async function () {
   const landingPage = new BavLandingPage(await this.page);
@@ -28,14 +28,14 @@ Then(
 );
 
 When(
-  "the user clicks on 'Find other ways to prove your identity' link",
+  "the user clicks the 'I cannot provide UK current account details' link",
   async function () {
     const landingPage = new BavLandingPage(await this.page);
     await landingPage.clickFindOtherWaysToProveIdentity();
   }
 );
 
-Then("the user is directed to the Abort screen", async function () {
-  const abortPage = new AbortPage(await this.page);
-  await abortPage.isCurrentPage();
+Then("the user is redirected to the BAV landing page", async function () {
+  const landingPage = new BavLandingPage(await this.page);
+  expect(await landingPage.isCurrentPage()).toBeTruthy();
 });
