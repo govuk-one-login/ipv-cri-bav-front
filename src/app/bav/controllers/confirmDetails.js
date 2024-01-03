@@ -1,5 +1,5 @@
 const BaseController = require("hmpo-form-wizard").Controller;
-const { APP, API } = require("../../../lib/config");
+const { API } = require("../../../lib/config");
 const { formatSortCode } = require("../utils");
 
 class ConfirmDetailsController extends BaseController {
