@@ -26,11 +26,7 @@ module.exports = {
   },
   [`${APP.PATHS.CONFIRM_DETAILS}`]: {
     controller: confirmDetails,
-    next: APP.PATHS.DONE,
-  },
-  [`${APP.PATHS.CONFIRM_DETAILS}`]: {
-    controller: confirmDetails,
-    next: APP.PATHS.DONE,
+    next: APP.PATHS.FAIL,
   },
   [`${APP.PATHS.CANNOT_PROCEED}`]: {
     controller: cannotProceed,
@@ -59,6 +55,22 @@ module.exports = {
         ],
       },
     ],
+  },
+  [`${APP.PATHS.FAIL}`]: {
+    fields: ["failChoice"],
+    checkJourney: false,
+    next: [
+      {
+        field: "failChoice",
+        value: "tryAgain",
+        next: APP.PATHS.ACCOUNT_DETAILS
+      },
+      {
+        field: "failChoice",
+        value: "proveAnotherWay",
+        next: APP.PATHS.ABORT
+      }
+    ]
   },
   [`${APP.PATHS.ABORT}`]: {
     entryPoint: true,

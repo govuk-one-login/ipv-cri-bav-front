@@ -42,4 +42,25 @@ module.exports = {
     ],
     validate: ["required"],
   },
+  failChoice: {
+    type: "radios",
+    legend: "",
+    label: "",
+    hint: "",
+    items: [
+      {
+        value: "tryAgain",
+        conditional: {
+          html: "",
+        },
+      },
+      {
+        value: "proveAnotherWay",
+        conditional: {
+          html: "",
+        },
+      },
+    ],
+    validate: ["required"],
+  }
 };
