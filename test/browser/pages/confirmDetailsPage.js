@@ -34,4 +34,18 @@ module.exports = class PlaywrightDevPage {
   async clickSubmitDetailsButton() {
     await this.page.locator("#submitDetails").click();
   }
+
+  async getSavedSC() {
+    const sort_code = this.page.locator("dd.govuk-summary-list__value").nth(1);
+    let scValue = await sort_code.textContent();
+    scValue = scValue.trim();
+    return scValue;
+  }
+
+  async getSavedAccNo() {
+    const accNo = this.page.locator(".govuk-summary-list__value").nth(2);
+    let accNoValue = await accNo.textContent();
+    accNoValue = accNoValue.trim();
+    return accNoValue;
+  }
 };
