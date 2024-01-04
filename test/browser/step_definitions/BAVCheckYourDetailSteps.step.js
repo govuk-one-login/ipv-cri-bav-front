@@ -59,14 +59,6 @@ Then(
 );
 
 Then(
-  "the user is directed to the Check Your Answers screen",
-  async function () {
-    const cyaPage = new ConfirmDetailsPage(await this.page);
-    expect(await cyaPage.isCurrentPage()).toBeTruthy();
-  }
-);
-
-Then(
   "the user is directed to the Loading Bank Details screen",
   async function () {
     const loadBankDetails = new LoadBankDetailsPage(await this.page);
