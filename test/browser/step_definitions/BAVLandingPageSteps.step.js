@@ -2,7 +2,6 @@ const { When, Then } = require("@cucumber/cucumber");
 const { BavLandingPage } = require("../pages");
 const { expect } = require("@playwright/test");
 
-
 When("the user clicks on Continue button", async function () {
   const landingPage = new BavLandingPage(await this.page);
   await landingPage.continueToAccountDetails();
