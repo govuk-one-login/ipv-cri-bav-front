@@ -1,9 +1,7 @@
 const { Given, Then, When } = require("@cucumber/cucumber");
 const {
   ConfirmDetailsPage,
-  AccountDetailsEditPage,
   LoadBankDetailsPage,
-  AccountDetailsPage,
   AbortPage,
 } = require("../pages");
 const { expect } = require("@playwright/test");
