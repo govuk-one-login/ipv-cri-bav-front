@@ -63,14 +63,14 @@ module.exports = {
       {
         field: "failChoice",
         value: "tryAgain",
-        next: APP.PATHS.ACCOUNT_DETAILS
+        next: APP.PATHS.ACCOUNT_DETAILS,
       },
       {
         field: "failChoice",
         value: "proveAnotherWay",
-        next: APP.PATHS.ABORT
-      }
-    ]
+        next: APP.PATHS.ABORT,
+      },
+    ],
   },
   [`${APP.PATHS.ABORT}`]: {
     entryPoint: true,
