@@ -16,7 +16,7 @@ module.exports = {
   },
   [`${APP.PATHS.LANDING_PAGE}`]: {
     controller: landingPage,
-    next: APP.PATHS.ACCOUNT_DETAILS,
+    next: APP.PATHS.COULD_NOT_MATCH,
   },
   [`${APP.PATHS.ACCOUNT_DETAILS}`]: {
     fields: ["sortCode", "accountNumber"],
@@ -36,12 +36,12 @@ module.exports = {
       {
         field: "retryCount",
         value: 1,
-        next: APP.PATHS.FAIL,
+        next: APP.PATHS.COULD_NOT_MATCH,
       },
       {
         field: "retryCount",
         value: 2,
-        next: APP.PATHS.DONE,
+        next: APP.PATHS.FAIL,
       }
     ]
   },
@@ -73,17 +73,17 @@ module.exports = {
       },
     ],
   },
-  [`${APP.PATHS.FAIL}`]: {
-    fields: ["failChoice"],
+  [`${APP.PATHS.COULD_NOT_MATCH}`]: {
+    fields: ["couldNotMatchChoice"],
     checkJourney: false,
     next: [
       {
-        field: "failChoice",
+        field: "couldNotMatchChoice",
         value: "tryAgain",
         next: APP.PATHS.ACCOUNT_DETAILS
       },
       {
-        field: "failChoice",
+        field: "couldNotMatchChoice",
         value: "proveAnotherWay",
         next: APP.PATHS.ABORT
       }

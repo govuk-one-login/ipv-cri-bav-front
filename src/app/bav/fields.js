@@ -42,7 +42,7 @@ module.exports = {
     ],
     validate: ["required"],
   },
-  failChoice: {
+  couldNotMatchChoice: {
     type: "radios",
     legend: "",
     label: "",

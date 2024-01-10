@@ -19,6 +19,7 @@ module.exports = {
       CONFIRM_DETAILS: "/confirm-details",
       ABORT: "/abort",
       CANNOT_PROCEED: "/cannot-proceed",
+      COULD_NOT_MATCH: "/could-not-match",
       FAIL: "/fail",
       DONE: "/done",
       ERROR: "/error",

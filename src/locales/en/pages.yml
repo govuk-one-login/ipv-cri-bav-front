@@ -43,7 +43,7 @@ confirmDetails:
   submitDetails: "Submit details for bank check"
   noSubmitDetails: "I do not want continue to bank details check"
 
-fail:
+couldNotMatch:
   title: We could not match your details to your bank or building society
   content: You can check your details and try again. You’ll only be able to do this once.
   prompt: What would you like to do?

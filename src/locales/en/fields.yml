@@ -25,8 +25,8 @@ cannotProceedChoice:
       label: Go back and prove your identity using your bank details
       hint: ""
       reveal: ""
-
-failChoice:
+      
+couldNotMatchChoice:
   validation:
     required: Select what you would like to do
   items:

@@ -102,7 +102,7 @@ $govuk-assets-path: "/public/";
   @include govuk-responsive-margin(4, "top");
 }
 
-.failPrompt {
+.couldNotMatchPrompt {
   color: govuk-colour("black");
   font-size: 22px;
   font-weight: bold;

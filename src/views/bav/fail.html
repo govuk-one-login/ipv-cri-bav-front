@@ -1,6 +1,6 @@
 {% extends "base-form.njk" %}
-{% set hmpoPageKey = "fail" %}
-{% set hmpoTitle = fail.title %}
+{% set hmpoPageKey = "couldNotMatch" %}
+{% set hmpoTitle = couldNotMatch.title %}
 {% set gtmJourney = "bav - cannotProceed" %}
 {% set backLink = false %}
 
@@ -11,15 +11,15 @@
 
 {% block mainContent %}
 
-{% set title = translate("fail.title") %}
-{% set content = translate("fail.content") %}
-{% set prompt = translate("fail.prompt") %} 
-{% set formInstructions = "<p>"+content+"</p><p class=\"failPrompt\">"+prompt+"</p>"%}
+{% set title = translate("couldNotMatch.title") %}
+{% set content = translate("couldNotMatch.content") %}
+{% set prompt = translate("couldNotMatch.prompt") %} 
+{% set formInstructions = "<p>"+content+"</p><p class=\"couldNotMatchPrompt\">"+prompt+"</p>"%}
 
       {% call hmpoForm(ctx) %}
               {{ hmpoRadios(ctx, {
-                id: "failChoice",
-                namePrefix: "failChoice",
+                id: "couldNotMatchChoice",
+                namePrefix: "couldNotMatchChoice",
                 fieldset: {
                     legend: {
                         text: title,
