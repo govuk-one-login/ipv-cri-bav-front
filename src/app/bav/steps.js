@@ -26,7 +26,24 @@ module.exports = {
   },
   [`${APP.PATHS.CONFIRM_DETAILS}`]: {
     controller: confirmDetails,
-    next: APP.PATHS.FAIL,
+    fields: ["retryCount"],
+    next: [
+      {
+        field: "retryCount",
+        value: 0,
+        next: APP.PATHS.DONE,
+      },
+      {
+        field: "retryCount",
+        value: 1,
+        next: APP.PATHS.FAIL,
+      },
+      {
+        field: "retryCount",
+        value: 2,
+        next: APP.PATHS.DONE,
+      }
+    ]
   },
   [`${APP.PATHS.CANNOT_PROCEED}`]: {
     controller: cannotProceed,
