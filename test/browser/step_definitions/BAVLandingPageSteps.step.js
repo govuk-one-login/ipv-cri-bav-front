@@ -1,14 +1,10 @@
 const { When, Then } = require("@cucumber/cucumber");
-const { BavLandingPage, AccountDetailsPage } = require("../pages");
+const { BavLandingPage } = require("../pages");
+const { expect } = require("@playwright/test");
 
 When("the user clicks on Continue button", async function () {
   const landingPage = new BavLandingPage(await this.page);
   await landingPage.continueToAccountDetails();
-});
-
-Then("the user is directed to the Account Details screen", async function () {
-  const accountDetailsPage = new AccountDetailsPage(await this.page);
-  await accountDetailsPage.isCurrentPage();
 });
 
 When(
@@ -18,6 +14,11 @@ When(
     await landingPage.clickHowWeUseBankDetails();
   }
 );
+
+Then("they are routed to the BAV Landing Page", async function () {
+  const landingPage = new BavLandingPage(await this.page);
+  expect(await landingPage.isCurrentPage()).toBeTruthy();
+});
 
 Then(
   "the 'How we use your bank details' information is presented to the user",
