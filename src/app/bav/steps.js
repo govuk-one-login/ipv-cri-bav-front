@@ -42,8 +42,8 @@ module.exports = {
         field: "retryCount",
         value: 2,
         next: APP.PATHS.FAIL,
-      }
-    ]
+      },
+    ],
   },
   [`${APP.PATHS.CANNOT_PROCEED}`]: {
     controller: cannotProceed,
@@ -80,14 +80,14 @@ module.exports = {
       {
         field: "couldNotMatchChoice",
         value: "tryAgain",
-        next: APP.PATHS.ACCOUNT_DETAILS
+        next: APP.PATHS.ACCOUNT_DETAILS,
       },
       {
         field: "couldNotMatchChoice",
         value: "proveAnotherWay",
-        next: APP.PATHS.ABORT
-      }
-    ]
+        next: APP.PATHS.ABORT,
+      },
+    ],
   },
   [`${APP.PATHS.ABORT}`]: {
     entryPoint: true,
