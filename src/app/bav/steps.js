@@ -12,7 +12,7 @@ module.exports = {
     entryPoint: true,
     skip: true,
     controller: root,
-    next: APP.PATHS.LANDING_PAGE,
+    next: APP.PATHS.COULD_NOT_MATCH,
   },
   [`${APP.PATHS.LANDING_PAGE}`]: {
     controller: landingPage,
@@ -30,18 +30,8 @@ module.exports = {
     next: [
       {
         field: "retryCount",
-        value: 0,
-        next: APP.PATHS.DONE,
-      },
-      {
-        field: "retryCount",
         value: 1,
         next: APP.PATHS.COULD_NOT_MATCH,
-      },
-      {
-        field: "retryCount",
-        value: 2,
-        next: APP.PATHS.FAIL,
       },
     ],
   },
