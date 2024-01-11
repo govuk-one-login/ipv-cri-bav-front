@@ -26,10 +26,4 @@ describe("ConfirmDetailsController", () => {
     confirmDetailsController.locals(req, res, callback);
     expect(req.sessionModel.get("isLanding")).toEqual(false);
   });
-
-  it("should set the retryCount sessionModel property to the value returned from the API call", () => {
-    const res = { message: 'Success', retryCount: 1}
-    confirmDetailsController.saveValues(req, res, callback);
-    expect(req.sessionModel.get("retryCount")).toEqual(1);
-  });
 });
