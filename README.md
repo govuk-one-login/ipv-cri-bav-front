@@ -16,9 +16,13 @@ yarn install
 
 ## Environment Variables
 
-- 'BASE_URL': Externally accessible base url of the webserver. Used to generate the callback url as part of credential issuer oauth flows
+- `API_BASE_URL`: Externally accessible base url of the webserver. Used to generate the callback url as part of credential issuer oauth flows. See below to set this.
 - `IPV_STUB_URL`: Mocks being sent to/from IPV Core to enable browser testing
 - `PORT` - Default port to run webserver on. (Default to `5040`)
+
+```bash
+export API_BASE_URL=https://api-bav-cri-api.review-bav.dev.account.gov.uk
+```
 
 # Deployment in own stack in DEV
 
