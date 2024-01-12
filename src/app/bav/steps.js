@@ -30,6 +30,11 @@ module.exports = {
     next: [
       {
         field: "retryCount",
+        value: undefined,
+        next: APP.PATHS.DONE,
+      },
+      {
+        field: "retryCount",
         value: 1,
         next: APP.PATHS.COULD_NOT_MATCH,
       },
@@ -84,7 +89,12 @@ module.exports = {
     skip: true,
     controller: abort,
   },
+  [`${APP.PATHS.DONE}`]: {
+    skip: true,
+    noPost: true,
+    next: APP.PATHS.OAUTH2,
+  },
   [`${APP.PATHS.ERROR}`]: {
     entryPoint: true,
-  },
+  }
 };
