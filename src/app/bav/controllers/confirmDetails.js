@@ -43,7 +43,7 @@ class ConfirmDetailsController extends BaseController {
     const res = await axios.post(`${API.PATHS.SAVE_BAVDATA}`, bavData, {
       headers,
     });
-    if(res.data.retryCount) {
+    if (res.data.retryCount) {
       req.sessionModel.set("retryCount", res.data.retryCount);
     }
     return res.data;

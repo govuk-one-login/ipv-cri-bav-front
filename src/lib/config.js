@@ -22,7 +22,7 @@ module.exports = {
       COULD_NOT_MATCH: "/could-not-match",
       DONE: "/done",
       ERROR: "/error",
-      OAUTH2: "/oauth2/callback"
+      OAUTH2: "/oauth2/callback",
     },
     ANALYTICS: {
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",

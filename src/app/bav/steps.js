@@ -84,17 +84,17 @@ module.exports = {
       },
     ],
   },
-  [`${APP.PATHS.ABORT}`]: {
-    entryPoint: true,
-    skip: true,
-    controller: abort,
-  },
   [`${APP.PATHS.DONE}`]: {
     skip: true,
     noPost: true,
     next: APP.PATHS.OAUTH2,
   },
+  [`${APP.PATHS.ABORT}`]: {
+    entryPoint: true,
+    skip: true,
+    controller: abort,
+  },
   [`${APP.PATHS.ERROR}`]: {
     entryPoint: true,
-  }
+  },
 };
