@@ -5,7 +5,7 @@ const rsa = require("node-rsa");
 class RootController extends BaseController {
   async saveValues(req, res, next) {
     try {
-      const encryptedJSON = await this.getNameInfo(req.axios);
+      const encryptedJSON = await this.getNameInfo(req.axios, req);
       const key = await this.getDecryptKey(req.axios, req);
       const decryptKey = new rsa(key);
       const decryptedJSON = decryptKey.decrypt(encryptedJSON, "utf8");
@@ -21,7 +21,7 @@ class RootController extends BaseController {
     super.saveValues(req, res, next);
   }
 
-  async getNameInfo(axios) {
+  async getNameInfo(axios, req) {
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId,
     };
