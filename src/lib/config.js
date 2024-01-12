@@ -9,7 +9,7 @@ module.exports = {
       ABORT: "/abort",
       SAVE_BAVDATA: "/verify-account",
       GET_NAME_INFO: "/person-info",
-      GET_NAME_INFO_DECRYPT_KEY: "person-info-key"
+      GET_NAME_INFO_DECRYPT_KEY: "person-info-key",
     },
   },
   APP: {

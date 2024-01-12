@@ -3,11 +3,9 @@ const { API } = require("../../../lib/config");
 const rsa = require("node-rsa");
 
 class RootController extends BaseController {
-
   async saveValues(req, res, next) {
-
     try {
-      const encryptedJSON = await this.getNameInfo(req.axios, req);
+      const encryptedJSON = await this.getNameInfo(req.axios);
       const key = await this.getDecryptKey(req.axios, req);
       const decryptKey = new rsa(key);
       const decryptedJSON = decryptKey.decrypt(encryptedJSON, "utf8");
@@ -19,13 +17,13 @@ class RootController extends BaseController {
       console.log(error);
       next(error);
     }
-    
+
     super.saveValues(req, res, next);
   }
-  
-  async getNameInfo(axios, req) {
+
+  async getNameInfo(axios) {
     const headers = {
-      "x-govuk-signin-session-id":req.session.tokenId,
+      "x-govuk-signin-session-id": req.session.tokenId,
     };
     const res = await axios.get(`${API.PATHS.GET_NAME_INFO}`, {
       headers,
@@ -37,7 +35,6 @@ class RootController extends BaseController {
     const res = await axios.get(`${API.PATHS.GET_NAME_INFO_DECRYPT_KEY}`);
     return res.data.key;
   }
-
 }
 
 module.exports = RootController;
