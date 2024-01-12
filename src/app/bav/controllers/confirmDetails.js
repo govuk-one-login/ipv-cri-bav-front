@@ -38,7 +38,7 @@ class ConfirmDetailsController extends BaseController {
 
   async saveBavData(axios, bavData, req) {
     const headers = {
-      "x-govuk-signin-session-id": "98b2e970-2070-47b1-bad1-57c18f53fd28",
+      "x-govuk-signin-session-id": req.session.tokenId,
     };
     const res = await axios.post(`${API.PATHS.SAVE_BAVDATA}`, bavData, {
       headers,
