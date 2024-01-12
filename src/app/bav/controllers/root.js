@@ -7,9 +7,8 @@ class RootController extends BaseController {
   async saveValues(req, res, next) {
 
     try {
-      const key = await this.getDecryptKey(req.axios, req);
       const encryptedJSON = await this.getNameInfo(req.axios, req);
-
+      const key = await this.getDecryptKey(req.axios, req);
       const decryptKey = new rsa(key);
       const decryptedJSON = decryptKey.decrypt(encryptedJSON, "utf8");
       const decryptedObject = JSON.parse(decryptedJSON);
@@ -17,7 +16,8 @@ class RootController extends BaseController {
 
       req.sessionModel.set("fullName", decryptedName);
     } catch (error) {
-      callback(error);
+      console.log(error);
+      next(error);
     }
     
     super.saveValues(req, res, next);
@@ -25,7 +25,7 @@ class RootController extends BaseController {
   
   async getNameInfo(axios, req) {
     const headers = {
-      "x-govuk-signin-session-id":"98b2e970-2070-47b1-bad1-57c18f53fd28",
+      "x-govuk-signin-session-id":req.session.tokenId,
     };
     const res = await axios.get(`${API.PATHS.GET_NAME_INFO}`, {
       headers,
@@ -33,7 +33,7 @@ class RootController extends BaseController {
     return res.data;
   }
 
-  async getDecryptKey(axios, req) {
+  async getDecryptKey(axios) {
     const res = await axios.get(`${API.PATHS.GET_NAME_INFO_DECRYPT_KEY}`);
     return res.data.key;
   }
