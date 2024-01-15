@@ -1,0 +1,23 @@
+{
+    "shared_claims": {
+        "name": [
+            {
+                "nameParts": [
+                    {
+                        "value": "Nigel",
+                        "type": "GivenName"
+                    },
+                    {
+                        "value": "Newton",
+                        "type": "FamilyName"
+                    }
+                ]
+            }
+        ],
+        "birthDate": [
+            {
+                "value": "1960-02-02"
+            }
+        ]
+    }
+}

@@ -3,6 +3,7 @@ const {
   ConfirmDetailsPage,
   LoadBankDetailsPage,
   AbortPage,
+  FailOnePage,
 } = require("../pages");
 const { expect } = require("@playwright/test");
 
@@ -48,6 +49,14 @@ When(
   }
 );
 
+When(
+  "the user selects the 'Try Again' radio",
+  async function () {
+    const failOnePage = new FailOnePage(await this.page);
+    await failOnePage.clickTryAgainRadio();
+  }
+);
+
 Then(
   "the user is directed to the Check Your Answers screen",
   async function () {
@@ -70,10 +79,10 @@ Then("the user is directed to the Escape choice screen", async function () {
 });
 
 Then(
-  "the user is redirected to the check your details page",
+  "the user is redirected to the fail 1 page",
   async function () {
-    const cyaPage = new ConfirmDetailsPage(await this.page);
-    expect(await cyaPage.isCurrentPage()).toBeTruthy();
+    const failPage = new FailOnePage(await this.page);
+    expect(await failPage.isCurrentPage()).toBeTruthy();
   }
 );
 
@@ -85,5 +94,14 @@ Then(
     expect(savedSC).toEqual(sortCode);
     const savedAC = await cyaPage.getSavedAccNo();
     expect(savedAC).toEqual(accountNumber);
+  }
+);
+
+Then(
+  "an error message is shown",
+  async function () {
+    const failOnePage = new FailOnePage(await this.page);
+    expect(await failOnePage.getErrorTitle()).toContain("There is a problem");
+    expect(await failOnePage.getErrorText()).toContain("Select what you would like to do");
   }
 );
