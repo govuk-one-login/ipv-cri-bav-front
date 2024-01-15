@@ -1,6 +1,17 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const RootController = require("./root.js");
 const { setupDefaultMocks } = require("../../../../test/utils/test-helpers.js");
+const {
+  API: {
+    PATHS: { GET_NAME_INFO, GET_NAME_INFO_DECRYPT_KEY },
+  },
+} = require("../../../lib/config");
+
+jest.mock("node-rsa", () => {
+  return jest.fn().mockImplementation(() => ({
+    decrypt: () => JSON.stringify({ name: "Jason" }),
+  }));
+});
 
 describe("RootController", () => {
   const rootController = new RootController({ route: "/test" });
@@ -23,42 +34,28 @@ describe("RootController", () => {
     expect(rootController).toBeInstanceOf(BaseController);
   });
 
-  // Pending introduction of lambda to bring shared claims name values in from IPV
+  describe("saveValues", () => {
+    it("should retrieve, decrypt and save fullName info to sessionModel", async () => {
+      var encryptedJSON = "encryptedJSON";
+      var decryptedName = "Jason";
 
-  // describe("saveValues", () => {
+      req.axios.get.mockReturnValue({ data: encryptedJSON });
 
-  // it("should save all values to sessionModel with full shared_claims object", async () => {
+      await rootController.saveValues(req, res, next);
 
-  //   req.session.shared_claims = {
-  //     name: [
-  //       {
-  //         nameParts: [
-  //           { value: "First" },
-  //           { value: "Middle" },
-  //           { value: "Last" }
-  //         ]
-  //       }]
-  //   };
+      const fullName = req.sessionModel.get("fullName");
+      expect(fullName).toEqual(decryptedName);
 
-  //   await rootController.saveValues(req, res, next);
-  //   const firstName = req.sessionModel.get("firstName");
-  //   const surname = req.sessionModel.get("surname");
+      expect(req.axios.get).toHaveBeenNthCalledWith(1, GET_NAME_INFO, {
+        headers: {
+          "x-govuk-signin-session-id": req.session.tokenId,
+        },
+      });
 
-  //   expect(firstName).toEqual("First");
-  //   expect(surname).toEqual("Last");
-  // });
-  // });
-
-  it("should not update sessionModel if no shared_claims attributes present", async () => {
-    req.session.shared_claims = {
-      name: [],
-    };
-
-    await rootController.saveValues(req, res, next);
-    const firstName = req.sessionModel.get("firstName");
-    const surname = req.sessionModel.get("surname");
-
-    expect(firstName).toEqual(undefined);
-    expect(surname).toEqual(undefined);
+      expect(req.axios.get).toHaveBeenNthCalledWith(
+        2,
+        GET_NAME_INFO_DECRYPT_KEY
+      );
+    });
   });
 });
