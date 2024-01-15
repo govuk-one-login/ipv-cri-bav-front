@@ -14,7 +14,7 @@ class RootController extends BaseController {
 
       req.sessionModel.set("fullName", decryptedName);
     } catch (error) {
-      console.log(error);
+      console.log("Failed to fetch or decrypt full name ", error);
       next(error);
     }
 
