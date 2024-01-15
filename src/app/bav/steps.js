@@ -75,7 +75,7 @@ module.exports = {
       {
         field: "couldNotMatchChoice",
         value: "tryAgain",
-        next: APP.PATHS.ACCOUNT_DETAILS,
+        next: APP.PATHS.CONFIRM_DETAILS,
       },
       {
         field: "couldNotMatchChoice",
