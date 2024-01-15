@@ -105,5 +105,7 @@ Then("an error message is shown", async function () {
 });
 
 Then("the user is directed to IPV Core", async function () {
-  expect(this.page.url()).toContain("https://bav-ipv-stub-ipvstub.review-bav.dev.account.gov.uk");
+  expect(this.page.url()).toContain(
+    "https://bav-ipv-stub-ipvstub.review-bav.dev.account.gov.uk"
+  );
 });
