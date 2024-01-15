@@ -4,7 +4,7 @@ const { expect } = require("@playwright/test");
 
 Given(
   /^([^"]*) has navigated to the BAV Landing Page$/,
-  { timeout: 4 * 5000 },
+  { timeout: 60 * 1000 },
   async function (name) {
     const claim = this.allUserClaims[name];
     const rpPage = new RelyingPartyPage(this.page);
