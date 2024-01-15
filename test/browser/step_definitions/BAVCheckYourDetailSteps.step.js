@@ -49,13 +49,10 @@ When(
   }
 );
 
-When(
-  "the user selects the 'Try Again' radio",
-  async function () {
-    const failOnePage = new FailOnePage(await this.page);
-    await failOnePage.clickTryAgainRadio();
-  }
-);
+When("the user selects the 'Try Again' radio", async function () {
+  const failOnePage = new FailOnePage(await this.page);
+  await failOnePage.clickTryAgainRadio();
+});
 
 Then(
   "the user is directed to the Check Your Answers screen",
@@ -78,13 +75,10 @@ Then("the user is directed to the Escape choice screen", async function () {
   await abortPage.isCurrentPage();
 });
 
-Then(
-  "the user is redirected to the fail 1 page",
-  async function () {
-    const failPage = new FailOnePage(await this.page);
-    expect(await failPage.isCurrentPage()).toBeTruthy();
-  }
-);
+Then("the user is redirected to the fail 1 page", async function () {
+  const failPage = new FailOnePage(await this.page);
+  expect(await failPage.isCurrentPage()).toBeTruthy();
+});
 
 Then(
   "the Check Your Answers screen has a sort code {string} and account number {string}",
@@ -97,11 +91,10 @@ Then(
   }
 );
 
-Then(
-  "an error message is shown",
-  async function () {
-    const failOnePage = new FailOnePage(await this.page);
-    expect(await failOnePage.getErrorTitle()).toContain("There is a problem");
-    expect(await failOnePage.getErrorText()).toContain("Select what you would like to do");
-  }
-);
+Then("an error message is shown", async function () {
+  const failOnePage = new FailOnePage(await this.page);
+  expect(await failOnePage.getErrorTitle()).toContain("There is a problem");
+  expect(await failOnePage.getErrorText()).toContain(
+    "Select what you would like to do"
+  );
+});

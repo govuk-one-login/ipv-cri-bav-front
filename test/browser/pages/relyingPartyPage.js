@@ -11,7 +11,7 @@ module.exports = class PlaywrightDevPage {
   async goto(claim) {
     const axios = require("axios");
     const postRequest = await axios.post(process.env.IPV_STUB_URL, claim);
-    
+
     await this.page.goto(postRequest.data.AuthorizeLocation);
   }
 };
