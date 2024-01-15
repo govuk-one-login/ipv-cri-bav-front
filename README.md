@@ -24,6 +24,12 @@ yarn install
 export API_BASE_URL=https://api-bav-cri-api.review-bav.dev.account.gov.uk
 ```
 
+## Run front-end locally against deployed back-end
+
+- Set `API_BASE_URL` as described above.
+- Replace all instances of `x-govuk-signin-session-id` with a valid session ID from the dev environment
+- Run `yarn build` followed by `yarn start`
+
 # Deployment in own stack in DEV
 
 To deploy a copy of the frontend infra from a local branch as a separate isolated stack in DEV:
