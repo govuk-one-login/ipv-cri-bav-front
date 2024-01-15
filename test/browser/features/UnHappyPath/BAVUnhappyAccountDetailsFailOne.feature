@@ -22,6 +22,15 @@ Feature: Provided Bank Details Failed
         When the user clicks the Continue button
         Then the user is directed to the Account Details screen
 
+    Scenario:  User selected 2nd radio to be returned to IPV Core
+        Given the user has entered a Sort Code of "123456"
+        Given the user has entered an Account Number of "31926819"
+        When the user clicks the Continue button
+        When they click on the Continue to bank details check button
+        When the user selects the 'Prove Another Way' radio
+        When the user clicks the Continue button
+        Then the user is directed to IPV Core
+
     Scenario:  User has no radio button selected and tries to continue
         Given the user has entered a Sort Code of "123456"
         Given the user has entered an Account Number of "31926819"

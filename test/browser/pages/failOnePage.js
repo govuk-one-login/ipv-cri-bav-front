@@ -16,6 +16,12 @@ module.exports = class PlaywrightDevPage {
     await this.page.locator("#couldNotMatchChoice-tryAgain-label").click();
   }
 
+  async clickProveAnotherWayRadio() {
+    await this.page
+      .locator("#couldNotMatchChoice-proveAnotherWay-label")
+      .click();
+  }
+
   async getErrorTitle() {
     const errorTitle = await this.page
       .locator("h2.govuk-error-summary__title")

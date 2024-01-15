@@ -54,6 +54,11 @@ When("the user selects the 'Try Again' radio", async function () {
   await failOnePage.clickTryAgainRadio();
 });
 
+When("the user selects the 'Prove Another Way' radio", async function () {
+  const failOnePage = new FailOnePage(await this.page);
+  await failOnePage.clickProveAnotherWayRadio();
+});
+
 Then(
   "the user is directed to the Check Your Answers screen",
   async function () {
@@ -97,4 +102,8 @@ Then("an error message is shown", async function () {
   expect(await failOnePage.getErrorText()).toContain(
     "Select what you would like to do"
   );
+});
+
+Then("the user is directed to IPV Core", async function () {
+  expect(this.page.url()).toContain("https://bav-ipv-stub-ipvstub.review-bav.dev.account.gov.uk");
 });
