@@ -1,9 +1,8 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const ConfirmDetailsController = require("./confirmDetails");
 const { setupDefaultMocks } = require("../../../../test/utils/test-helpers");
-const axios = require('axios');
-jest.mock('axios');
-
+const axios = require("axios");
+jest.mock("axios");
 
 describe("ConfirmDetailsController", () => {
   let confirmDetailsController;
@@ -31,18 +30,16 @@ describe("ConfirmDetailsController", () => {
   });
 
   it("should increment the retryCount sessionModel property when retryCount returned in API call", async () => {
-    
     axios.post.mockResolvedValue({
-      data:
-        {
-          message: "Success",
-          retryCount: 1
-        }
-    })
+      data: {
+        message: "Success",
+        retryCount: 1,
+      },
+    });
 
     const bavData = {};
-    await confirmDetailsController.saveBavData(axios, bavData, req)
-  
+    await confirmDetailsController.saveBavData(axios, bavData, req);
+
     expect(req.sessionModel.get("retryCount")).toEqual(1);
   });
 });
