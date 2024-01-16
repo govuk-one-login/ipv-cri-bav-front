@@ -128,7 +128,7 @@ Mappings:
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
       LOGLEVEL: "warn"
     staging:
-      EXTERNALWEBSITEHOST: "https://review-bav.staging.account.gov.uk"
+      EXTERNALWEBSITEHOST: "www.review-bav.staging.account.gov.uk/"
       APIBASEURL: "https://api.review-bav.staging.account.gov.uk"
       DNSSUFFIX: "review-bav.staging.account.gov.uk"
       SESSIONTABLENAME: "bav-front-sessions-staging"
