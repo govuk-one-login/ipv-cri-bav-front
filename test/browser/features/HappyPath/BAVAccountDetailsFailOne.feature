@@ -1,5 +1,5 @@
 @success
-Feature: Provided Bank Details Success
+Feature: Provided Account Details Success
 
    Background:
         Given a user has navigated to the BAV Landing Page
@@ -10,5 +10,5 @@ Feature: Provided Bank Details Success
         Given the user has entered a Sort Code of "123456"
         Given the user has entered an Account Number of "31926819"
         When the user clicks the Continue button
-        When they click on the Continue to bank details check button
+        When they click on the Continue to account details check button
         Then the user is directed to IPV Core

@@ -13,7 +13,7 @@ Given("the user wishes to proceed", async function () {
 });
 
 When(
-  "they click on the Continue to bank details check button",
+  "they click on the Continue to account details check button",
   async function () {
     const cyaPage = new ConfirmDetailsPage(await this.page);
     await cyaPage.clickSubmitDetailsButton();
