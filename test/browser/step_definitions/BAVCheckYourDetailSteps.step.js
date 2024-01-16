@@ -3,6 +3,7 @@ const {
   ConfirmDetailsPage,
   LoadBankDetailsPage,
   AbortPage,
+  FailOnePage,
 } = require("../pages");
 const { expect } = require("@playwright/test");
 
@@ -12,7 +13,7 @@ Given("the user wishes to proceed", async function () {
 });
 
 When(
-  "they click on the Continue to bank details check button",
+  "they click on the Continue to account details check button",
   async function () {
     const cyaPage = new ConfirmDetailsPage(await this.page);
     await cyaPage.clickSubmitDetailsButton();
@@ -48,6 +49,16 @@ When(
   }
 );
 
+When("the user selects the 'Try Again' radio", async function () {
+  const failOnePage = new FailOnePage(await this.page);
+  await failOnePage.clickTryAgainRadio();
+});
+
+When("the user selects the 'Prove Another Way' radio", async function () {
+  const failOnePage = new FailOnePage(await this.page);
+  await failOnePage.clickProveAnotherWayRadio();
+});
+
 Then(
   "the user is directed to the Check Your Answers screen",
   async function () {
@@ -69,13 +80,10 @@ Then("the user is directed to the Escape choice screen", async function () {
   await abortPage.isCurrentPage();
 });
 
-Then(
-  "the user is redirected to the check your details page",
-  async function () {
-    const cyaPage = new ConfirmDetailsPage(await this.page);
-    expect(await cyaPage.isCurrentPage()).toBeTruthy();
-  }
-);
+Then("the user is redirected to the fail 1 page", async function () {
+  const failPage = new FailOnePage(await this.page);
+  expect(await failPage.isCurrentPage()).toBeTruthy();
+});
 
 Then(
   "the Check Your Answers screen has a sort code {string} and account number {string}",
@@ -87,3 +95,17 @@ Then(
     expect(savedAC).toEqual(accountNumber);
   }
 );
+
+Then("an error message is shown", async function () {
+  const failOnePage = new FailOnePage(await this.page);
+  expect(await failOnePage.getErrorTitle()).toContain("There is a problem");
+  expect(await failOnePage.getErrorText()).toContain(
+    "Select what you would like to do"
+  );
+});
+
+Then("the user is directed to IPV Core", async function () {
+  expect(this.page.url()).toContain(
+    "https://bav-ipv-stub-ipvstub.review-bav.dev.account.gov.uk"
+  );
+});
