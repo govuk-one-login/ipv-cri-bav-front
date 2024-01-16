@@ -87,3 +87,11 @@ Then(
     expect(savedAC).toEqual(accountNumber);
   }
 );
+
+Then(
+  "the user should see there full name on the confirm details page",
+  async function () {
+    const fullName = new ConfirmDetailsPage(await this.page);
+    await fullName.isFullNameDisplayed();
+  }
+);
