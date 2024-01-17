@@ -89,7 +89,7 @@ Then(
 );
 
 Then(
-  "the user should see there full name on the confirm details page",
+  "the user should see their full name on the confirm details page",
   async function () {
     const fullName = new ConfirmDetailsPage(await this.page);
     await fullName.isFullNameDisplayed();
