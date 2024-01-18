@@ -22,6 +22,7 @@ Feature: Check Details are Correct
     When the user edits the sort code <sortCode> and the account number <accountNumber>
     Then the user is directed to the Check Your Answers screen
     And the Check Your Answers screen has a sort code "01-02-03" and account number <accountNumber>
+    Then the user should see their full name on the confirm details page
 
     Examples:
       | sortCode   | accountNumber |

@@ -48,4 +48,14 @@ module.exports = class PlaywrightDevPage {
     accNoValue = accNoValue.trim();
     return accNoValue;
   }
+
+  async isFullNameDisplayed() {
+    const { expect } = require("@playwright/test");
+    expect(
+      await this.page
+        .locator("dd.govuk-summary-list__value")
+        .nth(0)
+        .textContent()
+    ).toContain("Yasmine Young");
+  }
 };
