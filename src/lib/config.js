@@ -23,6 +23,7 @@ module.exports = {
       CANNOT_PROCEED: "/cannot-proceed",
       DONE: "/done",
       ERROR: "/error",
+      OAUTH2: "/oauth2/callback",
     },
     ANALYTICS: {
       DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",
