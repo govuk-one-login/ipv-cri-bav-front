@@ -110,12 +110,6 @@ Then("the user is directed to IPV Core", async function () {
   );
 });
 
-Then("the user is directed to oauth IPV Core", async function () {
-  expect(this.page.url()).toContain(
-    "https://bav-cri-front.review-bav.dev.account.gov.uk/oauth2/callback"
-  );
-});
-
 Then(
   "the user should see their full name on the confirm details page",
   async function () {
