@@ -20,7 +20,7 @@ Feature: Provided Bank Details Failed
         When they click on the Continue to account details check button
         When the user selects the 'Try Again' radio
         When the user clicks the Continue button
-        Then the user is directed to the Account Details screen
+        Then the user is directed to the Confirm Details screen
 
     Scenario:  User selected 2nd radio to be returned to IPV Core
         Given the user has entered a Sort Code of "123456"

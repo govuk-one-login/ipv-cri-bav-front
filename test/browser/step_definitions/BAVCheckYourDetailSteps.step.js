@@ -109,3 +109,9 @@ Then("the user is directed to IPV Core", async function () {
     "https://bav-ipv-stub-ipvstub.review-bav.dev.account.gov.uk"
   );
 });
+
+Then("the user is directed to oauth IPV Core", async function () {
+  expect(this.page.url()).toContain(
+    "https://bav-cri-front.review-bav.dev.account.gov.uk/oauth2/callback"
+  );
+});

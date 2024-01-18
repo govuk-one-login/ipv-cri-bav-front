@@ -11,4 +11,4 @@ Feature: Provided Account Details Success
         Given the user has entered an Account Number of "31926819"
         When the user clicks the Continue button
         When they click on the Continue to account details check button
-        Then the user is directed to IPV Core
+        Then the user is directed to oauth IPV Core
