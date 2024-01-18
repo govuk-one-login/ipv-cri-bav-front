@@ -1,5 +1,9 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
-const { AccountDetailsPage, AccountDetailsEditPage, ConfirmDetailsPage } = require("../pages");
+const {
+  AccountDetailsPage,
+  AccountDetailsEditPage,
+  ConfirmDetailsPage,
+} = require("../pages");
 const { expect } = require("@playwright/test");
 
 Given("the user is on the Account Details Screen", async function () {
