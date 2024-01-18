@@ -8,4 +8,8 @@ function formatSortCode(sortCode) {
   return displaySortCode;
 }
 
-module.exports = { formatSortCode };
+function formatSortCodeForSubmission(sortCode) {
+  return sortCode.replace(/[ -]/g, "");
+}
+
+module.exports = { formatSortCode, formatSortCodeForSubmission };
