@@ -108,6 +108,7 @@ setAPIConfig({
   app,
   baseUrl: API.BASE_URL,
   sessionPath: API.PATHS.SESSION,
+  authorizationPath: API.PATHS.AUTHORIZATION,
 });
 
 setOAuthPaths({ app, entryPointPath: APP.PATHS.BAV });
