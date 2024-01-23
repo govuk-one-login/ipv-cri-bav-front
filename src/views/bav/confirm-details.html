@@ -11,15 +11,15 @@
 
 {% block mainContent %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-three-quarters">
-    <h1 id="confirm-details-header" class="gov" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 id="confirm-details-header" class="gov" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
         {{ translate("confirmDetails.title") }}
-    </h1>
+      </h1>
+    </div>
   </div>
-</div>
 
-{{ govukSummaryList({
+  {{ govukSummaryList({
   classes: 'govuk-!-margin-bottom-6',
   rows: [
     {
@@ -40,7 +40,7 @@
       actions: {
         items: [
           {
-            href: "/enter-account-details/edit",
+            href: "/enter-account-details/edit?edit=true",
             text: translate("confirmDetails.changeLink"),
             visuallyHiddenText: translate("confirmDetails.sortCode")
           }
@@ -57,7 +57,7 @@
       actions: {
         items: [
           {
-            href: "/enter-account-details/edit",
+            href: "/enter-account-details/edit?edit=true",
             text: translate("confirmDetails.changeLink"),
             visuallyHiddenText: translate("confirmDetails.accountNumber")
           }
@@ -68,19 +68,22 @@
 })
 }}
 
-{% set insetBody %}
+  {% set insetBody %}
   {{- "confirmDetails.insetText" | translate -}}
-{% endset %}  
+  {% endset %}
 
-{{ govukInsetText({
+  {{ govukInsetText({
   html: insetBody
 }) }}
 
-{% call hmpoForm(ctx) %}
-    {{ hmpoSubmit(ctx, {id: "submitDetails", text: translate("confirmDetails.submitDetails")}) }}
-{% endcall %}
+  {% call hmpoForm(ctx) %}
+  {{ hmpoSubmit(ctx, {id: "submitDetails", text: translate("confirmDetails.submitDetails")}) }}
+  {% endcall %}
 
-<p class="bav__instruction"><a href={{ "landingPage.cannotProceedLanding.cannotProceedLink" | translate }}> {{ "landingPage.cannotProceedLanding.cannotProceedText" | translate }}</a></p>
+  <p class="bav__instruction">
+    <a href={{ "landingPage.cannotProceedLanding.cannotProceedLink" | translate }}>
+      {{ "landingPage.cannotProceedLanding.cannotProceedText" | translate }}</a>
+  </p>
 
 {% endblock %}
 
@@ -88,39 +91,46 @@
 {% set footerNavItems = translate("govuk.footerNavItems") %}
 
 {% block footer %}
-    {{ govukFooter( footerNavItems ) }}
-{% endblock %}
-
-{% block bodyEnd %}
-  {% block scripts %}
-    <script nonce="{{ cspNonce }}">
-
+  {{ govukFooter( footerNavItems ) }}
+  <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
     var formSubmitted = false;
 
     submitSpinner()
 
-    function delayDisableButton (button) {
-        button.className += ' button--spinner'
-        setTimeout(function() {
-            button.setAttribute('disabled', true)
-        }, 200);
+    function delayDisableButton(button) {
+      button.className += ' button--spinner'
+      setTimeout(function () {
+        button.setAttribute('disabled', true)
+      }, 200);
     }
 
     function submitSpinner() {
-        var select = document.getElementById('submitDetails')
+      var select = document.getElementById('submitDetails')
 
-        select.addEventListener('click', function (event) {
-            if(!formSubmitted) {
-                formSubmitted = true;
+      select.addEventListener('click', function (event) {
+        if (!formSubmitted) {
+          formSubmitted = true;
 
-                delayDisableButton(event.target);
-            } else {
-                event.preventDefault()
-            }
-        })
+          delayDisableButton(event.target);
+        } else {
+          event.preventDefault()
+        }
+      })
     }
-    </script>
-    <script type="text/javascript" src="/public/javascripts/all.js"></script>
-    <script type="text/javascript" src="/public/javascripts/application.js"></script>
-  {% endblock %}
+    window.addEventListener('load', function () {
+      window
+        .DI
+        .analyticsGa4
+        .pageViewTracker
+        .trackOnPageLoad({
+          statusCode: '200', // Access status code
+          englishPageTitle: '{{translate("confirmDetails.title")}}',
+          taxonomy_level1: 'web cri', // Access taxonomy level 1
+          taxonomy_level2: 'bav', // Access taxonomy level 2
+          content_id: '003',
+          logged_in_status: true,
+          dynamic: false
+        });
+    });
+  </script>
 {% endblock %}

@@ -1,10 +1,10 @@
 const { Controller: BaseController } = require("hmpo-form-wizard");
 const { API } = require("../../../lib/config");
-const rsa = require("node-rsa");
+//const rsa = require("node-rsa");
 
 class RootController extends BaseController {
   async saveValues(req, res, next) {
-    try {
+    /*try {
       const encryptedJSON = await this.getNameInfo(req.axios, req);
       const key = await this.getDecryptKey(req.axios, req);
       const decryptKey = new rsa(key);
@@ -16,7 +16,7 @@ class RootController extends BaseController {
     } catch (error) {
       console.log("Failed to fetch or decrypt full name ", error);
       next(error);
-    }
+    }*/
 
     super.saveValues(req, res, next);
   }
