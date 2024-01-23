@@ -1,6 +1,6 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const { API } = require("../../../lib/config");
-const { formatSortCode } = require("../utils");
+const { formatSortCode, formatSortCodeForSubmission } = require("../utils");
 
 class ConfirmDetailsController extends BaseController {
   locals(req, res, callback) {
@@ -26,7 +26,9 @@ class ConfirmDetailsController extends BaseController {
   async saveValues(req, res, callback) {
     try {
       const bavData = {
-        sort_code: req.sessionModel.get("sortCode"),
+        sort_code: formatSortCodeForSubmission(
+          req.sessionModel.get("sortCode")
+        ),
         account_number: req.sessionModel.get("accountNumber"),
       };
       await this.saveBavData(req.axios, bavData, req);
