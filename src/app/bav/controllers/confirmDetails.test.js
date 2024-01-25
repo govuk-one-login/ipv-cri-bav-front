@@ -22,6 +22,7 @@ describe("ConfirmDetailsController", () => {
   it("should be an instance of BaseController", () => {
     expect(confirmDetailsController).toBeInstanceOf(BaseController);
   });
+  
 
   it("should set the isLanding sessionModel property to false", () => {
     req.form.values.sortCode = "123456";
@@ -41,5 +42,19 @@ describe("ConfirmDetailsController", () => {
     await confirmDetailsController.saveBavData(axios, bavData, req);
 
     expect(req.sessionModel.get("retryCount")).toEqual(1);
+  });
+
+  it("should return undefined for retryCount sessionModel property when retryCount returned in API call as undefined", async () => {
+    axios.post.mockResolvedValue({
+      data: {
+        message: "Success",
+        retryCount: undefined,
+      },
+    });
+
+    const bavData = {};
+    await confirmDetailsController.saveBavData(axios, bavData, req);
+
+    expect(req.sessionModel.get("retryCount")).toEqual(undefined);
   });
 });
