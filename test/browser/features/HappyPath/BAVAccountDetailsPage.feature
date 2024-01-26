@@ -7,7 +7,7 @@ Feature: Enter Bank Account Details
     When the user clicks on Continue button
     Then the user is directed to the Account Details screen
 
- 
+
   Scenario Outline: User routed to Check Your Answers Screen: <sortCode> and <accountNumber>
     Given the user has entered a Sort Code of <sortCode>
     Given the user has entered an Account Number of <accountNumber>

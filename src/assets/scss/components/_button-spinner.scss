@@ -35,7 +35,7 @@ $govuk-button-shadow-colour: govuk-shade($govuk-button-colour, 60%);
     animation-name: spin;
     animation-duration: $spinner-animation-duration;
     animation-iteration-count: infinite;
-    
+
     @keyframes spin {
       0% {
         transform: rotate(0deg);

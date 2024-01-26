@@ -5,7 +5,7 @@ if [ $# -ge 1 ] && [ -n "$1" ]
 then
     echo "Running test container against $1"
 
-    export SAM_STACK=$1 
+    export SAM_STACK=$1
     export AWS_REGION="eu-west-2"
     export TEST_REPORT_DIR="results"
     export ENVIRONMENT="dev"
@@ -29,7 +29,7 @@ then
 
     docker build -f Dockerfile.test -t $DockerImageName .
     docker run --rm --env-file docker_vars.env -v $(pwd)/test/reports:/results $DockerImageName
-else    
+else
     echo "Please ensure you've got a stack name as the first argument after ./run_tests_locally.sh..."
     echo "E.g. ./run_tests_locally.sh bav-cri-front"
 fi

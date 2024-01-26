@@ -30,4 +30,3 @@ Feature: Check Details are Correct
       | "01 02 03" | "3192681"     |
       | "010203"   | "31926819"    |
 
-  

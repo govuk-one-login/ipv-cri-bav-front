@@ -1,19 +1,19 @@
 # title is managed in default.yml
-            
+
 landingPage:
   title: Continue to your bank or building society account details
   infoText1: We'll now ask you some questions about your UK bank or building society account.
   infoText2: You must be the named account holder.
-  list1: 
+  list1:
     list1Text: "You can use details from any:"
     list1Bullet1: current account
     list1Bullet2: joint current account
-  list2: 
+  list2:
     list2Text: "You cannot use a:"
     list2Bullet1: business account
     list2Bullet2: savings account, including an Individual Savings Account (ISAs)
   infoTitle: What to expect
-  list3: 
+  list3:
     list3Text: "You'll need to tell us the:"
     list3Bullet1: sort code
     list3Bullet2: account number
@@ -23,15 +23,15 @@ landingPage:
   detailDropdown:
     summaryText: How we use your bank details
     detailContent: <p class="instruction">We will not save or share your account details.</p><p class="instruction">We do not use your account details to:</p><ul class="govuk-list govuk-list--bullet"><li>take any payments</li><li>check any transactions</li></ul>
-  cannotProceedLanding: 
+  cannotProceedLanding:
     cannotProceedLink: /cannot-proceed
     cannotProceedText: "I cannot provide UK current account details"
 
-cannotProceed: 
+cannotProceed:
   title: How would you like to continue?
-  
+
 enterAccountDetails:
-  title: Enter your account details  
+  title: Enter your account details
 
 confirmDetails:
   title: "Check your details match with your bank or building society account"

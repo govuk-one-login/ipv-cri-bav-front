@@ -57,7 +57,7 @@ jobs:
         with:
           registry: khw46367.live.dynatrace.com
           username: khw46367
-          password: ${{ secrets.DYNATRACE_PAAS_TOKEN }}  
+          password: ${{ secrets.DYNATRACE_PAAS_TOKEN }}
 
       - name: Build, tag, and push image to Amazon ECR
         env:

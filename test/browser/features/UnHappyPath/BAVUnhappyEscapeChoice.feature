@@ -9,7 +9,7 @@ Feature: Exit out of BAV Journey
     Then the user is directed to the Escape Choice screen
     Given the user wishes to exit the BAV process
     Then the user is directed to the Abort screen
-  
+
 
   Scenario: User routed to BAV landing page from Escape Choice screen
     When the user clicks on Continue button

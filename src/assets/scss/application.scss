@@ -28,7 +28,7 @@ $govuk-assets-path: "/public/";
 
 .govuk-inset-text {
   @include govuk-responsive-margin(0, "bottom");
-  @include govuk-responsive-margin(2, "top"); 
+  @include govuk-responsive-margin(2, "top");
   @include govuk-responsive-padding(3, "top");
 }
 
@@ -76,12 +76,12 @@ $govuk-assets-path: "/public/";
 }
 
 .govuk-cookie-banner h2, .govuk-cookie-banner p {
-  margin-top: 0; 
+  margin-top: 0;
   margin-bottom: 20px;
 }
 
 .govuk-cookie-banner .govuk-button {
-  margin-top: 0; 
+  margin-top: 0;
   margin-bottom: 20px;
 }
 

@@ -12,7 +12,7 @@
 {% block mainContent %}
 
 {% set title = translate("cannotProceed.title") %}
-      
+
       {% call hmpoForm(ctx) %}
               {{ hmpoRadios(ctx, {
                 id: "cannotProceedChoice",
@@ -27,10 +27,10 @@
             }) }}
 
     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
-  
+
     {% endcall %}
 
-{% endblock %} 
+{% endblock %}
 
 {% set footerNavItems = translate("govuk.footerNavItems") %}
 
