@@ -3,6 +3,7 @@ const landingPage = require("./controllers/landingPage");
 const cannotProceed = require("./controllers/cannotProceed");
 const confirmDetails = require("./controllers/confirmDetails");
 const abort = require("./controllers/abort");
+const nameInfo = require("./controllers/nameInfo");
 const { APP } = require("../../lib/config");
 
 module.exports = {
@@ -12,27 +13,33 @@ module.exports = {
     entryPoint: true,
     skip: true,
     controller: root,
+    next: APP.PATHS.NAME_INFO,
+  },
+  [APP.PATHS.NAME_INFO]: {
+    entryPoint: true,
+    skip: true,
+    controller: nameInfo,
     next: APP.PATHS.LANDING_PAGE,
   },
-  [`${APP.PATHS.LANDING_PAGE}`]: {
+  [APP.PATHS.LANDING_PAGE]: {
     controller: landingPage,
     next: APP.PATHS.ACCOUNT_DETAILS,
   },
-  [`${APP.PATHS.ACCOUNT_DETAILS}`]: {
+  [APP.PATHS.ACCOUNT_DETAILS]: {
     fields: ["sortCode", "accountNumber"],
     editable: true,
     editBackStep: APP.PATHS.CONFIRM_DETAILS,
     next: APP.PATHS.CONFIRM_DETAILS,
   },
-  [`${APP.PATHS.CONFIRM_DETAILS}`]: {
+  [APP.PATHS.CONFIRM_DETAILS]: {
     controller: confirmDetails,
     next: APP.PATHS.DONE,
   },
-  [`${APP.PATHS.CONFIRM_DETAILS}`]: {
+  [APP.PATHS.CONFIRM_DETAILS]: {
     controller: confirmDetails,
     next: APP.PATHS.DONE,
   },
-  [`${APP.PATHS.CANNOT_PROCEED}`]: {
+  [APP.PATHS.CANNOT_PROCEED]: {
     controller: cannotProceed,
     fields: ["cannotProceedChoice"],
     checkJourney: false,
@@ -60,17 +67,17 @@ module.exports = {
       },
     ],
   },
-  [`${APP.PATHS.ABORT}`]: {
+  [APP.PATHS.ABORT]: {
     entryPoint: true,
     skip: true,
     controller: abort,
   },
-  [`${APP.PATHS.DONE}`]: {
+  [APP.PATHS.DONE]: {
     skip: true,
     noPost: true,
     next: APP.PATHS.OAUTH2,
   },
-  [`${APP.PATHS.ERROR}`]: {
+  [APP.PATHS.ERROR]: {
     entryPoint: true,
   },
 };
