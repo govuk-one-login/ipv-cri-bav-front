@@ -19,5 +19,5 @@ jobs:
       with:
         extra_args: "detect-secrets --all-files"
 
-    # - name: Cache dependencies
-    #   uses: actions/cache@v4.0.0
+    - name: Cache dependencies
+      uses: actions/cache@v4.0.0
