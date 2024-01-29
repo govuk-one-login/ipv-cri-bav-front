@@ -30,7 +30,7 @@ jobs:
       - name: Run build
         run: yarn build
       - name: Run test and write coverage
-        run: yarn test:coverage
+        run: yarn test
       - name: Run browser tests
         id: bavBrowserTests
         run: yarn test:browser:ci
