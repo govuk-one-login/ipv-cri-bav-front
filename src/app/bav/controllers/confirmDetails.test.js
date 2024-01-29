@@ -22,7 +22,6 @@ describe("ConfirmDetailsController", () => {
   it("should be an instance of BaseController", () => {
     expect(confirmDetailsController).toBeInstanceOf(BaseController);
   });
-  
 
   it("should set the isLanding sessionModel property to false", () => {
     req.form.values.sortCode = "123456";
