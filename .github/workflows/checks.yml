@@ -9,7 +9,6 @@ on:
   push:
     branches:
       - main
-      - IPS-486
 
 jobs:
   run-tests:

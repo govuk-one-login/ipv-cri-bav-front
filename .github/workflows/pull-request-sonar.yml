@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - IPS-486
   pull_request:
     types:
       - opened
