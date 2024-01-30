@@ -22,6 +22,7 @@ module.exports = {
       CONFIRM_DETAILS: "/confirm-details",
       ABORT: "/abort",
       CANNOT_PROCEED: "/cannot-proceed",
+      COULD_NOT_MATCH: "/could-not-match",
       DONE: "/done",
       ERROR: "/error",
       OAUTH2: "/oauth2/callback",

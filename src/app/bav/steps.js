@@ -33,11 +33,19 @@ module.exports = {
   },
   [APP.PATHS.CONFIRM_DETAILS]: {
     controller: confirmDetails,
-    next: APP.PATHS.DONE,
-  },
-  [APP.PATHS.CONFIRM_DETAILS]: {
-    controller: confirmDetails,
-    next: APP.PATHS.DONE,
+    fields: ["retryCount"],
+    next: [
+      {
+        field: "retryCount",
+        value: undefined,
+        next: APP.PATHS.DONE,
+      },
+      {
+        field: "retryCount",
+        value: 1,
+        next: APP.PATHS.COULD_NOT_MATCH,
+      },
+    ],
   },
   [APP.PATHS.CANNOT_PROCEED]: {
     controller: cannotProceed,
@@ -67,7 +75,28 @@ module.exports = {
       },
     ],
   },
-  [APP.PATHS.ABORT]: {
+  [`${APP.PATHS.COULD_NOT_MATCH}`]: {
+    fields: ["couldNotMatchChoice"],
+    checkJourney: false,
+    next: [
+      {
+        field: "couldNotMatchChoice",
+        value: "tryAgain",
+        next: APP.PATHS.CONFIRM_DETAILS,
+      },
+      {
+        field: "couldNotMatchChoice",
+        value: "proveAnotherWay",
+        next: APP.PATHS.ABORT,
+      },
+    ],
+  },
+  [`${APP.PATHS.DONE}`]: {
+    skip: true,
+    noPost: true,
+    next: APP.PATHS.OAUTH2,
+  },
+  [`${APP.PATHS.ABORT}`]: {
     entryPoint: true,
     skip: true,
     controller: abort,

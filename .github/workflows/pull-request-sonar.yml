@@ -28,7 +28,7 @@ jobs:
         run: yarn format
       - name: Run build
         run: yarn build
-      - name: Run test and write coverage
+      - name: Run test
         run: yarn test
       - name: "Run SonarCloud Scan"
         if: ${{ success() && github.actor != 'dependabot[bot]' }}

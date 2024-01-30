@@ -2,8 +2,9 @@ const { setWorldConstructor } = require("@cucumber/cucumber");
 
 require("playwright");
 
-const users = {
-  "A user": {},
+const userClaims = {
+  "a user": require("../support/shared_claim"),
+  "a user named Nigel": require("../support/shared_claim_nigel"),
   "Erroring Ethem": {},
   "Not Authenticatable Neil": {},
   "Validating Valerie": {},
@@ -11,7 +12,7 @@ const users = {
 
 class CustomWorld {
   constructor() {
-    this.allUsers = users;
+    this.allUserClaims = userClaims;
   }
 }
 

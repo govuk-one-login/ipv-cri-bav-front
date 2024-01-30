@@ -9,4 +9,5 @@ module.exports = {
   LoadBankDetailsPage: require("./loadBankDetailsPage.js"),
   NotFoundPage: require("./notFoundPage.js"),
   ErrorPage: require("./errorPage.js"),
+  FailOnePage: require("./failOnePage.js"),
 };
