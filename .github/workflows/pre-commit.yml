@@ -9,10 +9,16 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
+    - name: Print Node.js version
+      run: node --version
+
     - name: Use Node.js 20
       uses: actions/setup-node@v4
       with:
         node-version: '18'
+
+    - name: Print Node.js version again
+      run: node --version
 
     - name: Install Python
       uses: actions/setup-python@v5
