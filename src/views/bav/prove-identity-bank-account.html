@@ -46,13 +46,17 @@
 
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
     {% block submitButton %}
-      {{ hmpoSubmit(ctx, {id: "landingPageContinue", text: translate("buttons.next")}) }}
+      {{ hmpoSubmit(ctx, {
+        id: "landingPageContinue",
+        text: translate("buttons.next"),
+        attributes: {
+          "data-nav": true,
+          "data-link": "/enter-account-details"
+        }
+    }) }}
     {% endblock %}
     {% endcall %}
-
     <p class="bav__instruction"><a href={{ "landingPage.cannotProceedLanding.cannotProceedLink" | translate }}> {{ "landingPage.cannotProceedLanding.cannotProceedText" | translate }}</a></p>
-
-
   </div>
 </div>
 <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
