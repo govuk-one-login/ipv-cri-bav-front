@@ -42,12 +42,18 @@ class ConfirmDetailsController extends BaseController {
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId,
     };
+
     const res = await axios.post(`${API.PATHS.SAVE_BAVDATA}`, bavData, {
       headers,
     });
-    if (res.data.retryCount) {
-      req.sessionModel.set("retryCount", res.data.retryCount);
+
+    if (res.data.attemptCount) {
+      req.sessionModel.set("attemptCount", res.data.attemptCount);
+    } else {
+      // Reset the attemptCount if it in not included in the response
+      req.sessionModel.set("attemptCount", undefined);
     }
+
     return res.data;
   }
 }

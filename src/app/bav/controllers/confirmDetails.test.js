@@ -29,31 +29,30 @@ describe("ConfirmDetailsController", () => {
     expect(req.sessionModel.get("isLanding")).toEqual(false);
   });
 
-  it("should increment the retryCount sessionModel property when retryCount returned in API call", async () => {
+  it("should increment the attemptCount sessionModel property when attemptCount returned in API call", async () => {
     axios.post.mockResolvedValue({
       data: {
         message: "Success",
-        retryCount: 1,
+        attemptCount: 1,
       },
     });
 
     const bavData = {};
     await confirmDetailsController.saveBavData(axios, bavData, req);
 
-    expect(req.sessionModel.get("retryCount")).toEqual(1);
+    expect(req.sessionModel.get("attemptCount")).toEqual(1);
   });
 
-  it("should return undefined for retryCount sessionModel property when retryCount returned in API call as undefined", async () => {
+  it("should return undefined for attemptCount sessionModel property when attemptCount returned in API call as undefined", async () => {
     axios.post.mockResolvedValue({
       data: {
         message: "Success",
-        retryCount: undefined,
       },
     });
 
     const bavData = {};
     await confirmDetailsController.saveBavData(axios, bavData, req);
 
-    expect(req.sessionModel.get("retryCount")).toEqual(undefined);
+    expect(req.sessionModel.get("attemptCount")).toEqual(undefined);
   });
 });
