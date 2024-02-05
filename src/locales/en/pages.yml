@@ -32,7 +32,7 @@ cannotProceed:
 enterAccountDetails:
   title: Enter your account details  
 
-confirmDetails:
+checkDetails:
   title: "Check your details match with your bank or building society account"
   fullName: "Name"
   sortCode: "Sort code"

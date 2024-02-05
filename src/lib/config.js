@@ -19,7 +19,7 @@ module.exports = {
       NAME_INFO: "/name-info",
       LANDING_PAGE: "/continue-enter-bank-account-details",
       ACCOUNT_DETAILS: "/enter-account-details",
-      CONFIRM_DETAILS: "/confirm-details",
+      CHECK_DETAILS: "/check-details",
       ABORT: "/abort",
       CANNOT_PROCEED: "/cannot-proceed",
       COULD_NOT_MATCH: "/could-not-match",
