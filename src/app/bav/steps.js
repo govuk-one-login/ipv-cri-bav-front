@@ -1,6 +1,6 @@
 const root = require("./controllers/root");
 const landingPage = require("./controllers/landingPage");
-const cannotProceed = require("./controllers/cannotProceed");
+const howContinueBank = require("./controllers/howContinueBank");
 const checkDetails = require("./controllers/checkDetails");
 const abort = require("./controllers/abort");
 const nameInfo = require("./controllers/nameInfo");
@@ -47,18 +47,18 @@ module.exports = {
       },
     ],
   },
-  [APP.PATHS.CANNOT_PROCEED]: {
-    controller: cannotProceed,
-    fields: ["cannotProceedChoice"],
+  [APP.PATHS.HOW_CONTINUE_BANK]: {
+    controller: howContinueBank,
+    fields: ["howContinueBankChoice"],
     checkJourney: false,
     next: [
       {
-        field: "cannotProceedChoice",
+        field: "howContinueBankChoice",
         value: "proveAnotherWay",
         next: APP.PATHS.ABORT,
       },
       {
-        field: "cannotProceedChoice",
+        field: "howContinueBankChoice",
         value: "goBack",
         next: [
           {

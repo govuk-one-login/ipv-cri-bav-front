@@ -21,7 +21,7 @@ module.exports = {
       { type: "maxlength", arguments: [8] },
     ],
   },
-  cannotProceedChoice: {
+  howContinueBankChoice: {
     type: "radios",
     legend: "",
     label: "",

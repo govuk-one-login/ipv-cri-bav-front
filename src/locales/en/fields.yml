@@ -13,16 +13,16 @@ accountNumber:
     minlength: Your account number must be between 6 and 8 digits
     maxlength: Your account number must be between 6 and 8 digits
 
-cannotProceedChoice:
+howContinueBankChoice:
   validation:
-    required: Choose an option
+    required: Select what you would like to do
   items:
     proveAnotherWay: 
-      label: Find another way to prove your identity
-      hint: You will not be able to change your mind and use your bank details
+      label: Stop using your bank details and find another way to prove your identity
+      hint: Go back to the service you need to use or try photo ID.
       reveal: ""
     goBack: 
-      label: Go back and prove your identity using your bank details
+      label: Carry on using your bank details to prove your identity
       hint: ""
       reveal: ""
       

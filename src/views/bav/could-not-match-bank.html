@@ -1,7 +1,7 @@
 {% extends "base-form.njk" %}
 {% set hmpoPageKey = "couldNotMatch" %}
 {% set hmpoTitle = couldNotMatch.title %}
-{% set gtmJourney = "bav - cannotProceed" %}
+{% set gtmJourney = "bav - howContinueBank" %}
 {% set backLink = false %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
@@ -14,7 +14,7 @@
 {% set title = translate("couldNotMatch.title") %}
 {% set content = translate("couldNotMatch.content") %}
 {% set prompt = translate("couldNotMatch.prompt") %} 
-{% set formInstructions = "<p>"+content+"</p><p class=\"govuk-heading-s\" id=\"couldNotMatchPrompt\">"+prompt+"</p>"%}
+{% set formInstructions = "<p>"+content+"</p><p class=\"govuk-heading-m\" id=\"couldNotMatchPrompt\">"+prompt+"</p>"%}
 
       {% call hmpoForm(ctx) %}
               {{ hmpoRadios(ctx, {
