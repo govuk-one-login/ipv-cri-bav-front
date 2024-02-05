@@ -11,40 +11,40 @@
 
 {% block mainContent %}
 
-{% set title = translate("couldNotMatch.title") %}
-{% set content = translate("couldNotMatch.content") %}
-{% set prompt = translate("couldNotMatch.prompt") %} 
-{% set formInstructions = "<p>"+content+"</p><p class=\"govuk-heading-m\" id=\"couldNotMatchPrompt\">"+prompt+"</p>"%}
+  {% set title = translate("couldNotMatch.title") %}
+  {% set content = translate("couldNotMatch.content") %}
+  {% set prompt = translate("couldNotMatch.prompt") %} 
+  {% set formInstructions = "<p>"+content+"</p><p class=\"govuk-heading-m\" id=\"couldNotMatchPrompt\">"+prompt+"</p>"%}
 
-      {% call hmpoForm(ctx) %}
-              {{ hmpoRadios(ctx, {
-                id: "couldNotMatchChoice",
-                namePrefix: "couldNotMatchChoice",
-                fieldset: {
-                    legend: {
-                        text: title,
-                        isPageHeading: true,
-                        classes: "govuk-fieldset__legend--l"
-                    }
-                },
-                hint: {
-                    html: formInstructions
+  {% call hmpoForm(ctx) %}
+          {{ hmpoRadios(ctx, {
+            id: "couldNotMatchChoice",
+            namePrefix: "couldNotMatchChoice",
+            fieldset: {
+                legend: {
+                    text: title,
+                    isPageHeading: true,
+                    classes: "govuk-fieldset__legend--l"
                 }
-            }) }}
+            },
+            hint: {
+                html: formInstructions
+            }
+        }) }}
 
-    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+  {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
   
-    {% endcall %}
+  {% endcall %}
 
 {% endblock %} 
 
 {% set footerNavItems = translate("govuk.footerNavItems") %}
 
 {% block footer %}
-    {{ govukFooter( footerNavItems ) }}
+  {{ govukFooter( footerNavItems ) }}
 {% endblock %}
 
-  {% block bodyEnd %}
+{% block bodyEnd %}
   {% block scripts %}
     <script type="text/javascript" src="/public/javascripts/all.js"></script>
     <script type="text/javascript" src="/public/javascripts/application.js"></script>
