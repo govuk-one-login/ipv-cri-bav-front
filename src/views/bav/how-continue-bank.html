@@ -12,7 +12,7 @@
 
 {% block mainContent %}
 
-{% set title = translate("howContinueBank.title") %}
+  {% set title = translate("howContinueBank.title") %}
   {% call hmpoForm(ctx) %}
     {{ hmpoRadios(ctx, {
       id: "howContinueBankChoice",
