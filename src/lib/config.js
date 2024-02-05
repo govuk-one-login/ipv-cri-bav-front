@@ -17,7 +17,7 @@ module.exports = {
     PATHS: {
       BAV: "/",
       NAME_INFO: "/name-info",
-      LANDING_PAGE: "/prove-identity-bank-account",
+      LANDING_PAGE: "/continue-enter-bank-account-details",
       ACCOUNT_DETAILS: "/enter-account-details",
       CONFIRM_DETAILS: "/confirm-details",
       ABORT: "/abort",
