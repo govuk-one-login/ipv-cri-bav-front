@@ -21,7 +21,7 @@ module.exports = {
       ACCOUNT_DETAILS: "/enter-account-details",
       CHECK_DETAILS: "/check-details",
       ABORT: "/abort",
-      CANNOT_PROCEED: "/cannot-proceed",
+      HOW_CONTINUE_BANK: "/how-continue-bank",
       COULD_NOT_MATCH: "/could-not-match-bank",
       DONE: "/done",
       ERROR: "/error",

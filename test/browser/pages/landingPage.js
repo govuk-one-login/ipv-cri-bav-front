@@ -21,7 +21,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async clickFindOtherWaysToProveIdentity() {
-    await this.page.click('[href*="/cannot-proceed"]');
+    await this.page.click('[href*="/how-continue-bank"]');
   }
 
   async isHowWeUseBankDetailsSectionDisplayed() {

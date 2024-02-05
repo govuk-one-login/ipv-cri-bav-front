@@ -22,12 +22,13 @@ landingPage:
   detailDropdown:
     summaryText: How we use your bank details
     detailContent: <p class="instruction">We will not save or share your account details.</p><p class="instruction">We do not use your account details to check or take any payments.</p>
-  cannotProceedLanding: 
-    cannotProceedLink: /cannot-proceed
-    cannotProceedText: "I need to prove my identity another way"
+  howContinueBankLanding: 
+    howContinueBankLink: /how-continue-bank
+    howContinueBankText: "I need to prove my identity another way"
 
-cannotProceed: 
-  title: How would you like to continue?
+howContinueBank: 
+  title: What would you like to do?
+  warning: You cannot return to this screen if you look for another way to prove your identity.
   
 enterAccountDetails:
   title: Enter your account details  
