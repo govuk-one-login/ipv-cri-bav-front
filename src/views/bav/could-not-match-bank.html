@@ -14,7 +14,7 @@
 {% set title = translate("couldNotMatch.title") %}
 {% set content = translate("couldNotMatch.content") %}
 {% set prompt = translate("couldNotMatch.prompt") %} 
-{% set formInstructions = "<p>"+content+"</p><p class=\"govuk-body govuk-!-font-size-27\" id=\"couldNotMatchPrompt\">"+prompt+"</p>"%}
+{% set formInstructions = "<p>"+content+"</p><p class=\"govuk-heading-s\" id=\"couldNotMatchPrompt\">"+prompt+"</p>"%}
 
       {% call hmpoForm(ctx) %}
               {{ hmpoRadios(ctx, {

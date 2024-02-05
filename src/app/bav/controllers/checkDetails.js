@@ -42,9 +42,14 @@ class CheckDetailsController extends BaseController {
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId,
     };
-    const res = await axios.post(`${API.PATHS.SAVE_BAVDATA}`, bavData, {
-      headers,
-    });
+    // const res = await axios.post(`${API.PATHS.SAVE_BAVDATA}`, bavData, {
+    //   headers,
+    // });
+    const res = {
+      data: {
+        retryCount: 1
+      }
+    }
     if (res.data.retryCount) {
       req.sessionModel.set("retryCount", res.data.retryCount);
     }
