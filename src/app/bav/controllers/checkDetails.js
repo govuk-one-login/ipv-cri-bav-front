@@ -1,6 +1,6 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const { API } = require("../../../lib/config");
-const { formatSortCode, formatSortCodeForSubmission } = require("../utils");
+const { formatSortCodeForSubmission } = require("../utils");
 
 class CheckDetailsController extends BaseController {
   locals(req, res, callback) {
@@ -15,7 +15,7 @@ class CheckDetailsController extends BaseController {
       req.sessionModel.set("sortCode", sortCode);
       req.sessionModel.set("accountNumber", req.form.values.accountNumber);
 
-      locals.sortCode = formatSortCode(sortCode);
+      locals.sortCode = sortCode;
       locals.fullName = req.sessionModel.get("fullName");
       locals.accountNumber = req.sessionModel.get("accountNumber");
 
