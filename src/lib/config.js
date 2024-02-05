@@ -22,7 +22,7 @@ module.exports = {
       CHECK_DETAILS: "/check-details",
       ABORT: "/abort",
       CANNOT_PROCEED: "/cannot-proceed",
-      COULD_NOT_MATCH: "/could-not-match",
+      COULD_NOT_MATCH: "/could-not-match-bank",
       DONE: "/done",
       ERROR: "/error",
       OAUTH2: "/oauth2/callback",
