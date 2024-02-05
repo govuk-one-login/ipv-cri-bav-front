@@ -4,7 +4,7 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.path = "/prove-identity-bank-account";
+    this.path = "/continue-enter-bank-account-details";
   }
 
   async isCurrentPage() {
