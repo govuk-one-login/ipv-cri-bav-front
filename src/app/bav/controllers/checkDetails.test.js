@@ -1,11 +1,11 @@
 const BaseController = require("hmpo-form-wizard").Controller;
-const ConfirmDetailsController = require("./confirmDetails");
+const CheckDetailsController = require("./checkDetails");
 const { setupDefaultMocks } = require("../../../../test/utils/test-helpers");
 const axios = require("axios");
 jest.mock("axios");
 
-describe("ConfirmDetailsController", () => {
-  let confirmDetailsController;
+describe("CheckDetailsController", () => {
+  let checkDetailsController;
   let req;
   let res;
   let callback;
@@ -16,16 +16,16 @@ describe("ConfirmDetailsController", () => {
     res = setup.res;
     callback = setup.next;
 
-    confirmDetailsController = new ConfirmDetailsController({ route: "/test" });
+    checkDetailsController = new CheckDetailsController({ route: "/test" });
   });
 
   it("should be an instance of BaseController", () => {
-    expect(confirmDetailsController).toBeInstanceOf(BaseController);
+    expect(checkDetailsController).toBeInstanceOf(BaseController);
   });
 
   it("should set the isLanding sessionModel property to false", () => {
     req.form.values.sortCode = "123456";
-    confirmDetailsController.locals(req, res, callback);
+    checkDetailsController.locals(req, res, callback);
     expect(req.sessionModel.get("isLanding")).toEqual(false);
   });
 
@@ -38,7 +38,7 @@ describe("ConfirmDetailsController", () => {
     });
 
     const bavData = {};
-    await confirmDetailsController.saveBavData(axios, bavData, req);
+    await checkDetailsController.saveBavData(axios, bavData, req);
 
     expect(req.sessionModel.get("attemptCount")).toEqual(1);
   });
@@ -51,7 +51,7 @@ describe("ConfirmDetailsController", () => {
     });
 
     const bavData = {};
-    await confirmDetailsController.saveBavData(axios, bavData, req);
+    await checkDetailsController.saveBavData(axios, bavData, req);
 
     expect(req.sessionModel.get("attemptCount")).toEqual(undefined);
   });

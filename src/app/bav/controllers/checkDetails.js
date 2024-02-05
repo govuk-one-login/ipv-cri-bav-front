@@ -2,7 +2,7 @@ const BaseController = require("hmpo-form-wizard").Controller;
 const { API } = require("../../../lib/config");
 const { formatSortCode, formatSortCodeForSubmission } = require("../utils");
 
-class ConfirmDetailsController extends BaseController {
+class CheckDetailsController extends BaseController {
   locals(req, res, callback) {
     super.locals(req, res, (err, locals) => {
       if (err) {
@@ -58,4 +58,4 @@ class ConfirmDetailsController extends BaseController {
   }
 }
 
-module.exports = ConfirmDetailsController;
+module.exports = CheckDetailsController;
