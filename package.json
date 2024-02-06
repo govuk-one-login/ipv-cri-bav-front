@@ -55,7 +55,7 @@
     "wiremock": "2.35.0"
   },
   "dependencies": {
-    "@aws-sdk/lib-dynamodb": "3.363.0",
+    "@aws-sdk/lib-dynamodb": "3.507.0",
     "@govuk-one-login/di-ipv-cri-common-express": "3.2.0",
     "axios": "^1.6.0",
     "cfenv": "1.2.4",
