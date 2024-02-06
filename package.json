@@ -15,7 +15,7 @@
     "dev": "nodemon src/app.js",
     "build-sass": "rm -rf dist/public/style.css && sass --no-source-map src/assets/scss/application.scss dist/public/stylesheets/application.css --style compressed",
     "build-js": "yarn build-js:analytics && yarn build-js:all",
-    "build-js:analytics": "mkdir -p dist/public/javascripts; cp node_modules/@govuk-one-login/di-ipv-cri-common-express/src/assets/javascript/analytics.js dist/public/javascripts",
+    "build-js:analytics": "mkdir -p dist/public/javascripts; cp node_modules/@govuk-one-login/one-login-analytics/lib/analytics.js dist/public/javascripts",
     "build-js:all": "mkdir -p dist/public/javascripts; uglifyjs node_modules/govuk-frontend/govuk/all.js node_modules/hmpo-components/all.js --beautify -o dist/public/javascripts/all.js",
     "copy-assets": "mkdir -p dist/public/images && cp -R src/assets/images/* dist/public/images",
     "lint": "eslint .",
