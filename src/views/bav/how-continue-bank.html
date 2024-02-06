@@ -37,12 +37,6 @@
   {% endcall %}
 {% endblock %} 
 
-{% set footerNavItems = translate("govuk.footerNavItems") %}
-
-{% block footer %}
-  {{ govukFooter( footerNavItems ) }}
-{% endblock %}
-
 {% block bodyEnd %}
   {% block scripts %}
     <script type="text/javascript" src="/public/javascripts/all.js"></script>

@@ -36,9 +36,5 @@ couldNotMatchChoice:
       reveal: ""
     proveAnotherWay: 
       label: Find another way to prove your identity
-      hint: You will not be able to change your mind and use your bank details
+      hint: You will not be able to change your mind and use your bank details.
       reveal: ""
-    
-
-
-    
