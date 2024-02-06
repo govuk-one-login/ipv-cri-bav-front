@@ -39,20 +39,20 @@ jobs:
           cache: 'yarn'
 
       - name: Build Test CIC Front Image
-        uses: borales/actions-yarn@v4
+        uses: borales/actions-yarn@v5
         with:
           cmd: install # will run `yarn install` command
         env:
           NODE_AUTH_TOKEN: ${{ secrets.SH_BAV_ACCESS_TOKEN }} # if needed
 
       - name: Build production bundle
-        uses: borales/actions-yarn@v4
+        uses: borales/actions-yarn@v5
         with:
           cmd: build # will run `yarn build` command
 
       - name: Test the app
         id: bavBrowserTests
-        uses: borales/actions-yarn@v4
+        uses: borales/actions-yarn@v5
         with:
           cmd: test:browser:ci # will run `yarn test:browser:ci` command
 
