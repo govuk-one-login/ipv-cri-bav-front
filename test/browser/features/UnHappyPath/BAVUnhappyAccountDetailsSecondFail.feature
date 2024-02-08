@@ -6,7 +6,7 @@ Feature: Provided Bank Details Failed
         When the user clicks on Continue button
         Then the user is directed to the Account Details screen
 
-    Scenario:  User selected 1st radio to return to Account Details Screen
+    Scenario:  User failed on first attempt then failed on second attempt and is directed to IPV
         Given the user has entered a Sort Code of "123456"
         Given the user has entered an Account Number of "31926819"
         When the user clicks the Continue button
