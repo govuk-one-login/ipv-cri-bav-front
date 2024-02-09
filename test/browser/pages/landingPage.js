@@ -31,7 +31,9 @@ module.exports = class PlaywrightDevPage {
     ).toEqual("We will not save or share your account details.");
     expect(
       await this.page.locator(".instruction:nth-child(2)").textContent()
-    ).toEqual("We do not use your account details to check or take any payments.");
+    ).toEqual(
+      "We do not use your account details to check or take any payments."
+    );
   }
 
   async checkErrorText() {
