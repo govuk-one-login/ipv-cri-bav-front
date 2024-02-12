@@ -56,7 +56,7 @@
   },
   "dependencies": {
     "@aws-sdk/lib-dynamodb": "3.363.0",
-    "@govuk-one-login/di-ipv-cri-common-express": "3.2.0",
+    "@govuk-one-login/di-ipv-cri-common-express": "5.0.0",
     "axios": "^1.6.0",
     "cfenv": "1.2.4",
     "connect-dynamodb": "^2.0.6",
@@ -80,5 +80,8 @@
     "playwright": "1.35.1",
     "reqres": "3.0.1",
     "wait-on": "7.0.1"
+  },
+  "resolutions": {
+    "string-width": "^4.2.2"
   }
 }
