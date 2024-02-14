@@ -1,5 +1,5 @@
 const { Controller: BaseController } = require("hmpo-form-wizard");
-const { API } = require("../../../lib/config");
+const { APP, API } = require("../../../lib/config");
 const rsa = require("node-rsa");
 
 class NameInfoController extends BaseController {
@@ -22,9 +22,18 @@ class NameInfoController extends BaseController {
   }
 
   async getNameInfo(axios, req) {
+		if (!req.session.tokenId) {
+			logger.critical("Missing x-govuk-signin-session-id", {
+				value: req.session.tokenId,
+			});
+			res.redirect(APP.PATHS.ERROR);
+		}
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId,
     };
+
+		
+
     const res = await axios.get(`${API.PATHS.GET_NAME_INFO}`, {
       headers,
     });
