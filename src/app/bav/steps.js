@@ -33,17 +33,22 @@ module.exports = {
   },
   [APP.PATHS.CONFIRM_DETAILS]: {
     controller: confirmDetails,
-    fields: ["retryCount"],
+    fields: ["attemptCount"],
     next: [
       {
-        field: "retryCount",
+        field: "attemptCount",
         value: undefined,
         next: APP.PATHS.DONE,
       },
       {
-        field: "retryCount",
+        field: "attemptCount",
         value: 1,
         next: APP.PATHS.COULD_NOT_MATCH,
+      },
+      {
+        field: "attemptCount",
+        value: 2,
+        next: APP.PATHS.DONE,
       },
     ],
   },
