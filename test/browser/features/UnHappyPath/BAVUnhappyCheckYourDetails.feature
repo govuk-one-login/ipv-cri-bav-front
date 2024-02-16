@@ -13,11 +13,11 @@ Feature: Navigate away from the Check Your Details Screen
 
   Scenario: Back button routes user to Account Details Page
     When the user clicks the “Back” link on the CYA page
-    Then they are routed to the Account Details Page
+    Then the user is directed to the Account Details screen
 
   Scenario: Browser back button routes user to Account Details  Page
     When the user clicks the browser Back button on the CYA page
-    Then they are routed to the Account Details Page
+    Then the user is directed to the Account Details screen
 
   Scenario: Exit link routes to Escape choice Screen
     When the user clicks on 'I cannot provide UK account details' link

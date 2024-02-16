@@ -16,11 +16,13 @@ module.exports = {
     BASE_URL: process.env.EXTERNAL_WEBSITE_HOST || "http://localhost:8000",
     PATHS: {
       BAV: "/",
+      NAME_INFO: "/name-info",
       LANDING_PAGE: "/prove-identity-bank-account",
       ACCOUNT_DETAILS: "/enter-account-details",
       CONFIRM_DETAILS: "/confirm-details",
       ABORT: "/abort",
       CANNOT_PROCEED: "/cannot-proceed",
+      COULD_NOT_MATCH: "/could-not-match",
       DONE: "/done",
       ERROR: "/error",
       OAUTH2: "/oauth2/callback",

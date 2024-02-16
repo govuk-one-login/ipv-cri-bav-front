@@ -1,5 +1,9 @@
 const { Given, When, Then } = require("@cucumber/cucumber");
-const { AccountDetailsPage, AccountDetailsEditPage } = require("../pages");
+const {
+  AccountDetailsPage,
+  AccountDetailsEditPage,
+  ConfirmDetailsPage,
+} = require("../pages");
 const { expect } = require("@playwright/test");
 
 Given("the user is on the Account Details Screen", async function () {
@@ -50,16 +54,16 @@ When(
 
 Then("the user is directed to the Account Details screen", async function () {
   const accountDetailsPage = new AccountDetailsPage(await this.page);
-  await accountDetailsPage.isCurrentPage();
+  expect(await accountDetailsPage.isCurrentPage()).toBeTruthy();
+});
+
+Then("the user is directed to the Confirm Details screen", async function () {
+  const confirmDetailsPage = new ConfirmDetailsPage(await this.page);
+  expect(await confirmDetailsPage.isCurrentPage()).toBeTruthy();
 });
 
 Then("an error message is shown to the user", async function () {
   const accDetailsPage = new AccountDetailsPage(await this.page);
   expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
   expect(await accDetailsPage.checkErrorText()).toContain("There is a problem");
-});
-
-Then("they are routed to the Account Details Page", async function () {
-  const accDetailsPage = new AccountDetailsPage(await this.page);
-  expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
 });
