@@ -94,7 +94,7 @@ $govuk-assets-path: "/public/";
   @include govuk-responsive-margin(0, "top");
 }
 
-#confirm-details-header {
+#check-details-header {
   @include govuk-responsive-margin(3, "bottom");
 }
 

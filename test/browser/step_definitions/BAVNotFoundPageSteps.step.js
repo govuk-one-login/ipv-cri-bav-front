@@ -4,7 +4,7 @@ const { NotFoundPage } = require("../pages");
 When("the user navigates to a URL that does not exist", async function () {
   const notFoundPage = new NotFoundPage(await this.page);
   const notFoundUrl = (await notFoundPage.returnUrl()).href.replace(
-    "prove-identity-bank-account",
+    "continue-enter-bank-account-details",
     "not-found"
   );
   await notFoundPage.navigateToUrl(notFoundUrl);

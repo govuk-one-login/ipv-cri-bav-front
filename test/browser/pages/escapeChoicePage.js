@@ -4,7 +4,7 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.path = "/cannot-proceed";
+    this.path = "/how-continue-bank";
   }
 
   async isCurrentPage() {
@@ -17,11 +17,11 @@ module.exports = class PlaywrightDevPage {
   }
 
   async radioButtonContinue() {
-    await this.page.locator("#cannotProceedChoice-goBack").click();
+    await this.page.locator("#howContinueBankChoice-goBack").click();
   }
 
   async radioButtonExitBav() {
-    await this.page.locator("#cannotProceedChoice").check();
+    await this.page.locator("#howContinueBankChoice").check();
   }
 
   async goBack() {

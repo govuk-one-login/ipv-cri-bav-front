@@ -4,7 +4,7 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.path = "/prove-identity-bank-account";
+    this.path = "/continue-enter-bank-account-details";
   }
 
   async isCurrentPage() {
@@ -21,7 +21,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async clickFindOtherWaysToProveIdentity() {
-    await this.page.click('[href*="/cannot-proceed"]');
+    await this.page.click('[href*="/how-continue-bank"]');
   }
 
   async isHowWeUseBankDetailsSectionDisplayed() {
@@ -31,7 +31,9 @@ module.exports = class PlaywrightDevPage {
     ).toEqual("We will not save or share your account details.");
     expect(
       await this.page.locator(".instruction:nth-child(2)").textContent()
-    ).toEqual("We do not use your account details to:");
+    ).toEqual(
+      "We do not use your account details to check or take any payments."
+    );
   }
 
   async checkErrorText() {

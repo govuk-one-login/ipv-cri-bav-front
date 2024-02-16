@@ -4,7 +4,7 @@ const { ErrorPage } = require("../pages");
 When("the user navigates to a URL that returns an Error", async function () {
   const errorPage = new ErrorPage(await this.page);
   const errorPageUrl = (await errorPage.returnUrl()).href.replace(
-    "prove-identity-bank-account",
+    "continue-enter-bank-account-details",
     "error"
   );
   await errorPage.navigateToUrl(errorPageUrl);

@@ -32,7 +32,7 @@ govuk:
     cookieLinkText: "Darganfyddwch fwy am gwcis"
   phaseBanner:
     tag: beta
-    content: Mae hwn yn wasanaeth newydd – bydd eich <a href="https://home.account.gov.uk/contact-gov-uk-one-login?fromURL=https://www.review-bav.account.gov.uk/prove-identity-bank-account" class="govuk-link" rel="noopener" target="_blank">adborth (agor mewn tab newydd)</a> yn ein helpu i'w wella.
+    content: Mae hwn yn wasanaeth newydd – bydd eich <a href="https://home.account.gov.uk/contact-gov-uk-one-login?fromURL=https://www.review-bav.account.gov.uk/continue-enter-bank-account-details" class="govuk-link" rel="noopener" target="_blank">adborth (agor mewn tab newydd)</a> yn ein helpu i'w wella.
   footerNavItems:
     meta:
       items:
@@ -44,7 +44,7 @@ govuk:
           text: Telerau ac amodau
         - href: https://signin.account.gov.uk/privacy-notice
           text: Hysbysiad preifatrwydd
-        - href: https://home.account.gov.uk/contact-gov-uk-one-login?fromURL=https://www.review-bav.account.gov.uk/prove-identity-bank-account
+        - href: https://home.account.gov.uk/contact-gov-uk-one-login?fromURL=https://www.review-bav.account.gov.uk/continue-enter-bank-account-details
           text: Cymorth
   copyright:
     text: "© Hawlfraint y Goron"

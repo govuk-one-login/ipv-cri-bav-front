@@ -4,7 +4,7 @@ module.exports = class PlaywrightDevPage {
    */
   constructor(page) {
     this.page = page;
-    this.path = "/confirm-details";
+    this.path = "/check-details";
   }
 
   async isCurrentPage() {
@@ -28,7 +28,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async clickCannotProvideUkAccDetails() {
-    await this.page.click('[href*="/cannot-proceed"]');
+    await this.page.click('[href*="/how-continue-bank"]');
   }
 
   async clickSubmitDetailsButton() {

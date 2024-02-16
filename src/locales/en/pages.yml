@@ -2,16 +2,16 @@
             
 landingPage:
   title: Continue to your bank or building society account details
-  infoText1: We'll now ask you some questions about your UK bank or building society account.
-  infoText2: You must be the named account holder.
+  infoText1: Next, we’ll ask for some information about your account.
   list1: 
-    list1Text: "You can use details from any:"
-    list1Bullet1: current account
-    list1Bullet2: joint current account
+    list1Text: "It must be:"
+    list1Bullet1: a current account or joint current account
+    list1Bullet2: with a UK bank or building society
+    list1Bullet3: in your name
   list2: 
     list2Text: "You cannot use a:"
     list2Bullet1: business account
-    list2Bullet2: savings account, including an Individual Savings Account (ISAs)
+    list2Bullet2: savings account, including an Individual Savings Account (ISA)
   infoTitle: What to expect
   list3: 
     list3Text: "You'll need to tell us the:"
@@ -19,21 +19,21 @@ landingPage:
     list3Bullet2: account number
   infoText3: We'll check your acount name and details with your bank or building society.
   infoText4: Your name and account details must match.
-  infoText5: If we cannot find a match for the details you've given, you'll need to prove your identity another way.
   detailDropdown:
     summaryText: How we use your bank details
-    detailContent: <p class="instruction">We will not save or share your account details.</p><p class="instruction">We do not use your account details to:</p><ul class="govuk-list govuk-list--bullet"><li>take any payments</li><li>check any transactions</li></ul>
-  cannotProceedLanding: 
-    cannotProceedLink: /cannot-proceed
-    cannotProceedText: "I cannot provide UK current account details"
+    detailContent: <p class="instruction">We will not save or share your account details.</p><p class="instruction">We do not use your account details to check or take any payments.</p>
+  howContinueBankLanding: 
+    howContinueBankLink: /how-continue-bank
+    howContinueBankText: "I need to prove my identity another way"
 
-cannotProceed: 
-  title: How would you like to continue?
+howContinueBank: 
+  title: What would you like to do?
+  warning: You cannot return to this screen if you look for another way to prove your identity.
   
 enterAccountDetails:
   title: Enter your account details  
 
-confirmDetails:
+checkDetails:
   title: "Check your details match with your bank or building society account"
   fullName: "Name"
   sortCode: "Sort code"

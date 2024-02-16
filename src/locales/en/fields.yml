@@ -1,28 +1,28 @@
 sortCode:
   label: Sort code
-  hint: A sort code is 6 digits long. It's usually formatted as three pairs of numbers. For example, 12-34-56
+  hint: Your sort code is 6 digits long. It is 3 pairs of numbers. For example, 802650.
   validation:
-    default: Enter a sort code
-    regexNumber: Enter a valid sort code like 12-34-56
+    default: Enter your sort code
+    regexNumber: Enter a valid sort code. For example, 802650
 
 accountNumber:
   label: Account number
-  hint: An account number is between 6 and 8 digits long. For example, 31926819
+  hint: Your account number is between 6 and 8 digits long. For example, 10014069.
   validation:
-    default: Enter an account number
-    minlength: Account number must be between 6 and 8 digits
-    maxlength: Account number must be between 6 and 8 digits
+    default: Enter your account number
+    minlength: Your account number must be between 6 and 8 digits
+    maxlength: Your account number must be between 6 and 8 digits
 
-cannotProceedChoice:
+howContinueBankChoice:
   validation:
-    required: Choose an option
+    required: Select what you would like to do
   items:
     proveAnotherWay: 
-      label: Find another way to prove your identity
-      hint: You will not be able to change your mind and use your bank details
+      label: Stop using your bank details and find another way to prove your identity
+      hint: Go back to the service you need to use or try photo ID.
       reveal: ""
     goBack: 
-      label: Go back and prove your identity using your bank details
+      label: Carry on using your bank details to prove your identity
       hint: ""
       reveal: ""
       
@@ -36,9 +36,5 @@ couldNotMatchChoice:
       reveal: ""
     proveAnotherWay: 
       label: Find another way to prove your identity
-      hint: You will not be able to change your mind and use your bank details
+      hint: You will not be able to change your mind and use your bank details.
       reveal: ""
-    
-
-
-    
