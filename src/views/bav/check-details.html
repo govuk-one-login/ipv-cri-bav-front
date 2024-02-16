@@ -1,8 +1,8 @@
 {% extends "base-form.njk" %}
 {# the content for this page is controlled by locales/en/default.yml #}
-{% set hmpoTitle = confirmDetails.title %}
-{% set hmpoPageKey = "confirmDetails" %}
-{% set gtmJourney = "bav - confirmDetails" %}
+{% set hmpoTitle = checkDetails.title %}
+{% set hmpoPageKey = "checkDetails" %}
+{% set gtmJourney = "bav - checkDetails" %}
 
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
@@ -11,12 +11,11 @@
 
 {% block mainContent %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-three-quarters">
-      <h1 id="confirm-details-header" class="gov" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-        {{ translate("confirmDetails.title") }}
-      </h1>
-    </div>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-three-quarters">
+    <h1 id="check-details-header" class="gov" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+        {{ translate("checkDetails.title") }}
+    </h1>
   </div>
 
   {{ govukSummaryList({
@@ -24,7 +23,7 @@
   rows: [
     {
       key: {
-        text: translate("confirmDetails.fullName")
+        text: translate("checkDetails.fullName")
       },
       value: {
         text: fullName
@@ -32,7 +31,7 @@
     },
     {
       key: {
-        text: translate("confirmDetails.sortCode")
+        text: translate("checkDetails.sortCode")
       },
       value: {
         html: sortCode
@@ -41,15 +40,15 @@
         items: [
           {
             href: "/enter-account-details/edit?edit=true",
-            text: translate("confirmDetails.changeLink"),
-            visuallyHiddenText: translate("confirmDetails.sortCode")
+            text: translate("checkDetails.changeLink"),
+            visuallyHiddenText: translate("checkDetails.sortCode")
           }
         ]
       }
     },
     {
       key: {
-        text: translate("confirmDetails.accountNumber")
+        text: translate("checkDetails.accountNumber")
       },
       value: {
         html: accountNumber
@@ -58,8 +57,8 @@
         items: [
           {
             href: "/enter-account-details/edit?edit=true",
-            text: translate("confirmDetails.changeLink"),
-            visuallyHiddenText: translate("confirmDetails.accountNumber")
+            text: translate("checkDetails.changeLink"),
+            visuallyHiddenText: translate("checkDetails.accountNumber")
           }
         ]
       }
@@ -68,31 +67,26 @@
 })
 }}
 
-  {% set insetBody %}
-  {{- "confirmDetails.insetText" | translate -}}
-  {% endset %}
+{% set insetBody %}
+  {{- "checkDetails.insetText" | translate -}}
+{% endset %}  
 
   {{ govukInsetText({
   html: insetBody
 }) }}
 
-  {% call hmpoForm(ctx) %}
-  {{ hmpoSubmit(ctx, {id: "submitDetails", text: translate("confirmDetails.submitDetails")}) }}
-  {% endcall %}
+{% call hmpoForm(ctx) %}
+    {{ hmpoSubmit(ctx, {id: "submitDetails", text: translate("checkDetails.submitDetails")}) }}
+{% endcall %}
 
-  <p class="bav__instruction">
-    <a href={{ "landingPage.cannotProceedLanding.cannotProceedLink" | translate }}>
-      {{ "landingPage.cannotProceedLanding.cannotProceedText" | translate }}</a>
-  </p>
+<p class="bav__instruction"><a href={{ "landingPage.howContinueBankLanding.howContinueBankLink" | translate }}> {{ "landingPage.howContinueBankLanding.howContinueBankText" | translate }}</a></p>
 
 {% endblock %}
 
-{# generate the specific footer items required for the PYI flows #}
-{% set footerNavItems = translate("govuk.footerNavItems") %}
+{% block bodyEnd %}
+  {% block scripts %}
+    <script nonce="{{ cspNonce }}">
 
-{% block footer %}
-  {{ govukFooter( footerNavItems ) }}
-  <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
     var formSubmitted = false;
 
     submitSpinner()
@@ -124,7 +118,7 @@
         .pageViewTracker
         .trackOnPageLoad({
           statusCode: '200', // Access status code
-          englishPageTitle: '{{translate("confirmDetails.title")}}',
+          englishPageTitle: '{{translate("checkDetails.title")}}',
           taxonomy_level1: 'web cri', // Access taxonomy level 1
           taxonomy_level2: 'bav', // Access taxonomy level 2
           content_id: '003',

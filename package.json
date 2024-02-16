@@ -56,7 +56,7 @@
   },
   "dependencies": {
     "@aws-sdk/lib-dynamodb": "3.363.0",
-    "@govuk-one-login/di-ipv-cri-common-express": "5.0.0",
+    "@govuk-one-login/di-ipv-cri-common-express": "6.0.0",
     "@govuk-one-login/one-login-analytics": "^0.0.9",
     "axios": "^1.6.0",
     "cfenv": "1.2.4",

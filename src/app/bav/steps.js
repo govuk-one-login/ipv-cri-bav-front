@@ -1,7 +1,7 @@
 const root = require("./controllers/root");
 const landingPage = require("./controllers/landingPage");
-const cannotProceed = require("./controllers/cannotProceed");
-const confirmDetails = require("./controllers/confirmDetails");
+const howContinueBank = require("./controllers/howContinueBank");
+const checkDetails = require("./controllers/checkDetails");
 const abort = require("./controllers/abort");
 const nameInfo = require("./controllers/nameInfo");
 const { APP } = require("../../lib/config");
@@ -28,11 +28,11 @@ module.exports = {
   [APP.PATHS.ACCOUNT_DETAILS]: {
     fields: ["sortCode", "accountNumber"],
     editable: true,
-    editBackStep: APP.PATHS.CONFIRM_DETAILS,
-    next: APP.PATHS.CONFIRM_DETAILS,
+    editBackStep: APP.PATHS.CHECK_DETAILS,
+    next: APP.PATHS.CHECK_DETAILS,
   },
-  [APP.PATHS.CONFIRM_DETAILS]: {
-    controller: confirmDetails,
+  [APP.PATHS.CHECK_DETAILS]: {
+    controller: checkDetails,
     fields: ["attemptCount"],
     next: [
       {
@@ -52,18 +52,18 @@ module.exports = {
       },
     ],
   },
-  [APP.PATHS.CANNOT_PROCEED]: {
-    controller: cannotProceed,
-    fields: ["cannotProceedChoice"],
+  [APP.PATHS.HOW_CONTINUE_BANK]: {
+    controller: howContinueBank,
+    fields: ["howContinueBankChoice"],
     checkJourney: false,
     next: [
       {
-        field: "cannotProceedChoice",
+        field: "howContinueBankChoice",
         value: "proveAnotherWay",
         next: APP.PATHS.ABORT,
       },
       {
-        field: "cannotProceedChoice",
+        field: "howContinueBankChoice",
         value: "goBack",
         next: [
           {
@@ -74,7 +74,7 @@ module.exports = {
           {
             field: "isLanding",
             value: false,
-            next: APP.PATHS.CONFIRM_DETAILS,
+            next: APP.PATHS.CHECK_DETAILS,
           },
         ],
       },
@@ -87,7 +87,7 @@ module.exports = {
       {
         field: "couldNotMatchChoice",
         value: "tryAgain",
-        next: APP.PATHS.CONFIRM_DETAILS,
+        next: APP.PATHS.CHECK_DETAILS,
       },
       {
         field: "couldNotMatchChoice",
