@@ -117,6 +117,8 @@ Mappings:
       BACKENDURL: "https://api-bav-cri-api.review-bav.dev.account.gov.uk"
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
       LOGLEVEL: "debug"
+      GA4DISABLED: false
+      UADISABLED: false
     build:
       EXTERNALWEBSITEHOST: "https://review-bav.build.account.gov.uk"
       APIBASEURL: "https://api.review-bav.build.account.gov.uk"
@@ -127,6 +129,8 @@ Mappings:
       BACKENDURL: "https://api.review-bav.build.account.gov.uk"
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
       LOGLEVEL: "warn"
+      GA4DISABLED: false
+      UADISABLED: false
     staging:
       EXTERNALWEBSITEHOST: "www.review-bav.staging.account.gov.uk/"
       APIBASEURL: "https://api.review-bav.staging.account.gov.uk"
@@ -134,6 +138,8 @@ Mappings:
       SESSIONTABLENAME: "bav-front-sessions-staging"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
       LOGLEVEL: "warn"
+      GA4DISABLED: false
+      UADISABLED: false
     integration:
       EXTERNALWEBSITEHOST: "https://review-bav.integration.account.gov.uk"
       APIBASEURL: "https://api.review-bav.integration.account.gov.uk"
@@ -141,6 +147,8 @@ Mappings:
       SESSIONTABLENAME: "bav-front-sessions-integration"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
       LOGLEVEL: "warn"
+      GA4DISABLED: true
+      UADISABLED: false
     production:
       EXTERNALWEBSITEHOST: "https://review-bav.account.gov.uk"
       APIBASEURL: "https://api.review-bav.account.gov.uk"
@@ -148,6 +156,8 @@ Mappings:
       SESSIONTABLENAME: "bav-front-sessions-production"
       ANALYTICSDOMAIN: "account.gov.uk"
       LOGLEVEL: "warn"
+      GA4DISABLED: true
+      UADISABLED: false
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -420,6 +430,10 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, ANALYTICSDOMAIN ]
             - Name: LOG_LEVEL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LOGLEVEL ]
+            - Name: GA4_DISABLED
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, GA4DISABLED ]
+            - Name: UA_DISABLED
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, UADISABLED ]
 
           Secrets:
             - Name: DT_TENANT
