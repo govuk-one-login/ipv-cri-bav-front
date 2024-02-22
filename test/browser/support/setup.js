@@ -6,7 +6,6 @@ const {
   setDefaultTimeout,
 } = require("@cucumber/cucumber");
 const { chromium } = require("playwright");
-const axios = require("axios");
 
 setDefaultTimeout(60 * 1000);
 
@@ -27,21 +26,6 @@ AfterAll(async function () {
   await global.browser.close();
 });
 
-// Add scenario header
-Before(async function ({ pickle } = {}) {
-  const tags = pickle.tags || [];
-  const tag = tags.find((tag) => tag.name.startsWith("@mock-api:"));
-
-  if (!tag) {
-    return;
-  }
-
-  const header = tag?.name.substring(10);
-
-  this.SCENARIO_ID_HEADER = header;
-
-  await axios.get(`${process.env.API_BASE_URL}/__reset/${header}`);
-});
 
 // Create a new test context and page per scenario
 Before(async function () {

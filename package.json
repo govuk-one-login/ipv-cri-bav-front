@@ -9,7 +9,7 @@
   },
   "scripts": {
     "start": "node src/app.js",
-    "start:ci": "API_BASE_URL=http://localhost:8090 REDIS_SESSION_URL= NODE_ENV=development node src/app.js",
+    "start:ci": "REDIS_SESSION_URL= NODE_ENV=development node src/app.js",
     "start:debug": "DEBUG=* node src/app.js",
     "build": "yarn build-sass && yarn build-js && yarn copy-assets",
     "dev": "nodemon src/app.js",
@@ -24,7 +24,7 @@
     "format": "yarn prettier:fix && yarn lint",
     "mocks": "yarn run wiremock --verbose --port 8090 --root-dir test/mocks",
     "test": "node_modules/.bin/jest --testPathPattern=app/bav --coverage",
-    "test:browser": "wait-on tcp:127.0.0.1:8090 tcp:127.0.0.1:5030 && API_BASE_URL=http://127.0.0.1:8090 cucumber-js test/browser/features/**/*.feature --require test/browser/support/env.js  --require test/browser/support/setup.js --require test/browser/step_definitions/**/*.js -f json:./test/reports/cucumber_report.json --tags @success",
+    "test:browser": "wait-on tcp:127.0.0.1:8090 tcp:127.0.0.1:5030 && cucumber-js test/browser/features/**/*.feature --require test/browser/support/env.js  --require test/browser/support/setup.js --require test/browser/step_definitions/**/*.js -f json:./test/reports/cucumber_report.json --tags @success",
     "test:browser:only": "wait-on tcp:8090 tcp:5030 && cucumber-js test/browser/features/**/*.feature --require test/browser/support/env.js  --require test/browser/support/setup.js --require test/browser/step_definitions/**/*.js --tags @only",
     "test:browser:ci": "IPV_BASE_URL=http://localhost:5030 npm-run-all -p -r start:ci mocks test:browser && npm run test:browser:report",
     "test:browser:report": "node ./test/utils/multiReportGenerator.js",
