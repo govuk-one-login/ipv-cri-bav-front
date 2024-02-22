@@ -26,7 +26,6 @@ AfterAll(async function () {
   await global.browser.close();
 });
 
-
 // Create a new test context and page per scenario
 Before(async function () {
   this.context = await global.browser.newContext({});
