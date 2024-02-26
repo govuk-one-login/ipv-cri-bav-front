@@ -17,6 +17,7 @@ on:
 
 env: # Only adding the variables in that are required for
   IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
+  SESSION_TABLE: ${{ secrets.SESSION_TABLE }}
 
 jobs:
   run-tests:
