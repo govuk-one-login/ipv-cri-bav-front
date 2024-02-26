@@ -36,6 +36,8 @@ jobs:
         run: yarn test:browser:ci
         env: 
             IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
+            API_BASE_URL: ${{ secrets.API_BASE_URL }}
+
       - name: Generate HTML Report
         if: always() && steps.bavBrowserTests.outcome == 'failure'
         run: yarn test:browser:report
