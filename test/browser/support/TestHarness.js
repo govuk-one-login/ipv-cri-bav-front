@@ -10,7 +10,6 @@ const { fromNodeProviderChain } = require("@aws-sdk/credential-providers");
 const { XMLParser } = require("fast-xml-parser");
 const { expect } = require("@playwright/test");
 
-
 module.exports = class TestHarness {
   constructor() {
     this.HARNESS_API_INSTANCE = axios.create({
