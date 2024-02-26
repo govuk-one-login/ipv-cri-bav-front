@@ -12,7 +12,6 @@ When(
     const testHarness = new TestHarness();
     const sessionRecord = await testHarness.getSessionByAuthCode(authCode);
     this.sessionId = sessionRecord.sessionId;
-    console.log(sessionRecord);
   }
 );
 
@@ -48,9 +47,7 @@ Then("the Verifiable Credential is stored as expected", async function () {
   const decodedBody = JSON.parse(
     Buffer.from(rawBody.replace(/\W/g, ""), "base64url").toString()
   );
-  // Strength Score
   expect(decodedBody.vc.evidence[0].strengthScore).toEqual(3);
-  // Validity Score
   expect(decodedBody.vc.evidence[0].validityScore).toEqual(2);
 });
 

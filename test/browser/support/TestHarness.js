@@ -57,34 +57,6 @@ module.exports = class TestHarness {
     }
   }
 
-  async getDequeuedSqsMessage(prefix) {
-    const listObjectsResponse = await this.HARNESS_API_INSTANCE.get(
-      "/bucket/",
-      {
-        params: {
-          prefix: "ipv-core/" + prefix,
-        },
-      }
-    );
-    const xmlParser = new XMLParser();
-    const listObjectsParsedResponse = xmlParser.parse(listObjectsResponse.data);
-    if (!listObjectsParsedResponse?.ListBucketResult?.Contents) {
-      return undefined;
-    }
-    let key;
-    if (Array.isArray(listObjectsParsedResponse?.ListBucketResult?.Contents)) {
-      key = listObjectsParsedResponse.ListBucketResult.Contents.at(-1).Key;
-    } else {
-      key = listObjectsParsedResponse.ListBucketResult.Contents.Key;
-    }
-
-    const getObjectResponse = await this.HARNESS_API_INSTANCE.get(
-      "/object/" + key,
-      {}
-    );
-    return getObjectResponse.data;
-  }
-
   async getSqsEventList(folder, prefix, txmaEventSize) {
     let keys;
     let keyList;
