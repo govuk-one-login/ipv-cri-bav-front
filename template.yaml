@@ -113,7 +113,7 @@ Mappings:
       DNSSUFFIX: "review-bav.dev.account.gov.uk"
       SESSIONTABLENAME: "bav-front-sessions-dev"
       ANALYTICSDOMAIN: "dev.account.gov.uk"
-      TESTHARNESSURL: "https://testharness.review-bav.dev.account.gov.uk"
+      TESTHARNESSURL: "https://bav-test-harness-testharness.review-bav.dev.account.gov.uk"
       BACKENDURL: "https://api-bav-cri-api.review-bav.dev.account.gov.uk"
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
       LOGLEVEL: "debug"
