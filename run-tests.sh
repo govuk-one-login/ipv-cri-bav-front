@@ -13,7 +13,7 @@ export GITHUB_ACTIONS=true
 # shellcheck disable=SC2154
 export API_BASE_URL=$(remove_quotes "$CFN_BAVBackEndURL")
 export IPV_STUB_URL=$(remove_quotes $CFN_BAVIPVStubExecuteURL)start
-export TEST_HARNESS_URL=$(remove_quotes $CFN_BAVTestHarnessURL)
+export TEST_HARNESS_URL=$(remove_quotes $CFN_BAVTestHarnessURL)/
 export SESSION_TABLE=$(remove_quotes $CFN_BAVBackendSessionTableName)
 
 cd /app; yarn run test:e2e:cd
