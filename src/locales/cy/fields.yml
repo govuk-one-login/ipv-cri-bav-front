@@ -1,27 +1,41 @@
-surname:
-  label: Enw olaf
-  hint: ""
+sortCode:
+  label: Sort code
+  hint: Your sort code is 6 digits long. It is 3 pairs of numbers. For example, 802650.
   validation:
-    default: "Rhowch eich enw olaf fel y mae'n ymddangos ar eich ID gyda llun"
-    maxlength: "Rhowch eich enw olaf fel y mae'n ymddangos ar eich ID gyda llun"
-    regexNumber: "Ni all eich enw olaf gynnwys rhifau"
-    regexSpecialCharacters: "Rhowch eich enw olaf fel y mae'n ymddangos ar eich ID gyda llun"
+    default: Enter your sort code
+    regexNumber: Enter a valid sort code. For example, 802650
 
-
-firstName:
-  label: Enw cyntaf
-  hint: ""
+accountNumber:
+  label: Rhif y cyfrif 
+  hint: Rhaid i rif eich cyfrif fod rhwng 6 ac 8 digid. Er enghraifft, 10014069.
   validation:
-    default: "Rhowch eich enw cyntaf fel y mae'n ymddangos ar eich ID gyda llun"
-    maxlength: "Rhowch eich enw cyntaf fel y mae'n ymddangos ar eich ID gyda llun"
-    regexNumber: "Ni all eich enw cyntaf gynnwys rhifau"
-    regexSpecialCharacters: "Rhowch eich enw cyntaf fel y mae'n ymddangos ar eich ID gyda llun"
+    default: Rhowch rif eich cyfrif
+    minlength: Rhaid i rif eich cyfrif fod rhwng 6 ac 8 digid
+    maxlength: Rhaid i rif eich cyfrif fod rhwng 6 ac 8 digid
 
-middleName:
-  label: Enw(au) canol
-  hint: Gadewch hwn yn wag os nad oes gennych unrhyw enwau canol
+howContinueBankChoice:
   validation:
-    default: "Rhowch eich enw canol fel y mae'n ymddangos ar eich ID gyda llun"
-    maxlength: "Rhowch eich enw canol fel y mae'n ymddangos ar eich ID gyda llun"
-    regexNumber: "Ni all eich enw canol gynnwys rhifau"
-    regexSpecialCharacters: "Rhowch eich enw canol fel y mae'n ymddangos ar eich ID gyda llun"
+    required: Dewiswch beth hoffech chi ei wneud
+  items:
+    proveAnotherWay: 
+      label: Stopio ddefnyddio'ch manylion banc a dod o hyd i ffordd arall o brofi eich hunaniaeth
+      hint: Ewch yn ôl i'r gwasanaeth rydych angen ei ddefnyddio neu ddefnyddiwch ID gyda llun.
+      reveal: ""
+    goBack: 
+      label: Parhau i ddefnyddio eich manylion banc i brofi eich hunaniaeth
+      hint: ""
+      reveal: ""
+      
+couldNotMatchChoice:
+  validation:
+    required: Dewiswch beth hoffech chi ei wneud
+  items:
+    tryAgain: 
+      label: Gwirio fanylion eich cyfrif banc neu gymdeithas adeiladu a cheisio eto
+      hint: ""
+      reveal: ""
+    proveAnotherWay: 
+      label: Dod o hyd i ffordd arall o brofi eich hunaniaeth
+      hint: Ni fyddwch yn gallu newid eich meddwl a defnyddio eich manylion banc.
+      reveal: ""
+
