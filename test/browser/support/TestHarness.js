@@ -32,29 +32,11 @@ module.exports = class TestHarness {
     this.HARNESS_API_INSTANCE.interceptors.request.use(awsSigv4Interceptor);
   }
 
-  async getSession(sessionId) {
-    try {
-      const getItemResponse = await this.HARNESS_API_INSTANCE.get(
-        "/getRecordBySessionId/" +
-          process.env["SESSION_TABLE"] +
-          "/" +
-          sessionId
-      );
-      return unmarshall(getItemResponse.data.Item);
-    } catch (error) {
-      return error;
-    }
-  }
-
   async getSessionByAuthCode(authCode) {
-    try {
       const getItemResponse = await this.HARNESS_API_INSTANCE.get(
         "/getSessionByAuthCode/" + process.env["SESSION_TABLE"] + "/" + authCode
       );
       return unmarshall(getItemResponse.data.Items[0]);
-    } catch (error) {
-      return error;
-    }
   }
 
   async getSqsEventList(folder, prefix, txmaEventSize) {
