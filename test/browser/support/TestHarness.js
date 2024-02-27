@@ -33,10 +33,10 @@ module.exports = class TestHarness {
   }
 
   async getSessionByAuthCode(authCode) {
-      const getItemResponse = await this.HARNESS_API_INSTANCE.get(
-        "/getSessionByAuthCode/" + process.env["SESSION_TABLE"] + "/" + authCode
-      );
-      return unmarshall(getItemResponse.data.Items[0]);
+    const getItemResponse = await this.HARNESS_API_INSTANCE.get(
+      "/getSessionByAuthCode/" + process.env["SESSION_TABLE"] + "/" + authCode
+    );
+    return unmarshall(getItemResponse.data.Items[0]);
   }
 
   async getSqsEventList(folder, prefix, txmaEventSize) {
