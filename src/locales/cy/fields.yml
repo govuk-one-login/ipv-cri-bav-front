@@ -1,12 +1,12 @@
 sortCode:
-  label: Sort code
-  hint: Your sort code is 6 digits long. It is 3 pairs of numbers. For example, 802650.
+  label: Rhowch eich cod didoli
+  hint: Mae eich cod didoli yn 6 digid o hyd. Mae'n 3 pâr o rifau. Er enghraifft, 802650.
   validation:
-    default: Enter your sort code
-    regexNumber: Enter a valid sort code. For example, 802650
+    default: Rhowch eich cod didoli
+    regexNumber: Rhowch god didoli dilys. Er enghraifft, 802650
 
 accountNumber:
-  label: Rhif y cyfrif 
+  label: Account number
   hint: Rhaid i rif eich cyfrif fod rhwng 6 ac 8 digid. Er enghraifft, 10014069.
   validation:
     default: Rhowch rif eich cyfrif
