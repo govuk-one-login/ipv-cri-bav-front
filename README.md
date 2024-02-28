@@ -16,19 +16,22 @@ yarn install
 
 ## Environment Variables
 
-- `API_BASE_URL`: Externally accessible base url of the webserver. Used to generate the callback url as part of credential issuer oauth flows. See below to set this.
-- `IPV_STUB_URL`: Mocks being sent to/from IPV Core to enable browser testing
-- `PORT` - Default port to run webserver on. (Default to `5040`)
-
-```bash
-export API_BASE_URL=https://api-bav-cri-api.review-bav.dev.account.gov.uk
-```
+All the required Environment Variables can be found in the `.env.sample` file.
+Create a `.env` file in the same location assinging values to all the fields before starting your local FE server
 
 ## Run front-end locally against deployed back-end
 
-- Set `API_BASE_URL` as described above.
-- Replace all instances of `x-govuk-signin-session-id` with a valid session ID from the dev environment
+- Setup `.env` file as mentioned above
 - Run `yarn build` followed by `yarn start`
+- Make a `POST` call to the IPV_STUB_URL with the following body payload
+
+```
+{
+"frontendURL": "http://localhost:5040"
+}
+```
+
+- Start the journey from the but navigating to the `AuthorizeLocation` in the Stub response
 
 # Deployment in own stack in DEV
 
