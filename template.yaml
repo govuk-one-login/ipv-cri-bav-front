@@ -677,14 +677,14 @@ Resources:
       LogGroupName: !Sub /aws/apigateway/${AWS::StackName}-BAVFront-API-GW-AccessLogs
       RetentionInDays: 14
 
-  # CSLSAPIGWAccessSubscriptionFilter:
-  #   Type: AWS::Logs::SubscriptionFilter
-  #   Condition: IsNotDevelopment
-  #   Properties:
-  #     DestinationArn:
-  #       !FindInMap [PlatformConfiguration, !Ref Environment, CSLSEGRESS]
-  #     FilterPattern: ""
-  #     LogGroupName: !Ref APIGWAccessLogsGroup
+  CSLSAPIGWAccessSubscriptionFilter:
+    Type: AWS::Logs::SubscriptionFilter
+    Condition: IsNotDevelopment
+    Properties:
+      DestinationArn:
+        !FindInMap [PlatformConfiguration, !Ref Environment, CSLSEGRESS]
+      FilterPattern: ""
+      LogGroupName: !Ref APIGWAccessLogsGroup
 
   APIGWFatalErorMetricFilter:
     Type: AWS::Logs::MetricFilter
