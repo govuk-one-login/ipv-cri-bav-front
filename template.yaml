@@ -89,15 +89,15 @@ Mappings:
       dynatraceSecretArn: arn:aws:secretsmanager:eu-west-2:216552277552:secret:DynatraceProductionVariables
   PlatformConfiguration:
     dev:
-      CSLSEGRESS: arn:aws:logs:eu-west-2:885513274347:destination:csls_cw_logs_destination_prodpython
+      CSLSEGRESS: arn:aws:logs:eu-west-2:885513274347:destination:csls_cw_logs_destination_prodpython-2
     build:
-      CSLSEGRESS: arn:aws:logs:eu-west-2:885513274347:destination:csls_cw_logs_destination_prodpython
+      CSLSEGRESS: arn:aws:logs:eu-west-2:885513274347:destination:csls_cw_logs_destination_prodpython-2
     staging:
-      CSLSEGRESS: arn:aws:logs:eu-west-2:885513274347:destination:csls_cw_logs_destination_prodpython
+      CSLSEGRESS: arn:aws:logs:eu-west-2:885513274347:destination:csls_cw_logs_destination_prodpython-2
     integration:
-      CSLSEGRESS: arn:aws:logs:eu-west-2:885513274347:destination:csls_cw_logs_destination_prodpython
+      CSLSEGRESS: arn:aws:logs:eu-west-2:885513274347:destination:csls_cw_logs_destination_prodpython-2
     production:
-      CSLSEGRESS: arn:aws:logs:eu-west-2:885513274347:destination:csls_cw_logs_destination_prodpython
+      CSLSEGRESS: arn:aws:logs:eu-west-2:885513274347:destination:csls_cw_logs_destination_prodpython-2
 
 # see https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-access-logs.html
   ElasticLoadBalancerAccountIds:
@@ -355,14 +355,13 @@ Resources:
       LogGroupName: !Sub /aws/ecs/${AWS::StackName}-BAVFront-ECS
       RetentionInDays: 14
 
-  # CSLSECSAccessSubscriptionFilter:
-  #   Type: AWS::Logs::SubscriptionFilter
-  #   # Condition: IsNotDevelopment
-  #   Properties:
-  #     DestinationArn:
-  #       !FindInMap [PlatformConfiguration, !Ref Environment, CSLSEGRESS]
-  #     FilterPattern: ""
-  #     LogGroupName: !Ref ECSAccessLogsGroup
+  CSLSECSAccessSubscriptionFilter:
+    Type: AWS::Logs::SubscriptionFilter
+    Properties:
+      DestinationArn:
+        !FindInMap [PlatformConfiguration, !Ref Environment, CSLSEGRESS]
+      FilterPattern: ""
+      LogGroupName: !Ref ECSAccessLogsGroup
 
   ECSFatalErorMetricFilter:
     Type: AWS::Logs::MetricFilter
@@ -650,14 +649,14 @@ Resources:
       LogGroupName: !Sub /aws/apigateway/${AWS::StackName}-BAVFront-API-GW-AccessLogs
       RetentionInDays: 14
 
-  # CSLSAPIGWAccessSubscriptionFilter:
-  #   Type: AWS::Logs::SubscriptionFilter
-  #   Condition: IsNotDevelopment
-  #   Properties:
-  #     DestinationArn:
-  #       !FindInMap [PlatformConfiguration, !Ref Environment, CSLSEGRESS]
-  #     FilterPattern: ""
-  #     LogGroupName: !Ref APIGWAccessLogsGroup
+  CSLSAPIGWAccessSubscriptionFilter:
+    Type: AWS::Logs::SubscriptionFilter
+    Condition: IsNotDevelopment
+    Properties:
+      DestinationArn:
+        !FindInMap [PlatformConfiguration, !Ref Environment, CSLSEGRESS]
+      FilterPattern: ""
+      LogGroupName: !Ref APIGWAccessLogsGroup
 
   APIGWFatalErorMetricFilter:
     Type: AWS::Logs::MetricFilter
