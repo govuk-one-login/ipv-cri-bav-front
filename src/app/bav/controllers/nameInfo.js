@@ -4,6 +4,7 @@ const rsa = require("node-rsa");
 
 class NameInfoController extends BaseController {
   async saveValues(req, res, next) {
+    console.log("Yasmine");
     try {
       const encryptedJSON = await this.getNameInfo(req.axios, req);
       const key = await this.getDecryptKey(req.axios, req);
