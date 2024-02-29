@@ -6,7 +6,7 @@ sortCode:
     regexNumber: Rhowch god didoli dilys. Er enghraifft, 802650
 
 accountNumber:
-  label: Account number
+  label: Rhif y cyfrif 
   hint: Rhaid i rif eich cyfrif fod rhwng 6 ac 8 digid. Er enghraifft, 10014069.
   validation:
     default: Rhowch rif eich cyfrif
