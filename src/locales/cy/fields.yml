@@ -1,5 +1,5 @@
 sortCode:
-  label: Rhowch eich cod didoli
+  label: Cod didoli
   hint: Mae eich cod didoli yn 6 digid o hyd. Mae'n 3 pâr o rifau. Er enghraifft, 802650.
   validation:
     default: Rhowch eich cod didoli
