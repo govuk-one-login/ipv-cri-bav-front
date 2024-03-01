@@ -4,7 +4,7 @@ test_data="./test/browser/support/shared_claim.json"
 firstName=$(jq -r '.shared_claims.name[0].nameParts[0].value' "$test_data")
 lastName=$(jq -r '.shared_claims.name[0].nameParts[1].value' "$test_data")
 
-query="fields @timestamp, @message, @logStream, @log | filter @message like \"$firstName\" or @message like \"$lastName\""
+query="fields @timestamp, @message, @logStream, @log | filter @message like \"$firstName\" or @message like \"$lastName\" or @message like \"123456\" or @message like \"31926819\""
 
 echo $query
 
