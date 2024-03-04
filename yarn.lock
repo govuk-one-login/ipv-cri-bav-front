@@ -496,10 +496,10 @@
   resolved "https://registry.npmjs.org/@eslint/js/-/js-8.43.0.tgz"
   integrity sha512-s2UHCoiXfxMvmfzqoN+vrQ84ahUSYde9qNO1MdxmoEhyHWsfmwOpFlwYV+ePJEVc7gFnATGUi376WowX1N7tFg==
 
-"@govuk-one-login/di-ipv-cri-common-express@5.0.0":
-  version "5.0.0"
-  resolved "https://registry.npmjs.org/@govuk-one-login/di-ipv-cri-common-express/-/di-ipv-cri-common-express-5.0.0.tgz"
-  integrity sha512-OYfU6g4TQ374wGIDIEMDhe1z9Y60nbMvTsuRxQRtqdr0uxOqLuwuBEXZopbe6DFctHwzU2IS+Fgmgl8i5WJRxA==
+"@govuk-one-login/di-ipv-cri-common-express@5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/di-ipv-cri-common-express/-/di-ipv-cri-common-express-5.1.0.tgz#37fe7c0bfd93c32bb9e4e673b274df6be820193f"
+  integrity sha512-13Rvmuj6yZnhAUybzyz6U6aqk9ieA2A9DG/Uo+Edn/SD7MfqCjMykpLIMaz9vhXjVVLo4Y7R5yEhzvf8KmB6NQ==
   dependencies:
     hmpo-logger "7.0.1"
     i18next "23.6.0"
@@ -6584,10 +6584,10 @@ sane@^4.0.3:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-sass@1.63.6:
-  version "1.63.6"
-  resolved "https://registry.npmjs.org/sass/-/sass-1.63.6.tgz"
-  integrity sha512-MJuxGMHzaOW7ipp+1KdELtqKbfAWbH7OLIdoSMnVe3EXPMTmxTmlaZDCTsgIpPCs3w99lLo9/zDKkOrJuT5byw==
+sass@1.71.1:
+  version "1.71.1"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.71.1.tgz#dfb09c63ce63f89353777bbd4a88c0a38386ee54"
+  integrity sha512-wovtnV2PxzteLlfNzbgm1tFXPLoZILYAMJtvoXXkD7/+1uP41eKkIt1ypWq5/q2uT94qHjXehEYfmjKOvjL9sg==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
@@ -7688,6 +7688,7 @@ wiremock@2.35.0:
     npm-java-runner "^1.0.2"
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
