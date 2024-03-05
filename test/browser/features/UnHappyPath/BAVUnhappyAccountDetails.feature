@@ -19,8 +19,8 @@ Feature: Enter Incorrect Bank Account Details
 
       Examples:
          | accountNumber |
-         | "319268190"   |
-         | "31926"       |
+         | "001111111"   |
+         | "11111"       |
 
    Scenario Outline: On-screen error when Sort Code in the wrong format: <sortCode>
       Given the user has entered a Sort Code of <sortCode>

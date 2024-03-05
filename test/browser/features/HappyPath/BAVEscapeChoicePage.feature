@@ -15,7 +15,7 @@ Feature: Exit out of BAV Journey
     When the user clicks on Continue button
     Then the user is directed to the Account Details screen
     Given the user has entered a Sort Code of "12-34-56"
-    Given the user has entered an Account Number of "319268"
+    Given the user has entered an Account Number of "00111111"
     When the user clicks the Continue button
     Then the user is directed to the Check Your Answers screen
      When the user clicks on 'I cannot provide UK account details' link
