@@ -16,53 +16,31 @@ yarn install
 
 ## Environment Variables
 
-- `API_BASE_URL`: Externally accessible base url of the webserver. Used to generate the callback url as part of credential issuer oauth flows. See below to set this.
-- `IPV_STUB_URL`: Mocks being sent to/from IPV Core to enable browser testing
-- `PORT` - Default port to run webserver on. (Default to `5040`)
+All the required Environment Variables are inside the .env.sample file. Copy the contents on this file to a .env file in the same location, using the API locations specific for the envrionment you wish to test against.
 
-```bash
-export API_BASE_URL=https://api-bav-cri-api.review-bav.dev.account.gov.uk
-```
+`CUSTOM_FE_URL` only needs to be populated if you would like to test against a custom deployed FE stack or if you wish to run browser-test against your local stack in which case set the value to be `http:/localhost:5040`
 
 ## Run front-end locally against deployed back-end
 
-- Set `API_BASE_URL` as described above.
-- Replace all instances of `x-govuk-signin-session-id` with a valid session ID from the dev environment
+- Setup `.env` file as mentioned above
 - Run `yarn build` followed by `yarn start`
+- Make a `POST` call to the IPV_STUB_URL with the following body payload
 
-# Deployment in own stack in DEV
-
-To deploy a copy of the frontend infra from a local branch as a separate isolated stack in DEV:
-
-- update the `Image:` tag in template.yaml to point to the container image to be deployed - this can be found by looking in ECR in the AWS Console for the latest image and tag.
-- the run:
-
-```shell
-sam build --parallel --no-cached
-sam deploy --resolve-s3 --stack-name "CUSTOM_STACK_NAME" --capabilities CAPABILITY_IAM --confirm-changeset --parameter-overrides \
-"Environment=\"dev\" PermissionsBoundary=\"none\" VpcStackName=\"vpc-cri\" EnableScalingInDev=0"
+```
+{
+"frontendURL": "http://localhost:5040"
+}
 ```
 
-Note the following parameters can be used to specify whether or not to deploy the autoscaling infra:
+- Start the journey from the but navigating to the `AuthorizeLocation` in the Stub response
 
-- `EnableScalingInDev` default to 0 which inhibits deployment of scaling infra in dev; set to 1 to deploy scaling infra
-- `MinContainerCount` default is 3
-- `MaxContainerCount` default is 12
+# Browser tests
 
-# Request properties
+Browser based tests can be run against a deployed API stack using the CIC-IPV Stub. To run the tests make sure you have urls pointing to the relevant envrionment filled out in your .env file and run `npm run test:browser`
 
-In order to support consistent use of headers for API requests, [middleware](./src/lib/axios) is applied to add an instance of
-[axios](https://axios-http.com/) on each request onto `req.axios`. This is then reused in any code that uses the API.
+Adding `CUSTOM_FE_URL=http:/localhost:5040` will run browser tets against your local changes
 
-# Running Local Tests
-
-Clone this repository and export "QA Environment Variables" in .env.sample and then run
-
-```bash
-yarn build
-yarn install
-yarn test:browser:ci
-```
+These tests are written using [Cucumber](https://cucumber.io/docs/installation/javascript/) as the test runner and [Playwright](https://playwright.dev/) as the automation tool. They also follow the [Page Object Model](https://playwright.dev/docs/test-pom) for separation of concerns.
 
 ### Code Owners
 
