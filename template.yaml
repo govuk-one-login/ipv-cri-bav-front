@@ -410,7 +410,7 @@ Resources:
     Properties:
       ContainerDefinitions:
         - Essential: true
-          Image: CONTAINER-IMAGE-PLACEHOLDER        
+          Image: 576724867321.dkr.ecr.eu-west-2.amazonaws.com/bav-cri-front-ecr-containerrepository-aj7fp6n9xajx:f187eb4c0579e768bf14d41bf2102440a8272862        
           Name: app
           Environment:
             - Name: API_BASE_URL
@@ -1105,7 +1105,7 @@ Resources:
     Type: AWS::CloudWatch::Alarm
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FELowContainerTaskCountAlarm"
-      AlarmDescription: Trigger a warning if the running container task count drops below 2
+      AlarmDescription: Trigger a warning if the running container task count drops below 2 ${SupportManualURL}
       ActionsEnabled: true
       AlarmActions:
         - !ImportValue platform-alarm-topic-critical-alert
@@ -1138,7 +1138,7 @@ Resources:
     Type: AWS::CloudWatch::Alarm
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FELowContainerTaskCountCriticalAlarm"
-      AlarmDescription: Trigger a critical alert if the running container task count drops below 1
+      AlarmDescription: Trigger a critical alert if the running container task count drops below 1 ${SupportManualURL}
       ActionsEnabled: false  # to be enabled once proved stable in production
       AlarmActions:
         - !ImportValue platform-alarm-topic-critical-alert
