@@ -17,9 +17,8 @@
         {{ translate("checkDetails.title") }}
     </h1>
   </div>
-</div>
 
-{{ govukSummaryList({
+  {{ govukSummaryList({
   classes: 'govuk-!-margin-bottom-6',
   rows: [
     {
@@ -40,7 +39,7 @@
       actions: {
         items: [
           {
-            href: "/enter-account-details/edit",
+            href: "/enter-account-details/edit?edit=true",
             text: translate("checkDetails.changeLink"),
             visuallyHiddenText: translate("checkDetails.sortCode")
           }
@@ -57,7 +56,7 @@
       actions: {
         items: [
           {
-            href: "/enter-account-details/edit",
+            href: "/enter-account-details/edit?edit=true",
             text: translate("checkDetails.changeLink"),
             visuallyHiddenText: translate("checkDetails.accountNumber")
           }
@@ -72,7 +71,7 @@
   {{- "checkDetails.insetText" | translate -}}
 {% endset %}  
 
-{{ govukInsetText({
+  {{ govukInsetText({
   html: insetBody
 }) }}
 
@@ -82,38 +81,46 @@
 
 <p class="bav__instruction"><a href={{ "landingPage.howContinueBankLanding.howContinueBankLink" | translate }}> {{ "landingPage.howContinueBankLanding.howContinueBankText" | translate }}</a></p>
 
-{% endblock %}
-
-{% block bodyEnd %}
-  {% block scripts %}
     <script nonce="{{ cspNonce }}">
 
     var formSubmitted = false;
 
     submitSpinner()
 
-    function delayDisableButton (button) {
-        button.className += ' button--spinner'
-        setTimeout(function() {
-            button.setAttribute('disabled', true)
-        }, 200);
+    function delayDisableButton(button) {
+      button.className += ' button--spinner'
+      setTimeout(function () {
+        button.setAttribute('disabled', true)
+      }, 200);
     }
 
     function submitSpinner() {
-        var select = document.getElementById('submitDetails')
+      var select = document.getElementById('submitDetails')
 
-        select.addEventListener('click', function (event) {
-            if(!formSubmitted) {
-                formSubmitted = true;
+      select.addEventListener('click', function (event) {
+        if (!formSubmitted) {
+          formSubmitted = true;
 
-                delayDisableButton(event.target);
-            } else {
-                event.preventDefault()
-            }
-        })
+          delayDisableButton(event.target);
+        } else {
+          event.preventDefault()
+        }
+      })
     }
-    </script>
-    <script type="text/javascript" src="/public/javascripts/all.js"></script>
-    <script type="text/javascript" src="/public/javascripts/application.js"></script>
-  {% endblock %}
+    window.addEventListener('load', function () {
+      window
+        .DI
+        .analyticsGa4
+        .pageViewTracker
+        .trackOnPageLoad({
+          statusCode: '200', // Access status code
+          englishPageTitle: '{{translate("checkDetails.title")}}',
+          taxonomy_level1: 'web cri', // Access taxonomy level 1
+          taxonomy_level2: 'bav', // Access taxonomy level 2
+          content_id: '003',
+          logged_in_status: true,
+          dynamic: false
+        });
+    });
+  </script>
 {% endblock %}

@@ -112,42 +112,62 @@ Mappings:
       APIBASEURL: "https://api-bav-cri-api.review-bav.dev.account.gov.uk"
       DNSSUFFIX: "review-bav.dev.account.gov.uk"
       SESSIONTABLENAME: "bav-front-sessions-dev"
+      GTMIDUA: "GTM-TK92W68"
+      GTMIDGA4: "GTM-KD86CMZ"
       ANALYTICSDOMAIN: "dev.account.gov.uk"
       TESTHARNESSURL: "https://bav-test-harness-testharness.review-bav.dev.account.gov.uk"
       BACKENDURL: "https://api-bav-cri-api.review-bav.dev.account.gov.uk"
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
       LOGLEVEL: "debug"
+      GA4DISABLED: false
+      UADISABLED: false
     build:
       EXTERNALWEBSITEHOST: "https://review-bav.build.account.gov.uk"
       APIBASEURL: "https://api.review-bav.build.account.gov.uk"
       DNSSUFFIX: "review-bav.build.account.gov.uk"
       SESSIONTABLENAME: "bav-front-sessions-build"
+      GTMIDUA: "GTM-TK92W68"
+      GTMIDGA4: "GTM-KD86CMZ"
       ANALYTICSDOMAIN: "build.account.gov.uk"
       TESTHARNESSURL: "https://testharness.review-bav.build.account.gov.uk"
       BACKENDURL: "https://api.review-bav.build.account.gov.uk"
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
       LOGLEVEL: "warn"
+      GA4DISABLED: false
+      UADISABLED: false
     staging:
       EXTERNALWEBSITEHOST: "www.review-bav.staging.account.gov.uk/"
       APIBASEURL: "https://api.review-bav.staging.account.gov.uk"
       DNSSUFFIX: "review-bav.staging.account.gov.uk"
       SESSIONTABLENAME: "bav-front-sessions-staging"
+      GTMIDUA: "GTM-TK92W68"
+      GTMIDGA4: "GTM-KD86CMZ"
       ANALYTICSDOMAIN: "staging.account.gov.uk"
       LOGLEVEL: "warn"
+      GA4DISABLED: false
+      UADISABLED: false
     integration:
       EXTERNALWEBSITEHOST: "https://review-bav.integration.account.gov.uk"
       APIBASEURL: "https://api.review-bav.integration.account.gov.uk"
       DNSSUFFIX: "review-bav.integration.account.gov.uk"
       SESSIONTABLENAME: "bav-front-sessions-integration"
+      GTMIDUA: "GTM-TK92W68"
+      GTMIDGA4: "GTM-KD86CMZ"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
       LOGLEVEL: "warn"
+      GA4DISABLED: true
+      UADISABLED: false
     production:
       EXTERNALWEBSITEHOST: "https://review-bav.account.gov.uk"
       APIBASEURL: "https://api.review-bav.account.gov.uk"
       DNSSUFFIX: "review-bav.account.gov.uk"
       SESSIONTABLENAME: "bav-front-sessions-production"
+      GTMIDUA: "GTM-TT5HDKV"
+      GTMIDGA4: "GTM-K4PBJH3"
       ANALYTICSDOMAIN: "account.gov.uk"
       LOGLEVEL: "warn"
+      GA4DISABLED: true
+      UADISABLED: false
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -415,12 +435,20 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
             - Name: SESSION_TABLE_NAME
               Value: !Ref BavFrontSessionsTable
+            - Name: UNIVERSAL_ANALYTICS_GTM_CONTAINER_ID
+              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTMIDUA ]
+            - Name: GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID
+              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTMIDGA4 ]
             - Name: FRONT_END_URL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
             - Name: ANALYTICS_DOMAIN
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, ANALYTICSDOMAIN ]
             - Name: LOG_LEVEL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LOGLEVEL ]
+            - Name: GA4_DISABLED
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, GA4DISABLED ]
+            - Name: UA_DISABLED
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, UADISABLED ]
 
           Secrets:
             - Name: DT_TENANT

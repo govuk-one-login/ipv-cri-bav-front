@@ -35,11 +35,17 @@
     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
 
   {% endcall %}
+  <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
+        window.addEventListener('load', function () {
+            window.DI.analyticsGa4.pageViewTracker.trackOnPageLoad({
+                statusCode: '200', // Access status code
+                englishPageTitle: '{{translate("howContinueBank.title")}}',
+                taxonomy_level1: 'web cri', // Access taxonomy level 1
+                taxonomy_level2: 'bav', // Access taxonomy level 2
+                content_id: '006',
+                logged_in_status: true,
+                dynamic: false,
+            });
+        });
+    </script>
 {% endblock %} 
-
-{% block bodyEnd %}
-  {% block scripts %}
-    <script type="text/javascript" src="/public/javascripts/all.js"></script>
-    <script type="text/javascript" src="/public/javascripts/application.js"></script>
-  {% endblock %}
-{% endblock %}

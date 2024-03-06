@@ -27,8 +27,12 @@ module.exports = {
       ERROR: "/error",
       OAUTH2: "/oauth2/callback",
     },
-    ANALYTICS: {
-      DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",
+    GTM: {
+      GA4_ID: process.env.GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID || "GTM-XXXXXXX",
+      UA_ID: process.env.UNIVERSAL_ANALYTICS_GTM_CONTAINER_ID || "UA-XXXXXXX",
+      ANALYTICS_COOKIE_DOMAIN: process.env.ANALYTICS_DOMAIN || "localhost",
+      GA4_DISABLED: process.env.GA4_DISABLED || false,
+      UA_DISABLED: process.env.UA_DISABLED || true,
     },
   },
   PORT: process.env.PORT || 5040,

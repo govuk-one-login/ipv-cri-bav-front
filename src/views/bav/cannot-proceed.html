@@ -1,0 +1,52 @@
+{% extends "base-form.njk" %}
+{% set hmpoPageKey = "cannotProceed" %}
+{% set hmpoTitle = cannotProceed.title %}
+{% set gtmJourney = "bav - cannotProceed" %}
+{% set backLink = false %}
+
+{% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{% block mainContent %}
+
+{% set title = translate("cannotProceed.title") %}
+      
+      {% call hmpoForm(ctx) %}
+              {{ hmpoRadios(ctx, {
+                id: "cannotProceedChoice",
+                namePrefix: "cannotProceedChoice",
+                fieldset: {
+                    legend: {
+                        text: title,
+                        isPageHeading: true,
+                        classes: "govuk-fieldset__legend--l"
+                    }
+                }
+            }) }}
+
+    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+  
+    {% endcall %}
+
+{% endblock %} 
+
+{% set footerNavItems = translate("govuk.footerNavItems") %}
+
+{% block footer %}
+    {{ govukFooter( footerNavItems ) }}
+    <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
+        window.addEventListener('load', function () {
+            window.DI.analyticsGa4.pageViewTracker.trackOnPageLoad({
+                statusCode: '200', // Access status code
+                englishPageTitle: '{{translate("cannotProceed.title")}}',
+                taxonomy_level1: 'web cri', // Access taxonomy level 1
+                taxonomy_level2: 'bav', // Access taxonomy level 2
+                content_id: '002',
+                logged_in_status: true,
+                dynamic: false,
+            });
+        });
+    </script>
+{% endblock %}
