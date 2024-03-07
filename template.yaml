@@ -1338,12 +1338,12 @@ Outputs:
     Condition: IsNotProdLikeEnvironment
     Description: "BAV IPV Stub"
     Value:
-      Fn::ImportValue: !Sub '${IPVStubStackName}-IPVStubPrettyApiUrl'
+      Fn::ImportValue: !Sub '${IPVStubStackName}-IPVStubExecuteUrl'
   BAVIPVStubPrettyAPIURL:
     Condition: IsNotProdLikeEnvironment
     Description: "BAV IPV Stub"
     Value:
-      Fn::ImportValue: !Sub '${IPVStubStackName}-IPVStubExecuteUrl'
+      Fn::ImportValue: !Sub '${IPVStubStackName}-IPVStubPrettyApiUrl'
   BAVTestHarnessURL:
     Condition: IsNotProdLikeEnvironment
     Description: "BAV Test Harness"
