@@ -2,6 +2,7 @@ $govuk-assets-path: "/public/";
 
 @import "../../../node_modules/govuk-frontend/govuk/all";
 @import "../../../node_modules/hmpo-components/all";
+@import "../../../node_modules/@govuk-one-login/one-login-language-toggle/stylesheet/styles";
 
 @import "components/button-spinner";
 
@@ -107,4 +108,8 @@ $govuk-assets-path: "/public/";
   font-weight: bold;
   @include govuk-responsive-margin(5, "top");
   @include govuk-responsive-margin(4, "bottom");
+}
+
+.last-item {
+  float: right;
 }
