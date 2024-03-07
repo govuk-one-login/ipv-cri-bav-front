@@ -10,5 +10,3 @@ Given(/^a user has navigated to the BAV Landing Page$/, async function () {
   await rpPage.goto(claim);
   expect(await bavLandingPage.isCurrentPage()).toBeTruthy();
 });
-
-
