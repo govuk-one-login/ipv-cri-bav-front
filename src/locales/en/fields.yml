@@ -1,6 +1,7 @@
 sortCode:
   label: Sort code
   hint: Your sort code is 6 digits long. It is 3 pairs of numbers. For example, 802650.
+  prefix: ""
   validation:
     default: Enter your sort code
     regexNumber: Enter a valid sort code. For example, 802650
@@ -8,6 +9,7 @@ sortCode:
 accountNumber:
   label: Account number
   hint: Your account number is between 6 and 8 digits long. For example, 10014069.
+  prefix: ""
   validation:
     default: Enter your account number
     minlength: Your account number must be between 6 and 8 digits
