@@ -2,7 +2,7 @@
 Feature: Provided Bank Details Failed
 
    Background:
-        Given a user named Nigel has navigated to the BAV Landing Page
+        Given a user has navigated to the BAV Landing Page
         When the user clicks on Continue button
         Then the user is directed to the Account Details screen
 
