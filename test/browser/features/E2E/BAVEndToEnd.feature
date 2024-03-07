@@ -1,4 +1,4 @@
-@e2e
+@zm
 Feature: BAV Journey - E2E
 
     Scenario: BAV Journey - E2E Happy Path and DB Validation
