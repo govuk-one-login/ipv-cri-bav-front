@@ -8,7 +8,7 @@ Feature: Provided Account Details Success
 
     Scenario:  User routed to IPV Core
         Given the user has entered a Sort Code of "123456"
-        Given the user has entered an Account Number of "31926819"
+        Given the user has entered an Account Number of "00111111"
         When the user clicks the Continue button
         When they click on the Continue to account details check button
         Then the user is directed to IPV Core
