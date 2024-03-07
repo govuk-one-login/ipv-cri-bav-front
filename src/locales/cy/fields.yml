@@ -1,6 +1,7 @@
 sortCode:
   label: Cod didoli
   hint: Mae eich cod didoli yn 6 digid o hyd. Mae'n 3 pâr o rifau. Er enghraifft, 802650.
+  prefix: ""
   validation:
     default: Rhowch eich cod didoli
     regexNumber: Rhowch god didoli dilys. Er enghraifft, 802650
@@ -8,6 +9,7 @@ sortCode:
 accountNumber:
   label: Rhif y cyfrif 
   hint: Rhaid i rif eich cyfrif fod rhwng 6 ac 8 digid. Er enghraifft, 10014069.
+  prefix: ""
   validation:
     default: Rhowch rif eich cyfrif
     minlength: Rhaid i rif eich cyfrif fod rhwng 6 ac 8 digid
