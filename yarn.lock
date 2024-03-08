@@ -447,12 +447,14 @@
     "@smithy/types" "^2.10.1"
     tslib "^2.5.0"
 
-"@aws-sdk/lib-dynamodb@3.363.0":
-  version "3.363.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/lib-dynamodb/-/lib-dynamodb-3.363.0.tgz#a5e8fd168d3ac9b1fe0b2dab08b08256f83fb6c1"
-  integrity sha512-6sa/dbZACurhjqV9GxM/iXOgV4hzOTd1/jlhzP7KLJW7UVoGXTBf0rRLpLUE0SxozML0jhDkqJ0hOUVY7Q1Xew==
+"@aws-sdk/lib-dynamodb@3.529.1":
+  version "3.529.1"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/lib-dynamodb/-/lib-dynamodb-3.529.1.tgz#77777be8683226717e514b058def560dcd7ea825"
+  integrity sha512-SLGDUoAyYQ5UlZzQ0+kXEZFEcqizE56uYSuR5ohRpeks6ghkwEC0iNJDJlFqTtzWP7f6Noh5pKjvtQ0OzhH88Q==
   dependencies:
-    "@aws-sdk/util-dynamodb" "3.363.0"
+    "@aws-sdk/util-dynamodb" "3.529.1"
+    "@smithy/smithy-client" "^2.4.2"
+    "@smithy/types" "^2.10.1"
     tslib "^2.5.0"
 
 "@aws-sdk/middleware-host-header@3.511.0":
@@ -587,10 +589,10 @@
     "@smithy/types" "^2.10.1"
     tslib "^2.5.0"
 
-"@aws-sdk/util-dynamodb@3.363.0":
-  version "3.363.0"
-  resolved "https://registry.yarnpkg.com/@aws-sdk/util-dynamodb/-/util-dynamodb-3.363.0.tgz#3732bc512077236c659447ffdb13e4cc14faadc9"
-  integrity sha512-zzY2PnNFxqJYIrbd/C2VMWhPMWP+XQG4C/V/yEfU2LY+HNAZ0aJPUwvXnMJTumZjcfYr+20qRiowsw8dnXEVgA==
+"@aws-sdk/util-dynamodb@3.529.1":
+  version "3.529.1"
+  resolved "https://registry.yarnpkg.com/@aws-sdk/util-dynamodb/-/util-dynamodb-3.529.1.tgz#28e59cabc03ff3702f0f1d30bf809cba425af663"
+  integrity sha512-SXVK/eT7iJwLO4/Kq9Qvlm1zs5gUnpshE1EJ9+9yks9Q79KYI5FuRQxU0qZ0vxHuLHsesDAIJy59iKsWmVls6A==
   dependencies:
     tslib "^2.5.0"
 
@@ -6762,11 +6764,6 @@ normalize-url@^6.0.1:
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-6.1.0.tgz#40d0885b535deffe3f3147bec877d05fe4c5668a"
   integrity sha512-DlL+XwOy3NxAQ8xuC0okPgK46iuVNAK01YN7RueYBqqFeGsBjV9XmCAzAdgt+667bCl5kPh9EqKKDwnaPG1I7A==
 
-npm-java-runner@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/npm-java-runner/-/npm-java-runner-1.0.2.tgz#b0b2bcf74a75c94f15c20d371f19c974f0311eeb"
-  integrity sha512-rbf77NAjOm9O1N/IOytA2sabV5uER03fnvNJVwSkQdqwhqsVM4E69Jchg8AdfoYatMY2GR/TmB5KXJY9G8LRYA==
-  
 npm-run-all@^4.1.5:
   version "4.1.5"
   resolved "https://registry.yarnpkg.com/npm-run-all/-/npm-run-all-4.1.5.tgz#04476202a15ee0e2e214080861bff12a51d98fba"
@@ -8809,14 +8806,8 @@ which@^2.0.1, which@^2.0.2:
   dependencies:
     isexe "^2.0.0"
 
-wiremock@2.35.0:
-  version "2.35.0"
-  resolved "https://registry.yarnpkg.com/wiremock/-/wiremock-2.35.0.tgz#f76ea0108f30259e880d4fa093f80e590725f96f"
-  integrity sha512-SvbkyD9jZOvjwlPxwn+jLf0AIFXXYSTwHQwR9Qyvv3JVJeskdfeRFAuUUcCZ8MFCH1yRfqaLO35qmoShQ012OA==
-  dependencies:
-    npm-java-runner "^1.0.2"
-    
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
+  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-7.0.0.tgz#67e145cff510a6a6984bdf1152911d69d2eb9e43"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
