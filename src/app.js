@@ -15,7 +15,6 @@ const setHeaders = commonExpress.lib.headers;
 const setScenarioHeaders = commonExpress.lib.scenarioHeaders;
 const setAxiosDefaults = commonExpress.lib.axios;
 
-
 const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
 const {
   setI18n,
@@ -117,7 +116,7 @@ setOAuthPaths({ app, entryPointPath: APP.PATHS.BAV });
 
 router.use(setScenarioHeaders);
 router.use(setAxiosDefaults);
-console.log('testestestes');
+
 router.use(commonHeaders.txmaAuditEncoded);
 router.use("/oauth2", commonExpress.routes.oauth2);
 
