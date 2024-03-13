@@ -1,9 +1,49 @@
 # title is managed in default.yml
+            
+landingPage:
+  title: Parhau i roi manylion eich cyfrif banc neu gymdeithas adeiladu
+  infoText1: Nesaf, byddwn yn gofyn am rywfaint o wybodaeth am eich cyfrif.
+  list1: 
+    list1Text: "Rhaid iddo fod:"
+    list1Bullet1: yn gyfrif cyfredol neu gyfrif cyfredol ar y cyd
+    list1Bullet2: gyda banc neu gymdeithas adeiladu yn y DU
+    list1Bullet3: yn eich enw chi
+  list2: 
+    list2Text: "Ni allwch ddefnyddio:"
+    list2Bullet1: cyfrif busnes
+    list2Bullet2: cyfrif cynilo, gan gynnwys Cyfrif Cynilo Unigol (ISA)
+  infoTitle: Beth i'w ddisgwyl
+  list3: 
+    list3Text: "Bydd angen i chi ddweud wrthym y:"
+    list3Bullet1: cod didoli
+    list3Bullet2: rhif cyfrif
+  infoText3: Byddwn yn gwirio enw eich cyfrif a'ch manylion gyda'ch banc neu gymdeithas adeiladu.
+  infoText4: Rhaid i'ch enw a manylion cyfrif gyfateb.
+  detailDropdown:
+    summaryText: Sut rydym yn defnyddio eich manylion banc
+    detailContent: <p class="instruction">Ni fyddwn yn cadw nac yn rhannu manylion eich cyfrif.</p><p class="instruction">Nid ydym yn defnyddio manylion eich cyfrif i wirio neu gymryd unrhyw daliadau.</p>
+  howContinueBankLanding: 
+    howContinueBankLink: /how-continue-bank
+    howContinueBankText: "Rwyf angen profi fy hunaniaeth mewn ffordd arall"
 
-nameEntry:
-  title: "Rhowch eich enw yn union fel y mae'n ymddangos ar eich ID gyda llun"
-  surname: "Enw olaf"
-  givenNames: "Enw olaf"
-  firstName: "Enw cyntaf"
-  middleName: "Enwau canol"
-  middleNameHint: "Gadewch hwn yn wag os nad oes gennych enwau canol"
+howContinueBank: 
+  title: Beth hoffech chi ei wneud?
+  warning:
+  
+enterAccountDetails:
+  title: Rhowch fanylion eich cyfrif  
+
+checkDetails:
+  title: "Gwiriwch fod eich manylion yn cyfateb i'ch cyfrif banc neu gymdeithas adeiladu"
+  fullName: "Enw"
+  sortCode: "Cod didoli"
+  accountNumber: "Rhif y cyfrif"
+  changeLink: "Newid"
+  insetText: "Ni fyddwn yn defnyddio manylion eich cyfrif i wirio neu gymryd unrhyw daliadau."
+  submitDetails: "Cyflwyno manylion ar gyfer gwiriad banc"
+  noSubmitDetails: "Rwyf angen profi fy hunaniaeth mewn ffordd arall"
+
+couldNotMatch:
+  title: Nid oeddem yn gallu dod o hyd i wybodaeth sy'n cyfateb i'ch banc neu gymdeithas adeiladu
+  content: You can check your details and try again. You’ll only be able to do this once.
+  prompt: Beth hoffech chi ei wneud?
