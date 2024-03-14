@@ -82,7 +82,7 @@ const { app, router } = setup({
     "views",
   ],
   translation: {
-    allowedLangs: ["en"],
+    allowedLangs: ["en", "cy"],
     fallbackLang: ["en"],
     cookie: { name: "lng" },
   },
