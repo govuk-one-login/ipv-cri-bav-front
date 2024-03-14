@@ -41,7 +41,7 @@ checkDetails:
   changeLink: "Change"
   insetText: "We will not use your account details to check or take any payments."
   submitDetails: "Submit details for bank check"
-  noSubmitDetails: "I do not want continue to bank details check"
+  noSubmitDetails: "I need to prove my identity another way"
 
 couldNotMatch:
   title: We could not match your details to your bank or building society
