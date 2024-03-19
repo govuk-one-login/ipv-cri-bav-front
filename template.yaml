@@ -1183,6 +1183,7 @@ Resources:
 
   WarningAlarmDashboard:
     Type: AWS::CloudWatch::Dashboard
+    Condition: "DeployAlarms"
     Properties:
       DashboardName: !Sub '${AWS::StackName}-Warning-Alarm-Overview'
       DashboardBody:
@@ -1284,6 +1285,7 @@ Resources:
 
   CriticalAlarmDashboard:
     Type: AWS::CloudWatch::Dashboard
+    Condition: "DeployAlarms"
     Properties:
       DashboardName: !Sub '${AWS::StackName}-Critical-Alarm-Overview'
       DashboardBody:
