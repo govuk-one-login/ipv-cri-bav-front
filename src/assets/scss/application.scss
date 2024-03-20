@@ -109,7 +109,3 @@ $govuk-assets-path: "/public/";
   @include govuk-responsive-margin(5, "top");
   @include govuk-responsive-margin(4, "bottom");
 }
-
-.last-item {
-  float: right;
-}
