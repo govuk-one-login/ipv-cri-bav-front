@@ -6904,6 +6904,11 @@ once@^1.3.0, once@^1.3.1, once@^1.4.0:
   dependencies:
     wrappy "1"
 
+one-login-common-headers@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/one-login-common-headers/-/one-login-common-headers-0.0.2.tgz#05e6561e1a7e02da5e66141496a8da5c70582dbe"
+  integrity sha512-phvEf4HlDVeeBLmSjXGfM2KBG3RdHPbqsyxE+tD7mUZzSZ4zM4v9QI5Ip3Vi3XFUhL5p1f+pcWXekcxMIrv+tw==
+
 onetime@^5.1.0, onetime@^5.1.2:
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/onetime/-/onetime-5.1.2.tgz#d0e96ebb56b07476df1dd9c4806e5237985ca45e"
