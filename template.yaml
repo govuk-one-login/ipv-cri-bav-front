@@ -897,6 +897,21 @@ Resources:
         HostedZoneId: !GetAtt BAVFrontCustomDomain.RegionalHostedZoneId
         EvaluateTargetHealth: false
 
+  BAVFrontApiOriginRecord:
+    Type: AWS::Route53::RecordSet
+    Condition: IsNotDevelopment
+    Properties:
+      Name:
+        - !Sub
+          - "origin.${DNSSUFFIX}"
+          - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
+      Type: A
+      HostedZoneId: !Sub "{{resolve:ssm:/${Environment}/Platform/Route53/PrimaryZoneID}}"
+      AliasTarget:
+        DNSName: !GetAtt BAVFrontCustomDomain.RegionalDomainName
+        HostedZoneId: !GetAtt BAVFrontCustomDomain.RegionalHostedZoneId
+        EvaluateTargetHealth: false
+
   BAVFrontApiMapping:
     Type: AWS::ApiGatewayV2::ApiMapping
     Properties:
