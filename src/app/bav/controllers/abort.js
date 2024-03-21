@@ -21,7 +21,7 @@ class AbortController extends BaseController {
       { reason: "session_expired" },
       {
         headers,
-      }
+      },
     );
 
     if (response.status === 200 && response.headers.location) {

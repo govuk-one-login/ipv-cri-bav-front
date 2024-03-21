@@ -27,7 +27,7 @@ class CheckDetailsController extends BaseController {
     try {
       const bavData = {
         sort_code: formatSortCodeForSubmission(
-          req.sessionModel.get("sortCode")
+          req.sessionModel.get("sortCode"),
         ),
         account_number: req.sessionModel.get("accountNumber"),
       };

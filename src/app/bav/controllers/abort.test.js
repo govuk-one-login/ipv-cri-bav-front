@@ -39,7 +39,7 @@ describe("AbortController", () => {
           headers: {
             "x-govuk-signin-session-id": req.session.tokenId,
           },
-        }
+        },
       );
     });
 

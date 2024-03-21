@@ -5,7 +5,7 @@ When("the user navigates to a URL that returns an Error", async function () {
   const errorPage = new ErrorPage(await this.page);
   const errorPageUrl = (await errorPage.returnUrl()).href.replace(
     "continue-enter-bank-account-details",
-    "error"
+    "error",
   );
   await errorPage.navigateToUrl(errorPageUrl);
 });

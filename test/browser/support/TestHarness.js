@@ -34,7 +34,7 @@ module.exports = class TestHarness {
 
   async getSessionByAuthCode(authCode) {
     const getItemResponse = await this.HARNESS_API_INSTANCE.get(
-      "/getSessionByAuthCode/" + process.env["SESSION_TABLE"] + "/" + authCode
+      "/getSessionByAuthCode/" + process.env["SESSION_TABLE"] + "/" + authCode,
     );
     return unmarshall(getItemResponse.data.Items[0]);
   }
@@ -50,11 +50,11 @@ module.exports = class TestHarness {
           params: {
             prefix: folder + prefix,
           },
-        }
+        },
       );
       const xmlParser = new XMLParser();
       const listObjectsParsedResponse = xmlParser.parse(
-        listObjectsResponse.data
+        listObjectsResponse.data,
       );
       if (!listObjectsParsedResponse?.ListBucketResult?.Contents) {
         return undefined;
@@ -64,7 +64,7 @@ module.exports = class TestHarness {
       keyList = [];
       for (i = 0; i < keys.length; i++) {
         keyList.push(
-          listObjectsParsedResponse?.ListBucketResult?.Contents.at(i).Key
+          listObjectsParsedResponse?.ListBucketResult?.Contents.at(i).Key,
         );
       }
     } while (keys.length < txmaEventSize);
@@ -77,7 +77,7 @@ module.exports = class TestHarness {
     for (i = 0; i < keyList.length; i++) {
       const getObjectResponse = await this.HARNESS_API_INSTANCE.get(
         "/object/" + keyList[i],
-        {}
+        {},
       );
       console.log(JSON.stringify(getObjectResponse.data, null, 2));
       const eventName = getObjectResponse.data.event_name;
@@ -95,7 +95,7 @@ module.exports = class TestHarness {
             console.error(
               getObjectResponse.data.event_name +
                 " Event Errors: " +
-                JSON.stringify(validate.errors)
+                JSON.stringify(validate.errors),
             );
           }
           break;
@@ -107,7 +107,7 @@ module.exports = class TestHarness {
             console.error(
               getObjectResponse.data.event_name +
                 " Event Errors: " +
-                JSON.stringify(validate.errors)
+                JSON.stringify(validate.errors),
             );
           }
           break;
@@ -119,7 +119,7 @@ module.exports = class TestHarness {
             console.error(
               getObjectResponse.data.event_name +
                 " Event Errors: " +
-                JSON.stringify(validate.errors)
+                JSON.stringify(validate.errors),
             );
           }
           break;
@@ -131,7 +131,7 @@ module.exports = class TestHarness {
             console.error(
               getObjectResponse.data.event_name +
                 " Event Errors: " +
-                JSON.stringify(validate.errors)
+                JSON.stringify(validate.errors),
             );
           }
           break;
@@ -143,7 +143,7 @@ module.exports = class TestHarness {
             console.error(
               getObjectResponse.data.event_name +
                 " Event Errors: " +
-                JSON.stringify(validate.errors)
+                JSON.stringify(validate.errors),
             );
           }
           break;

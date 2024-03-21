@@ -17,7 +17,7 @@ When(
   async function () {
     const cyaPage = new ConfirmDetailsPage(await this.page);
     await cyaPage.clickSubmitDetailsButton();
-  }
+  },
 );
 
 When(
@@ -25,7 +25,7 @@ When(
   async function () {
     const cyaPage = new ConfirmDetailsPage(await this.page);
     await cyaPage.clickChangeLink();
-  }
+  },
 );
 
 When("the user clicks the “Back” link on the CYA page", async function () {
@@ -38,7 +38,7 @@ When(
   async function () {
     const cyaPage = new ConfirmDetailsPage(await this.page);
     await cyaPage.goBack();
-  }
+  },
 );
 
 When(
@@ -46,7 +46,7 @@ When(
   async function () {
     const cyaPage = new ConfirmDetailsPage(await this.page);
     await cyaPage.clickCannotProvideUkAccDetails();
-  }
+  },
 );
 
 When("the user selects the 'Try Again' radio", async function () {
@@ -64,7 +64,7 @@ Then(
   async function () {
     const cyaPage = new ConfirmDetailsPage(await this.page);
     expect(await cyaPage.isCurrentPage()).toBeTruthy();
-  }
+  },
 );
 
 Then(
@@ -72,7 +72,7 @@ Then(
   async function () {
     const loadBankDetails = new LoadBankDetailsPage(await this.page);
     await loadBankDetails.isCurrentPage();
-  }
+  },
 );
 
 Then("the user is directed to the Escape choice screen", async function () {
@@ -93,20 +93,20 @@ Then(
     expect(savedSC).toEqual(sortCode);
     const savedAC = await cyaPage.getSavedAccNo();
     expect(savedAC).toEqual(accountNumber);
-  }
+  },
 );
 
 Then("an error message is shown", async function () {
   const failOnePage = new FailOnePage(await this.page);
   expect(await failOnePage.getErrorTitle()).toContain("There is a problem");
   expect(await failOnePage.getErrorText()).toContain(
-    "Select what you would like to do"
+    "Select what you would like to do",
   );
 });
 
 Then("the user is directed to IPV Core", async function () {
   expect(this.page.url()).toContain(
-    process.env.IPV_STUB_URL.replace("/start", "")
+    process.env.IPV_STUB_URL.replace("/start", ""),
   );
 });
 
@@ -115,5 +115,5 @@ Then(
   async function () {
     const fullName = new ConfirmDetailsPage(await this.page);
     await fullName.isFullNameDisplayed();
-  }
+  },
 );

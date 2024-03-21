@@ -5,7 +5,7 @@ When("the user navigates to a URL that does not exist", async function () {
   const notFoundPage = new NotFoundPage(await this.page);
   const notFoundUrl = (await notFoundPage.returnUrl()).href.replace(
     "continue-enter-bank-account-details",
-    "not-found"
+    "not-found",
   );
   await notFoundPage.navigateToUrl(notFoundUrl);
 });
