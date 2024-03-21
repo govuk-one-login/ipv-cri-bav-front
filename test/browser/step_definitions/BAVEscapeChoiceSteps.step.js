@@ -22,7 +22,7 @@ Then(
   async function () {
     const escapeChoicePage = new EscapeChoicePage(await this.page);
     await escapeChoicePage.goBack();
-  }
+  },
 );
 
 Then(
@@ -30,7 +30,7 @@ Then(
   async function () {
     const escapeChoicePage = new EscapeChoicePage(await this.page);
     await escapeChoicePage.goBack();
-  }
+  },
 );
 
 Then("the user is redirected to the cya page", async function () {

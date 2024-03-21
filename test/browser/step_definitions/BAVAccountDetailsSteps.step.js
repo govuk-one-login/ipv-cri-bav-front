@@ -16,7 +16,7 @@ Given(
   async function (sortCode) {
     const accDetailsPage = new AccountDetailsPage(await this.page);
     await accDetailsPage.enterSortCode(sortCode);
-  }
+  },
 );
 
 Given(
@@ -24,7 +24,7 @@ Given(
   async function (accountNumber) {
     const accDetailsPage = new AccountDetailsPage(await this.page);
     await accDetailsPage.enterAccountNumber(accountNumber);
-  }
+  },
 );
 
 When("the user clicks the Continue button", async function () {
@@ -49,7 +49,7 @@ When(
     await accDetailsEditPage.editSortCode(sortCode);
     await accDetailsEditPage.editAccountNumber(accountNo);
     await accDetailsEditPage.continueButton();
-  }
+  },
 );
 
 Then("the user is directed to the Account Details screen", async function () {

@@ -55,7 +55,7 @@ module.exports = class PlaywrightDevPage {
       await this.page
         .locator("dd.govuk-summary-list__value")
         .nth(0)
-        .textContent()
+        .textContent(),
     ).toContain("Yasmine Young");
   }
 };

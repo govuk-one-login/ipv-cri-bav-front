@@ -12,7 +12,7 @@ When(
     const testHarness = new TestHarness();
     const sessionRecord = await testHarness.getSessionByAuthCode(authCode);
     this.sessionId = sessionRecord.sessionId;
-  }
+  },
 );
 
 When(
@@ -27,14 +27,14 @@ When(
     const tokenPostRequest = await axios.post(
       `${baseUrl}/token`,
       `code=${authGetRequest.data.authorizationCode.value}&grant_type=authorization_code&redirect_uri=${authGetRequest.data.redirect_uri}`,
-      { headers: { "Content-Type": "text/plain" } }
+      { headers: { "Content-Type": "text/plain" } },
     );
     this.userInfoPostRequest = await axios.post(`${baseUrl}/userinfo`, null, {
       headers: {
         Authorization: `Bearer ${tokenPostRequest.data.access_token}`,
       },
     });
-  }
+  },
 );
 
 Then("the Verifiable Credential is stored as expected", async function () {
@@ -45,7 +45,7 @@ Then("the Verifiable Credential is stored as expected", async function () {
   console.log(jwtToken);
   const rawBody = jwtToken.split(".")[1];
   const decodedBody = JSON.parse(
-    Buffer.from(rawBody.replace(/\W/g, ""), "base64url").toString()
+    Buffer.from(rawBody.replace(/\W/g, ""), "base64url").toString(),
   );
   expect(decodedBody.vc.evidence[0].strengthScore).toEqual(3);
   expect(decodedBody.vc.evidence[0].validityScore).toEqual(2);
@@ -61,10 +61,10 @@ Then(
       sqsMessage = await testHarness.getSqsEventList(
         "txma/",
         this.sessionId,
-        5
+        5,
       );
     } while (!sqsMessage);
 
     testHarness.validateTxMAEventData(sqsMessage);
-  }
+  },
 );

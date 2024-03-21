@@ -17,7 +17,7 @@ window.DI.analyticsUa = window.DI.analyticsUa || {};
     const gaDataElement = document.getElementById("gaData");
 
     const criJourney = criDataLayer(
-      gaDataElement ? gaDataElement.value : "undefined"
+      gaDataElement ? gaDataElement.value : "undefined",
     );
 
     if (criJourney) {
@@ -116,7 +116,7 @@ window.DI.analyticsUa = window.DI.analyticsUa || {};
 
     if (consentGiven) {
       window.DI.analyticsGa4.loadGtmScript(
-        window.DI.analyticsGa4.uaContainerId
+        window.DI.analyticsGa4.uaContainerId,
       );
       initGtm();
       initLinkerHandlers();

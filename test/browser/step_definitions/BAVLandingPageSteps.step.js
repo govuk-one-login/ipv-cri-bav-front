@@ -12,7 +12,7 @@ When(
   async function () {
     const landingPage = new BavLandingPage(await this.page);
     await landingPage.clickHowWeUseBankDetails();
-  }
+  },
 );
 
 Then("they are routed to the BAV Landing Page", async function () {
@@ -25,7 +25,7 @@ Then(
   async function () {
     const landingPage = new BavLandingPage(await this.page);
     await landingPage.isHowWeUseBankDetailsSectionDisplayed();
-  }
+  },
 );
 
 When(
@@ -33,7 +33,7 @@ When(
   async function () {
     const landingPage = new BavLandingPage(await this.page);
     await landingPage.clickFindOtherWaysToProveIdentity();
-  }
+  },
 );
 
 Then("the user is redirected to the BAV landing page", async function () {

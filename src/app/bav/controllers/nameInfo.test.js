@@ -50,7 +50,7 @@ describe("NameInfoController", () => {
       });
       expect(req.axios.get).toHaveBeenNthCalledWith(
         2,
-        GET_NAME_INFO_DECRYPT_KEY
+        GET_NAME_INFO_DECRYPT_KEY,
       );
     });
   });

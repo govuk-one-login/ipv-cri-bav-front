@@ -27,12 +27,12 @@ module.exports = class PlaywrightDevPage {
   async isHowWeUseBankDetailsSectionDisplayed() {
     const { expect } = require("@playwright/test");
     expect(
-      await this.page.locator(".instruction:nth-child(1)").textContent()
+      await this.page.locator(".instruction:nth-child(1)").textContent(),
     ).toEqual("We will not save or share your account details.");
     expect(
-      await this.page.locator(".instruction:nth-child(2)").textContent()
+      await this.page.locator(".instruction:nth-child(2)").textContent(),
     ).toEqual(
-      "We do not use your account details to check or take any payments."
+      "We do not use your account details to check or take any payments.",
     );
   }
 

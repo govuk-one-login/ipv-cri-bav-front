@@ -23,7 +23,7 @@ module.exports = class PlaywrightDevPage {
       .locator("#main-content > div > div > h1")
       .textContent();
     expect(headerText.trim()).toBe(
-      "Sorry, there is a problem with the service"
+      "Sorry, there is a problem with the service",
     );
   }
 
