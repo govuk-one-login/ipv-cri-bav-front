@@ -2,7 +2,9 @@ require("dotenv").config();
 
 module.exports = {
   API: {
-    BASE_URL: process.env.API_BASE_URL || "http://localhost:8090",
+    BASE_URL:
+      process.env.API_BASE_URL ||
+      "https://api-bav-cri-api.review-bav.dev.account.gov.uk",
     PATHS: {
       SESSION: "/session",
       AUTHORIZATION: "/authorization",
