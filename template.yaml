@@ -897,7 +897,7 @@ Resources:
       AliasTarget: !If
       - IsBuildEnvironment
       - DNSName: d1rha1iw69aavp.cloudfront.net
-        HostedZoneId: E2TCW1GCFAO31P
+        HostedZoneId: Z2FDTNDATAQYW2
         EvaluateTargetHealth: false
       - DNSName: !GetAtt BAVFrontCustomDomain.RegionalDomainName
         HostedZoneId: !GetAtt BAVFrontCustomDomain.RegionalHostedZoneId
