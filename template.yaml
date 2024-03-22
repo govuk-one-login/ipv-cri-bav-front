@@ -74,6 +74,8 @@ Conditions:
     - !Equals [!Ref Environment, production]
   IsNotProdLikeEnvironment: !Not
     - !Condition IsProdLikeEnvironment
+  IsBuildEnvironment: !Or
+    - !Equals [ !Ref Environment, build ]
 
 Mappings:
   EnvironmentConfiguration:
@@ -426,7 +428,7 @@ Resources:
     Properties:
       ContainerDefinitions:
         - Essential: true
-          Image: CONTAINER-IMAGE-PLACEHOLDER        
+          Image: CONTAINER-IMAGE-PLACEHOLDER
           Name: app
           Environment:
             - Name: API_BASE_URL
@@ -892,8 +894,12 @@ Resources:
         - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
       Type: A
       HostedZoneId: !Sub "{{resolve:ssm:/${Environment}/Platform/Route53/PrimaryZoneID}}"
-      AliasTarget:
-        DNSName: !GetAtt BAVFrontCustomDomain.RegionalDomainName
+      AliasTarget: !If
+      - IsBuildEnvironment
+      - DNSName: d1rha1iw69aavp.cloudfront.net
+        HostedZoneId: E2TCW1GCFAO31P
+        EvaluateTargetHealth: false
+      - DNSName: !GetAtt BAVFrontCustomDomain.RegionalDomainName
         HostedZoneId: !GetAtt BAVFrontCustomDomain.RegionalHostedZoneId
         EvaluateTargetHealth: false
 
