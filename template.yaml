@@ -74,8 +74,9 @@ Conditions:
     - !Equals [!Ref Environment, production]
   IsNotProdLikeEnvironment: !Not
     - !Condition IsProdLikeEnvironment
-  IsBuildEnvironment: !Or
-    - !Equals [ !Ref Environment, build ]
+  IsBuildEnvironment: !Equals
+    - !Ref Environment
+    - build
 
 Mappings:
   EnvironmentConfiguration:
