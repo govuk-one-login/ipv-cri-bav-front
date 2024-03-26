@@ -74,9 +74,10 @@ Conditions:
     - !Equals [!Ref Environment, production]
   IsNotProdLikeEnvironment: !Not
     - !Condition IsProdLikeEnvironment
-  IsBuildEnvironment: !Equals
-    - !Ref Environment
-    - build
+  IsCloudFrontPilotTesting: !Or
+    - !Equals [ !Ref Environment, build ]
+    - !Equals [ !Ref Environment, staging ]
+    - !Equals [ !Ref Environment, integration ]
 
 Mappings:
   EnvironmentConfiguration:
@@ -128,6 +129,7 @@ Mappings:
       EXTERNALWEBSITEHOST: "https://review-bav.build.account.gov.uk"
       APIBASEURL: "https://api.review-bav.build.account.gov.uk"
       DNSSUFFIX: "review-bav.build.account.gov.uk"
+      DISTRIBUTIONDOMAIN: "d1rha1iw69aavp.cloudfront.net"
       SESSIONTABLENAME: "bav-front-sessions-build"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
@@ -142,6 +144,7 @@ Mappings:
       EXTERNALWEBSITEHOST: "www.review-bav.staging.account.gov.uk/"
       APIBASEURL: "https://api.review-bav.staging.account.gov.uk"
       DNSSUFFIX: "review-bav.staging.account.gov.uk"
+      DISTRIBUTIONDOMAIN: "d1gzjds3ilm4al.cloudfront.net"
       SESSIONTABLENAME: "bav-front-sessions-staging"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
@@ -153,6 +156,7 @@ Mappings:
       EXTERNALWEBSITEHOST: "https://review-bav.integration.account.gov.uk"
       APIBASEURL: "https://api.review-bav.integration.account.gov.uk"
       DNSSUFFIX: "review-bav.integration.account.gov.uk"
+      DISTRIBUTIONDOMAIN: "d2ihl34ndjhh1r.cloudfront.net"
       SESSIONTABLENAME: "bav-front-sessions-integration"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
@@ -896,8 +900,8 @@ Resources:
       Type: A
       HostedZoneId: !Sub "{{resolve:ssm:/${Environment}/Platform/Route53/PrimaryZoneID}}"
       AliasTarget: !If
-      - IsBuildEnvironment
-      - DNSName: d1rha1iw69aavp.cloudfront.net
+      - IsCloudFrontPilotTesting
+      - DNSName:  !FindInMap [EnvironmentVariables, !Ref Environment, DISTRIBUTIONDOMAIN]
         HostedZoneId: Z2FDTNDATAQYW2
         EvaluateTargetHealth: false
       - DNSName: !GetAtt BAVFrontCustomDomain.RegionalDomainName
