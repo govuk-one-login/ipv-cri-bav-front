@@ -15,8 +15,8 @@ const setScenarioHeaders = commonExpress.lib.scenarioHeaders;
 const setAxiosDefaults = commonExpress.lib.axios;
 
 const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
-const { setGTM, setLanguageToggle  } = commonExpress.lib.settings; //require("@govuk-one-login/di-ipv-cri-common-express/lib/settings");
-const { getGTM, getLanguageToggle  } = commonExpress.lib.locals; //require("@govuk-one-login/di-ipv-cri-common-express/lib/locals");
+const { setGTM, setLanguageToggle } = commonExpress.lib.settings; //require("@govuk-one-login/di-ipv-cri-common-express/lib/settings");
+const { getGTM, getLanguageToggle } = commonExpress.lib.locals; //require("@govuk-one-login/di-ipv-cri-common-express/lib/locals");
 
 const {
   setI18n,
