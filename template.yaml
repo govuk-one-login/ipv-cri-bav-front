@@ -122,6 +122,7 @@ Mappings:
       BACKENDURL: "https://api-bav-cri-api.review-bav.dev.account.gov.uk"
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
       LOGLEVEL: "debug"
+      LANGUAGETOGGLEDISABLED: false
       GA4DISABLED: false
       UADISABLED: false
     build:
@@ -138,6 +139,7 @@ Mappings:
       LOGLEVEL: "warn"
       GA4DISABLED: false
       UADISABLED: false
+      LANGUAGETOGGLEDISABLED: false
     staging:
       EXTERNALWEBSITEHOST: "www.review-bav.staging.account.gov.uk/"
       APIBASEURL: "https://api.review-bav.staging.account.gov.uk"
@@ -149,6 +151,7 @@ Mappings:
       LOGLEVEL: "warn"
       GA4DISABLED: false
       UADISABLED: false
+      LANGUAGETOGGLEDISABLED: true
     integration:
       EXTERNALWEBSITEHOST: "https://review-bav.integration.account.gov.uk"
       APIBASEURL: "https://api.review-bav.integration.account.gov.uk"
@@ -160,6 +163,7 @@ Mappings:
       LOGLEVEL: "warn"
       GA4DISABLED: true
       UADISABLED: false
+      LANGUAGETOGGLEDISABLED: true
     production:
       EXTERNALWEBSITEHOST: "https://review-bav.account.gov.uk"
       APIBASEURL: "https://api.review-bav.account.gov.uk"
@@ -171,6 +175,7 @@ Mappings:
       LOGLEVEL: "warn"
       GA4DISABLED: true
       UADISABLED: false
+      LANGUAGETOGGLEDISABLED: true
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -446,6 +451,8 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
             - Name: ANALYTICS_DOMAIN
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, ANALYTICSDOMAIN ]
+            - Name: LANGUAGE_TOGGLE_DISABLED
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, LANGUAGETOGGLEDISABLED ]
             - Name: LOG_LEVEL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LOGLEVEL ]
             - Name: GA4_DISABLED
