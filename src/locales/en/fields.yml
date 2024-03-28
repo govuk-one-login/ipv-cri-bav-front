@@ -1,6 +1,5 @@
 sortCode:
   label: Sort code
-  prefix: ""
   hint: Your sort code is 6 digits long. It is 3 pairs of numbers. For example, 802650.
   prefix: ""
   validation:
@@ -9,7 +8,6 @@ sortCode:
 
 accountNumber:
   label: Account number
-  prefix: ""
   hint: Your account number is between 6 and 8 digits long. For example, 10014069.
   prefix: ""
   validation:
