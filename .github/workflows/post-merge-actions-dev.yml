@@ -44,6 +44,8 @@ jobs:
 
       - name: Deploy SAM app to ECR
         uses: govuk-one-login/devplatform-upload-action-ecr@1.2.1
+        env:
+          DOCKER_DEFAULT_PLATFORM: linux/amd64
         with:
           artifact-bucket-name: ${{ secrets.DEV_ARTIFACT_BUCKET }}
           container-sign-kms-key-arn: ${{ secrets.DEV_CONTAINER_SIGN_KMS_KEY }}
