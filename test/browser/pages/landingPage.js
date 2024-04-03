@@ -13,8 +13,8 @@ module.exports = class PlaywrightDevPage {
   }
 
   async returnLanguageAttribute() {
-    const htmlElement = await this.page.locator('html');
-    return await htmlElement.getAttribute('lang');
+    const htmlElement = await this.page.locator("html");
+    return await htmlElement.getAttribute("lang");
   }
 
   async selectLanguageToggle(language) {
@@ -23,12 +23,14 @@ module.exports = class PlaywrightDevPage {
 
   async returnLanguageToggleHref(language) {
     const htmlElement = await this.page.getByText(language);
-    return await htmlElement.getAttribute('href');
-    }
+    return await htmlElement.getAttribute("href");
+  }
 
   async languageTogglePresent() {
     const { expect } = require("@playwright/test");
-    await expect(this.page.locator("div.govuk-width-container > nav")).toBeVisible();
+    await expect(
+      this.page.locator("div.govuk-width-container > nav"),
+    ).toBeVisible();
   }
 
   async continueToAccountDetails() {
