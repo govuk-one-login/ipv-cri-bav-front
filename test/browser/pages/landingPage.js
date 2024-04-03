@@ -12,6 +12,25 @@ module.exports = class PlaywrightDevPage {
     return pathname === this.path;
   }
 
+  async returnLanguageAttribute() {
+    const htmlElement = await this.page.locator('html');
+    return await htmlElement.getAttribute('lang');
+  }
+
+  async selectLanguageToggle(language) {
+    await this.page.getByText(language).click();
+  }
+
+  async returnLanguageToggleHref(language) {
+    const htmlElement = await this.page.getByText(language);
+    return await htmlElement.getAttribute('href');
+    }
+
+  async languageTogglePresent() {
+    const { expect } = require("@playwright/test");
+    await expect(this.page.locator("div.govuk-width-container > nav")).toBeVisible();
+  }
+
   async continueToAccountDetails() {
     await this.page.click("#landingPageContinue");
   }
