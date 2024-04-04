@@ -40,6 +40,7 @@ jobs:
             IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
             API_BASE_URL: ${{ secrets.API_BASE_URL }}
             CUSTOM_FE_URL: http:/localhost:5040
+            LANGUAGE_TOGGLE_DISABLED: false
       - name: Archive browser tests results
         uses: actions/upload-artifact@v4
         with:
