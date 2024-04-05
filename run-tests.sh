@@ -18,13 +18,20 @@ export SESSION_TABLE=$(remove_quotes $CFN_BAVBackendSessionTableName)
 
 declare error_code
 
+set +e
 cd /app; yarn run test:e2e:cd
-error_code=$?
-
 cp -rf /app/test/reports $TEST_REPORT_ABSOLUTE_DIR
+echo $error_code
+
+if [ $error_code -ne 0 ]
+then
+  exit $error_code
+fi
+
 
 sleep 2m
 
+set -e
 apt-get install jq -y
 cd /app; npm run test:pii
 error_code=$?

@@ -13,7 +13,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async continueToAccountDetails() {
-    await this.page.click("#landingPageContinue");
+    await this.page.click("#landingPageContinues");
   }
 
   async clickHowWeUseBankDetails() {
