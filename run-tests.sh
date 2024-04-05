@@ -15,6 +15,7 @@ export API_BASE_URL=$(remove_quotes "$CFN_BAVBackEndURL")
 export IPV_STUB_URL=$(remove_quotes $CFN_BAVIPVStubPrettyAPIURL)start
 export TEST_HARNESS_URL=$(remove_quotes $CFN_BAVTestHarnessURL)
 export SESSION_TABLE=$(remove_quotes $CFN_BAVBackendSessionTableName)
+export LANGUAGE_TOGGLE_DISABLED=false
 
 declare error_code
 
