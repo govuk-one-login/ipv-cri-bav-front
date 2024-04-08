@@ -6,7 +6,7 @@ on:
     branches:
       - main
 
-env: # Only adding the variables in that are required for
+env:
   IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
   API_BASE_URL: ${{ secrets.API_BASE_URL }}
 
@@ -18,8 +18,6 @@ jobs:
       packages: write
     continue-on-error: true
 
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4
@@ -28,9 +26,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: 'yarn'
+          cache: 'npm'
 
-      - name: Checks if commiting secrets to repo
+      - name: Checks if committing secrets to repo
         uses: pre-commit/action@v3.0.0
         with:
           extra_args: "detect-secrets --all-files"
@@ -46,35 +44,30 @@ jobs:
 
       - name: Run test and write coverage
         run: npm run test
-        
+
       - name: "Run SonarCloud Scan"
-        if: ${{ success() && github.actor != 'dependabot[bot]' }}
+        if: success() && github.actor != 'dependabot[bot]'
         uses: SonarSource/sonarcloud-github-action@master
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build Test CIC Front Image
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install # will run `yarn install` command
+      - name: Install dependencies (npm)
+        run: npm install
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.SH_BAV_ACCESS_TOKEN }} # if needed
+          NODE_AUTH_TOKEN: ${{ secrets.SH_BAV_ACCESS_TOKEN }}
 
       - name: Build production bundle
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: build # will run `yarn build` command
+        run: npm run build
 
       - name: Test the app
         id: bavBrowserTests
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: test:browser:ci # will run `yarn test:browser:ci` command
+        run: npm run test:browser:ci
 
       - name: Generate HTML Report
         if: always() && steps.bavBrowserTests.outcome == 'failure'
-        run: yarn test:browser:report
+        run: npm run test:browser:report
+
       - uses: actions/upload-artifact@v4
         if: always() && steps.bavBrowserTests.outcome == 'failure'
         with:

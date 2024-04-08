@@ -8,7 +8,7 @@ COPY /src ./src
 RUN npm install
 RUN npm run build
 
-# 'yarn install --production' does not prune test packages which are necessary
+# 'npm install install --production' does not prune test packages which are necessary
 # to build the app. So delete nod_modules and reinstall only production packages.
 RUN [ "rm", "-rf", "node_modules" ]
 RUN npm install --production --frozen-lockfile

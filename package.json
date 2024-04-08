@@ -40,7 +40,6 @@
     "url": "https://github.com/govuk-one-login/ipv-cri-bav-front/issues"
   },
   "homepage": "https://github.com/govuk-one-login/ipv-cri-bav-front#readme",
-  "packageManager": "yarn@1.22.21",
   "devDependencies": {
     "@cucumber/cucumber": "^10.0.1",
     "@jest/globals": "^29.7.0",

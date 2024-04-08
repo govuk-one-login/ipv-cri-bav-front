@@ -11,7 +11,7 @@ This is the home for the front end user interface for a credential issuer as a p
 Clone this repository and then run
 
 ```bash
-yarn install
+npm install
 ```
 
 ## Environment Variables
@@ -23,7 +23,7 @@ All the required Environment Variables are inside the .env.sample file. Copy the
 ## Run front-end locally against deployed back-end
 
 - Setup `.env` file as mentioned above
-- Run `yarn build` followed by `yarn start`
+- Run `npm run build` followed by `npm run start`
 - Make a `POST` call to the IPV_STUB_URL with the following body payload
 
 ```
