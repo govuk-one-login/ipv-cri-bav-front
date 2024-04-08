@@ -28,14 +28,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - run: yarn install
-      - run: yarn lint
-      - run: yarn build
-      - run: yarn prettier
-      - run: yarn test
+      - run: npm install
+      - run: npm run lint
+      - run: npm run build
+      - run: npm run prettier
+      - run: npm run test
       - name: Run browser tests
         id: bavBrowserTests
-        run: yarn test:browser:ci
+        run: npm run test:browser:ci
         env: 
             IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
             API_BASE_URL: ${{ secrets.API_BASE_URL }}
@@ -54,9 +54,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - run: yarn install
-      - run: yarn build
-      - run: yarn test
+      - run: npm install
+      - run: npm run build
+      - run: npm run test
       - name: "Run SonarCloud Scan"
         if: ${{ success() && github.actor != 'dependabot[bot]' }}
         uses: SonarSource/sonarcloud-github-action@master

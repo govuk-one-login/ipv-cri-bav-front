@@ -2,16 +2,16 @@ FROM node:18.17.1-alpine3.18@sha256:982b5b6f07cd9241c9ebb163829067deac8eaefc57cf
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
+COPY package.json package-lock.json ./
 COPY /src ./src
 
-RUN yarn install
-RUN yarn build
+RUN npm install
+RUN npm run build
 
 # 'yarn install --production' does not prune test packages which are necessary
 # to build the app. So delete nod_modules and reinstall only production packages.
 RUN [ "rm", "-rf", "node_modules" ]
-RUN yarn install --production --frozen-lockfile
+RUN npm install --production --frozen-lockfile
 
 FROM node:18.17.1-alpine3.18@sha256:982b5b6f07cd9241c9ebb163829067deac8eaefc57cfa8f31927f4b18943d971 AS final
 
@@ -24,7 +24,7 @@ WORKDIR /app
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/package.json ./
-COPY --from=builder /app/yarn.lock ./
+COPY --from=builder /app/package-lock.json ./
 COPY --from=builder /app/src ./src
 
 # Add in dynatrace layer
@@ -38,4 +38,4 @@ EXPOSE $PORT
 
 ENTRYPOINT ["tini", "--"]
 
-CMD ["yarn", "start:debug"]
+CMD ["npm", "start:debug"]

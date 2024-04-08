@@ -19,7 +19,7 @@ export LANGUAGE_TOGGLE_DISABLED=false
 
 declare error_code
 
-cd /app; yarn run test:e2e:cd
+cd /app; npm run test:e2e:cd
 error_code=$?
 
 cp -rf /app/test/reports $TEST_REPORT_ABSOLUTE_DIR

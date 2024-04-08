@@ -36,7 +36,7 @@ docker_vars.env
 deploy/.aws-sam/
 deploy/samconfig.toml
 wafv2/
-package-lock.json
+package-lock.json.json
 .aws-sam/
 test/reports/
 .env
