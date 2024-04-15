@@ -13,10 +13,14 @@ module.exports = {
   },
   accountNumber: {
     type: "number",
-
     journeyKey: "accountNumber",
     validate: [
       "required",
+      {
+        type: "numsOnly",
+        fn: (value) =>
+          value.match(/^[0-9]*$/),
+      },
       { type: "minlength", arguments: [6] },
       { type: "maxlength", arguments: [8] },
     ],

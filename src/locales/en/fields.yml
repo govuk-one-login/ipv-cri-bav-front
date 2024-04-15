@@ -12,6 +12,7 @@ accountNumber:
   prefix: ""
   validation:
     default: Enter your account number
+    numsOnly: Enter a valid account number
     minlength: Your account number must be between 6 and 8 digits
     maxlength: Your account number must be between 6 and 8 digits
 

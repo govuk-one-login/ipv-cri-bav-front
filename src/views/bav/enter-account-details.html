@@ -31,7 +31,6 @@
       classes: "govuk-input--width-10 govuk-input--extra-letter-spacing"
   })}}
 
-
     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
 
     {% endcall %}
@@ -55,5 +54,16 @@
                 dynamic: false,
             });
         });
+
+        numsOnly()
+
+        function numsOnly() {
+        const input = document.getElementById("accountNumber");
+        input.addEventListener("keydown", event =>  {
+            const backspace = ['Backspace', 'Delete'];
+            if (!(backspace.includes(event.key) || /\d/.test(event.key))) {
+                event.preventDefault(); 
+            }
+        })};
     </script>
 {% endblock %}
