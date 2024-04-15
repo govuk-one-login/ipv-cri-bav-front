@@ -5,6 +5,7 @@ sortCode:
   validation:
     default: Enter your sort code
     regexNumber: Enter a valid sort code. For example, 802650
+    minlength: Your sort code must be 6 digits long
 
 accountNumber:
   label: Account number

@@ -4,6 +4,7 @@ module.exports = {
     journeyKey: "sortCode",
     validate: [
       "required",
+      { type: "minlength", arguments: [6] },
       {
         type: "regexNumber",
         fn: (value) =>
