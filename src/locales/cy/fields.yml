@@ -12,6 +12,7 @@ accountNumber:
   prefix: ""
   validation:
     default: Rhowch rif eich cyfrif
+    numsOnly: Rhowch rif cyfrif dilys
     minlength: Rhaid i rif eich cyfrif fod rhwng 6 ac 8 digid
     maxlength: Rhaid i rif eich cyfrif fod rhwng 6 ac 8 digid
 
