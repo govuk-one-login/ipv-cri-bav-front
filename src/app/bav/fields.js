@@ -13,7 +13,7 @@ module.exports = {
     ],
   },
   accountNumber: {
-    type: "number",
+    type: "text",
     journeyKey: "accountNumber",
     validate: [
       "required",

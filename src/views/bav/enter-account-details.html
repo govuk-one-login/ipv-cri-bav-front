@@ -54,16 +54,5 @@
                 dynamic: false,
             });
         });
-
-        numsOnly()
-
-        function numsOnly() {
-        const input = document.getElementById("accountNumber");
-        input.addEventListener("keydown", event =>  {
-            const backspace = ['Backspace', 'Delete'];
-            if (!(backspace.includes(event.key) || /\d/.test(event.key))) {
-                event.preventDefault(); 
-            }
-        })};
     </script>
 {% endblock %}

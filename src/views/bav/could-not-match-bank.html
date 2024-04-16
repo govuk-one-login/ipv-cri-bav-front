@@ -14,7 +14,13 @@
   {% set title = translate("couldNotMatch.title") %}
   {% set content = translate("couldNotMatch.content") %}
   {% set prompt = translate("couldNotMatch.prompt") %} 
-  {% set formInstructions = "<p>"+content+"</p><p class=\"govuk-heading-m\" id=\"couldNotMatchPrompt\">"+prompt+"</p>"%}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+  
+      <h1 class="govuk-heading-l" id="landingPageTitle">{{ title }}</h1>
+      <p>{{ content }}</p>
+
 
   {% call hmpoForm(ctx) %}
           {{ hmpoRadios(ctx, {
@@ -22,13 +28,10 @@
             namePrefix: "couldNotMatchChoice",
             fieldset: {
                 legend: {
-                    text: title,
-                    isPageHeading: true,
-                    classes: "govuk-fieldset__legend--l"
+                    html: "<h2 class=\"govuk-!-margin-bottom-0\">What would you like to do?</h2>",
+                    isPageHeading: false,
+                    classes: "govuk-fieldset__legend--m"
                 }
-            },
-            hint: {
-                html: formInstructions
             }
         }) }}
 
