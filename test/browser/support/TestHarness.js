@@ -73,7 +73,7 @@ module.exports = class TestHarness {
 
   async validateTxMAEventData(keyList) {
     let i;
-    let valid = true;
+    let valid = Boolean;
     for (i = 0; i < keyList.length; i++) {
       const getObjectResponse = await this.HARNESS_API_INSTANCE.get(
         "/object/" + keyList[i],
@@ -149,7 +149,7 @@ module.exports = class TestHarness {
           break;
         }
       }
+      expect(valid).toEqual(true);
     }
-    expect(valid).toEqual(true);
   }
 };
