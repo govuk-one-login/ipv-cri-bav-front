@@ -168,7 +168,7 @@ Mappings:
       LOGLEVEL: "warn"
       GA4DISABLED: false
       UADISABLED: false
-      LANGUAGETOGGLEDISABLED: true
+      LANGUAGETOGGLEDISABLED: false
     integration:
       EXTERNALWEBSITEHOST: "https://review-bav.integration.account.gov.uk"
       APIBASEURL: "https://api.review-bav.integration.account.gov.uk"
