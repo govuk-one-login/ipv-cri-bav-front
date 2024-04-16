@@ -5,6 +5,7 @@ sortCode:
   validation:
     default: Rhowch eich cod didoli
     regexNumber: Rhowch god didoli dilys. Er enghraifft, 802650
+    minlength: Rhaid i'ch cod didoli fod yn 6 digid o hyd
 
 accountNumber:
   label: Rhif y cyfrif 
