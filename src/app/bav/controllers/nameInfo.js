@@ -1,6 +1,9 @@
 const { Controller: BaseController } = require("hmpo-form-wizard");
 const { API } = require("../../../lib/config");
 const rsa = require("node-rsa");
+const {
+  createPersonalDataHeaders,
+} = require("@govuk-one-login/frontend-passthrough-headers");
 
 class NameInfoController extends BaseController {
   async saveValues(req, res, next) {
@@ -24,6 +27,7 @@ class NameInfoController extends BaseController {
   async getNameInfo(axios, req) {
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId,
+      ...createPersonalDataHeaders(req),
     };
     const res = await axios.get(`${API.PATHS.GET_NAME_INFO}`, {
       headers,
@@ -31,8 +35,13 @@ class NameInfoController extends BaseController {
     return res.data;
   }
 
-  async getDecryptKey(axios) {
-    const res = await axios.get(`${API.PATHS.GET_NAME_INFO_DECRYPT_KEY}`);
+  async getDecryptKey(axios, req) {
+    const headers = {
+      ...createPersonalDataHeaders(req),
+    };
+    const res = await axios.get(`${API.PATHS.GET_NAME_INFO_DECRYPT_KEY}`, {
+      headers,
+    });
     return res.data.key;
   }
 }

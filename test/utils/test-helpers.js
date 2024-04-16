@@ -6,6 +6,7 @@ const WizardModel = require("hmpo-form-wizard/lib/wizard-model.js");
 function setupDefaultMocks() {
   const req = reqres.req({
     form: { values: {} },
+    headers: { "txma-audit-encoded": "dummy-txma-header" },
     axios: {
       get: jest.fn(),
       post: jest.fn(),
