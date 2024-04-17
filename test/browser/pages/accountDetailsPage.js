@@ -31,6 +31,20 @@ module.exports = class PlaywrightDevPage {
     return errorText.trim();
   }
 
+  async checkAccountNumberErrorText() {
+    const errorText = await this.page
+      .locator("#accountNumber-error")
+      .textContent();
+    return errorText.trim();
+  }
+
+  async checkSortCodeErrorText() {
+    const errorText = await this.page
+      .locator("#sortCode-error")
+      .textContent();
+    return errorText.trim();
+  }
+
   async enterSortCode(sortCode) {
     await this.page.locator("#sortCode").fill(sortCode);
   }
