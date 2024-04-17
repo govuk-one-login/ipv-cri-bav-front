@@ -4,7 +4,17 @@ module.exports = {
     journeyKey: "sortCode",
     validate: [
       "required",
+      {
+        type: "allowedChars",
+        fn: (value) =>
+          value.match(/^[0-9\-\s]+$/),
+      },
       { type: "minlength", arguments: [6] },
+      {
+        type: "spaceOrDashLength",
+        fn: (value) =>
+          !value.match(/^\d{1}-\d{2}-\d{2}$|^\d{2}-\d{1}-\d{2}$|^\d{2}-\d{2}-\d{1}$|^\d{1} \d{2} \d{2}$|^\d{2} \d{1} \d{2}$|^\d{2} \d{2} \d{1}$/),
+      },
       {
         type: "regexNumber",
         fn: (value) =>
@@ -20,7 +30,7 @@ module.exports = {
       {
         type: "numsOnly",
         fn: (value) =>
-          value.match(/^[0-9]*$/),
+          value.match(/^[0-9]+$/),
       },
       { type: "minlength", arguments: [6] },
       { type: "maxlength", arguments: [8] },
