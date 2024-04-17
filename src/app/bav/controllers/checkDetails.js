@@ -1,6 +1,9 @@
 const BaseController = require("hmpo-form-wizard").Controller;
 const { API } = require("../../../lib/config");
 const { formatSortCodeForSubmission } = require("../utils");
+const {
+  createPersonalDataHeaders,
+} = require("@govuk-one-login/frontend-passthrough-headers");
 
 class CheckDetailsController extends BaseController {
   locals(req, res, callback) {
@@ -41,6 +44,7 @@ class CheckDetailsController extends BaseController {
   async saveBavData(axios, bavData, req) {
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId,
+      ...createPersonalDataHeaders(req),
     };
 
     const res = await axios.post(`${API.PATHS.SAVE_BAVDATA}`, bavData, {

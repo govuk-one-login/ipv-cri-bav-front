@@ -45,12 +45,18 @@ describe("NameInfoController", () => {
       expect(fullName).toEqual(decryptedName);
       expect(req.axios.get).toHaveBeenNthCalledWith(1, GET_NAME_INFO, {
         headers: {
+          "txma-audit-encoded": "dummy-txma-header",
           "x-govuk-signin-session-id": req.session.tokenId,
         },
       });
       expect(req.axios.get).toHaveBeenNthCalledWith(
         2,
         GET_NAME_INFO_DECRYPT_KEY,
+        {
+          headers: {
+            "txma-audit-encoded": "dummy-txma-header",
+          },
+        },
       );
     });
   });

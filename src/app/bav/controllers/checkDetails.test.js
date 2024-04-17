@@ -44,7 +44,12 @@ describe("CheckDetailsController", () => {
       expect(req.axios.post).toHaveBeenCalledWith(
         `${API.PATHS.SAVE_BAVDATA}`,
         { sort_code: "000000", account_number: "1234567" },
-        { headers: { "x-govuk-signin-session-id": req.session.tokenId } },
+        {
+          headers: {
+            "txma-audit-encoded": "dummy-txma-header",
+            "x-govuk-signin-session-id": req.session.tokenId,
+          },
+        },
       );
     });
   });
