@@ -6,8 +6,7 @@ sortCode:
     default: Enter your sort code
     allowedChars: Enter a valid sort code. For example, 802650
     regexNumber: Enter a valid sort code. For example, 802650
-    minlength: Your sort code must be 6 digits long
-    spaceOrDashLength: Your sort code must be 6 digits long
+    length: Your sort code must be 6 digits long
 
 accountNumber:
   label: Account number

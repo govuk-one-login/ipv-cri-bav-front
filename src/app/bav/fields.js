@@ -7,18 +7,17 @@ module.exports = {
       {
         type: "allowedChars",
         fn: (value) =>
-          value.match(/^[0-9\-\s]+$/),
+          value.match(/^[0-9\-\s]+$/)
       },
-      { type: "minlength", arguments: [6] },
       {
-        type: "spaceOrDashLength",
+        type: "length",
         fn: (value) =>
-          !value.match(/^\d{1}-\d{2}-\d{2}$|^\d{2}-\d{1}-\d{2}$|^\d{2}-\d{2}-\d{1}$|^\d{1} \d{2} \d{2}$|^\d{2} \d{1} \d{2}$|^\d{2} \d{2} \d{1}$/),
+          value.replace(/[ -]/g, "").match(/^\d{6}$/)
       },
       {
         type: "regexNumber",
         fn: (value) =>
-          value.match(/^\d{6}$|^\d{2}-\d{2}-\d{2}$|^\d{2} \d{2} \d{2}$/),
+          value.match(/^\d{6}$|^\d{2}-\d{2}-\d{2}$|^\d{2} \d{2} \d{2}$/)
       },
     ],
   },
