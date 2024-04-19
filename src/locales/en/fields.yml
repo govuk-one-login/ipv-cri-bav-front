@@ -4,9 +4,8 @@ sortCode:
   prefix: ""
   validation:
     default: Enter your sort code
-    allowedChars: Enter a valid sort code. For example, 802650
+    length:  Your sort code must be 6 digits long
     regexNumber: Enter a valid sort code. For example, 802650
-    length: Your sort code must be 6 digits long
 
 accountNumber:
   label: Account number

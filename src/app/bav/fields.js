@@ -5,14 +5,9 @@ module.exports = {
     validate: [
       "required",
       {
-        type: "allowedChars",
-        fn: (value) =>
-          value.match(/^[0-9\-\s]+$/)
-      },
-      {
         type: "length",
         fn: (value) =>
-          value.replace(/[ -]/g, "").match(/^\d{6}$/)
+          value.length == 6 || value.match(/^\D*\d{6}\D*$/)
       },
       {
         type: "regexNumber",
