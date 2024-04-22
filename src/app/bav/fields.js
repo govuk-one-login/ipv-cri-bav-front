@@ -1,12 +1,13 @@
 module.exports = {
   sortCode: {
     type: "text",
+    inputMode: "numeric",
     journeyKey: "sortCode",
     validate: [
       "required",
       {
         type: "length",
-        fn: (value) => value.length === 6 || value.match(/^\D*\d{6}\D*$/),
+        fn: (value) => value.match(/^(?=(?:\D*\d){6}\D*$|.{6}$)/)
       },
       {
         type: "regexNumber",
@@ -17,6 +18,7 @@ module.exports = {
   },
   accountNumber: {
     type: "text",
+    inputMode: "numeric",
     journeyKey: "accountNumber",
     validate: [
       "required",
