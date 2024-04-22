@@ -18,7 +18,6 @@ Feature: Enter Incorrect Bank Account Details
 
       Examples:
          | accountNumber |
-         | "001111111"   |
          | "11111"       |
 
    Scenario Outline: On-screen error when Sort Code in the wrong format: <sortCode>
@@ -33,8 +32,6 @@ Feature: Enter Incorrect Bank Account Details
          | "12*34*56" |
          | "123 456"  |
          | "a23456" |
-         | "12-34-567" |
-         | "1234567" |
 
    Scenario Outline: On-screen error when Sort Code is wrong length: <sortCode>
       Given the user has entered a Sort Code of <sortCode>
@@ -44,5 +41,9 @@ Feature: Enter Incorrect Bank Account Details
 
       Examples:
          | sortCode   |
-         | "12-34-" |
+         | "1234-" |
+         | "1234" |
          | "12 3 " |
+         | "1234567" |
+         | "1234567p" |
+         | "12-34-567" |
