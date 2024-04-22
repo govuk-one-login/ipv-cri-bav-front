@@ -7,7 +7,7 @@ module.exports = {
       {
         type: "length",
         fn: (value) =>
-          value.length == 6 || value.match(/^\D*\d{6}\D*$/)
+          value.length === 6 || value.match(/^\D*\d{6}\D*$/)
       },
       {
         type: "regexNumber",
@@ -24,7 +24,7 @@ module.exports = {
       {
         type: "numsOnly",
         fn: (value) =>
-          value.match(/^[0-9]+$/),
+          value.match(/^\d+$/),
       },
       { type: "minlength", arguments: [6] },
       { type: "maxlength", arguments: [8] },
