@@ -4,10 +4,8 @@ sortCode:
   prefix: ""
   validation:
     default: Rhowch eich cod didoli
-    allowedChars: Rhowch god didoli dilys. Er enghraifft, 802650
+    length: Rhowch god didoli dilys. Er enghraifft, 802650
     regexNumber: Rhowch god didoli dilys. Er enghraifft, 802650
-    minlength: Rhaid i'ch cod didoli fod yn 6 digid o hyd
-    spaceOrDashLength: Rhaid i'ch cod didoli fod yn 6 digid o hyd
 
 accountNumber:
   label: Rhif y cyfrif 
