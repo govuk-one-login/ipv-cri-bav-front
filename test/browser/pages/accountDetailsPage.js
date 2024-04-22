@@ -39,9 +39,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async checkSortCodeErrorText() {
-    const errorText = await this.page
-      .locator("#sortCode-error")
-      .textContent();
+    const errorText = await this.page.locator("#sortCode-error").textContent();
     return errorText.trim();
   }
 

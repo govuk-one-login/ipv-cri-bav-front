@@ -6,13 +6,12 @@ module.exports = {
       "required",
       {
         type: "length",
-        fn: (value) =>
-          value.length === 6 || value.match(/^\D*\d{6}\D*$/)
+        fn: (value) => value.length === 6 || value.match(/^\D*\d{6}\D*$/),
       },
       {
         type: "regexNumber",
         fn: (value) =>
-          value.match(/^\d{6}$|^\d{2}-\d{2}-\d{2}$|^\d{2} \d{2} \d{2}$/)
+          value.match(/^\d{6}$|^\d{2}-\d{2}-\d{2}$|^\d{2} \d{2} \d{2}$/),
       },
     ],
   },
@@ -23,8 +22,7 @@ module.exports = {
       "required",
       {
         type: "numsOnly",
-        fn: (value) =>
-          value.match(/^\d+$/),
+        fn: (value) => value.match(/^\d+$/),
       },
       { type: "minlength", arguments: [6] },
       { type: "maxlength", arguments: [8] },
