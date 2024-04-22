@@ -7,7 +7,7 @@ module.exports = {
       "required",
       {
         type: "length",
-        fn: (value) => value.match(/^(?=(?:\D*\d){6}\D*$|.{6}$)/)
+        fn: (value) => value.match(/^(?=(?:\D*\d){6}\D*$|.{6}$)/),
       },
       {
         type: "regexNumber",
