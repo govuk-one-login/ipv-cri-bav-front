@@ -27,7 +27,10 @@ class NameInfoController extends BaseController {
   async getNameInfo(axios, req) {
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId,
-      ...createPersonalDataHeaders(`${API.BASE_URL}${API.PATHS.GET_NAME_INFO}`, req),
+      ...createPersonalDataHeaders(
+        `${API.BASE_URL}${API.PATHS.GET_NAME_INFO}`,
+        req,
+      ),
     };
     const res = await axios.get(`${API.PATHS.GET_NAME_INFO}`, {
       headers,
@@ -37,7 +40,10 @@ class NameInfoController extends BaseController {
 
   async getDecryptKey(axios, req) {
     const headers = {
-      ...createPersonalDataHeaders(`${API.BASE_URL}${API.PATHS.GET_NAME_INFO_DECRYPT_KEY}`, req),
+      ...createPersonalDataHeaders(
+        `${API.BASE_URL}${API.PATHS.GET_NAME_INFO_DECRYPT_KEY}`,
+        req,
+      ),
     };
     const res = await axios.get(`${API.PATHS.GET_NAME_INFO_DECRYPT_KEY}`, {
       headers,
