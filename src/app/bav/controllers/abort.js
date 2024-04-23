@@ -17,7 +17,7 @@ class AbortController extends BaseController {
   async abortJourney(req, res) {
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId,
-      ...createPersonalDataHeaders(req),
+      ...createPersonalDataHeaders(`${API.BASE_URL}${API.PATHS.ABORT}`, req),
     };
 
     const response = await req.axios.post(
