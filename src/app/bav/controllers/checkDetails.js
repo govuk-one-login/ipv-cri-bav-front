@@ -44,7 +44,10 @@ class CheckDetailsController extends BaseController {
   async saveBavData(axios, bavData, req) {
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId,
-      ...createPersonalDataHeaders(req),
+      ...createPersonalDataHeaders(
+        `${API.BASE_URL}${API.PATHS.SAVE_BAVDATA}`,
+        req,
+      ),
     };
 
     const res = await axios.post(`${API.PATHS.SAVE_BAVDATA}`, bavData, {
