@@ -98,10 +98,3 @@ $govuk-assets-path: "/public/";
 #submitDetails {
   @include govuk-responsive-margin(4, "top");
 }
-
-#couldNotMatchPrompt {
-  color: govuk-colour("black");
-  font-weight: bold;
-  @include govuk-responsive-margin(5, "top");
-  @include govuk-responsive-margin(4, "bottom");
-}

@@ -16,7 +16,6 @@
     <h1 id="check-details-header" class="gov" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
         {{ translate("checkDetails.title") }}
     </h1>
-  </div>
 
   {{ govukSummaryList({
   classes: 'govuk-!-margin-bottom-6',
@@ -80,8 +79,13 @@
 
 {% endcall %}
 
-<p class="bav__instruction"><a href={{ "landingPage.howContinueBankLanding.howContinueBankLink" | translate }}> {{ "landingPage.howContinueBankLanding.howContinueBankText" | translate }}</a></p>
+  <p><a href={{ "landingPage.howContinueBankLanding.howContinueBankLink" | translate }}> {{ "landingPage.howContinueBankLanding.howContinueBankText" | translate }}</a></p>
 
+  </div>
+</div>
+{% endblock %}
+
+{% block footer %}
     <script nonce="{{ cspNonce }}">
 
     var formSubmitted = false;

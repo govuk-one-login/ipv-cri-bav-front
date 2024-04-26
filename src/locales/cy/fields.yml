@@ -4,6 +4,7 @@ sortCode:
   prefix: ""
   validation:
     default: Rhowch eich cod didoli
+    length: Rhowch god didoli dilys. Er enghraifft, 802650
     regexNumber: Rhowch god didoli dilys. Er enghraifft, 802650
 
 accountNumber:
@@ -12,6 +13,7 @@ accountNumber:
   prefix: ""
   validation:
     default: Rhowch rif eich cyfrif
+    numsOnly: Rhowch rif cyfrif dilys
     minlength: Rhaid i rif eich cyfrif fod rhwng 6 ac 8 digid
     maxlength: Rhaid i rif eich cyfrif fod rhwng 6 ac 8 digid
 

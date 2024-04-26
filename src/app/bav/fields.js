@@ -1,9 +1,14 @@
 module.exports = {
   sortCode: {
     type: "text",
+    inputMode: "numeric",
     journeyKey: "sortCode",
     validate: [
       "required",
+      {
+        type: "length",
+        fn: (value) => value.match(/^(?=(?:\D*\d){6}\D*$|.{6}$)/),
+      },
       {
         type: "regexNumber",
         fn: (value) =>
@@ -12,11 +17,15 @@ module.exports = {
     ],
   },
   accountNumber: {
-    type: "number",
-
+    type: "text",
+    inputMode: "numeric",
     journeyKey: "accountNumber",
     validate: [
       "required",
+      {
+        type: "numsOnly",
+        fn: (value) => value.match(/^\d+$/),
+      },
       { type: "minlength", arguments: [6] },
       { type: "maxlength", arguments: [8] },
     ],

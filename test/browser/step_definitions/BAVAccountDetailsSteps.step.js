@@ -67,3 +67,36 @@ Then("an error message is shown to the user", async function () {
   expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
   expect(await accDetailsPage.checkErrorText()).toContain("There is a problem");
 });
+
+Then(
+  "an account number length error message is shown to the user",
+  async function () {
+    const accDetailsPage = new AccountDetailsPage(await this.page);
+    expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
+    expect(await accDetailsPage.checkAccountNumberErrorText()).toContain(
+      "Your account number must be between 6 and 8 digits",
+    );
+  },
+);
+
+Then(
+  "a sort code format error message is shown to the user",
+  async function () {
+    const accDetailsPage = new AccountDetailsPage(await this.page);
+    expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
+    expect(await accDetailsPage.checkSortCodeErrorText()).toContain(
+      "Enter a valid sort code. For example, 802650",
+    );
+  },
+);
+
+Then(
+  "a sort code length error message is shown to the user",
+  async function () {
+    const accDetailsPage = new AccountDetailsPage(await this.page);
+    expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
+    expect(await accDetailsPage.checkSortCodeErrorText()).toContain(
+      "Your sort code must be 6 digits long",
+    );
+  },
+);
