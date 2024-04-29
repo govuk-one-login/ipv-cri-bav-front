@@ -11,13 +11,10 @@
 
 {% block mainContent %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-three-quarters">
+<div>
     <h1 id="account-details-header" class="gov" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
         {{ translate("enterAccountDetails.title") }}
     </h1>
-  </div>
-</div>
     
     {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
@@ -29,12 +26,12 @@
     {{ hmpoText(ctx, {
       id: "accountNumber",
       classes: "govuk-input--width-10 govuk-input--extra-letter-spacing"
-  })}}
+    })}}
 
     {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
 
     {% endcall %}
-
+</div>
 {% endblock %}
 
 {# generate the specific footer items required for the PYI flows #}
