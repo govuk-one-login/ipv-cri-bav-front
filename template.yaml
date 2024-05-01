@@ -87,7 +87,7 @@ Conditions:
     - !Equals [!Ref DeployAlarmsInDev, true]
   IsCloudFrontPilotTesting: !Equals
     - !Ref Environment
-    - build
+    - dev
   # IsCloudFrontPilotTesting: !Or
   #   - !Equals [ !Ref Environment, build ]
   #   - !Equals [ !Ref Environment, staging ]
@@ -917,7 +917,7 @@ Resources:
       HostedZoneId: !Sub "{{resolve:ssm:/${Environment}/Platform/Route53/PrimaryZoneID}}"
       AliasTarget: !If
       - IsCloudFrontPilotTesting
-      - DNSName:  d3g1l9j93kc92w.cloudfront.net
+      - DNSName:  d3kz7tit8lsswz.cloudfront.net
         HostedZoneId: Z2FDTNDATAQYW2
         EvaluateTargetHealth: false
       - DNSName: !GetAtt BAVFrontCustomDomain.RegionalDomainName
@@ -926,11 +926,15 @@ Resources:
 
   BAVFrontApiOriginRecord:
     Type: AWS::Route53::RecordSet
-    Condition: IsNotDevelopment
     Properties:
-      Name: !Sub
-      - "origin.${DNSSUFFIX}"
-      - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
+      Name: !If
+      - IsNotDevelopment
+      - !Sub
+        - "www.${DNSSUFFIX}"
+        - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
+      - !Sub
+        - "${AWS::StackName}.${DNSSUFFIX}"
+        - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
       Type: A
       HostedZoneId: !Sub "{{resolve:ssm:/${Environment}/Platform/Route53/PrimaryZoneID}}"
       AliasTarget:
