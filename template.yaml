@@ -930,10 +930,10 @@ Resources:
       Name: !If
       - IsNotDevelopment
       - !Sub
-        - "www.${DNSSUFFIX}"
+        - "origin.${DNSSUFFIX}"
         - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
       - !Sub
-        - "${AWS::StackName}.${DNSSUFFIX}"
+        - "${AWS::StackName}.origin.${DNSSUFFIX}"
         - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
       Type: A
       HostedZoneId: !Sub "{{resolve:ssm:/${Environment}/Platform/Route53/PrimaryZoneID}}"
