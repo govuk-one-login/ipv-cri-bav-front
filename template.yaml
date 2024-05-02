@@ -917,7 +917,7 @@ Resources:
       HostedZoneId: !Sub "{{resolve:ssm:/${Environment}/Platform/Route53/PrimaryZoneID}}"
       AliasTarget: !If
       - IsCloudFrontPilotTesting
-      - DNSName:  d3kz7tit8lsswz.cloudfront.net
+      - DNSName:  dv2zdlxxflscj.cloudfront.net
         HostedZoneId: Z2FDTNDATAQYW2
         EvaluateTargetHealth: false
       - DNSName: !GetAtt BAVFrontCustomDomain.RegionalDomainName
