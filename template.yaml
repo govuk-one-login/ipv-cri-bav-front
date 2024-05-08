@@ -129,6 +129,7 @@ Mappings:
       EXTERNALWEBSITEHOST: "https://bav-cri-front.review-bav.dev.account.gov.uk"
       APIBASEURL: "https://api-bav-cri-api.review-bav.dev.account.gov.uk"
       DNSSUFFIX: "review-bav.dev.account.gov.uk"
+      CLOUDFRONTDOMAIN: "d25esf8mgd14r2.cloudfront.net"
       SESSIONTABLENAME: "bav-front-sessions-dev"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
@@ -144,6 +145,7 @@ Mappings:
       EXTERNALWEBSITEHOST: "https://review-bav.build.account.gov.uk"
       APIBASEURL: "https://api.review-bav.build.account.gov.uk"
       DNSSUFFIX: "review-bav.build.account.gov.uk"
+      CLOUDFRONTDOMAIN: ""
       SESSIONTABLENAME: "bav-front-sessions-build"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
@@ -159,6 +161,7 @@ Mappings:
       EXTERNALWEBSITEHOST: "www.review-bav.staging.account.gov.uk/"
       APIBASEURL: "https://api.review-bav.staging.account.gov.uk"
       DNSSUFFIX: "review-bav.staging.account.gov.uk"
+      CLOUDFRONTDOMAIN: ""
       SESSIONTABLENAME: "bav-front-sessions-staging"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
@@ -171,6 +174,7 @@ Mappings:
       EXTERNALWEBSITEHOST: "https://review-bav.integration.account.gov.uk"
       APIBASEURL: "https://api.review-bav.integration.account.gov.uk"
       DNSSUFFIX: "review-bav.integration.account.gov.uk"
+      CLOUDFRONTDOMAIN: ""
       SESSIONTABLENAME: "bav-front-sessions-integration"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
@@ -183,6 +187,7 @@ Mappings:
       EXTERNALWEBSITEHOST: "https://review-bav.account.gov.uk"
       APIBASEURL: "https://api.review-bav.account.gov.uk"
       DNSSUFFIX: "review-bav.account.gov.uk"
+      CLOUDFRONTDOMAIN: ""
       SESSIONTABLENAME: "bav-front-sessions-production"
       GTMIDUA: "GTM-TT5HDKV"
       GTMIDGA4: "GTM-K4PBJH3"
@@ -917,7 +922,7 @@ Resources:
       HostedZoneId: !Sub "{{resolve:ssm:/${Environment}/Platform/Route53/PrimaryZoneID}}"
       AliasTarget: !If
       - IsCloudFrontPilotTesting
-      - DNSName:  dv2zdlxxflscj.cloudfront.net
+      - DNSName:  !FindInMap [EnvironmentVariables, !Ref Environment, CLOUDFRONTDOMAIN]
         HostedZoneId: Z2FDTNDATAQYW2
         EvaluateTargetHealth: false
       - DNSName: !GetAtt BAVFrontCustomDomain.RegionalDomainName
