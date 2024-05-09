@@ -86,7 +86,7 @@ Conditions:
     - Condition: IsNotDevelopment
     - !Equals [!Ref DeployAlarmsInDev, true]
   IsCloudFrontPilotTesting: !Or
-    - !Equals [ !Ref Environment, build ]
+    - !Equals [ !Ref Environment, staging ]
     - !Equals [ !Ref Environment, dev ]
 
 Mappings:
@@ -125,7 +125,7 @@ Mappings:
       EXTERNALWEBSITEHOST: "https://bav-cri-front.review-bav.dev.account.gov.uk"
       APIBASEURL: "https://api-bav-cri-api.review-bav.dev.account.gov.uk"
       DNSSUFFIX: "review-bav.dev.account.gov.uk"
-      CLOUDFRONTDOMAIN: "d25esf8mgd14r2.cloudfront.net"
+      CLOUDFRONTDOMAIN: ""
       SESSIONTABLENAME: "bav-front-sessions-dev"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
@@ -141,7 +141,7 @@ Mappings:
       EXTERNALWEBSITEHOST: "https://review-bav.build.account.gov.uk"
       APIBASEURL: "https://api.review-bav.build.account.gov.uk"
       DNSSUFFIX: "review-bav.build.account.gov.uk"
-      CLOUDFRONTDOMAIN: "d1f55zmmicygu2.cloudfront.net"
+      CLOUDFRONTDOMAIN: "d1mxjkhzwnn7rp.cloudfront.net"
       SESSIONTABLENAME: "bav-front-sessions-build"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
@@ -157,7 +157,7 @@ Mappings:
       EXTERNALWEBSITEHOST: "www.review-bav.staging.account.gov.uk/"
       APIBASEURL: "https://api.review-bav.staging.account.gov.uk"
       DNSSUFFIX: "review-bav.staging.account.gov.uk"
-      CLOUDFRONTDOMAIN: ""
+      CLOUDFRONTDOMAIN: "d3li6eih3gei2k.cloudfront.net"
       SESSIONTABLENAME: "bav-front-sessions-staging"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
@@ -170,7 +170,7 @@ Mappings:
       EXTERNALWEBSITEHOST: "https://review-bav.integration.account.gov.uk"
       APIBASEURL: "https://api.review-bav.integration.account.gov.uk"
       DNSSUFFIX: "review-bav.integration.account.gov.uk"
-      CLOUDFRONTDOMAIN: ""
+      CLOUDFRONTDOMAIN: "d38g947wht95l2.cloudfront.net"
       SESSIONTABLENAME: "bav-front-sessions-integration"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
