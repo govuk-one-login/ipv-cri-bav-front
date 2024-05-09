@@ -85,13 +85,9 @@ Conditions:
   DeployAlarms: !Or
     - Condition: IsNotDevelopment
     - !Equals [!Ref DeployAlarmsInDev, true]
-  IsCloudFrontPilotTesting: !Equals
-    - !Ref Environment
-    - dev
-  # IsCloudFrontPilotTesting: !Or
-  #   - !Equals [ !Ref Environment, build ]
-  #   - !Equals [ !Ref Environment, staging ]
-  #   - !Equals [ !Ref Environment, integration ]
+  IsCloudFrontPilotTesting: !Or
+    - !Equals [ !Ref Environment, build ]
+    - !Equals [ !Ref Environment, dev ]
 
 Mappings:
   EnvironmentConfiguration:
@@ -145,7 +141,7 @@ Mappings:
       EXTERNALWEBSITEHOST: "https://review-bav.build.account.gov.uk"
       APIBASEURL: "https://api.review-bav.build.account.gov.uk"
       DNSSUFFIX: "review-bav.build.account.gov.uk"
-      CLOUDFRONTDOMAIN: ""
+      CLOUDFRONTDOMAIN: "d1f55zmmicygu2.cloudfront.net"
       SESSIONTABLENAME: "bav-front-sessions-build"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
