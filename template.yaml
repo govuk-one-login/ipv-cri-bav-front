@@ -125,7 +125,7 @@ Mappings:
       EXTERNALWEBSITEHOST: "https://bav-cri-front.review-bav.dev.account.gov.uk"
       APIBASEURL: "https://api-bav-cri-api.review-bav.dev.account.gov.uk"
       DNSSUFFIX: "review-bav.dev.account.gov.uk"
-      CLOUDFRONTDOMAIN: ""
+      CLOUDFRONTDOMAIN: "d17j8dpxnaezxj.cloudfront.net"
       SESSIONTABLENAME: "bav-front-sessions-dev"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
