@@ -17,6 +17,8 @@ const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
 const { setGTM, setLanguageToggle } = commonExpress.lib.settings; //require("@govuk-one-login/di-ipv-cri-common-express/lib/settings");
 const { getGTM, getLanguageToggle } = commonExpress.lib.locals; //require("@govuk-one-login/di-ipv-cri-common-express/lib/locals");
 
+const addLanguageParam = require("@govuk-one-login/frontend-language-toggle/build/cjs/language-param-setter.cjs");
+
 const {
   setI18n,
 } = require("@govuk-one-login/di-ipv-cri-common-express/src/lib/i18next");
@@ -128,6 +130,8 @@ setGTM({
 // Common express relies on 0/1 strings
 const showLanguageToggle = APP.LANGUAGE_TOGGLE_DISABLED == "true" ? "0" : "1";
 setLanguageToggle({ app, showLanguageToggle: showLanguageToggle });
+
+app.get("nunjucks").addGlobal("addLanguageParam", addLanguageParam);
 
 router.use(getGTM);
 
