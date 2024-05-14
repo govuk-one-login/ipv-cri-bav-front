@@ -85,12 +85,6 @@ Conditions:
   DeployAlarms: !Or
     - Condition: IsNotDevelopment
     - !Equals [!Ref DeployAlarmsInDev, true]
-  IsCloudFrontPilotTesting: !Or
-    - !Equals [ !Ref Environment, dev ]
-    - !Equals [ !Ref Environment, build ]
-    - !Equals [ !Ref Environment, staging ]
-    - !Equals [ !Ref Environment, integration ]
-
 
 Mappings:
   EnvironmentConfiguration:
@@ -186,7 +180,7 @@ Mappings:
       EXTERNALWEBSITEHOST: "https://review-bav.account.gov.uk"
       APIBASEURL: "https://api.review-bav.account.gov.uk"
       DNSSUFFIX: "review-bav.account.gov.uk"
-      CLOUDFRONTDOMAIN: ""
+      CLOUDFRONTDOMAIN: "d30vzur3x0l8yq.cloudfront.net"
       SESSIONTABLENAME: "bav-front-sessions-production"
       GTMIDUA: "GTM-TT5HDKV"
       GTMIDGA4: "GTM-K4PBJH3"
@@ -919,13 +913,9 @@ Resources:
         - DNSSUFFIX: !FindInMap [EnvironmentVariables, !Ref Environment, DNSSUFFIX]
       Type: A
       HostedZoneId: !Sub "{{resolve:ssm:/${Environment}/Platform/Route53/PrimaryZoneID}}"
-      AliasTarget: !If
-      - IsCloudFrontPilotTesting
-      - DNSName:  !FindInMap [EnvironmentVariables, !Ref Environment, CLOUDFRONTDOMAIN]
+      AliasTarget:
+        DNSName:  !FindInMap [EnvironmentVariables, !Ref Environment, CLOUDFRONTDOMAIN]
         HostedZoneId: Z2FDTNDATAQYW2
-        EvaluateTargetHealth: false
-      - DNSName: !GetAtt BAVFrontCustomDomain.RegionalDomainName
-        HostedZoneId: !GetAtt BAVFrontCustomDomain.RegionalHostedZoneId
         EvaluateTargetHealth: false
 
   BAVFrontApiOriginRecord:
