@@ -899,7 +899,7 @@ Resources:
         - CertificateArn: !Sub "{{resolve:ssm:/${Environment}/Platform/ACM/PrimaryZoneWildcardCertificateARN}}"
           EndpointType: REGIONAL
           SecurityPolicy: TLS_1_2
-
+#Test changes
   BAVFrontApiRecord:
     Type: AWS::Route53::RecordSet
     Properties:
