@@ -45,7 +45,7 @@
   "devDependencies": {
     "@cucumber/cucumber": "^10.0.1",
     "@jest/globals": "^29.7.0",
-    "@playwright/test": "1.42.1",
+    "@playwright/test": "1.44.0",
     "eslint": "8.43.0",
     "eslint-config-prettier": "8.8.0",
     "jest-cucumber": "^3.0.1",
