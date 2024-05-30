@@ -10,12 +10,10 @@ When(
     let sessionRecord;
     if (queryField === "authCode"){
       const url = await this.page.url().match(/code=([^&]*)/);
-      const authCode = url[1];
-      sessionRecord = await testHarness.getSessionByAuthCode(authCode);
+      sessionRecord = await testHarness.getSessionByAuthCode(url[1]);
     } else if (queryField === "state"){
-      url = await this.page.url().match(/state=([^&]*)/);
-      const state = url[1];
-      sessionRecord = await testHarness.getSessionByState(state);
+      const url = await this.page.url().match(/state=([^&]*)/);
+      sessionRecord = await testHarness.getSessionByState(url[1]);
     } else {
       throw new Error(`Invalid query field: ${queryField}`);
     }
