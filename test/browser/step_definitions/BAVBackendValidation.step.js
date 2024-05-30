@@ -3,14 +3,22 @@ const TestHarness = require("../support/TestHarness");
 const { expect } = require("@playwright/test");
 
 When(
-  "the users session details are fetched the sessionTable",
+  "the users session details are fetched the sessionTable using {string}",
   { timeout: 2 * 50000 },
-  async function () {
-    const url = await this.page.url().match(/code=([^&]*)/);
-    const authCode = url[1];
-    console.log("Code=" + authCode);
+  async function (queryField) {
     const testHarness = new TestHarness();
-    const sessionRecord = await testHarness.getSessionByAuthCode(authCode);
+    let sessionRecord;
+    if (queryField === "authCode"){
+      const url = await this.page.url().match(/code=([^&]*)/);
+      const authCode = url[1];
+      sessionRecord = await testHarness.getSessionByAuthCode(authCode);
+    } else if (queryField === "state"){
+      url = await this.page.url().match(/state=([^&]*)/);
+      const state = url[1];
+      sessionRecord = await testHarness.getSessionByState(state);
+    } else {
+      throw new Error(`Invalid query field: ${queryField}`);
+    }
     this.sessionId = sessionRecord.sessionId;
   },
 );
@@ -51,20 +59,32 @@ Then("the Verifiable Credential is stored as expected", async function () {
   expect(decodedBody.vc.evidence[0].validityScore).toEqual(2);
 });
 
-Then(
-  /^all TxMA events are recorded as expected$/,
+When('I get {int} TxMA events from Test Harness',
   { timeout: 2 * 50000 },
-  async function () {
+  async function (txmaEventCount) {
     const testHarness = new TestHarness();
     let sqsMessage;
     do {
       sqsMessage = await testHarness.getSqsEventList(
         "txma/",
         this.sessionId,
-        5,
+        txmaEventCount,
       );
     } while (!sqsMessage);
 
-    testHarness.validateTxMAEventData(sqsMessage);
+    this.allTxmaEventBodies = await testHarness.getTxMAEventData(sqsMessage);
+  },
+);
+
+Then(
+  "the {string} event matches the {string} Schema",
+  { timeout: 2 * 50000 },
+  async function (eventName, schemaName) {
+    const testHarness = new TestHarness();
+    await testHarness.validateTxMAEventData(
+      this.allTxmaEventBodies,
+      eventName,
+      schemaName,
+    );
   },
 );

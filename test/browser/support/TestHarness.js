@@ -1,14 +1,31 @@
-const BAV_COP_REQUEST_SENT = require("../support/BAV_COP_REQUEST_SENT_SCHEMA.json");
-const BAV_COP_RESPONSE_RECEIVED = require("../support/BAV_COP_RESPONSE_RECEIVED_SCHEMA.json");
-const BAV_CRI_END = require("../support/BAV_CRI_END_SCHEMA.json");
-const BAV_CRI_START = require("../support/BAV_CRI_START_SCHEMA.json");
-const BAV_CRI_VC_ISSUED = require("../support/BAV_CRI_VC_ISSUED_SCHEMA.json");
+const BAV_COP_REQUEST_SENT_SCHEMA = require("../support/BAV_COP_REQUEST_SENT_SCHEMA.json");
+const BAV_COP_RESPONSE_RECEIVED_SCHEMA = require("../support/BAV_COP_RESPONSE_RECEIVED_SCHEMA.json");
+const BAV_CRI_END_SCHEMA = require("../support/BAV_CRI_END_SCHEMA.json");
+const BAV_CRI_START_SCHEMA = require("../support/BAV_CRI_START_SCHEMA.json");
+const BAV_CRI_VC_ISSUED_SCHEMA = require("../support/BAV_CRI_VC_ISSUED_SCHEMA.json");
+const BAV_CRI_SESSION_ABORTED_SCHEMA = require("../support/BAV_CRI_SESSION_ABORTED_SCHEMA.json");
 const axios = require("axios");
 const aws4Interceptor = require("aws4-axios").aws4Interceptor;
 const { unmarshall } = require("@aws-sdk/util-dynamodb");
 const { fromNodeProviderChain } = require("@aws-sdk/credential-providers");
 const { XMLParser } = require("fast-xml-parser");
 const { expect } = require("@playwright/test");
+const Ajv = require("ajv").default;
+const AjvFormats = require("ajv-formats");
+const ajv = new Ajv({ strictTuples: false });
+ajv.addSchema(
+  BAV_COP_REQUEST_SENT_SCHEMA,
+  "BAV_COP_REQUEST_SENT_SCHEMA",
+);
+ajv.addSchema(BAV_COP_RESPONSE_RECEIVED_SCHEMA, "BAV_COP_RESPONSE_RECEIVED_SCHEMA");
+ajv.addSchema(
+  BAV_CRI_END_SCHEMA,
+  "BAV_CRI_END_SCHEMA",
+);
+ajv.addSchema(BAV_CRI_START_SCHEMA, "BAV_CRI_START_SCHEMA");
+ajv.addSchema(BAV_CRI_VC_ISSUED_SCHEMA, "BAV_CRI_VC_ISSUED_SCHEMA");
+ajv.addSchema(BAV_CRI_SESSION_ABORTED_SCHEMA, "BAV_CRI_SESSION_ABORTED_SCHEMA");
+AjvFormats(ajv);
 
 module.exports = class TestHarness {
   constructor() {
@@ -37,6 +54,17 @@ module.exports = class TestHarness {
       "/getSessionByAuthCode/" + process.env["SESSION_TABLE"] + "/" + authCode,
     );
     return unmarshall(getItemResponse.data.Items[0]);
+  }
+
+  async getSessionByState(state) {
+    try {
+      const getItemResponse = await this.HARNESS_API_INSTANCE.get(
+        "/getSessionByState/" + process.env["SESSION_TABLE"] + "/" + state
+      );
+      return unmarshall(getItemResponse.data.Items[0]);
+    } catch (error) {
+      return error;
+    }
   }
 
   async getSqsEventList(folder, prefix, txmaEventSize) {
@@ -71,85 +99,40 @@ module.exports = class TestHarness {
     return keyList;
   }
 
-  async validateTxMAEventData(keyList) {
+  async getTxMAEventData(keyList) {
+    let obj = {};
     let i;
-    let valid = Boolean;
     for (i = 0; i < keyList.length; i++) {
-      const getObjectResponse = await this.HARNESS_API_INSTANCE.get(
+      const txmaEventBody = await this.HARNESS_API_INSTANCE.get(
         "/object/" + keyList[i],
         {},
       );
-      console.log(JSON.stringify(getObjectResponse.data, null, 2));
-      const eventName = getObjectResponse.data.event_name;
-      const Ajv = require("ajv").default;
-      const AjvFormats = require("ajv-formats");
-      const ajv = new Ajv({ strictTuples: false });
+      const eventName = txmaEventBody.data.event_name;
+      obj[eventName] = txmaEventBody.data;
+    }
+    return obj;
+  }
 
-      AjvFormats(ajv);
+  async validateTxMAEventData(allTxmaEventBodies, eventName, schemaName) {
+    const currentEventBody = allTxmaEventBodies[eventName];
 
-      switch (eventName) {
-        case "BAV_COP_REQUEST_SENT": {
-          const validate = ajv.compile(BAV_COP_REQUEST_SENT);
-          valid = validate(getObjectResponse.data);
-          if (!valid) {
-            console.error(
-              getObjectResponse.data.event_name +
-                " Event Errors: " +
-                JSON.stringify(validate.errors),
-            );
-          }
-          break;
+    if (currentEventBody?.event_name) {
+      try {
+        const validate = ajv.getSchema(schemaName);
+        if (validate) {
+          expect(validate(currentEventBody)).toBe(true);
+        } else {
+          throw new Error(`Could not find schema ${schemaName}`);
         }
-        case "BAV_COP_RESPONSE_RECEIVED": {
-          const validate = ajv.compile(BAV_COP_RESPONSE_RECEIVED);
-          valid = validate(getObjectResponse.data);
-          if (!valid) {
-            console.error(
-              getObjectResponse.data.event_name +
-                " Event Errors: " +
-                JSON.stringify(validate.errors),
-            );
-          }
-          break;
-        }
-        case "BAV_CRI_END": {
-          const validate = ajv.compile(BAV_CRI_END);
-          valid = validate(getObjectResponse.data);
-          if (!valid) {
-            console.error(
-              getObjectResponse.data.event_name +
-                " Event Errors: " +
-                JSON.stringify(validate.errors),
-            );
-          }
-          break;
-        }
-        case "BAV_CRI_START": {
-          const validate = ajv.compile(BAV_CRI_START);
-          valid = validate(getObjectResponse.data);
-          if (!valid) {
-            console.error(
-              getObjectResponse.data.event_name +
-                " Event Errors: " +
-                JSON.stringify(validate.errors),
-            );
-          }
-          break;
-        }
-        case "BAV_CRI_VC_ISSUED": {
-          const validate = ajv.compile(BAV_CRI_VC_ISSUED);
-          valid = validate(getObjectResponse.data);
-          if (!valid) {
-            console.error(
-              getObjectResponse.data.event_name +
-                " Event Errors: " +
-                JSON.stringify(validate.errors),
-            );
-          }
-          break;
-        }
+      } catch (error) {
+        console.error(`Error validating ${eventName} event`, error);
+        throw error;
       }
-      expect(valid).toEqual(true);
+    } else {
+      throw new Error(
+        `No event found in the test harness for ${eventName} event`,
+      );
     }
   }
 };
+
