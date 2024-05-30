@@ -13,15 +13,12 @@ const { expect } = require("@playwright/test");
 const Ajv = require("ajv").default;
 const AjvFormats = require("ajv-formats");
 const ajv = new Ajv({ strictTuples: false });
+ajv.addSchema(BAV_COP_REQUEST_SENT_SCHEMA, "BAV_COP_REQUEST_SENT_SCHEMA");
 ajv.addSchema(
-  BAV_COP_REQUEST_SENT_SCHEMA,
-  "BAV_COP_REQUEST_SENT_SCHEMA",
+  BAV_COP_RESPONSE_RECEIVED_SCHEMA,
+  "BAV_COP_RESPONSE_RECEIVED_SCHEMA",
 );
-ajv.addSchema(BAV_COP_RESPONSE_RECEIVED_SCHEMA, "BAV_COP_RESPONSE_RECEIVED_SCHEMA");
-ajv.addSchema(
-  BAV_CRI_END_SCHEMA,
-  "BAV_CRI_END_SCHEMA",
-);
+ajv.addSchema(BAV_CRI_END_SCHEMA, "BAV_CRI_END_SCHEMA");
 ajv.addSchema(BAV_CRI_START_SCHEMA, "BAV_CRI_START_SCHEMA");
 ajv.addSchema(BAV_CRI_VC_ISSUED_SCHEMA, "BAV_CRI_VC_ISSUED_SCHEMA");
 ajv.addSchema(BAV_CRI_SESSION_ABORTED_SCHEMA, "BAV_CRI_SESSION_ABORTED_SCHEMA");
@@ -59,7 +56,7 @@ module.exports = class TestHarness {
   async getSessionByState(state) {
     try {
       const getItemResponse = await this.HARNESS_API_INSTANCE.get(
-        "/getSessionByState/" + process.env["SESSION_TABLE"] + "/" + state
+        "/getSessionByState/" + process.env["SESSION_TABLE"] + "/" + state,
       );
       return unmarshall(getItemResponse.data.Items[0]);
     } catch (error) {
@@ -135,4 +132,3 @@ module.exports = class TestHarness {
     }
   }
 };
-

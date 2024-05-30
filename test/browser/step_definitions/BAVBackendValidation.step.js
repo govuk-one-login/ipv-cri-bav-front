@@ -8,10 +8,10 @@ When(
   async function (queryField) {
     const testHarness = new TestHarness();
     let sessionRecord;
-    if (queryField === "authCode"){
+    if (queryField === "authCode") {
       const url = await this.page.url().match(/code=([^&]*)/);
       sessionRecord = await testHarness.getSessionByAuthCode(url[1]);
-    } else if (queryField === "state"){
+    } else if (queryField === "state") {
       const url = await this.page.url().match(/state=([^&]*)/);
       sessionRecord = await testHarness.getSessionByState(url[1]);
     } else {
@@ -57,7 +57,8 @@ Then("the Verifiable Credential is stored as expected", async function () {
   expect(decodedBody.vc.evidence[0].validityScore).toEqual(2);
 });
 
-When('I get {int} TxMA events from Test Harness',
+When(
+  "I get {int} TxMA events from Test Harness",
   { timeout: 2 * 50000 },
   async function (txmaEventCount) {
     const testHarness = new TestHarness();
