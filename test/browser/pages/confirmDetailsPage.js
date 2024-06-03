@@ -35,6 +35,10 @@ module.exports = class PlaywrightDevPage {
     await this.page.locator("#submitDetails").click();
   }
 
+  async clickProveIdentityAnotherWay() {
+    await this.page.locator("#submitDetails").click();
+  }
+
   async getSavedSC() {
     const sort_code = this.page.locator("dd.govuk-summary-list__value").nth(1);
     let scValue = await sort_code.textContent();
