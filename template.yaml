@@ -173,7 +173,7 @@ Mappings:
       GTMIDGA4: "GTM-KD86CMZ"
       ANALYTICSDOMAIN: "integration.account.gov.uk"
       LOGLEVEL: "warn"
-      GA4DISABLED: true
+      GA4DISABLED: false
       UADISABLED: false
       LANGUAGETOGGLEDISABLED: true
     production:
@@ -186,7 +186,7 @@ Mappings:
       GTMIDGA4: "GTM-K4PBJH3"
       ANALYTICSDOMAIN: "account.gov.uk"
       LOGLEVEL: "warn"
-      GA4DISABLED: true
+      GA4DISABLED: false
       UADISABLED: false
       LANGUAGETOGGLEDISABLED: true
 
