@@ -690,6 +690,13 @@ Resources:
           "integrationLatency":"$context.integrationLatency"
           }
 
+  CloudFrontWAFv2ACLAssociation:
+    Type: AWS::WAFv2::WebACLAssociation
+    Condition: EnableCloudFront
+    Properties:
+      ResourceArn: !Ref LoadBalancer
+      WebACLArn: !ImportValue cfront-origin-distrib-CloakingOriginWebACLArn
+
   APIGWAccessLogsGroup:
     Type: AWS::Logs::LogGroup
     Properties:
