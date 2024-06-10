@@ -1094,7 +1094,7 @@ Resources:
       Dimensions: [ ]
       EvaluationPeriods: 5
       DatapointsToAlarm: 2
-      Threshold: 1000
+      Threshold: 1
       ComparisonOperator: GreaterThanOrEqualToThreshold
       TreatMissingData: notBreaching
       Metrics:
@@ -1140,7 +1140,7 @@ Resources:
       Dimensions: [ ]
       EvaluationPeriods: 5
       DatapointsToAlarm: 2
-      Threshold: 2500
+      Threshold: 1
       ComparisonOperator: GreaterThanOrEqualToThreshold
       TreatMissingData: notBreaching
       Metrics:
