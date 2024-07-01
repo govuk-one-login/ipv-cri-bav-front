@@ -40,10 +40,10 @@ jobs:
         with:
           registry: khw46367.live.dynatrace.com
           username: khw46367
-          password: ${{ secrets.DYNATRACE_PAAS_TOKEN }}  
+          password: ${{ secrets.DYNATRACE_PAAS_TOKEN }}
 
       - name: Deploy SAM app to ECR
-        uses: govuk-one-login/devplatform-upload-action-ecr@1.2.1
+        uses: govuk-one-login/devplatform-upload-action-ecr@1.2.4
         with:
           artifact-bucket-name: ${{ secrets.BUILD_ARTIFACT_BUCKET }}
           container-sign-kms-key-arn: ${{ secrets.BUILD_CONTAINER_SIGN_KMS_KEY }}
