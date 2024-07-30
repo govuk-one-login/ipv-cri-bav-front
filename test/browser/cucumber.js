@@ -5,5 +5,6 @@ module.exports = {
       "./test/browser/support/**/*.js",
       "./test/browser/step_definitions/**/*.js",
     ],
+    publish: false, 
   },
 };
