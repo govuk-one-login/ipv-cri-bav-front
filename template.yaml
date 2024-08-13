@@ -1233,7 +1233,6 @@ Resources:
 
   FELowContainerTaskCountAlarm:
     DependsOn:
-      - BAVFrontEcsService
       - BAVFrontEcsCluster
     Type: AWS::CloudWatch::Alarm
     Condition: "DeployAlarms"
@@ -1260,14 +1259,11 @@ Resources:
               Dimensions:
                 - Name: ClusterName
                   Value: !Ref BAVFrontEcsCluster
-                - Name: ServiceName
-                  Value: !GetAtt BAVFrontEcsService.Name
             Period: 60
             Stat: Minimum
 
   FELowContainerTaskCountCriticalAlarm:
     DependsOn:
-      - BAVFrontEcsService
       - BAVFrontEcsCluster
     Type: AWS::CloudWatch::Alarm
     Condition: "DeployAlarms"
@@ -1294,8 +1290,6 @@ Resources:
               Dimensions:
                 - Name: ClusterName
                   Value: !Ref BAVFrontEcsCluster
-                - Name: ServiceName
-                  Value: !GetAtt BAVFrontEcsService.Name
             Period: 60
             Stat: Maximum
 
