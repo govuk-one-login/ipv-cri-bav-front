@@ -31,6 +31,9 @@ jobs:
           role-to-assume: ${{ secrets.BUILD_ROLE_TO_ASSUME }}
           aws-region: eu-west-2
 
+      - name: SAM Validate
+        run: sam validate  --region ${{ env.AWS_REGION }} -t template.yaml --lint
+
       - name: Login to Amazon ECR
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
