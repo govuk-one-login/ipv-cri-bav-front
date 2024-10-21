@@ -16,9 +16,9 @@ Feature: Enter Bank Account Details
 
     Examples:
       | sortCode   | accountNumber |
-      | "12-34-56" | "00111111"    |
-      | "12 34 56" | "0111111"     |
-      | "123456"   | "111111"      |
+      | "12-34-56" | "99990086"    |
+      | "12 34 56" | "99990086"    |
+      | "123456"   | "99990086"    |
 
   Scenario: Back button routes user to Landing Page
     When the user clicks on the “Back” link
