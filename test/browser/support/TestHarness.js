@@ -4,6 +4,8 @@ const BAV_CRI_END_SCHEMA = require("../support/BAV_CRI_END_SCHEMA.json");
 const BAV_CRI_START_SCHEMA = require("../support/BAV_CRI_START_SCHEMA.json");
 const BAV_CRI_VC_ISSUED_SCHEMA = require("../support/BAV_CRI_VC_ISSUED_SCHEMA.json");
 const BAV_CRI_SESSION_ABORTED_SCHEMA = require("../support/BAV_CRI_SESSION_ABORTED_SCHEMA.json");
+const BAV_EXPERIAN_REQUEST_SENT_SCHEMA = require("../support/BAV_EXPERIAN_REQUEST_SENT_SCHEMA.json");
+const BAV_EXPERIAN_RESPONSE_RECEIVED_SCHEMA = require("../support/BAV_EXPERIAN_RESPONSE_RECEIVED_SCHEMA.json");
 const axios = require("axios");
 const aws4Interceptor = require("aws4-axios").aws4Interceptor;
 const { unmarshall } = require("@aws-sdk/util-dynamodb");
@@ -22,6 +24,9 @@ ajv.addSchema(BAV_CRI_END_SCHEMA, "BAV_CRI_END_SCHEMA");
 ajv.addSchema(BAV_CRI_START_SCHEMA, "BAV_CRI_START_SCHEMA");
 ajv.addSchema(BAV_CRI_VC_ISSUED_SCHEMA, "BAV_CRI_VC_ISSUED_SCHEMA");
 ajv.addSchema(BAV_CRI_SESSION_ABORTED_SCHEMA, "BAV_CRI_SESSION_ABORTED_SCHEMA");
+ajv.addSchema(BAV_EXPERIAN_REQUEST_SENT_SCHEMA, "BAV_EXPERIAN_REQUEST_SENT_SCHEMA");
+ajv.addSchema(BAV_EXPERIAN_RESPONSE_RECEIVED_SCHEMA, "BAV_EXPERIAN_RESPONSE_RECEIVED_SCHEMA");
+
 AjvFormats(ajv);
 
 module.exports = class TestHarness {

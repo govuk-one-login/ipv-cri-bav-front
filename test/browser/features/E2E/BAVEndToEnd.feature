@@ -14,8 +14,8 @@ Feature: BAV Journey - E2E
         Then the Verifiable Credential is stored as expected
         When I get 5 TxMA events from Test Harness
         Then the "BAV_CRI_START" event matches the "BAV_CRI_START_SCHEMA" Schema
-        And the "BAV_COP_REQUEST_SENT" event matches the "BAV_COP_REQUEST_SENT_SCHEMA" Schema
-        And the "BAV_COP_RESPONSE_RECEIVED" event matches the "BAV_COP_RESPONSE_RECEIVED_SCHEMA" Schema
+        And the "BAV_EXPERIAN_REQUEST_SENT" event matches the "BAV_EXPERIAN_REQUEST_SENT_SCHEMA" Schema
+        And the "BAV_EXPERIAN_RESPONSE_RECEIVED" event matches the "BAV_EXPERIAN_RESPONSE_RECEIVED_SCHEMA" Schema
         And the "BAV_CRI_VC_ISSUED" event matches the "BAV_CRI_VC_ISSUED_SCHEMA" Schema
         And the "BAV_CRI_END" event matches the "BAV_CRI_END_SCHEMA" Schema
 
