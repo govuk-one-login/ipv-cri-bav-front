@@ -7,7 +7,7 @@ Feature: Navigate away from the Check Your Details Screen
     When the user clicks on Continue button
     Then the user is directed to the Account Details screen
     Given the user has entered a Sort Code of "12-34-56"
-    Given the user has entered an Account Number of "111111"
+    Given the user has entered an Account Number of "99990086"
     When the user clicks the Continue button
     Then the user is directed to the Check Your Answers screen
 

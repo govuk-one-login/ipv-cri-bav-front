@@ -6,7 +6,7 @@ Feature: BAV Journey - E2E
         When the user clicks on Continue button
         Then the user is directed to the Account Details screen
         Given the user has entered a Sort Code of "123456"
-        And the user has entered an Account Number of "00111111"
+        And the user has entered an Account Number of "99990086"
         When the user clicks the Continue button
         And they click on the Continue to account details check button
         When the users session details are fetched the sessionTable using "authCode"
@@ -14,8 +14,8 @@ Feature: BAV Journey - E2E
         Then the Verifiable Credential is stored as expected
         When I get 5 TxMA events from Test Harness
         Then the "BAV_CRI_START" event matches the "BAV_CRI_START_SCHEMA" Schema
-        And the "BAV_COP_REQUEST_SENT" event matches the "BAV_COP_REQUEST_SENT_SCHEMA" Schema
-        And the "BAV_COP_RESPONSE_RECEIVED" event matches the "BAV_COP_RESPONSE_RECEIVED_SCHEMA" Schema
+        And the "BAV_EXPERIAN_REQUEST_SENT" event matches the "BAV_EXPERIAN_REQUEST_SENT_SCHEMA" Schema
+        And the "BAV_EXPERIAN_RESPONSE_RECEIVED" event matches the "BAV_EXPERIAN_RESPONSE_RECEIVED_SCHEMA" Schema
         And the "BAV_CRI_VC_ISSUED" event matches the "BAV_CRI_VC_ISSUED_SCHEMA" Schema
         And the "BAV_CRI_END" event matches the "BAV_CRI_END_SCHEMA" Schema
 
@@ -24,7 +24,7 @@ Feature: BAV Journey - E2E
         When the user clicks on Continue button
         Then the user is directed to the Account Details screen
         Given the user has entered a Sort Code of "12-34-56"
-        Given the user has entered an Account Number of "00111111"
+        Given the user has entered an Account Number of "99990086"
         When the user clicks the Continue button
         Then the user is directed to the Check Your Answers screen
         When the user clicks on 'I cannot provide UK account details' link

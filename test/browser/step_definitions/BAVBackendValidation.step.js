@@ -54,7 +54,7 @@ Then("the Verifiable Credential is stored as expected", async function () {
     Buffer.from(rawBody.replace(/\W/g, ""), "base64url").toString(),
   );
   expect(decodedBody.vc.evidence[0].strengthScore).toEqual(3);
-  expect(decodedBody.vc.evidence[0].validityScore).toEqual(2);
+  expect(decodedBody.vc.evidence[0].validityScore).toEqual(0);
 });
 
 When(

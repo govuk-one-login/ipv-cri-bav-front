@@ -87,6 +87,22 @@
             }
           ]
         },
+        "birthDate": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "value": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value"
+              ]
+            }
+          ]
+        },
         "bankAccount": {
           "type": "array",
           "items": [
@@ -110,6 +126,7 @@
       },
       "required": [
         "name",
+        "birthDate",
         "bankAccount"
       ]
     },
@@ -150,13 +167,10 @@
                       "properties": {
                         "ci": {
                           "type": "string"
-                        },
-                        "reason": {
-                          "type": "string"
                         }
                       },
                       "required": [
-                        "reason"
+                        "ci"
                       ]
                     }
                   ]
@@ -166,7 +180,9 @@
                 "txn",
                 "strengthScore",
                 "validityScore",
-                "attemptNum"
+                "attemptNum",
+                "ci",
+                "ciReasons"
               ]
             }
           ]
