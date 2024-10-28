@@ -466,7 +466,7 @@ Resources:
 
   ECSFatalErorMetricFilter:
     Type: AWS::Logs::MetricFilter
-    Condition: "DeployAlarms"
+    Condition: IsNotDevelopment
     Properties:
       LogGroupName: !Ref ECSAccessLogsGroup
       FilterPattern: '{ $.level = "FATAL" || $.message = "Unhandled Exception:*" }'
@@ -480,7 +480,7 @@ Resources:
     DependsOn:
       - "ECSFatalErorMetricFilter"
     Type: AWS::CloudWatch::Alarm
-    Condition: "DeployAlarms"
+    Condition: IsNotDevelopment
     Properties:
       AlarmName: !Sub "${AWS::StackName}-ECSFatalErrorAlarm"
       AlarmDescription: !Sub "Trigger an alarm when Fatal Error occurs ${SupportManualURL}"
@@ -775,7 +775,7 @@ Resources:
 
   APIGWFatalErorMetricFilter:
     Type: AWS::Logs::MetricFilter
-    Condition: "DeployAlarms"
+    Condition: IsNotDevelopment
     Properties:
       LogGroupName: !Ref APIGWAccessLogsGroup
       FilterPattern: '{ $.level = "FATAL" || $.message = "Unhandled Exception:*" }'
@@ -789,7 +789,7 @@ Resources:
     DependsOn:
       - "APIGWFatalErorMetricFilter"
     Type: AWS::CloudWatch::Alarm
-    Condition: "DeployAlarms"
+    Condition: IsNotDevelopment
     Properties:
       AlarmName: !Sub "${AWS::StackName}-APIGWFatalErrorAlarm"
       AlarmDescription: !Sub "Trigger an alarm when Fatal Error occurs ${SupportManualURL}"
@@ -1045,10 +1045,10 @@ Resources:
 
   FE5XXErrorAlarm:
     Type: AWS::CloudWatch::Alarm
-    Condition: "DeployAlarms"
+    Condition: IsNotDevelopment
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FE5XXErrorAlarm"
-      AlarmDescription: Trigger the alarm if errorThreshold exceeds 10% with a minimum of 150 invocations and a minimum of 5 errors in 5 out of the last 5 minutes ${SupportManualURL}
+      AlarmDescription: !Sub "Trigger the alarm if errorThreshold exceeds 10% with a minimum of 150 invocations and a minimum of 5 errors in 5 out of the last 5 minutes ${SupportManualURL}"
       ActionsEnabled: true
       OKActions:
         - !ImportValue platform-alarm-pagerduty-alert-topic
@@ -1100,7 +1100,7 @@ Resources:
     Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FE4XXErrorAlarm"
-      AlarmDescription: Trigger the alarm if errorThreshold exceeds 5% with a minimum of 150 invocations and a minimum of 2 errors in 2 out of the last 5 minutes ${SupportManualURL}
+      AlarmDescription: !Sub "Trigger the alarm if errorThreshold exceeds 5% with a minimum of 150 invocations and a minimum of 2 errors in 2 out of the last 5 minutes ${SupportManualURL}"
       ActionsEnabled: true
       OKActions:
         - !ImportValue platform-alarm-topic-slack-warning-alert
@@ -1150,7 +1150,7 @@ Resources:
     Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FELatencyAlarmP95"
-      AlarmDescription: Trigger the alarm if less than 95% of requests has a latency of less than 1 second with a minimum of 25 invocations in 2 out of the last 5 minutes ${SupportManualURL}
+      AlarmDescription: !Sub "Trigger the alarm if less than 95% of requests has a latency of less than 1 second with a minimum of 25 invocations in 2 out of the last 5 minutes ${SupportManualURL}"
       ActionsEnabled: false
       OKActions:
         - !ImportValue platform-alarm-topic-slack-warning-alert
@@ -1196,7 +1196,7 @@ Resources:
     Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FELatencyAlarmP99"
-      AlarmDescription: Trigger the alarm if less than 99% of requests has a latency of less than 2.5 second with a minimum of 150 invocations in 2 out of the last 5 minutes ${SupportManualURL}
+      AlarmDescription: !Sub "Trigger the alarm if less than 99% of requests has a latency of less than 2.5 second with a minimum of 150 invocations in 2 out of the last 5 minutes ${SupportManualURL}"
       ActionsEnabled: false
       OKActions:
         - !ImportValue platform-alarm-topic-slack-warning-alert
@@ -1244,7 +1244,7 @@ Resources:
     Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FELowContainerTaskCountAlarm"
-      AlarmDescription: Trigger a warning if the running container task count drops below 2 ${SupportManualURL}
+      AlarmDescription: !Sub "Trigger a warning if the running container task count drops below 2 ${SupportManualURL}"
       ActionsEnabled: true
       AlarmActions:
         - !ImportValue platform-alarm-topic-critical-alert
@@ -1275,7 +1275,7 @@ Resources:
     Condition: "DeployAlarms"
     Properties:
       AlarmName: !Sub "${AWS::StackName}-FELowContainerTaskCountCriticalAlarm"
-      AlarmDescription: Trigger a critical alert if the running container task count drops below 1 ${SupportManualURL}
+      AlarmDescription: !Sub "Trigger a critical alert if the running container task count drops below 1 ${SupportManualURL}"
       ActionsEnabled: false  # to be enabled once proved stable in production
       AlarmActions:
         - !ImportValue platform-alarm-topic-critical-alert
@@ -1377,7 +1377,7 @@ Resources:
 
   WarningAlarmDashboard:
     Type: AWS::CloudWatch::Dashboard
-    Condition: "DeployAlarms"
+    Condition: IsNotDevelopment
     Properties:
       DashboardName: !Sub '${AWS::StackName}-Warning-Alarm-Overview'
       DashboardBody:
