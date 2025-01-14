@@ -4,7 +4,7 @@
   "description": "Frontend for the identify proving and bank account verification CRI",
   "main": "index.js",
   "engines": {
-    "node": "18.*",
+    "node": "20.*",
     "yarn": "1.22.*"
   },
   "scripts": {
@@ -41,7 +41,7 @@
     "url": "https://github.com/govuk-one-login/ipv-cri-bav-front/issues"
   },
   "homepage": "https://github.com/govuk-one-login/ipv-cri-bav-front#readme",
-  "packageManager": "yarn@1.22.21",
+  "packageManager": "yarn@1.22.22",
   "devDependencies": {
     "@cucumber/cucumber": "^10.0.1",
     "@jest/globals": "^29.7.0",
