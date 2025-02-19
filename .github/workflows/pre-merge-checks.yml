@@ -36,7 +36,7 @@ jobs:
       - name: Run browser tests
         id: bavBrowserTests
         run: yarn test:browser:ci
-        env: 
+        env:
             IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
             API_BASE_URL: ${{ secrets.API_BASE_URL }}
             CUSTOM_FE_URL: http:/localhost:5040
@@ -59,7 +59,7 @@ jobs:
       - run: yarn test
       - name: "Run SonarCloud Scan"
         if: ${{ success() && github.actor != 'dependabot[bot]' }}
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarqube-scan-action@v5.0.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
