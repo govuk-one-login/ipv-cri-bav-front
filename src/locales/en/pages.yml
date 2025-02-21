@@ -18,7 +18,7 @@ landingPage:
     list3Bullet1: sort code
     list3Bullet2: account number
   infoText3: We'll check your acount name and details with your bank or building society.
-  infoText4: Your name and account details must match!.
+  infoText4: Your name and account details must match.
   detailDropdown:
     summaryText: How we use your bank details
     detailContent: <p class="instruction">We will not save or share your account details.</p><p class="instruction">We do not use your account details to check or take any payments.</p>
