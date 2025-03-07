@@ -334,6 +334,9 @@ Resources:
       HealthCheckEnabled: TRUE
       HealthCheckProtocol: HTTP
       HealthCheckPath: /healthcheck
+      HealthCheckTimeoutSeconds: 2
+      HealthCheckIntervalSeconds: 5
+      HealthyThresholdCount: 2
       Matcher:
         HttpCode: 200
       Port: 80
@@ -576,7 +579,7 @@ Resources:
         - MetricValue: $.maxConcurrentConnections
           MetricName: MaxConcurrentConnections
           MetricNamespace: !Sub ${AWS::StackName}/LogMessages
-          Unit: Count        
+          Unit: Count
 
   #
   # Fargate tasks
@@ -632,6 +635,13 @@ Resources:
           PortMappings:
             - ContainerPort: 8080
               Protocol: tcp
+          HealthCheck:
+            Command:
+              - "CMD-SHELL"
+              - "curl -f http://localhost:8080/healthcheck || exit 1"
+            Interval: 5
+            Retries: 10
+            Timeout: 2
           LogConfiguration:
             LogDriver: awslogs
             Options:
