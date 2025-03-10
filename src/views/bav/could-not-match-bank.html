@@ -34,7 +34,16 @@
             }
         }) }}
 
-  {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+    {{ hmpoSubmit(ctx, { 
+        id: "continue",
+        attributes: {
+          "data-nav": true,
+          "data-link": "/undefined"
+        },
+        text: translate("buttons.next")}) 
+    }}
+  
+
   
   {% endcall %}
   <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
