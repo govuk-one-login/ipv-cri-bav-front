@@ -39,14 +39,6 @@ Parameters:
     Description: "The ARN of the permissions boundary to apply when creating IAM roles"
     Type: String
     Default: "none"
-  MaxContainerCount:
-    Description: Maximum number of FE node/express container tasks to allow autoscaling to reach
-    Type: Number
-    Default: 12
-  MinContainerCount:
-    Description: Minimum number of FE node/express container tasks to allow autoscaling to reach
-    Type: Number
-    Default: 3
   EnableScalingInDev:
     Type: Number
     Default: 1
@@ -422,7 +414,7 @@ Resources:
           - UseCanaryDeployment
           - CODE_DEPLOY
           - ECS
-      DesiredCount: !Ref MinContainerCount
+      DesiredCount: !FindInMap [EnvironmentVariables, !Ref Environment, minECSCount]
       EnableECSManagedTags: false
       HealthCheckGracePeriodSeconds: 60
       LaunchType: FARGATE
