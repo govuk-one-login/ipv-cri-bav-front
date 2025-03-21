@@ -26,7 +26,11 @@
                 }
             }) }}
 
-    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next")}) }}
+    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"),
+    attributes: {
+        "data-nav": true,
+        "data-link": "/abort"
+      }}) }}
   
     {% endcall %}
 
