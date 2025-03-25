@@ -609,8 +609,6 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LOGLEVEL ]
             - Name: GA4_ENABLED
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, GA4ENABLED ]
-            - Name: UA_ENABLED
-              Value: !FindInMap [EnvironmentVariables, !Ref Environment, UAENABLED ]
 
           Secrets:
             - Name: DT_TENANT
