@@ -74,7 +74,14 @@
 }) }}
 
 {% call hmpoForm(ctx) %}
-    {{ hmpoSubmit(ctx, {id: "submitDetails", attributes: {"data-testid": "confirm-details-continue-btn"}, text: translate("checkDetails.submitDetails")}) }}
+    {{ hmpoSubmit(ctx, {id: "submitDetails", 
+     text: translate("checkDetails.submitDetails"),
+     attributes: {
+      "data-testid": "confirm-details-continue-btn", 
+      "data-nav": true, 
+      "data-link": "/undefined"
+    }
+  }) }}
 
 {% endcall %}
 
