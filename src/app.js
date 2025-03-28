@@ -14,8 +14,9 @@ const setScenarioHeaders = commonExpress.lib.scenarioHeaders;
 const setAxiosDefaults = commonExpress.lib.axios;
 
 const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
-const { setGTM, setLanguageToggle } = commonExpress.lib.settings; //require("@govuk-one-login/di-ipv-cri-common-express/lib/settings");
-const { getGTM, getLanguageToggle } = commonExpress.lib.locals; //require("@govuk-one-login/di-ipv-cri-common-express/lib/locals");
+const { setGTM, setLanguageToggle } = commonExpress.lib.settings;
+const { getGTM, getLanguageToggle } = commonExpress.lib.locals;
+const overloadProtectionConfigService = require("./lib/overload-protection-config.js");
 
 const addLanguageParam = require("@govuk-one-login/frontend-language-toggle/build/cjs/language-param-setter.cjs");
 
@@ -65,6 +66,8 @@ const sessionConfig = {
   cookieOptions: { maxAge: SESSION_TTL },
   ...(SESSION_TABLE_NAME && { sessionStore: dynamoDBSessionStore }),
 };
+
+const overloadProtectionConfig = overloadProtectionConfigService.init();
 
 const helmetConfig = require("@govuk-one-login/di-ipv-cri-common-express/src/lib/helmet");
 
@@ -116,6 +119,7 @@ const { app, router } = setup({
     });
     app.use(setHeaders);
   },
+  overloadProtection: overloadProtectionConfig,
   dev: true,
 });
 
