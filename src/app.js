@@ -14,8 +14,10 @@ const setScenarioHeaders = commonExpress.lib.scenarioHeaders;
 const setAxiosDefaults = commonExpress.lib.axios;
 
 const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
-const { setGTM, setLanguageToggle } = commonExpress.lib.settings;
-const { getGTM, getLanguageToggle } = commonExpress.lib.locals;
+const { setGTM, setLanguageToggle, setDeviceIntelligence } =
+  commonExpress.lib.settings;
+const { getGTM, getLanguageToggle, getDeviceIntelligence } =
+  commonExpress.lib.locals;
 const overloadProtectionConfigService = require("./lib/overload-protection-config.js");
 
 const addLanguageParam = require("@govuk-one-login/frontend-language-toggle/build/cjs/language-param-setter.cjs");
@@ -163,6 +165,12 @@ setGTM({
   analyticsDataSensitive: APP.GTM.ANALYTICS_DATA_SENSITIVE,
 });
 
+setDeviceIntelligence({
+  app,
+  deviceIntelligenceEnabled: APP.DEVICE_INTELLIGENCE_ENABLED,
+  deviceIntelligenceDomain: APP.DEVICE_INTELLIGENCE_DOMAIN,
+});
+
 /* Server configuration */
 const server = app.listen(PORT);
 
@@ -218,8 +226,8 @@ setLanguageToggle({ app, showLanguageToggle: showLanguageToggle });
 app.get("nunjucks").addGlobal("addLanguageParam", addLanguageParam);
 
 router.use(getGTM);
-
 router.use(getLanguageToggle);
+router.use(getDeviceIntelligence);
 
 router.use(setScenarioHeaders);
 router.use(setAxiosDefaults);
