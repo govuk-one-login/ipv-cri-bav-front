@@ -141,7 +141,6 @@ Mappings:
       SESSIONTABLENAME: "bav-front-sessions-dev"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
-      ANALYTICSDOMAIN: "dev.account.gov.uk"
       TESTHARNESSURL: "https://bav-test-harness-testharness.review-bav.dev.account.gov.uk"
       BACKENDURL: "https://api-bav-cri-api.review-bav.dev.account.gov.uk"
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
@@ -150,6 +149,7 @@ Mappings:
       GA4ENABLED: true
       minECSCount: 1
       maxECSCount: 4
+      DEVICEINTELLIGENCEENABLED: true
     build:
       EXTERNALWEBSITEHOST: "https://review-bav.build.account.gov.uk"
       APIBASEURL: "https://api.review-bav.build.account.gov.uk"
@@ -158,7 +158,6 @@ Mappings:
       SESSIONTABLENAME: "bav-front-sessions-build"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
-      ANALYTICSDOMAIN: "build.account.gov.uk"
       TESTHARNESSURL: "https://testharness.review-bav.build.account.gov.uk"
       BACKENDURL: "https://api.review-bav.build.account.gov.uk"
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
@@ -167,6 +166,7 @@ Mappings:
       minECSCount: 6
       maxECSCount: 60
       LANGUAGETOGGLEDISABLED: false
+      DEVICEINTELLIGENCEENABLED: true
     staging:
       EXTERNALWEBSITEHOST: "www.review-bav.staging.account.gov.uk/"
       APIBASEURL: "https://api.review-bav.staging.account.gov.uk"
@@ -175,12 +175,12 @@ Mappings:
       SESSIONTABLENAME: "bav-front-sessions-staging"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
-      ANALYTICSDOMAIN: "staging.account.gov.uk"
       LOGLEVEL: "warn"
       GA4ENABLED: true
       minECSCount: 2
       maxECSCount: 4
       LANGUAGETOGGLEDISABLED: false
+      DEVICEINTELLIGENCEENABLED: true
     integration:
       EXTERNALWEBSITEHOST: "https://review-bav.integration.account.gov.uk"
       APIBASEURL: "https://api.review-bav.integration.account.gov.uk"
@@ -189,12 +189,12 @@ Mappings:
       SESSIONTABLENAME: "bav-front-sessions-integration"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
-      ANALYTICSDOMAIN: "integration.account.gov.uk"
       LOGLEVEL: "warn"
       GA4ENABLED: true
       minECSCount: 2
       maxECSCount: 4
       LANGUAGETOGGLEDISABLED: false
+      DEVICEINTELLIGENCEENABLED: false
     production:
       EXTERNALWEBSITEHOST: "https://review-bav.account.gov.uk"
       APIBASEURL: "https://api.review-bav.account.gov.uk"
@@ -203,12 +203,12 @@ Mappings:
       SESSIONTABLENAME: "bav-front-sessions-production"
       GTMIDUA: "GTM-TT5HDKV"
       GTMIDGA4: "GTM-K4PBJH3"
-      ANALYTICSDOMAIN: "account.gov.uk"
       LOGLEVEL: "warn"
       GA4ENABLED: true
       minECSCount: 6
       maxECSCount: 60
       LANGUAGETOGGLEDISABLED: false
+      DEVICEINTELLIGENCEENABLED: false
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -601,14 +601,21 @@ Resources:
               Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTMIDGA4 ]
             - Name: FRONT_END_URL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
-            - Name: ANALYTICS_DOMAIN
-              Value: !FindInMap [EnvironmentVariables, !Ref Environment, ANALYTICSDOMAIN ]
+            - Name: FRONTEND_DOMAIN
+              Value:
+                !If [
+                  IsProduction,
+                  "account.gov.uk",
+                  !Sub "${Environment}.account.gov.uk"
+                ]
             - Name: LANGUAGE_TOGGLE_DISABLED
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LANGUAGETOGGLEDISABLED ]
             - Name: LOG_LEVEL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LOGLEVEL ]
             - Name: GA4_ENABLED
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, GA4ENABLED ]
+            - Name: DEVICE_INTELLIGENCE_ENABLED
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, DEVICEINTELLIGENCEENABLED ]
 
           Secrets:
             - Name: DT_TENANT

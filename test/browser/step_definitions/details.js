@@ -38,3 +38,9 @@ When(
     expect(await bavLandingPage.returnLanguageToggleHref(language)).toBeNull();
   },
 );
+
+Then("the {string} cookie has been set", async function (cookieName) {
+  const cookies = await this.page.context().cookies();
+  const expectedCookie = cookies.find((cookie) => cookie.name === cookieName);
+  expect(expectedCookie).to.exist;
+});
