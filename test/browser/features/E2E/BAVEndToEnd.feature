@@ -3,11 +3,14 @@ Feature: BAV Journey - E2E
 
     Scenario: BAV Journey - E2E Happy Path and DB Validation
         Given a user has navigated to the BAV Landing Page
+        Then the page should conform to WCAG 2.2 AA guidelines
         When the user clicks on Continue button
         Then the user is directed to the Account Details screen
+        Then the page should conform to WCAG 2.2 AA guidelines
         Given the user has entered a Sort Code of "123456"
         And the user has entered an Account Number of "99990086"
         When the user clicks the Continue button
+        Then the page should conform to WCAG 2.2 AA guidelines
         And they click on the Continue to account details check button
         When the users session details are fetched the sessionTable using "authCode"
         And the userInfo endpoint is initiated
