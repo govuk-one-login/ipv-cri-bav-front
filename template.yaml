@@ -606,12 +606,10 @@ Resources:
             - Name: FRONT_END_URL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
             - Name: FRONTEND_DOMAIN
-              Value:
-                !If [
-                  IsProduction,
-                  "account.gov.uk",
-                  !Sub "${Environment}.account.gov.uk"
-                ]
+              Value: !If
+                - IsProduction
+                - "account.gov.uk"
+                - !Sub "${Environment}.account.gov.uk"
             - Name: LANGUAGE_TOGGLE_DISABLED
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LANGUAGETOGGLEDISABLED ]
             - Name: LOG_LEVEL
