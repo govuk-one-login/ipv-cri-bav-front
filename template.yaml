@@ -608,7 +608,7 @@ Resources:
             - Name: FRONTEND_DOMAIN
               Value: !If
                 - IsProduction
-                - "account.gov.uk",
+                - "account.gov.uk"
                 - !Sub "${Environment}.account.gov.uk"
             - Name: LANGUAGE_TOGGLE_DISABLED
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LANGUAGETOGGLEDISABLED ]
