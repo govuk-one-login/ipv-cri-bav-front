@@ -2,8 +2,7 @@ const { Given, Then, When } = require("@cucumber/cucumber");
 const { RelyingPartyPage, BavLandingPage } = require("../pages");
 const { expect } = require("@playwright/test");
 const { injectAxe } = require("axe-playwright");
-const axe = require('axe-core');
-
+const axe = require("axe-core");
 
 Given(/^a user has navigated to the BAV Landing Page$/, async function () {
   const rpPage = new RelyingPartyPage(this.page);
