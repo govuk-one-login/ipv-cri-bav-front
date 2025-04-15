@@ -3,7 +3,6 @@ const { RelyingPartyPage, BavLandingPage } = require("../pages");
 const { expect } = require("@playwright/test");
 const { injectAxe } = require("axe-playwright");
 
-
 Given(/^a user has navigated to the BAV Landing Page$/, async function () {
   const rpPage = new RelyingPartyPage(this.page);
   const bavLandingPage = new BavLandingPage(this.page);
@@ -19,15 +18,19 @@ Then("the language toggle is present on the screen", async function () {
 });
 
 Then("the page should conform to WCAG 2.2 AA guidelines", async function () {
-    await injectAxe(this.page);
-    // Run Axe for WCAG 2.2 AA rules
-    const wcagResults = await this.page.evaluate(() => {
-      return axe.run({
-        runOnly: ["wcag2aa"]
-      });
+  await injectAxe(this.page);
+
+  // Run Axe for WCAG 2.2 AA rules
+  const wcagResults = await this.page.evaluate(() => {
+    return axe.run({
+      runOnly: ["wcag2aa"],
     });
-    expect(wcagResults.violations, "WCAG 2.2 AAA violations found").to.be.empty;
   });
+
+  expect(wcagResults.violations, "WCAG 2.2 AA violations found").toHaveLength(
+    0,
+  );
+});
 
 Then(
   "The HTML Language Attribute is set to {string}",
