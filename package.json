@@ -47,7 +47,7 @@
     "@cucumber/cucumber": "^10.0.1",
     "@jest/globals": "^29.7.0",
     "@playwright/test": "1.51.1",
-    "eslint": "9.17.0",
+    "eslint": "9.24.0",
     "eslint-config-prettier": "9.1.0",
     "jest-cucumber": "^3.0.1",
     "multiple-cucumber-html-reporter": "^3.4.0",
