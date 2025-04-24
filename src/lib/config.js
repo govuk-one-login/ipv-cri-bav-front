@@ -47,7 +47,7 @@ module.exports = {
     },
     LANGUAGE_TOGGLE_DISABLED: process.env.LANGUAGE_TOGGLE_DISABLED || true,
     DEVICE_INTELLIGENCE_ENABLED:
-      process.env.DEVICE_INTELLIGENCE_ENABLED || false,
+      process.env.DEVICE_INTELLIGENCE_ENABLED || true,
     DEVICE_INTELLIGENCE_DOMAIN: process.env.FRONTEND_DOMAIN || "localhost",
   },
   PORT: process.env.PORT || 5040,
