@@ -170,6 +170,7 @@ setDeviceIntelligence({
   deviceIntelligenceEnabled: APP.DEVICE_INTELLIGENCE_ENABLED,
   deviceIntelligenceDomain: APP.DEVICE_INTELLIGENCE_DOMAIN,
 });
+console.log("Device Intelligence Flag: " + APP.DEVICE_INTELLIGENCE_ENABLED);
 
 /* Server configuration */
 const server = app.listen(PORT);
