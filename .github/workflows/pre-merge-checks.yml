@@ -35,21 +35,21 @@ jobs:
       - run: yarn test
       - name: Run browser tests
         id: bavBrowserTests
+        env:
+          IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          CUSTOM_FE_URL: http://localhost:5040
+          LANGUAGE_TOGGLE_DISABLED: false
+          DEVICE_INTELLIGENCE_ENABLED: true
         run: yarn test:browser:ci
-        env:
-            IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
-            API_BASE_URL: ${{ secrets.API_BASE_URL }}
-            CUSTOM_FE_URL: http:/localhost:5040
-            LANGUAGE_TOGGLE_DISABLED: false
-            DEVICE_INTELLIGENCE_ENABLED: true
       - name: Run negative path cookie tests
-        run: yarn test:browser:no_di:ci
         env:
-            IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
-            API_BASE_URL: ${{ secrets.API_BASE_URL }}
-            CUSTOM_FE_URL: http:/localhost:5040
-            LANGUAGE_TOGGLE_DISABLED: false
-            DEVICE_INTELLIGENCE_ENABLED: false
+          IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
+          API_BASE_URL: ${{ secrets.API_BASE_URL }}
+          CUSTOM_FE_URL: http://localhost:5040
+          LANGUAGE_TOGGLE_DISABLED: false
+          DEVICE_INTELLIGENCE_ENABLED: false
+        run: yarn test:browser:no_di:ci
       - name: Archive browser tests results
         uses: actions/upload-artifact@v4
         with:
