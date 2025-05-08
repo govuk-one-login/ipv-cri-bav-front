@@ -31,7 +31,9 @@ When(
     const authGetRequest = await axios.get(`${baseUrl}/authorization`, {
       headers: { "session-id": this.sessionId },
     });
-    const requestTokenRequest = await axios.post(`${stubUrl}generate-token-request`);
+    const requestTokenRequest = await axios.post(
+      `${stubUrl}generate-token-request`,
+    );
     const tokenPostRequest = await axios.post(
       `${baseUrl}/token`,
       `code=${authGetRequest.data.authorizationCode.value}&grant_type=authorization_code&redirect_uri=${authGetRequest.data.redirect_uri}&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=${requestTokenRequest.data}`,
