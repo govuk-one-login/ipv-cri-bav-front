@@ -11,6 +11,7 @@ Given(/^a user has navigated to the BAV Landing Page$/, async function () {
 
   await rpPage.goto(claim);
   expect(await bavLandingPage.isCurrentPage()).toBeTruthy();
+  await this.page.waitForLoadState("networkidle");
 });
 
 Then("the language toggle is present on the screen", async function () {
@@ -59,5 +60,11 @@ When(
 Then("the {string} cookie has been set", async function (cookieName) {
   const cookies = await this.page.context().cookies();
   const expectedCookie = cookies.find((cookie) => cookie.name === cookieName);
-  expect(expectedCookie).to.exist;
+  expect(cookies).toContain(expectedCookie);
+});
+
+Then("the {string} cookie has not been set", async function (cookieName) {
+  const cookies = await this.page.context().cookies();
+  const expectedCookie = cookies.find((cookie) => cookie.name === cookieName);
+  expect(cookies).not.toContain(expectedCookie);
 });
