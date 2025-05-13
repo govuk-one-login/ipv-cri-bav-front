@@ -27,12 +27,16 @@ When(
   async function () {
     const axios = require("axios");
     const baseUrl = process.env.API_BASE_URL;
+    const stubUrl = process.env.IPV_STUB_URL;
     const authGetRequest = await axios.get(`${baseUrl}/authorization`, {
       headers: { "session-id": this.sessionId },
     });
+    const requestTokenRequest = await axios.post(
+      `${stubUrl}generate-token-request`,
+    );
     const tokenPostRequest = await axios.post(
       `${baseUrl}/token`,
-      `code=${authGetRequest.data.authorizationCode.value}&grant_type=authorization_code&redirect_uri=${authGetRequest.data.redirect_uri}`,
+      `code=${authGetRequest.data.authorizationCode.value}&grant_type=authorization_code&redirect_uri=${authGetRequest.data.redirect_uri}&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=${requestTokenRequest.data}`,
       { headers: { "Content-Type": "text/plain" } },
     );
     this.userInfoPostRequest = await axios.post(`${baseUrl}/userinfo`, null, {
