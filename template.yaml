@@ -167,7 +167,7 @@ Mappings:
       minECSCount: 6
       maxECSCount: 60
       LANGUAGETOGGLEDISABLED: false
-      DEVICEINTELLIGENCEENABLED: true
+      DEVICEINTELLIGENCEENABLED: false
     staging:
       EXTERNALWEBSITEHOST: "www.review-bav.staging.account.gov.uk/"
       APIBASEURL: "https://api.review-bav.staging.account.gov.uk"
