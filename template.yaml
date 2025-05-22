@@ -181,7 +181,7 @@ Mappings:
       minECSCount: 2
       maxECSCount: 4
       LANGUAGETOGGLEDISABLED: false
-      DEVICEINTELLIGENCEENABLED: true
+      DEVICEINTELLIGENCEENABLED: false
     integration:
       EXTERNALWEBSITEHOST: "https://review-bav.integration.account.gov.uk"
       APIBASEURL: "https://api.review-bav.integration.account.gov.uk"
