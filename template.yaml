@@ -148,6 +148,7 @@ Mappings:
       LOGLEVEL: "debug"
       LANGUAGETOGGLEDISABLED: false
       GA4ENABLED: true
+      DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       minECSCount: 1
       maxECSCount: 4
       DEVICEINTELLIGENCEENABLED: true
@@ -164,6 +165,7 @@ Mappings:
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
       LOGLEVEL: "warn"
       GA4ENABLED: true
+      DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       minECSCount: 6
       maxECSCount: 60
       LANGUAGETOGGLEDISABLED: false
@@ -178,6 +180,7 @@ Mappings:
       GTMIDGA4: "GTM-KD86CMZ"
       LOGLEVEL: "warn"
       GA4ENABLED: true
+      DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       minECSCount: 2
       maxECSCount: 4
       LANGUAGETOGGLEDISABLED: false
@@ -192,6 +195,7 @@ Mappings:
       GTMIDGA4: "GTM-KD86CMZ"
       LOGLEVEL: "warn"
       GA4ENABLED: true
+      DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       minECSCount: 2
       maxECSCount: 4
       LANGUAGETOGGLEDISABLED: false
@@ -206,6 +210,7 @@ Mappings:
       GTMIDGA4: "GTM-K4PBJH3"
       LOGLEVEL: "warn"
       GA4ENABLED: true
+      DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       minECSCount: 6
       maxECSCount: 60
       LANGUAGETOGGLEDISABLED: false
@@ -610,6 +615,8 @@ Resources:
                 - IsProduction
                 - "account.gov.uk"
                 - !Sub "${Environment}.account.gov.uk"
+            - Name: DEVICE_INTELLIGENCE_DOMAIN
+              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, DEVICEINTELLIGENCEDOMAIN ]
             - Name: LANGUAGE_TOGGLE_DISABLED
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LANGUAGETOGGLEDISABLED ]
             - Name: LOG_LEVEL
