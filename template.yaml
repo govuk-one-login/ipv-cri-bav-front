@@ -169,7 +169,7 @@ Mappings:
       minECSCount: 6
       maxECSCount: 60
       LANGUAGETOGGLEDISABLED: false
-      DEVICEINTELLIGENCEENABLED: false
+      DEVICEINTELLIGENCEENABLED: true
     staging:
       EXTERNALWEBSITEHOST: "www.review-bav.staging.account.gov.uk/"
       APIBASEURL: "https://api.review-bav.staging.account.gov.uk"
@@ -184,7 +184,7 @@ Mappings:
       minECSCount: 2
       maxECSCount: 4
       LANGUAGETOGGLEDISABLED: false
-      DEVICEINTELLIGENCEENABLED: false
+      DEVICEINTELLIGENCEENABLED: true
     integration:
       EXTERNALWEBSITEHOST: "https://review-bav.integration.account.gov.uk"
       APIBASEURL: "https://api.review-bav.integration.account.gov.uk"
@@ -199,7 +199,7 @@ Mappings:
       minECSCount: 2
       maxECSCount: 4
       LANGUAGETOGGLEDISABLED: false
-      DEVICEINTELLIGENCEENABLED: false
+      DEVICEINTELLIGENCEENABLED: true
     production:
       EXTERNALWEBSITEHOST: "https://review-bav.account.gov.uk"
       APIBASEURL: "https://api.review-bav.account.gov.uk"
@@ -214,7 +214,7 @@ Mappings:
       minECSCount: 6
       maxECSCount: 60
       LANGUAGETOGGLEDISABLED: false
-      DEVICEINTELLIGENCEENABLED: false
+      DEVICEINTELLIGENCEENABLED: true
 
 Resources:
   # Security Groups for the ECS service and load balancer
