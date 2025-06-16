@@ -152,6 +152,7 @@ Mappings:
       minECSCount: 1
       maxECSCount: 4
       DEVICEINTELLIGENCEENABLED: true
+      MAY2025REBRANDENABLED: true
     build:
       EXTERNALWEBSITEHOST: "https://review-bav.build.account.gov.uk"
       APIBASEURL: "https://api.review-bav.build.account.gov.uk"
@@ -170,6 +171,7 @@ Mappings:
       maxECSCount: 60
       LANGUAGETOGGLEDISABLED: false
       DEVICEINTELLIGENCEENABLED: true
+      MAY2025REBRANDENABLED: true
     staging:
       EXTERNALWEBSITEHOST: "www.review-bav.staging.account.gov.uk/"
       APIBASEURL: "https://api.review-bav.staging.account.gov.uk"
@@ -185,6 +187,7 @@ Mappings:
       maxECSCount: 4
       LANGUAGETOGGLEDISABLED: false
       DEVICEINTELLIGENCEENABLED: true
+      MAY2025REBRANDENABLED: true
     integration:
       EXTERNALWEBSITEHOST: "https://review-bav.integration.account.gov.uk"
       APIBASEURL: "https://api.review-bav.integration.account.gov.uk"
@@ -200,6 +203,7 @@ Mappings:
       maxECSCount: 4
       LANGUAGETOGGLEDISABLED: false
       DEVICEINTELLIGENCEENABLED: true
+      MAY2025REBRANDENABLED: false
     production:
       EXTERNALWEBSITEHOST: "https://review-bav.account.gov.uk"
       APIBASEURL: "https://api.review-bav.account.gov.uk"
@@ -215,6 +219,7 @@ Mappings:
       maxECSCount: 60
       LANGUAGETOGGLEDISABLED: false
       DEVICEINTELLIGENCEENABLED: true
+      MAY2025REBRANDENABLED: false
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -625,6 +630,8 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, GA4ENABLED ]
             - Name: DEVICE_INTELLIGENCE_ENABLED
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, DEVICEINTELLIGENCEENABLED ]
+            - Name: MAY_2025_REBRAND_ENABLED
+              Value: !FindInMap [EnvironmentVariables, !Ref Environment, MAY2025REBRANDENABLED ]
 
           Secrets:
             - Name: DT_TENANT
