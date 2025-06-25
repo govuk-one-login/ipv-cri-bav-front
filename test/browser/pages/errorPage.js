@@ -28,7 +28,7 @@ module.exports = class PlaywrightDevPage {
   }
 
   async clickGovUkHomeButton() {
-    await this.page.locator('[href*="https://www.gov.uk/"]').click();
+    await this.page.getByRole('button', { name: 'Go to the GOV.UK homepage' }).click();
   }
 
   async isGovUkHomepage() {
