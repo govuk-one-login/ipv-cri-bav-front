@@ -28,7 +28,9 @@ module.exports = class PlaywrightDevPage {
   }
 
   async clickGovUkHomeButton() {
-    await this.page.getByRole('button', { name: 'Go to the GOV.UK homepage' }).click();
+    await this.page
+      .getByRole("button", { name: "Go to the GOV.UK homepage" })
+      .click();
   }
 
   async isGovUkHomepage() {
