@@ -1026,9 +1026,9 @@
     pino "^8.20.0"
 
 "@govuk-one-login/frontend-ui@^1.2.0":
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-ui/-/frontend-ui-1.3.2.tgz#0efa90a25284c352a4e90e0698e03978eb5f2624"
-  integrity sha512-xWV7IvhN6MJDv4jDaZfUTX+cFOD1liilAIOBsjuhjuJ0kTH0lx+JXWMtjBChvBdQYhFTyc4wVIBZea3Hk4PTrg==
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-ui/-/frontend-ui-1.3.3.tgz#1a23c2deed7b100c6f364d0a97de7685ab413f6d"
+  integrity sha512-8+ccUvMAktUzyDziWV1OS4sODy9d9t+ThOidx99ExaCpYQwFTJS0quhjB9r4HA60/D25Kd0PnYRDSTBA61Vpcg==
   dependencies:
     js-yaml "^4.1.0"
     pino "8.20.0"
@@ -3340,9 +3340,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.5.173:
-  version "1.5.176"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.176.tgz#f4bbbd2c0a9a6a2a527c884eacc18244fa79dd88"
-  integrity sha512-2nDK9orkm7M9ZZkjO3PjbEd3VUulQLyg5T9O3enJdFvUg46Hzd4DUvTvAuEgbdHYXyFsiG4A5sO9IzToMH1cDg==
+  version "1.5.177"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.177.tgz#db730d8254959184e65320a3a0b7edcd29c54f60"
+  integrity sha512-7EH2G59nLsEMj97fpDuvVcYi6lwTcM1xuWw3PssD8xzboAW7zj7iB3COEEEATUfjLHrs5uKBLQT03V/8URx06g==
 
 emittery@^0.13.1:
   version "0.13.1"
