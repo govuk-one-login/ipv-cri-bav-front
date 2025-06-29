@@ -91,6 +91,7 @@
 {% endblock %}
 
 {% block footer %}
+    {{ super() }}
     <script nonce="{{ cspNonce }}">
 
     var formSubmitted = false;

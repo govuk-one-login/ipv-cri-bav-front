@@ -98,3 +98,5 @@ $govuk-assets-path: "/public/";
 #submitDetails {
   @include govuk-responsive-margin(4, "top");
 }
+
+@import "../../../node_modules/@govuk-one-login/frontend-ui/build/all";
