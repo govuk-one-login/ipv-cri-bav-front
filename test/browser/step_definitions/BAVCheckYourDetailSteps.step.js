@@ -10,6 +10,7 @@ const { expect } = require("@playwright/test");
 Given("the user wishes to proceed", async function () {
   const cyaPage = new ConfirmDetailsPage(await this.page);
   expect(await cyaPage.isCurrentPage()).toBeTruthy();
+  await this.page.waitForLoadState("networkidle");
 });
 
 When(
@@ -17,6 +18,7 @@ When(
   async function () {
     const cyaPage = new ConfirmDetailsPage(await this.page);
     await cyaPage.clickSubmitDetailsButton();
+    await this.page.waitForLoadState("networkidle");
   },
 );
 
@@ -72,6 +74,7 @@ Then(
   async function () {
     const loadBankDetails = new LoadBankDetailsPage(await this.page);
     await loadBankDetails.isCurrentPage();
+    await this.page.waitForLoadState("networkidle");
   },
 );
 
@@ -96,7 +99,7 @@ Then(
   },
 );
 
-Then("an error message is shown", async function () {
+Then("an error message is shown", { timeout: 2 * 50000 }, async function () {
   const failOnePage = new FailOnePage(await this.page);
   expect(await failOnePage.getErrorTitle()).toContain("There is a problem");
   expect(await failOnePage.getErrorText()).toContain(

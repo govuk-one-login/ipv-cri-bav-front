@@ -16,6 +16,7 @@ Given(
   async function (sortCode) {
     const accDetailsPage = new AccountDetailsPage(await this.page);
     await accDetailsPage.enterSortCode(sortCode);
+    await this.page.waitForLoadState("networkidle");
   },
 );
 
@@ -24,6 +25,7 @@ Given(
   async function (accountNumber) {
     const accDetailsPage = new AccountDetailsPage(await this.page);
     await accDetailsPage.enterAccountNumber(accountNumber);
+    await this.page.waitForLoadState("networkidle");
   },
 );
 
@@ -55,6 +57,7 @@ When(
 Then("the user is directed to the Account Details screen", async function () {
   const accountDetailsPage = new AccountDetailsPage(await this.page);
   expect(await accountDetailsPage.isCurrentPage()).toBeTruthy();
+  await this.page.waitForLoadState("networkidle");
 });
 
 Then("the user is directed to the Confirm Details screen", async function () {

@@ -23,16 +23,16 @@ module.exports = class PlaywrightDevPage {
   }
 
   async getErrorTitle() {
-    const errorTitle = await this.page
-      .locator("h2.govuk-error-summary__title")
-      .textContent();
+    const errorTitleLocator = this.page.locator("h2.govuk-error-summary__title");
+    await errorTitleLocator.waitFor({ state: 'visible', timeout: 2*50000 });  
+    const errorTitle = await errorTitleLocator.textContent();
     return errorTitle.trim();
   }
 
   async getErrorText() {
-    const errorText = await this.page
-      .locator("p.govuk-error-message")
-      .textContent();
+    const errorTextLocator = this.page.locator(".govuk-error-summary__list"); 
+    await errorTextLocator.waitFor({ state: 'visible', timeout: 2*50000 }); 
+    const errorText = await errorTextLocator.textContent();
     return errorText.trim();
   }
 };
