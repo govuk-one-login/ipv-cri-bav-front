@@ -18,7 +18,6 @@ When(
   async function () {
     const cyaPage = new ConfirmDetailsPage(await this.page);
     await cyaPage.clickSubmitDetailsButton();
-    await this.page.waitForLoadState("networkidle");
   },
 );
 
@@ -66,6 +65,7 @@ Then(
   async function () {
     const cyaPage = new ConfirmDetailsPage(await this.page);
     expect(await cyaPage.isCurrentPage()).toBeTruthy();
+    await this.page.waitForLoadState("networkidle");
   },
 );
 
@@ -86,6 +86,7 @@ Then("the user is directed to the Escape choice screen", async function () {
 Then("the user is redirected to the fail 1 page", async function () {
   const failPage = new FailOnePage(await this.page);
   expect(await failPage.isCurrentPage()).toBeTruthy();
+  await this.page.waitForLoadState("networkidle");
 });
 
 Then(

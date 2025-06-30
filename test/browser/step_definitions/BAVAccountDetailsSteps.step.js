@@ -9,6 +9,7 @@ const { expect } = require("@playwright/test");
 Given("the user is on the Account Details Screen", async function () {
   const accDetailsPage = new AccountDetailsPage(await this.page);
   expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
+  await this.page.waitForLoadState("networkidle");
 });
 
 Given(
@@ -16,7 +17,6 @@ Given(
   async function (sortCode) {
     const accDetailsPage = new AccountDetailsPage(await this.page);
     await accDetailsPage.enterSortCode(sortCode);
-    await this.page.waitForLoadState("networkidle");
   },
 );
 
@@ -25,7 +25,6 @@ Given(
   async function (accountNumber) {
     const accDetailsPage = new AccountDetailsPage(await this.page);
     await accDetailsPage.enterAccountNumber(accountNumber);
-    await this.page.waitForLoadState("networkidle");
   },
 );
 
@@ -76,6 +75,7 @@ Then(
   async function () {
     const accDetailsPage = new AccountDetailsPage(await this.page);
     expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
+    await this.page.waitForLoadState("networkidle");
     expect(await accDetailsPage.checkAccountNumberErrorText()).toContain(
       "Your account number must be between 6 and 8 digits",
     );
@@ -87,6 +87,7 @@ Then(
   async function () {
     const accDetailsPage = new AccountDetailsPage(await this.page);
     expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
+    await this.page.waitForLoadState("networkidle");
     expect(await accDetailsPage.checkSortCodeErrorText()).toContain(
       "Enter a valid sort code. For example, 802650",
     );

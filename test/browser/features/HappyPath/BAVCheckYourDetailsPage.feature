@@ -19,7 +19,8 @@ Feature: Check Details are Correct
   Scenario: User directed to Account details Screen with pre-populated data <sortCode> and <accountNumber>
     When the user clicks the Change button to change their Sort code or Account number
     Then the user is directed to the Loading Bank Details screen
-    When the user edits the sort code <sortCode> and the account number <accountNumber>
+    When the user is on the Account Details Screen
+    Then the user edits the sort code <sortCode> and the account number <accountNumber>
     Then the user is directed to the Check Your Answers screen
     And the Check Your Answers screen has a sort code <sortCode> and account number <accountNumber>
     Then the user should see their full name on the confirm details page
