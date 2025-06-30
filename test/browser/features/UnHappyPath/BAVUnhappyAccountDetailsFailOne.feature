@@ -1,4 +1,4 @@
-@success1
+@success
 Feature: Provided Bank Details Failed
 
    Background:
