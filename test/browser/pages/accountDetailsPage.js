@@ -9,7 +9,7 @@ module.exports = class PlaywrightDevPage {
 
   async isCurrentPage() {
     const { pathname } = new URL(this.page.url());
-    return pathname === this.path;
+    return pathname === this.path || pathname === this.path + "/edit";
   }
 
   async continueButton() {

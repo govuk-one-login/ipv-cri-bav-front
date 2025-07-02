@@ -9,6 +9,7 @@ const { expect } = require("@playwright/test");
 Given("the user is on the Account Details Screen", async function () {
   const accDetailsPage = new AccountDetailsPage(await this.page);
   expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
+  await this.page.waitForLoadState("networkidle");
 });
 
 Given(
@@ -55,6 +56,7 @@ When(
 Then("the user is directed to the Account Details screen", async function () {
   const accountDetailsPage = new AccountDetailsPage(await this.page);
   expect(await accountDetailsPage.isCurrentPage()).toBeTruthy();
+  await this.page.waitForLoadState("networkidle");
 });
 
 Then("the user is directed to the Confirm Details screen", async function () {
@@ -73,6 +75,7 @@ Then(
   async function () {
     const accDetailsPage = new AccountDetailsPage(await this.page);
     expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
+    await this.page.waitForLoadState("networkidle");
     expect(await accDetailsPage.checkAccountNumberErrorText()).toContain(
       "Your account number must be between 6 and 8 digits",
     );
@@ -84,6 +87,7 @@ Then(
   async function () {
     const accDetailsPage = new AccountDetailsPage(await this.page);
     expect(await accDetailsPage.isCurrentPage()).toBeTruthy();
+    await this.page.waitForLoadState("networkidle");
     expect(await accDetailsPage.checkSortCodeErrorText()).toContain(
       "Enter a valid sort code. For example, 802650",
     );
