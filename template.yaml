@@ -152,7 +152,7 @@ Mappings:
       minECSCount: 1
       maxECSCount: 4
       DEVICEINTELLIGENCEENABLED: true
-      MAY2025REBRANDENABLED: false
+      MAY2025REBRANDENABLED: true
     build:
       EXTERNALWEBSITEHOST: "https://review-bav.build.account.gov.uk"
       APIBASEURL: "https://api.review-bav.build.account.gov.uk"
