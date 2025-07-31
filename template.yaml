@@ -219,7 +219,7 @@ Mappings:
       maxECSCount: 60
       LANGUAGETOGGLEDISABLED: false
       DEVICEINTELLIGENCEENABLED: true
-      MAY2025REBRANDENABLED: false
+      MAY2025REBRANDENABLED: true
 
 Resources:
   # Security Groups for the ECS service and load balancer
