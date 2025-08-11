@@ -3,56 +3,68 @@
 {% set hmpoTitle = enterAccountDetails.title %}
 {% set hmpoPageKey = "enterAccountDetails" %}
 {% set gtmJourney = "bav - enterAccountDetails" %}
+{% set isPageDataSensitiveFlag = false %}
+{% set contentID = 'd8eb9268-5159-4544-bcac-56279c4a77d5' %}
 
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 
-
 {% block mainContent %}
 
-<div>
-    <h1 id="account-details-header" class="gov" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-        {{ translate("enterAccountDetails.title") }}
-    </h1>
-    
-    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
+    <div>
+        <h1 id="account-details-header" class="gov" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
+            {{ translate("enterAccountDetails.title") }}
+        </h1>
 
-    {{ hmpoText(ctx, {
+        {% call hmpoForm(ctx, {
+            attributes: {
+                onsubmit: 'window.disableFormSubmit()'
+            }
+        }) %}
+
+        {{ hmpoText(ctx, {
         id: "sortCode",
         classes: "govuk-input--width-5 govuk-input--extra-letter-spacing"
     })}}
 
-    {{ hmpoText(ctx, {
+        {{ hmpoText(ctx, {
       id: "accountNumber",
       classes: "govuk-input--width-10 govuk-input--extra-letter-spacing"
     })}}
 
-    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"),
+        {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"),
      attributes: {
         "data-nav": true,
         "data-link": "/check-details"
     }
     }) }}
 
-    {% endcall %}
-</div>
+        {% endcall %}
+    </div>
 {% endblock %}
-
 
 {% block footer %}
     {{ super() }}
     <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
         window.addEventListener('load', function () {
-            window.DI.analyticsGa4.pageViewTracker.trackOnPageLoad({
-                statusCode: '200', // Access status code
-                englishPageTitle: '{{translate("enterAccountDetails.title")}}',
-                taxonomy_level1: 'web cri', // Access taxonomy level 1
-                taxonomy_level2: 'bav', // Access taxonomy level 2
-                content_id: '004',
-                logged_in_status: true,
-                dynamic: false,
-            });
+            window
+                .DI
+                .analyticsGa4
+                .pageViewTracker
+                .trackOnPageLoad({
+                    statusCode: '200', // Access status code
+                    isPageDataSensitiveFlag: isPageDataSensitiveFlag,
+                    englishPageTitle: '{{translate("checkDetails.title")}}',
+                    taxonomy_level1: 'web cri', // Access taxonomy level 1
+                    taxonomy_level2: 'bav', // Access taxonomy level 2
+                    taxonomy_level3: 'undefined',
+                    taxonomy_level4: 'undefined',
+                    taxonomy_level5: 'undefined',
+                    content_id: contentID,
+                    logged_in_status: true,
+                    dynamic: false
+                });
         });
     </script>
 {% endblock %}

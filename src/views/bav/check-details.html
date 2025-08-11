@@ -3,6 +3,8 @@
 {% set hmpoTitle = checkDetails.title %}
 {% set hmpoPageKey = "checkDetails" %}
 {% set gtmJourney = "bav - checkDetails" %}
+{% set isPageDataSensitiveFlag = false %}
+{% set contentID = '0962fcea-9df2-42bf-bfcf-c618b0fbfba4' %}
 
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
@@ -11,12 +13,12 @@
 
 {% block mainContent %}
 
-<div>
+  <div>
     <h1 id="check-details-header" class="gov" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
-        {{ translate("checkDetails.title") }}
+      {{ translate("checkDetails.title") }}
     </h1>
 
-  {{ govukSummaryList({
+    {{ govukSummaryList({
   classes: 'govuk-!-margin-bottom-6',
   rows: [
     {
@@ -65,15 +67,15 @@
 })
 }}
 
-{% set insetBody %}
-  {{- "checkDetails.insetText" | translate -}}
-{% endset %}  
+    {% set insetBody %}
+    {{- "checkDetails.insetText" | translate -}}
+    {% endset %}
 
-  {{ govukInsetText({
+    {{ govukInsetText({
   html: insetBody
 }) }}
 
-{% call hmpoForm(ctx) %}
+    {% call hmpoForm(ctx) %}
     {{ hmpoSubmit(ctx, {id: "submitDetails", 
      text: translate("checkDetails.submitDetails"),
      attributes: {
@@ -83,16 +85,19 @@
     }
   }) }}
 
-{% endcall %}
+    {% endcall %}
 
-  <p><a href={{ "landingPage.howContinueBankLanding.howContinueBankLink" | translate }}> {{ "landingPage.howContinueBankLanding.howContinueBankText" | translate }}</a></p>
+    <p>
+      <a href={{ "landingPage.howContinueBankLanding.howContinueBankLink" | translate }}>
+        {{ "landingPage.howContinueBankLanding.howContinueBankText" | translate }}</a>
+    </p>
 
-</div>
+  </div>
 {% endblock %}
 
 {% block footer %}
-    {{ super() }}
-    <script nonce="{{ cspNonce }}">
+  {{ super() }}
+  <script nonce="{{ cspNonce }}">
 
     var formSubmitted = false;
 
@@ -125,10 +130,14 @@
         .pageViewTracker
         .trackOnPageLoad({
           statusCode: '200', // Access status code
+          isPageDataSensitiveFlag: isPageDataSensitiveFlag,
           englishPageTitle: '{{translate("checkDetails.title")}}',
           taxonomy_level1: 'web cri', // Access taxonomy level 1
           taxonomy_level2: 'bav', // Access taxonomy level 2
-          content_id: '003',
+          taxonomy_level3: 'undefined',
+          taxonomy_level4: 'undefined',
+          taxonomy_level5: 'undefined',
+          content_id: contentID,
           logged_in_status: true,
           dynamic: false
         });

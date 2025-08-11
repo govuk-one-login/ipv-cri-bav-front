@@ -3,6 +3,8 @@
 {% set hmpoTitle = couldNotMatch.title %}
 {% set gtmJourney = "bav - howContinueBank" %}
 {% set backLink = false %}
+{% set isPageDataSensitiveFlag = false %}
+{% set contentID = 'da9d22db-1789-4a7c-90df-eeb6fe655a6d' %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
@@ -11,19 +13,18 @@
 
 {% block mainContent %}
 
-  {% set title = translate("couldNotMatch.title") %}
-  {% set content = translate("couldNotMatch.content") %}
-  {% set prompt = translate("couldNotMatch.prompt") %} 
+    {% set title = translate("couldNotMatch.title") %}
+    {% set content = translate("couldNotMatch.content") %}
+    {% set prompt = translate("couldNotMatch.prompt") %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-  
-      <h1 class="govuk-heading-l" id="landingPageTitle">{{ title }}</h1>
-      <p>{{ content }}</p>
+    <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
 
+            <h1 class="govuk-heading-l" id="landingPageTitle">{{ title }}</h1>
+            <p>{{ content }}</p>
 
-  {% call hmpoForm(ctx) %}
-          {{ hmpoRadios(ctx, {
+            {% call hmpoForm(ctx) %}
+            {{ hmpoRadios(ctx, {
             id: "couldNotMatchChoice",
             namePrefix: "couldNotMatchChoice",
             fieldset: {
@@ -34,25 +35,33 @@
             }
         }) }}
 
-  {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"),
+            {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"),
   attributes: {
     "data-nav": true,
     "data-link": "/undefined"
     }
 }) }}
-  
-  {% endcall %}
-  <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-        window.addEventListener('load', function () {
-            window.DI.analyticsGa4.pageViewTracker.trackOnPageLoad({
-                statusCode: '200', // Access status code
-                englishPageTitle: '{{translate("couldNotMatch.title")}}',
-                taxonomy_level1: 'web cri', // Access taxonomy level 1
-                taxonomy_level2: 'bav', // Access taxonomy level 2
-                content_id: '006',
-                logged_in_status: true,
-                dynamic: false,
-            });
-        });
-    </script>
-{% endblock %}
+
+            {% endcall %}
+            <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
+                window.addEventListener('load', function () {
+                    window
+                        .DI
+                        .analyticsGa4
+                        .pageViewTracker
+                        .trackOnPageLoad({
+                            statusCode: '200', // Access status code
+                            isPageDataSensitiveFlag: isPageDataSensitiveFlag,
+                            englishPageTitle: '{{translate("checkDetails.title")}}',
+                            taxonomy_level1: 'web cri', // Access taxonomy level 1
+                            taxonomy_level2: 'bav', // Access taxonomy level 2
+                            taxonomy_level3: 'undefined',
+                            taxonomy_level4: 'undefined',
+                            taxonomy_level5: 'undefined',
+                            content_id: contentID,
+                            logged_in_status: true,
+                            dynamic: false
+                        });
+                });
+            </script>
+        {% endblock %}

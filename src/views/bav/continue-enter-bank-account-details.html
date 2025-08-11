@@ -2,50 +2,57 @@
 
 {% set hmpoTitle = landingPage.pageTitle %}
 {% set hmpoPageKey = "landingPage" %}
+{% set isPageDataSensitiveFlag = false %}
+{% set contentID = '818c6116-acaf-4662-a746-0b3666bde53f' %}
+
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "govuk/components/details/macro.njk" import govukDetails %}
 
 {% block content %}
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l" id="landingPageTitle">{{ "landingPage.title" | translate }}</h1>
+      <h1 class="govuk-heading-l" id="landingPageTitle">{{ "landingPage.title" | translate }}</h1>
 
-    <p class="bav__instruction" id="info1">{{ "landingPage.infoText1" | translate }}</p>
+      <p class="bav__instruction" id="info1">{{ "landingPage.infoText1" | translate }}</p>
 
-    <p class="bav__instruction" id="list1-text">{{ "landingPage.list1.list1Text" | translate }}</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>{{ "landingPage.list1.list1Bullet1" | translate }}</li>
-      <li>{{ "landingPage.list1.list1Bullet2" | translate }}</li>
-      <li>{{ "landingPage.list1.list1Bullet3" | translate }}</li>
-    </ul>
+      <p class="bav__instruction" id="list1-text">{{ "landingPage.list1.list1Text" | translate }}</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ "landingPage.list1.list1Bullet1" | translate }}</li>
+        <li>{{ "landingPage.list1.list1Bullet2" | translate }}</li>
+        <li>{{ "landingPage.list1.list1Bullet3" | translate }}</li>
+      </ul>
 
-    <p class="bav__instruction" id="list2-text">{{ "landingPage.list2.list2Text" | translate }}</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>{{ "landingPage.list2.list2Bullet1" | translate }}</li>
-      <li>{{ "landingPage.list2.list2Bullet2" | translate }}</li>
-    </ul>
+      <p class="bav__instruction" id="list2-text">{{ "landingPage.list2.list2Text" | translate }}</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ "landingPage.list2.list2Bullet1" | translate }}</li>
+        <li>{{ "landingPage.list2.list2Bullet2" | translate }}</li>
+      </ul>
 
-    <h2 class="govuk-heading-m" id="info-title">{{ "landingPage.infoTitle" | translate }}</h2>
+      <h2 class="govuk-heading-m" id="info-title">{{ "landingPage.infoTitle" | translate }}</h2>
 
-    <p class="bav__instruction" id="list3-text">{{ "landingPage.list3.list3Text" | translate }}</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>{{ "landingPage.list3.list3Bullet1" | translate }}</li>
-      <li>{{ "landingPage.list3.list3Bullet2" | translate }}</li>
-    </ul>
+      <p class="bav__instruction" id="list3-text">{{ "landingPage.list3.list3Text" | translate }}</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>{{ "landingPage.list3.list3Bullet1" | translate }}</li>
+        <li>{{ "landingPage.list3.list3Bullet2" | translate }}</li>
+      </ul>
 
-    <p class="bav__instruction" id="info3">{{ "landingPage.infoText3" | translate }}</p>
-    <p class="bav__instruction" id="info4">{{ "landingPage.infoText4" | translate }}</p>
+      <p class="bav__instruction" id="info3">{{ "landingPage.infoText3" | translate }}</p>
+      <p class="bav__instruction" id="info4">{{ "landingPage.infoText4" | translate }}</p>
 
-    {{ govukDetails({
+      {{ govukDetails({
       summaryText: translate("landingPage.detailDropdown.summaryText"),
       html: translate("landingPage.detailDropdown.detailContent")
     }) }}
 
-    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
-    {% block submitButton %}
-      {{ hmpoSubmit(ctx, {
+      {% call hmpoForm(ctx, {
+        attributes: {
+          onsubmit: 'window.disableFormSubmit()'
+        }
+      }) %}
+      {% block submitButton %}
+        {{ hmpoSubmit(ctx, {
         id: "landingPageContinue",
         text: translate("buttons.next"),
         attributes: {
@@ -53,25 +60,35 @@
           "data-link": "/enter-account-details"
         }
     }) }}
-    {% endblock %}
-    {% endcall %}
+      {% endblock %}
+      {% endcall %}
 
-    <p><a href={{ "landingPage.howContinueBankLanding.howContinueBankLink" | translate }}> {{ "landingPage.howContinueBankLanding.howContinueBankText" | translate }}</a></p>
+      <p>
+        <a href={{ "landingPage.howContinueBankLanding.howContinueBankLink" | translate }}>
+          {{ "landingPage.howContinueBankLanding.howContinueBankText" | translate }}</a>
+      </p>
 
-
+    </div>
   </div>
-</div>
-<script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-        window.addEventListener('load', function () {
-        window.DI.analyticsGa4.pageViewTracker.trackOnPageLoad({
-            statusCode: '200', // Access status code
-            englishPageTitle: '{{translate("landingPage.title")}}',
-            taxonomy_level1: 'web cri', // Access taxonomy level 1
-            taxonomy_level2: 'bav', // Access taxonomy level 2
-            content_id: '001',
-            logged_in_status: true,
-            dynamic: false,
+  <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
+    window.addEventListener('load', function () {
+      window
+        .DI
+        .analyticsGa4
+        .pageViewTracker
+        .trackOnPageLoad({
+          statusCode: '200', // Access status code
+          isPageDataSensitiveFlag: isPageDataSensitiveFlag,
+          englishPageTitle: '{{translate("checkDetails.title")}}',
+          taxonomy_level1: 'web cri', // Access taxonomy level 1
+          taxonomy_level2: 'bav', // Access taxonomy level 2
+          taxonomy_level3: 'undefined',
+          taxonomy_level4: 'undefined',
+          taxonomy_level5: 'undefined',
+          content_id: contentID,
+          logged_in_status: true,
+          dynamic: false
         });
-        });
-    </script>
+    });
+  </script>
 {% endblock %}
