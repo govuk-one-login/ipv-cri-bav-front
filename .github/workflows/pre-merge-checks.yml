@@ -29,6 +29,7 @@ jobs:
         with:
           node-version: 22
       - run: yarn install
+      - run: npx playwright install --with-deps
       - run: yarn lint
       - run: yarn build
       - run: yarn prettier
@@ -39,7 +40,7 @@ jobs:
         env:
             IPV_STUB_URL: ${{ secrets.IPV_STUB_URL }}
             API_BASE_URL: ${{ secrets.API_BASE_URL }}
-            CUSTOM_FE_URL: http:/localhost:5040
+            CUSTOM_FE_URL: http://localhost:5040
             LANGUAGE_TOGGLE_DISABLED: false
       - name: Archive browser tests results
         uses: actions/upload-artifact@v4
