@@ -3965,7 +3965,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-playwright@npm:2.1.0":
+"axe-playwright@npm:^2.1.0":
   version: 2.1.0
   resolution: "axe-playwright@npm:2.1.0"
   dependencies:
@@ -6614,7 +6614,7 @@ __metadata:
     ajv-formats: "npm:^2.1.1"
     aws4-axios: "npm:^3.3.1"
     axe-core: "npm:4.10.3"
-    axe-playwright: "npm:2.1.0"
+    axe-playwright: "npm:^2.1.0"
     axios: "npm:^1.8.2"
     cfenv: "npm:1.2.4"
     connect-dynamodb: "npm:^2.0.6"
