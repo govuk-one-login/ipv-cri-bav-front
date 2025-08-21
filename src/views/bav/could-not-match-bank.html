@@ -3,8 +3,14 @@
 {% set hmpoTitle = couldNotMatch.title %}
 {% set gtmJourney = "bav - howContinueBank" %}
 {% set backLink = false %}
-{% set isPageDataSensitiveFlag = false %}
-{% set contentID = 'da9d22db-1789-4a7c-90df-eeb6fe655a6d' %}
+
+{% set isPageDataSensitive = false %}
+{% set statusCode = '200' %}
+{% set pageTitleKey = "pages.couldNotMatch.title" %}
+{% set contentID = "da9d22db-1789-4a7c-90df-eeb6fe655a6d" %}
+{% set taxLevel2 = 'bav' %}
+{% set isPageDynamic = false %}
+{% set loggedInStatus = true %}
 
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
@@ -43,25 +49,4 @@
 }) }}
 
             {% endcall %}
-            <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-                window.addEventListener('load', function () {
-                    window
-                        .DI
-                        .analyticsGa4
-                        .pageViewTracker
-                        .trackOnPageLoad({
-                            statusCode: '200', // Access status code
-                            isPageDataSensitiveFlag: isPageDataSensitiveFlag,
-                            englishPageTitle: '{{translate("checkDetails.title")}}',
-                            taxonomy_level1: 'web cri', // Access taxonomy level 1
-                            taxonomy_level2: 'bav', // Access taxonomy level 2
-                            taxonomy_level3: 'undefined',
-                            taxonomy_level4: 'undefined',
-                            taxonomy_level5: 'undefined',
-                            content_id: contentID,
-                            logged_in_status: true,
-                            dynamic: false
-                        });
-                });
-            </script>
         {% endblock %}
