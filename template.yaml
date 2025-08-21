@@ -499,9 +499,9 @@ Resources:
     Condition: IsNotDevelopment
     Properties:
       AlarmName: !Sub "${AWS::StackName}-ECSFatalErrorAlarm"
-        AlarmDescription: !Sub 
-          - "Trigger an alarm when Fatal Error occurs ${RunbookUrl}"
-          - RunbookUrl: !FindInMap [StaticVariables, urls, BAVSupportManual]
+      AlarmDescription: !Sub 
+        - "Trigger an alarm when Fatal Error occurs ${RunbookUrl}"
+        - RunbookUrl: !FindInMap [StaticVariables, urls, BAVSupportManual]
       ActionsEnabled: true
       OKActions:
         - !ImportValue platform-alarm-pagerduty-alert-topic
