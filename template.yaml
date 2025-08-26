@@ -1697,16 +1697,16 @@ Outputs:
   BAVCustomDomain:
     Description: BAV Custom Domain API Gateway ID
     Value: !Ref BAVFrontCustomDomain
-  BAVIPVStubExecuteURL:
-    Condition: IsNotProdLikeEnvironment
-    Description: "BAV IPV Stub"
-    Value:
-      Fn::ImportValue: !Sub '${IPVStubStackName}-IPVStubExecuteUrl'
-  BAVIPVStubPrettyAPIURL:
-    Condition: IsNotProdLikeEnvironment
-    Description: "BAV IPV Stub Pretty"
-    Value:
-      Fn::ImportValue: !Sub '${IPVStubStackName}-IPvStubApiGatewayPrettyUrl'
+  # BAVIPVStubExecuteURL:
+  #   Condition: IsNotProdLikeEnvironment
+  #   Description: "BAV IPV Stub"
+  #   Value:
+  #     Fn::ImportValue: !Sub '${IPVStubStackName}-IPVStubExecuteUrl'
+  # BAVIPVStubPrettyAPIURL:
+  #   Condition: IsNotProdLikeEnvironment
+  #   Description: "BAV IPV Stub Pretty"
+  #   Value:
+  #     Fn::ImportValue: !Sub '${IPVStubStackName}-IPvStubApiGatewayPrettyUrl'
   BAVTestHarnessURL:
     Condition: IsNotProdLikeEnvironment
     Description: "BAV Test Harness"
