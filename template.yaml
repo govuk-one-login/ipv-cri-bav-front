@@ -129,6 +129,7 @@ Mappings:
 
   StaticVariables:
     urls:
+
       BAVSupportManual: "https://govukverify.atlassian.net/wiki/spaces/Kiwi/pages/4373512222/6.6+BAV+Support+documentation"
 
   EnvironmentVariables:
