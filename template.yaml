@@ -149,7 +149,7 @@ Mappings:
       maxECSCount: 4
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
-      # Hardcoded variables used to generate stack outputs for tests in Dev. Referenced in Outputs section of this template file. Only present in Dev + Build
+      # Hardcoded variables used to generate stack outputs for tests in Dev. Referenced in Outputs section of this template file. Only used in Dev + Build
       IPVSTUBURL: "https://bav-ipv-stub-ipvstub.review-bav.dev.account.gov.uk"
       TESTHARNESSURL: "https://bav-test-harness-testharness.review-bav.dev.account.gov.uk"
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
@@ -169,7 +169,7 @@ Mappings:
       LANGUAGETOGGLEDISABLED: false
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
-      # Hardcoded variables used to generate stack outputs for tests in Build. Referenced in Outputs section of this template file. Only present in Dev + Build
+      # Hardcoded variables used to generate stack outputs for tests in Build. Referenced in Outputs section of this template file. Only used in Dev + Build
       IPVSTUBURL: "https://ipvstub.review-bav.build.account.gov.uk"
       TESTHARNESSURL: "https://testharness.review-bav.build.account.gov.uk"
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
@@ -1699,7 +1699,7 @@ Outputs:
     Description: BAV Custom Domain API Gateway ID
     Value: !Ref BAVFrontCustomDomain
   # Below outputs are only used for E2E tests - hardcoded to always point to relevant main stacks
-  CFN_BAVIPVStubExecuteURL:
+  BAVIPVStubExecuteURL:
     Condition: IsNotProdLikeEnvironment
     Description: "BAV IPV Stub"
     Value: !FindInMap [EnvironmentVariables, !Ref Environment, IPVSTUBURL]
