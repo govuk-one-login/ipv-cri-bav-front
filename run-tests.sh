@@ -8,20 +8,14 @@ remove_quotes () {
   echo "$1" | tr -d '"'
 }
 
+# Github actions set to true for tests to run in headless mode
 export GITHUB_ACTIONS=true
-echo "GITHUB_ACTIONS: $GITHUB_ACTIONS"
-
 # shellcheck disable=SC2154
 export API_BASE_URL=$(remove_quotes "$CFN_BAVBackEndURL")
-echo "API_BASE_URL: $API_BASE_URL"
-export IPV_STUB_URL=$(remove_quotes $CFN_BAVIPVStubExecuteURL)
-echo "IPV_STUB_URL: $IPV_STUB_URL"
+export IPV_STUB_URL=$(remove_quotes $CFN_BAVIPVStubPrettyAPIURL)
 export TEST_HARNESS_URL=$(remove_quotes $CFN_BAVTestHarnessURL)
-echo "TEST_HARNESS_URL: $TEST_HARNESS_URL"
 export SESSION_TABLE=$(remove_quotes $CFN_BAVBackendSessionTableName)
-echo "SESSION_TABLE: $SESSION_TABLE"
 export LANGUAGE_TOGGLE_DISABLED=false
-echo "LANGUAGE_TOGGLE_DISABLED: $LANGUAGE_TOGGLE_DISABLED"
 
 declare error_code
 
