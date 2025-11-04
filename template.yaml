@@ -150,7 +150,7 @@ Mappings:
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
       # Hardcoded variables used to generate stack outputs for tests in Dev. Referenced in Outputs section of this template file. Only used in Dev + Build
-      IPVSTUBURL: "https://bav-ipv-stub-ipvstub.review-bav.dev.account.gov.uk"
+      IPVSTUBURL: "https://bav-ipv-stub-ipvstub.review-bav.dev.account.gov.uk/"
       TESTHARNESSURL: "https://bav-test-harness-testharness.review-bav.dev.account.gov.uk"
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
     build:
@@ -170,7 +170,7 @@ Mappings:
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
       # Hardcoded variables used to generate stack outputs for tests in Build. Referenced in Outputs section of this template file. Only used in Dev + Build
-      IPVSTUBURL: "https://ipvstub.review-bav.build.account.gov.uk"
+      IPVSTUBURL: "https://ipvstub.review-bav.build.account.gov.uk/"
       TESTHARNESSURL: "https://testharness.review-bav.build.account.gov.uk"
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
     staging:
