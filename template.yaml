@@ -133,7 +133,6 @@ Mappings:
 
   EnvironmentVariables:
     ### These environment variables are referenced further down the file.
-    ### Please ensure that any variables defined for an environment are defined for _all_ environments.
     dev:
       EXTERNALWEBSITEHOST: "https://bav-cri-front.review-bav.dev.account.gov.uk"
       APIBASEURL: "https://api-bav-cri-api.review-bav.dev.account.gov.uk"
@@ -142,9 +141,6 @@ Mappings:
       SESSIONTABLENAME: "bav-front-sessions-dev"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
-      TESTHARNESSURL: "https://bav-test-harness-testharness.review-bav.dev.account.gov.uk"
-      BACKENDURL: "https://api-bav-cri-api.review-bav.dev.account.gov.uk"
-      BACKENDSESSIONTABLE: "session-bav-cri-ddb"
       LOGLEVEL: "debug"
       LANGUAGETOGGLEDISABLED: false
       GA4ENABLED: true
@@ -153,6 +149,10 @@ Mappings:
       maxECSCount: 4
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
+      # Hardcoded variables used to generate stack outputs for tests in Dev. Referenced in Outputs section of this template file. Only used in Dev + Build
+      IPVSTUBURL: "https://bav-ipv-stub-ipvstub.review-bav.dev.account.gov.uk/"
+      TESTHARNESSURL: "https://bav-test-harness-testharness.review-bav.dev.account.gov.uk"
+      BACKENDSESSIONTABLE: "session-bav-cri-ddb"
     build:
       EXTERNALWEBSITEHOST: "https://review-bav.build.account.gov.uk"
       APIBASEURL: "https://api.review-bav.build.account.gov.uk"
@@ -161,9 +161,6 @@ Mappings:
       SESSIONTABLENAME: "bav-front-sessions-build"
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
-      TESTHARNESSURL: "https://testharness.review-bav.build.account.gov.uk"
-      BACKENDURL: "https://api.review-bav.build.account.gov.uk"
-      BACKENDSESSIONTABLE: "session-bav-cri-ddb"
       LOGLEVEL: "warn"
       GA4ENABLED: true
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
@@ -172,6 +169,10 @@ Mappings:
       LANGUAGETOGGLEDISABLED: false
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
+      # Hardcoded variables used to generate stack outputs for tests in Build. Referenced in Outputs section of this template file. Only used in Dev + Build
+      IPVSTUBURL: "https://ipvstub.review-bav.build.account.gov.uk/"
+      TESTHARNESSURL: "https://testharness.review-bav.build.account.gov.uk"
+      BACKENDSESSIONTABLE: "session-bav-cri-ddb"
     staging:
       EXTERNALWEBSITEHOST: "www.review-bav.staging.account.gov.uk/"
       APIBASEURL: "https://api.review-bav.staging.account.gov.uk"
@@ -1697,16 +1698,11 @@ Outputs:
   BAVCustomDomain:
     Description: BAV Custom Domain API Gateway ID
     Value: !Ref BAVFrontCustomDomain
+  # Below outputs are only used for E2E tests - hardcoded to always point to relevant main stacks
   BAVIPVStubExecuteURL:
     Condition: IsNotProdLikeEnvironment
     Description: "BAV IPV Stub"
-    Value:
-      Fn::ImportValue: !Sub '${IPVStubStackName}-IPVStubExecuteUrl'
-  BAVIPVStubPrettyAPIURL:
-    Condition: IsNotProdLikeEnvironment
-    Description: "BAV IPV Stub Pretty"
-    Value:
-      Fn::ImportValue: !Sub '${IPVStubStackName}-IPvStubApiGatewayPrettyUrl'
+    Value: !FindInMap [EnvironmentVariables, !Ref Environment, IPVSTUBURL]
   BAVTestHarnessURL:
     Condition: IsNotProdLikeEnvironment
     Description: "BAV Test Harness"
@@ -1714,7 +1710,7 @@ Outputs:
   BAVBackEndURL:
     Condition: IsNotProdLikeEnvironment
     Description: "BAV Back End"
-    Value: !FindInMap [EnvironmentVariables, !Ref Environment, BACKENDURL]
+    Value: !FindInMap [EnvironmentVariables, !Ref Environment, APIBASEURL]
   BAVBackendSessionTableName:
     Condition: IsNotProdLikeEnvironment
     Description: "BAV Test Harness"
