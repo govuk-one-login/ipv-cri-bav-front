@@ -4,6 +4,14 @@
 
 {% set hmpoPageKey = "error.unrecoverable" %}
 
+{% set isPageDataSensitive = false %}
+{% set statusCode = '200' %}
+{% set pageTitleKey = "pages.error.title" %}
+{% set contentID = "ddfca8ac-8a6e-4692-a418-b357b67823fe" %}
+{% set taxLevel2 = 'bav' %}
+{% set isPageDynamic = false %}
+{% set loggedInStatus = true %}
+
 {% block mainContent %}
   <h1 data-id="error-title">{{ translate("error.unrecoverable.title") }}</h1>
 
@@ -23,17 +31,4 @@
   <div>
       <p><a href="https://home.account.gov.uk/contact-gov-uk-one-login?fromURL=https://www.review-bav.account.gov.uk/continue-enter-bank-account-details" class="govuk-link" rel="noreferrer noopener" target="_blank">{{ translate("error.unrecoverable.contactMeLink") }}</a></p>
   </div>
-  <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-    window.addEventListener('load', function () {
-      window.DI.analyticsGa4.pageViewTracker.trackOnPageLoad({
-        statusCode: '200', // Access status code
-        englishPageTitle: '{{translate("error.unrecoverable.title")}}',
-        taxonomy_level1: 'web cri', // Access taxonomy level 1
-        taxonomy_level2: 'bav', // Access taxonomy level 2
-        content_id: '005',
-        logged_in_status: true,
-        dynamic: false,
-      });
-    });
-  </script>
 {% endblock %}
