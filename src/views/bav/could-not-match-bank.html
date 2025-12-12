@@ -9,6 +9,14 @@
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
+{% set isPageDataSensitive = false %}
+{% set statusCode = '200' %}
+{% set pageTitleKey = "pages.couldNotMatch.title" %}
+{% set contentID = "da9d22db-1789-4a7c-90df-eeb6fe655a6d" %}
+{% set taxLevel2 = 'bav' %}
+{% set isPageDynamic = false %}
+{% set loggedInStatus = true %}
+
 {% block mainContent %}
 
   {% set title = translate("couldNotMatch.title") %}
@@ -42,17 +50,4 @@
 }) }}
   
   {% endcall %}
-  <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-        window.addEventListener('load', function () {
-            window.DI.analyticsGa4.pageViewTracker.trackOnPageLoad({
-                statusCode: '200', // Access status code
-                englishPageTitle: '{{translate("couldNotMatch.title")}}',
-                taxonomy_level1: 'web cri', // Access taxonomy level 1
-                taxonomy_level2: 'bav', // Access taxonomy level 2
-                content_id: '006',
-                logged_in_status: true,
-                dynamic: false,
-            });
-        });
-    </script>
 {% endblock %}
