@@ -44,7 +44,7 @@
   "homepage": "https://github.com/govuk-one-login/ipv-cri-bav-front#readme",
   "packageManager": "yarn@1.22.22",
   "devDependencies": {
-    "@cucumber/cucumber": "10.9.0",
+    "@cucumber/cucumber": "12.4.0",
     "@jest/globals": "29.7.0",
     "@playwright/test": "1.54.2",
     "axe-core": "4.10.3",
