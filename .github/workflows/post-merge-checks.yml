@@ -36,19 +36,19 @@ jobs:
           extra_args: "detect-secrets --all-files"
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Install Playwright browsers
-        run: npm run playwright install --with-deps
+        run: yarn playwright install --with-deps
 
       - name: Run lint
-        run: npm run lint
+        run: yarn lint
 
       - name: Run build
-        run: npm run build
+        run: yarn build
 
       - name: Run test and write coverage
-        run: npm run test
+        run: yarn test
         
       - name: "Run SonarCloud Scan"
         if: ${{ success() && github.actor != 'dependabot[bot]' }}
