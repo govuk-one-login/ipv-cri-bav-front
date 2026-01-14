@@ -1,4 +1,4 @@
-@success @failed-account-details
+@success @failed-account-details @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: Enter Incorrect Bank Account Details
 
    Background:
