@@ -78,7 +78,7 @@ jobs:
       - name: Generate HTML Report
         if: always() && steps.bavBrowserTests.outcome == 'failure'
         run: yarn test:browser:report
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         if: always() && steps.bavBrowserTests.outcome == 'failure'
         with:
           name: bav-cri-test-report
