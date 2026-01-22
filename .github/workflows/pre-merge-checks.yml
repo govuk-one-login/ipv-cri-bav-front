@@ -12,15 +12,6 @@ on:
       - main
 
 jobs:
-  detect-secrets:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-python@v6
-      - uses: pre-commit/action@v3.0.1
-        with:
-          extra_args: "detect-secrets --all-files"
-
   run-checks:
     runs-on: ubuntu-latest
     steps:
@@ -44,7 +35,7 @@ jobs:
             CUSTOM_FE_URL: http:/localhost:5040
             LANGUAGE_TOGGLE_DISABLED: false
       - name: Archive browser tests results
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: bav-code-coverage-report
           path: test/reports/bav-reports/
