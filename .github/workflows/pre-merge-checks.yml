@@ -12,19 +12,10 @@ on:
       - main
 
 jobs:
-  detect-secrets:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
-      - uses: pre-commit/action@v3.0.1
-        with:
-          extra_args: "detect-secrets --all-files"
-
   run-checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v5
         with:
           node-version: 22
@@ -44,7 +35,7 @@ jobs:
             CUSTOM_FE_URL: http:/localhost:5040
             LANGUAGE_TOGGLE_DISABLED: false
       - name: Archive browser tests results
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: bav-code-coverage-report
           path: test/reports/bav-reports/
@@ -52,7 +43,7 @@ jobs:
   sonar-checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - uses: actions/setup-node@v5
         with:
           node-version: 22
@@ -61,7 +52,7 @@ jobs:
       - run: yarn test
       - name: "Run SonarCloud Scan"
         if: ${{ success() && github.actor != 'dependabot[bot]' }}
-        uses: SonarSource/sonarqube-scan-action@v5.3.1
+        uses: SonarSource/sonarqube-scan-action@v7.0.0
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

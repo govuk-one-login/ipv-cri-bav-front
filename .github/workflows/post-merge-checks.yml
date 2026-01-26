@@ -22,7 +22,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout Project
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Use Node.js 22.x
         uses: actions/setup-node@v5
@@ -36,19 +36,19 @@ jobs:
           extra_args: "detect-secrets --all-files"
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --frozen-lockfile
 
       - name: Install Playwright browsers
-        run: npm run playwright install --with-deps
+        run: yarn playwright install --with-deps
 
       - name: Run lint
-        run: npm run lint
+        run: yarn lint
 
       - name: Run build
-        run: npm run build
+        run: yarn build
 
       - name: Run test and write coverage
-        run: npm run test
+        run: yarn test
         
       - name: "Run SonarCloud Scan"
         if: ${{ success() && github.actor != 'dependabot[bot]' }}
@@ -78,7 +78,7 @@ jobs:
       - name: Generate HTML Report
         if: always() && steps.bavBrowserTests.outcome == 'failure'
         run: yarn test:browser:report
-      - uses: actions/upload-artifact@v5
+      - uses: actions/upload-artifact@v6
         if: always() && steps.bavBrowserTests.outcome == 'failure'
         with:
           name: bav-cri-test-report
