@@ -1,4 +1,4 @@
-@success
+@success @QualityGateAccessibilityTest @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: BAV Journey - Accessibility
 
     Scenario: BAV Journey - Accessibility Validation
