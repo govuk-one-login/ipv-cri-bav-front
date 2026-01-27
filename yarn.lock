@@ -1458,12 +1458,12 @@
     "@eslint/core" "^0.15.2"
     levn "^0.4.1"
 
-"@govuk-one-login/di-ipv-cri-common-express@11.2.0":
-  version "11.2.0"
-  resolved "https://registry.npmjs.org/@govuk-one-login/di-ipv-cri-common-express/-/di-ipv-cri-common-express-11.2.0.tgz"
-  integrity sha512-68xbQMnGRAbHeqp5Cn0eKZs2gKWmHXWeiZTn+2oVy5r0qpz1CVCb9Z0RG7uCjmxUNs4dvi42eRz3xXuZw3biGQ==
+"@govuk-one-login/di-ipv-cri-common-express@12.0.0":
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/di-ipv-cri-common-express/-/di-ipv-cri-common-express-12.0.0.tgz#a44a6e9655684da057e2f03f8c8f31178e184b9d"
+  integrity sha512-3hwWxps0X9JLCYYW5iJUgBS65nR9bwrihSAKxW09BjdmrNeT6lSEIqniUXAwGtbusJN0PT/Y4qEI/6S3wom7Tw==
   dependencies:
-    "@govuk-one-login/frontend-ui" "^1.2.0"
+    "@govuk-one-login/frontend-ui" "^2.0.0"
     async "^3.2.6"
     compression "^1.7.5"
     connect-redis "6.1.3"
@@ -1481,10 +1481,10 @@
     overload-protection "1.2.3"
     redis "^4.7.0"
 
-"@govuk-one-login/frontend-analytics@4.0.1":
-  version "4.0.1"
-  resolved "https://registry.npmjs.org/@govuk-one-login/frontend-analytics/-/frontend-analytics-4.0.1.tgz"
-  integrity sha512-BFbIu8Ujh4jdRQFwm77JteBs+x10ikyfmh1LZy1YVaiwlKY9k1GV8J/DDTIEbFdcOjUZK4RMSka/epK5G+mLtg==
+"@govuk-one-login/frontend-analytics@4.0.5":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-analytics/-/frontend-analytics-4.0.5.tgz#6f4bbd3e8a7ecd45936fb8cdd64decc5419b1d88"
+  integrity sha512-6JU8TQIXByxYQqV2b2sEy9eqM59Fwin3GqFXXSemtE7knxQ76YBJsVOgSTBrgCsjQ3DAbcZAUNLLopD9qBioYg==
   dependencies:
     loglevel "^1.9.2"
 
@@ -1515,10 +1515,10 @@
     forwarded-parse "^2.1.2"
     pino "^8.20.0"
 
-"@govuk-one-login/frontend-ui@^1.2.0":
-  version "1.5.0"
-  resolved "https://registry.npmjs.org/@govuk-one-login/frontend-ui/-/frontend-ui-1.5.0.tgz"
-  integrity sha512-qBuIHf0uHVcJhNGC+CHDFANSnL2kyY8NqeIrNyUoKtGem/LyZy8cnpyP/Jzobw0uEgKcTr6LlcowP4l4L1V3Kw==
+"@govuk-one-login/frontend-ui@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-ui/-/frontend-ui-2.0.0.tgz#3ccee1b3f0d380a0a7e65a5e85d627580b7ad460"
+  integrity sha512-WPLqJo/sjKoa5tPMXJcOqR7SIq0RUAm6Msrv5DunXwELk4PMkh/ovzGiLnEz9p4FD3qZ2fNE0ZuB5lKVnNCTrA==
   dependencies:
     js-yaml "^4.1.0"
     pino "8.20.0"
@@ -4446,11 +4446,6 @@ find-cache-dir@^3.2.0:
     commondir "^1.0.1"
     make-dir "^3.0.2"
     pkg-dir "^4.1.0"
-
-find-up-simple@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/find-up-simple/-/find-up-simple-1.0.1.tgz#18fb90ad49e45252c4d7fca56baade04fa3fca1e"
-  integrity sha512-afd4O7zpqHeRyg4PfDQsXmlDe2PfdHtJt6Akt8jOWaApLOZk5JXs6VMR29lz03pRe9mpykrRCYIYxaJYcfpncQ==
 
 find-up@^4.0.0, find-up@^4.1.0:
   version "4.1.0"
