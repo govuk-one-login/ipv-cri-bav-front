@@ -1,4 +1,4 @@
-@success
+@success @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: Enter Bank Account Details
 
 

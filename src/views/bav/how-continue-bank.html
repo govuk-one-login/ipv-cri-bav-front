@@ -4,6 +4,14 @@
 {% set gtmJourney = "bav - howContinueBank" %}
 {% set backLink = false %}
 
+{% set isPageDataSensitive = false %}
+{% set statusCode = '200' %}
+{% set pageTitleKey = "pages.howContinueBank.title" %}
+{% set contentID = "6895171f-5ed3-489a-9163-d02083296684" %}
+{% set taxLevel2 = 'bav' %}
+{% set isPageDynamic = false %}
+{% set loggedInStatus = true %}
+
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
@@ -40,17 +48,4 @@
   }) }}
 
   {% endcall %}
-  <script {% if cspNonce %} nonce="{{ cspNonce }}"{%  endif %}>
-        window.addEventListener('load', function () {
-            window.DI.analyticsGa4.pageViewTracker.trackOnPageLoad({
-                statusCode: '200', // Access status code
-                englishPageTitle: '{{translate("howContinueBank.title")}}',
-                taxonomy_level1: 'web cri', // Access taxonomy level 1
-                taxonomy_level2: 'bav', // Access taxonomy level 2
-                content_id: '006',
-                logged_in_status: true,
-                dynamic: false,
-            });
-        });
-    </script>
 {% endblock %} 
