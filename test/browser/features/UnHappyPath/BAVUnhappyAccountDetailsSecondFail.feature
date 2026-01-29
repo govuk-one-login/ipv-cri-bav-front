@@ -1,4 +1,4 @@
-@success
+@success @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: Provided Bank Details Failed
 
    Background:

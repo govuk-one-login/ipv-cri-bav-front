@@ -1,4 +1,4 @@
-@success
+@success @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: Language Translation Toggle
 
     Scenario: Language toggle present on all FE screen

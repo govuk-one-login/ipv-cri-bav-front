@@ -1,4 +1,4 @@
-@success
+@success @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: Provided Account Details Success
 
    Background:

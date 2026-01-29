@@ -1,4 +1,4 @@
-@success
+@success @QualityGateIntegrationTest @QualityGateRegressionTest
 Feature: Continue on from landing page
 
 
