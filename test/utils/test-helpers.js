@@ -26,7 +26,7 @@ function setupDefaultMocks() {
   });
 
   const res = {
-    redirect: jest.fn()
+    redirect: jest.fn(),
   };
 
   const next = jest.fn();
