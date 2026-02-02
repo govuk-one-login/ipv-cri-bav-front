@@ -1,17 +1,18 @@
-const reqres = require("reqres");
-
 const JourneyModel = require("hmpo-form-wizard/lib/journey-model");
 const WizardModel = require("hmpo-form-wizard/lib/wizard-model.js");
 
 function setupDefaultMocks() {
-  const req = reqres.req({
+  const req = {
     form: { values: {} },
     headers: { "txma-audit-encoded": "dummy-txma-header" },
     axios: {
       get: jest.fn(),
       post: jest.fn(),
     },
-  });
+    session: {
+      "hmpo-wizard-previous": {},
+    },
+  };
 
   req.journeyModel = new JourneyModel(null, {
     req,
@@ -24,7 +25,9 @@ function setupDefaultMocks() {
     fields: {},
   });
 
-  const res = reqres.res({});
+  const res = {
+    redirect: jest.fn()
+  };
 
   const next = jest.fn();
 
