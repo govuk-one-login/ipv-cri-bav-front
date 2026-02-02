@@ -28,8 +28,6 @@ describe("AbortController", () => {
 
   describe("#abortJourney", () => {
     it("should call abort endpoint successfully", async () => {
-      req.axios.post = jest.fn().mockResolvedValue();
-
       await abortController.saveValues(req, res, next);
       expect(next).toHaveBeenCalledTimes(1);
       expect(req.axios.post).toHaveBeenCalledWith(
