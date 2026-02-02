@@ -1507,13 +1507,14 @@
   resolved "https://registry.npmjs.org/@govuk-one-login/frontend-language-toggle/-/frontend-language-toggle-1.1.0.tgz"
   integrity sha512-vfik6DuCeAE8JlA2aN58TF4zipHW5/gMffkljMIuarol9qZk5+JUA+xpAyFx3Vq3jLRUsgzmbP/00/OW/xr2Fw==
 
-"@govuk-one-login/frontend-passthrough-headers@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/@govuk-one-login/frontend-passthrough-headers/-/frontend-passthrough-headers-1.0.0.tgz"
-  integrity sha512-Tg8bh40F9cQHi13WpuwskI5wT0kgdgnl9l6I6kxKmlIWxL07tVbfS3MxDGVTXUttQfhnJvKKEem2hJr8LLA/dw==
+"@govuk-one-login/frontend-passthrough-headers@1.3.2":
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-passthrough-headers/-/frontend-passthrough-headers-1.3.2.tgz#c8a4faff793ecfe998da958a5cdd2b51d24c9ac9"
+  integrity sha512-cxfgZ8xc4DRgVQgKYFzxuKSNf7x43HMM5QncjZu05ONhRMS0NY8APefNeAQM4V+m1NbI9P68DJhZ2IZnBOLejw==
   dependencies:
+    "@types/aws-lambda" "^8.10.159"
     forwarded-parse "^2.1.2"
-    pino "^8.20.0"
+    pino "^10.1.0"
 
 "@govuk-one-login/frontend-ui@^2.0.0":
   version "2.0.0"
@@ -1833,6 +1834,11 @@
   dependencies:
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
+
+"@pinojs/redact@^0.4.0":
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/@pinojs/redact/-/redact-0.4.0.tgz#c3de060dd12640dcc838516aa2a6803cc7b2e9d6"
+  integrity sha512-k2ENnmBugE/rzQfEcdWHcCY+/FM3VLzH9cYEsbdsoqrvzAKRhUZeRNhAZvB8OitQJ1TBed3yqWtdjzS6wJKBwg==
 
 "@pkgjs/parseargs@^0.11.0":
   version "0.11.0"
@@ -2757,6 +2763,11 @@
   version "2.0.0"
   resolved "https://registry.npmjs.org/@tootallnate/once/-/once-2.0.0.tgz"
   integrity sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==
+
+"@types/aws-lambda@^8.10.159":
+  version "8.10.160"
+  resolved "https://registry.yarnpkg.com/@types/aws-lambda/-/aws-lambda-8.10.160.tgz#7a3afdd919d730e4e2be7239d0af5f36a8b0ce1e"
+  integrity sha512-uoO4QVQNWFPJMh26pXtmtrRfGshPUSpMZGUyUQY20FhfHEElEBOPKgVmFs1z+kbpyBsRs2JnoOPT7++Z4GA9pA==
 
 "@types/babel__core@^7.1.14":
   version "7.20.5"
@@ -4446,6 +4457,11 @@ find-cache-dir@^3.2.0:
     commondir "^1.0.1"
     make-dir "^3.0.2"
     pkg-dir "^4.1.0"
+
+find-up-simple@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/find-up-simple/-/find-up-simple-1.0.1.tgz#18fb90ad49e45252c4d7fca56baade04fa3fca1e"
+  integrity sha512-afd4O7zpqHeRyg4PfDQsXmlDe2PfdHtJt6Akt8jOWaApLOZk5JXs6VMR29lz03pRe9mpykrRCYIYxaJYcfpncQ==
 
 find-up@^4.0.0, find-up@^4.1.0:
   version "4.1.0"
@@ -6813,10 +6829,22 @@ pino-abstract-transport@^1.1.0, pino-abstract-transport@^1.2.0:
     readable-stream "^4.0.0"
     split2 "^4.0.0"
 
+pino-abstract-transport@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/pino-abstract-transport/-/pino-abstract-transport-3.0.0.tgz#b21e5f33a297e8c4c915c62b3ce5dd4a87a52c23"
+  integrity sha512-wlfUczU+n7Hy/Ha5j9a/gZNy7We5+cXp8YL+X+PG8S0KXxw7n/JXA3c46Y0zQznIJ83URJiwy7Lh56WLokNuxg==
+  dependencies:
+    split2 "^4.0.0"
+
 pino-std-serializers@^6.0.0:
   version "6.2.2"
   resolved "https://registry.npmjs.org/pino-std-serializers/-/pino-std-serializers-6.2.2.tgz"
   integrity sha512-cHjPPsE+vhj/tnhCy/wiMh3M3z3h/j15zHQX+S9GkTBgqJuTuJzYJ4gUyACLhDaJ7kk9ba9iRDmbH2tJU03OiA==
+
+pino-std-serializers@^7.0.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/pino-std-serializers/-/pino-std-serializers-7.1.0.tgz#a7b0cd65225f29e92540e7853bd73b07479893fc"
+  integrity sha512-BndPH67/JxGExRgiX1dX0w1FvZck5Wa4aal9198SrRhZjH3GxKQUKIBnYJTdj2HDN3UQAS06HlfcSbQj2OHmaw==
 
 pino@8.20.0:
   version "8.20.0"
@@ -6834,6 +6862,23 @@ pino@8.20.0:
     safe-stable-stringify "^2.3.1"
     sonic-boom "^3.7.0"
     thread-stream "^2.0.0"
+
+pino@^10.1.0:
+  version "10.3.0"
+  resolved "https://registry.yarnpkg.com/pino/-/pino-10.3.0.tgz#965ae842e9b7e6e7e9f002bac33c831b16912529"
+  integrity sha512-0GNPNzHXBKw6U/InGe79A3Crzyk9bcSyObF9/Gfo9DLEf5qj5RF50RSjsu0W1rZ6ZqRGdzDFCRBQvi9/rSGPtA==
+  dependencies:
+    "@pinojs/redact" "^0.4.0"
+    atomic-sleep "^1.0.0"
+    on-exit-leak-free "^2.1.0"
+    pino-abstract-transport "^3.0.0"
+    pino-std-serializers "^7.0.0"
+    process-warning "^5.0.0"
+    quick-format-unescaped "^4.0.3"
+    real-require "^0.2.0"
+    safe-stable-stringify "^2.3.1"
+    sonic-boom "^4.0.1"
+    thread-stream "^4.0.0"
 
 pino@^8.20.0:
   version "8.21.0"
@@ -6937,6 +6982,11 @@ process-warning@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/process-warning/-/process-warning-3.0.0.tgz"
   integrity sha512-mqn0kFRl0EoqhnL0GQ0veqFHyIN1yig9RHh/InzORTUiZHFRAur+aMtRkELNwGs9aNwKS6tg/An4NYBPGwvtzQ==
+
+process-warning@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/process-warning/-/process-warning-5.0.0.tgz#566e0bf79d1dff30a72d8bbbe9e8ecefe8d378d7"
+  integrity sha512-a39t9ApHNx2L4+HBnQKqxxHNs1r7KF+Intd8Q/g1bUh6q0WIp9voPXJ/x0j+ZL45KF1pJd9+q2jLIRMfvEshkA==
 
 process@^0.11.10:
   version "0.11.10"
@@ -7568,6 +7618,13 @@ sonic-boom@^3.7.0:
   dependencies:
     atomic-sleep "^1.0.0"
 
+sonic-boom@^4.0.1:
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/sonic-boom/-/sonic-boom-4.2.0.tgz#e59a525f831210fa4ef1896428338641ac1c124d"
+  integrity sha512-INb7TM37/mAcsGmc9hyyI6+QR3rR1zVRu36B0NeGXKnOOLiZOfER5SA+N7X7k3yUYRzLWafduTDvJAfDswwEww==
+  dependencies:
+    atomic-sleep "^1.0.0"
+
 sort-object-keys@^1.1.3:
   version "1.1.3"
   resolved "https://registry.npmjs.org/sort-object-keys/-/sort-object-keys-1.1.3.tgz"
@@ -7878,6 +7935,13 @@ thread-stream@^2.0.0, thread-stream@^2.6.0:
   version "2.7.0"
   resolved "https://registry.npmjs.org/thread-stream/-/thread-stream-2.7.0.tgz"
   integrity sha512-qQiRWsU/wvNolI6tbbCKd9iKaTnCXsTwVxhhKM6nctPdujTyztjlbUkUTUymidWcMnZ5pWR0ej4a0tjsW021vw==
+  dependencies:
+    real-require "^0.2.0"
+
+thread-stream@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/thread-stream/-/thread-stream-4.0.0.tgz#732f007c24da7084f729d6e3a7e3f5934a7380b7"
+  integrity sha512-4iMVL6HAINXWf1ZKZjIPcz5wYaOdPhtO8ATvZ+Xqp3BTdaqtAwQkNmKORqcIo5YkQqGXq5cwfswDwMqqQNrpJA==
   dependencies:
     real-require "^0.2.0"
 
