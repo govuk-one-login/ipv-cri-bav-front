@@ -4,14 +4,6 @@
 {% set gtmJourney = "bav - howContinueBank" %}
 {% set backLink = false %}
 
-{% set isPageDataSensitive = false %}
-{% set statusCode = '200' %}
-{% set pageTitleKey = "pages.howContinueBank.title" %}
-{% set contentID = "6895171f-5ed3-489a-9163-d02083296684" %}
-{% set taxLevel2 = 'bav' %}
-{% set isPageDynamic = false %}
-{% set loggedInStatus = true %}
-
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-radios/macro.njk" import hmpoRadios %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
@@ -19,6 +11,14 @@
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
 {% block mainContent %}
+
+{% set isPageDataSensitive = false %}
+{% set statusCode = '200' %}
+{% set pageTitleKey = "pages.howContinueBank.title" %}
+{% set contentID = "6895171f-5ed3-489a-9163-d02083296684" %}
+{% set taxLevel2 = 'bav' %}
+{% set isPageDynamic = false %}
+{% set loggedInStatus = true %}
 
   {% set title = translate("howContinueBank.title") %}
   {% call hmpoForm(ctx) %}
