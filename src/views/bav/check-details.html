@@ -4,6 +4,13 @@
 {% set hmpoPageKey = "checkDetails" %}
 {% set gtmJourney = "bav - checkDetails" %}
 
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+
+{% block mainContent %}
+
 {% set isPageDataSensitive = false %}
 {% set statusCode = '200' %}
 {% set pageTitleKey = "pages.checkDetails.title" %}
@@ -11,13 +18,6 @@
 {% set taxLevel2 = 'bav' %}
 {% set isPageDynamic = false %}
 {% set loggedInStatus = true %}
-
-{% from "govuk/components/header/macro.njk" import govukHeader %}
-{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
-{% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-
-{% block mainContent %}
 
 <div>
     <h1 id="check-details-header" class="gov" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
