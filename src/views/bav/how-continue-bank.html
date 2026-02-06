@@ -10,8 +10,6 @@
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
-{% block mainContent %}
-
 {% set isPageDataSensitive = false %}
 {% set statusCode = '200' %}
 {% set pageTitleKey = "pages.howContinueBank.title" %}
@@ -19,6 +17,10 @@
 {% set taxLevel2 = 'bav' %}
 {% set isPageDynamic = false %}
 {% set loggedInStatus = true %}
+
+{% block mainContent %}
+
+{% set isPageDataSensitive = false %}
 
   {% set title = translate("howContinueBank.title") %}
   {% call hmpoForm(ctx) %}

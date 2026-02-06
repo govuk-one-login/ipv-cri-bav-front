@@ -9,8 +9,6 @@
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 
-{% block mainContent %}
-
 {% set isPageDataSensitive = false %}
 {% set statusCode = '200' %}
 {% set pageTitleKey = "pages.checkDetails.title" %}
@@ -18,6 +16,10 @@
 {% set taxLevel2 = 'bav' %}
 {% set isPageDynamic = false %}
 {% set loggedInStatus = true %}
+
+{% block mainContent %}
+
+{% set isPageDataSensitive = false %}
 
 <div>
     <h1 id="check-details-header" class="gov" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
