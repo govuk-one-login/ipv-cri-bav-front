@@ -4,6 +4,12 @@
 {% set gtmJourney = "bav - howContinueBank" %}
 {% set backLink = false %}
 
+{% from "hmpo-text/macro.njk" import hmpoText %}
+{% from "hmpo-radios/macro.njk" import hmpoRadios %}
+{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
 {% set isPageDataSensitive = false %}
 {% set statusCode = '200' %}
 {% set pageTitleKey = "pages.howContinueBank.title" %}
@@ -12,13 +18,9 @@
 {% set isPageDynamic = false %}
 {% set loggedInStatus = true %}
 
-{% from "hmpo-text/macro.njk" import hmpoText %}
-{% from "hmpo-radios/macro.njk" import hmpoRadios %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
-{% from "govuk/components/header/macro.njk" import govukHeader %}
-{% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
-
 {% block mainContent %}
+
+{% set isPageDataSensitive = false %}
 
   {% set title = translate("howContinueBank.title") %}
   {% call hmpoForm(ctx) %}
