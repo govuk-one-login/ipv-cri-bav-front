@@ -7,8 +7,6 @@
 {% from "hmpo-text/macro.njk" import hmpoText %}
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 
-{% block mainContent %}
-
 {% set isPageDataSensitive = false %}
 {% set statusCode = '200' %}
 {% set pageTitleKey = "pages.enterAccountDetails.title" %}
@@ -21,6 +19,7 @@
 {% set isPageDynamic = false %}
 {% set loggedInStatus = true %}
 
+{% block mainContent %}
 
 <div>
     <h1 id="account-details-header" class="gov" data-page="{{hmpoPageKey}}" class="govuk-heading-l">
