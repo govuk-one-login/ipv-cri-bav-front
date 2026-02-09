@@ -20,8 +20,6 @@
 
 {% block mainContent %}
 
-{% set isPageDataSensitive = false %}
-
   {% set title = translate("howContinueBank.title") %}
   {% call hmpoForm(ctx) %}
     {{ hmpoRadios(ctx, {

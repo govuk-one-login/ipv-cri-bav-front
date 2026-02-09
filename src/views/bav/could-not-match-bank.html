@@ -9,8 +9,6 @@
 {% from "hmpo-form/macro.njk" import hmpoForm %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
-{% block mainContent %}
-
 {% set isPageDataSensitive = false %}
 {% set statusCode = '200' %}
 {% set pageTitleKey = "pages.couldNotMatch.title" %}
@@ -19,9 +17,7 @@
 {% set isPageDynamic = false %}
 {% set loggedInStatus = true %}
 
-
-{% set isPageDataSensitive = false %}
-
+{% block mainContent %}
 
   {% set title = translate("couldNotMatch.title") %}
   {% set content = translate("couldNotMatch.content") %}
