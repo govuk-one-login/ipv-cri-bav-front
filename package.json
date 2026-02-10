@@ -48,7 +48,7 @@
     "@aws-sdk/util-dynamodb": "3.980.0",
     "@cucumber/cucumber": "12.6.0",
     "@jest/globals": "29.7.0",
-    "@playwright/test": "1.54.2",
+    "@playwright/test": "1.56.1",
     "axe-core": "4.10.3",
     "axe-playwright": "2.1.0",
     "eslint": "9.33.0",
