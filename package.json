@@ -48,7 +48,7 @@
     "@aws-sdk/util-dynamodb": "3.984.0",
     "@cucumber/cucumber": "12.6.0",
     "@jest/globals": "29.7.0",
-    "@playwright/test": "1.54.2",
+    "@playwright/test": "1.55.1",
     "axe-core": "4.10.3",
     "axe-playwright": "2.1.0",
     "eslint": "9.33.0",
@@ -63,7 +63,7 @@
     "prettier": "3.2.5",
     "sass": "1.71.1",
     "uglify-js": "3.17.4",
-    "wait-on": "7.2.0"
+    "wait-on": "9.0.3"
   },
   "dependencies": {
     "@govuk-one-login/di-ipv-cri-common-express": "12.0.2",
@@ -76,8 +76,8 @@
     "ajv": "8.17.1",
     "ajv-formats": "2.1.1",
     "aws4-axios": "3.4.0",
-    "axios": "1.13.2",
-    "connect-dynamodb": "2.0.6",
+    "axios": "1.13.5",
+    "connect-dynamodb": "3.0.5",
     "copyfiles": "2.4.1",
     "dotenv": "16.3.1",
     "express": "4.22.1",
