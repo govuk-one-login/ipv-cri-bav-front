@@ -55,7 +55,7 @@ const loggerConfig = {
 };
 
 const dynamodb = new DynamoDBClient({
-  region: process.env.AWS_REGION || "eu-west-2",
+  region: "eu-west-2",
 });
 
 const dynamoDBSessionStore = new DynamoDBStore({
