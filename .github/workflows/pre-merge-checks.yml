@@ -35,7 +35,7 @@ jobs:
             CUSTOM_FE_URL: http:/localhost:5040
             LANGUAGE_TOGGLE_DISABLED: false
       - name: Archive browser tests results
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: bav-code-coverage-report
           path: test/reports/bav-reports/
