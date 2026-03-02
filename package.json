@@ -23,7 +23,7 @@
     "prettier": "prettier \"**/*.{js,md}\" --check",
     "prettier:fix": "yarn prettier --write",
     "format": "yarn prettier:fix && yarn lint",
-    "test": "node_modules/.bin/jest --testPathPattern=app/bav --coverage",
+    "test": "node_modules/.bin/jest --testPathPatterns=app/bav --coverage",
     "test:browser:report": "node ./test/utils/multiReportGenerator.js",
     "test:browser": "wait-on tcp:127.0.0.1:5040 && cucumber-js test/browser/features/**/*.feature --require test/browser/support/setup.js --require test/browser/step_definitions/**/*.js -f json:./test/reports/cucumber_report.json --tags @success",
     "test:browser:ci": "npm run start:ci & npm run test:browser && kill $! && npm run test:browser:report",
