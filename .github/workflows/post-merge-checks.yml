@@ -13,6 +13,7 @@ env: # Only adding the variables in that are required for
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     permissions:
       contents: write
       packages: write
@@ -74,6 +75,10 @@ jobs:
         uses: borales/actions-yarn@v4
         with:
           cmd: test:browser:ci # will run `yarn test:browser:ci` command
+      
+      - name: Kill leftover app process
+        if: always()
+        run: pkill -f "node .*src/app.js" || true
 
       - name: Generate HTML Report
         if: always() && steps.bavBrowserTests.outcome == 'failure'
