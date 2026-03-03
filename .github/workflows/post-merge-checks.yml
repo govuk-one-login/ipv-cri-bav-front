@@ -19,7 +19,6 @@ jobs:
       packages: write
     continue-on-error: true
 
-
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout Project
@@ -50,8 +49,8 @@ jobs:
 
       - name: Run test and write coverage
         run: yarn test
-        
-      - name: "Run SonarCloud Scan"
+
+      - name: Run SonarCloud Scan
         if: ${{ success() && github.actor != 'dependabot[bot]' }}
         uses: SonarSource/sonarcloud-github-action@master
         env:
@@ -59,32 +58,28 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Test CIC Front Image
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install --frozen-lockfile # will run `yarn install` command
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.SH_BAV_ACCESS_TOKEN }} # if needed
+          NODE_AUTH_TOKEN: ${{ secrets.SH_BAV_ACCESS_TOKEN }}
+        run: yarn install --frozen-lockfile
 
       - name: Build production bundle
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: build # will run `yarn build` command
+        run: yarn build
 
       - name: Test the app
         id: bavBrowserTests
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: test:browser:ci # will run `yarn test:browser:ci` command
-      
-      - name: Kill leftover app process
-        if: always()
-        run: pkill -f "node .*src/app.js" || true
+        run: yarn test:browser:ci
+
+      # - name: Kill leftover app process
+      #   if: always()
+      #   run: pkill -f "node .*src/app.js" || true
 
       - name: Generate HTML Report
         if: always() && steps.bavBrowserTests.outcome == 'failure'
         run: yarn test:browser:report
-      - uses: actions/upload-artifact@v6
+
+      - name: Upload browser report artifact
         if: always() && steps.bavBrowserTests.outcome == 'failure'
+        uses: actions/upload-artifact@v6
         with:
           name: bav-cri-test-report
           path: test/reports/bav-reports
