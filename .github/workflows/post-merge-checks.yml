@@ -69,10 +69,6 @@ jobs:
         id: bavBrowserTests
         run: yarn test:browser:ci
 
-      # - name: Kill leftover app process
-      #   if: always()
-      #   run: pkill -f "node .*src/app.js" || true
-
       - name: Generate HTML Report
         if: always() && steps.bavBrowserTests.outcome == 'failure'
         run: yarn test:browser:report
