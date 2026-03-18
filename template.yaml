@@ -165,7 +165,7 @@ Mappings:
       LOGLEVEL: "warn"
       GA4ENABLED: true
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
-      minECSCount: 6
+      minECSCount: 3
       maxECSCount: 60
       LANGUAGETOGGLEDISABLED: false
       DEVICEINTELLIGENCEENABLED: true
