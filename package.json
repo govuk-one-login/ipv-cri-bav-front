@@ -62,7 +62,7 @@
     "prettier": "3.2.5",
     "sass": "1.71.1",
     "uglify-js": "3.17.4",
-    "wait-on": "9.0.3",
+    "wait-on": "9.0.5",
     "globals": "17.3.0",
     "@eslint/js": "10.0.1",
     "@eslint/eslintrc": "3.3.4"
