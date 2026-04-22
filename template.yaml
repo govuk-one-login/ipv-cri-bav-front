@@ -208,7 +208,7 @@ Mappings:
       LANGUAGETOGGLEDISABLED: false
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
-      ANALYTICSDATASENSITIVE: true
+      ANALYTICSDATASENSITIVE: false
     production:
       EXTERNALWEBSITEHOST: "https://review-bav.account.gov.uk"
       APIBASEURL: "https://api.review-bav.account.gov.uk"
@@ -225,7 +225,7 @@ Mappings:
       LANGUAGETOGGLEDISABLED: false
       DEVICEINTELLIGENCEENABLED: true
       MAY2025REBRANDENABLED: true
-      ANALYTICSDATASENSITIVE: true
+      ANALYTICSDATASENSITIVE: false
 
 Resources:
   # Security Groups for the ECS service and load balancer
