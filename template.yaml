@@ -165,7 +165,7 @@ Mappings:
       LOGLEVEL: "warn"
       GA4ENABLED: true
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
-      minECSCount: 6
+      minECSCount: 3
       maxECSCount: 60
       LANGUAGETOGGLEDISABLED: false
       DEVICEINTELLIGENCEENABLED: true
@@ -220,7 +220,7 @@ Mappings:
       LOGLEVEL: "warn"
       GA4ENABLED: true
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
-      minECSCount: 6
+      minECSCount: 3
       maxECSCount: 60
       LANGUAGETOGGLEDISABLED: false
       DEVICEINTELLIGENCEENABLED: true
@@ -998,12 +998,12 @@ Resources:
       StepScalingPolicyConfiguration:
         AdjustmentType: PercentChangeInCapacity
         Cooldown: 120
-        MinAdjustmentMagnitude: 5
+        MinAdjustmentMagnitude: 1
         StepAdjustments:
-          - MetricIntervalLowerBound: 20
-            MetricIntervalUpperBound: 30
+          - MetricIntervalLowerBound: 10
+            MetricIntervalUpperBound: 15
             ScalingAdjustment: 200
-          - MetricIntervalLowerBound: 30
+          - MetricIntervalLowerBound: 15
             MetricIntervalUpperBound: 35
             ScalingAdjustment: 300
           - MetricIntervalLowerBound: 35
@@ -1027,7 +1027,7 @@ Resources:
         AdjustmentType: PercentChangeInCapacity
         Cooldown: 420
         StepAdjustments:
-          - MetricIntervalUpperBound: -40
+          - MetricIntervalUpperBound: -20
             ScalingAdjustment: -50
 
   StepScaleOutAlarm:
@@ -1041,7 +1041,7 @@ Resources:
       ActionsEnabled: true
       AlarmActions:
         - !Ref StepScaleOutPolicy
-      AlarmDescription: "BAVFrontEcsClusterOver60PercentCPU"
+      AlarmDescription: "BAVFrontEcsClusterOver30PercentCPU"
       ComparisonOperator: "GreaterThanThreshold"
       DatapointsToAlarm: "2"
       Dimensions:
@@ -1055,7 +1055,7 @@ Resources:
       Namespace: "AWS/ECS"
       Statistic: "Average"
       Period: "60"
-      Threshold: "60"
+      Threshold: "30"
 
   StepScaleInAlarm:
     Condition: EnableScaling
@@ -1066,7 +1066,7 @@ Resources:
       ActionsEnabled: true
       AlarmActions:
         - !Ref StepScaleInPolicy
-      AlarmDescription: "BAVFrontEcsClusterUnder60PercentCPU"
+      AlarmDescription: "BAVFrontEcsClusterUnder30PercentCPU"
       ComparisonOperator: "LessThanThreshold"
       DatapointsToAlarm: "5"
       Dimensions:
@@ -1080,7 +1080,7 @@ Resources:
       Namespace: "AWS/ECS"
       Statistic: "Average"
       Period: "60"
-      Threshold: "60"
+      Threshold: "30"
 
   ### Front End API Gateway Custom Domain definition
 
