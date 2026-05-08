@@ -220,7 +220,7 @@ Mappings:
       LOGLEVEL: "warn"
       GA4ENABLED: true
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
-      minECSCount: 3
+      minECSCount: 6
       maxECSCount: 60
       LANGUAGETOGGLEDISABLED: false
       DEVICEINTELLIGENCEENABLED: true
@@ -998,7 +998,7 @@ Resources:
       StepScalingPolicyConfiguration:
         AdjustmentType: PercentChangeInCapacity
         Cooldown: 120
-        MinAdjustmentMagnitude: 1
+        MinAdjustmentMagnitude: 3
         StepAdjustments:
           - MetricIntervalLowerBound: 10
             MetricIntervalUpperBound: 15
