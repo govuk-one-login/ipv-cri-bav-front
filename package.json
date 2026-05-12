@@ -65,7 +65,7 @@
     "wait-on": "9.0.10",
     "globals": "17.3.0",
     "@eslint/js": "10.0.1",
-    "@eslint/eslintrc": "3.3.4"
+    "@eslint/eslintrc": "3.3.5"
   },
   "dependencies": {
     "@govuk-one-login/di-ipv-cri-common-express": "14.0.2",
