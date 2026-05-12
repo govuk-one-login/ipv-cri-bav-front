@@ -63,7 +63,7 @@
     "sass": "1.71.1",
     "uglify-js": "3.17.4",
     "wait-on": "9.0.10",
-    "globals": "17.3.0",
+    "globals": "17.6.0",
     "@eslint/js": "10.0.1",
     "@eslint/eslintrc": "3.3.5"
   },
