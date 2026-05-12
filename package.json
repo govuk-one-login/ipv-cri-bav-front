@@ -45,7 +45,7 @@
   "packageManager": "yarn@1.22.22",
   "devDependencies": {
     "@aws-sdk/credential-providers": "3.1045.0",
-    "@aws-sdk/util-dynamodb": "3.996.1",
+    "@aws-sdk/util-dynamodb": "3.996.2",
     "@cucumber/cucumber": "12.7.0",
     "@jest/globals": "30.2.0",
     "@playwright/test": "1.58.2",
