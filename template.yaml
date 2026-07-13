@@ -142,18 +142,13 @@ Mappings:
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
       LOGLEVEL: "debug"
-      LANGUAGETOGGLEDISABLED: false
-      GA4ENABLED: true
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       minECSCount: 1
       maxECSCount: 4
-      DEVICEINTELLIGENCEENABLED: true
-      MAY2025REBRANDENABLED: true
       # Hardcoded variables used to generate stack outputs for tests in Dev. Referenced in Outputs section of this template file. Only used in Dev + Build
       IPVSTUBURL: "https://bav-ipv-stub-ipvstub.review-bav.dev.account.gov.uk/"
       TESTHARNESSURL: "https://bav-test-harness-testharness.review-bav.dev.account.gov.uk"
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
-      ANALYTICSDATASENSITIVE: false
     build:
       EXTERNALWEBSITEHOST: "https://review-bav.build.account.gov.uk"
       APIBASEURL: "https://api.review-bav.build.account.gov.uk"
@@ -163,18 +158,13 @@ Mappings:
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
       LOGLEVEL: "warn"
-      GA4ENABLED: true
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       minECSCount: 6
       maxECSCount: 60
-      LANGUAGETOGGLEDISABLED: false
-      DEVICEINTELLIGENCEENABLED: true
-      MAY2025REBRANDENABLED: true
       # Hardcoded variables used to generate stack outputs for tests in Build. Referenced in Outputs section of this template file. Only used in Dev + Build
       IPVSTUBURL: "https://ipvstub.review-bav.build.account.gov.uk/"
       TESTHARNESSURL: "https://testharness.review-bav.build.account.gov.uk"
       BACKENDSESSIONTABLE: "session-bav-cri-ddb"
-      ANALYTICSDATASENSITIVE: false
     staging:
       EXTERNALWEBSITEHOST: "www.review-bav.staging.account.gov.uk/"
       APIBASEURL: "https://api.review-bav.staging.account.gov.uk"
@@ -184,14 +174,9 @@ Mappings:
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
       LOGLEVEL: "warn"
-      GA4ENABLED: true
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       minECSCount: 2
       maxECSCount: 4
-      LANGUAGETOGGLEDISABLED: false
-      DEVICEINTELLIGENCEENABLED: true
-      MAY2025REBRANDENABLED: true
-      ANALYTICSDATASENSITIVE: false
     integration:
       EXTERNALWEBSITEHOST: "https://review-bav.integration.account.gov.uk"
       APIBASEURL: "https://api.review-bav.integration.account.gov.uk"
@@ -201,14 +186,9 @@ Mappings:
       GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
       LOGLEVEL: "warn"
-      GA4ENABLED: true
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       minECSCount: 2
       maxECSCount: 4
-      LANGUAGETOGGLEDISABLED: false
-      DEVICEINTELLIGENCEENABLED: true
-      MAY2025REBRANDENABLED: true
-      ANALYTICSDATASENSITIVE: false
     production:
       EXTERNALWEBSITEHOST: "https://review-bav.account.gov.uk"
       APIBASEURL: "https://api.review-bav.account.gov.uk"
@@ -218,14 +198,9 @@ Mappings:
       GTMIDUA: "GTM-TT5HDKV"
       GTMIDGA4: "GTM-K4PBJH3"
       LOGLEVEL: "warn"
-      GA4ENABLED: true
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
       minECSCount: 6
       maxECSCount: 60
-      LANGUAGETOGGLEDISABLED: false
-      DEVICEINTELLIGENCEENABLED: true
-      MAY2025REBRANDENABLED: true
-      ANALYTICSDATASENSITIVE: false
 
 Resources:
   # Security Groups for the ECS service and load balancer
@@ -641,18 +616,8 @@ Resources:
                 - !Sub "${Environment}.account.gov.uk"
             - Name: DEVICE_INTELLIGENCE_DOMAIN
               Value: !FindInMap [ EnvironmentVariables, !Ref Environment, DEVICEINTELLIGENCEDOMAIN ]
-            - Name: LANGUAGE_TOGGLE_DISABLED
-              Value: !FindInMap [EnvironmentVariables, !Ref Environment, LANGUAGETOGGLEDISABLED ]
             - Name: LOG_LEVEL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LOGLEVEL ]
-            - Name: GA4_ENABLED
-              Value: !FindInMap [EnvironmentVariables, !Ref Environment, GA4ENABLED ]
-            - Name: DEVICE_INTELLIGENCE_ENABLED
-              Value: !FindInMap [EnvironmentVariables, !Ref Environment, DEVICEINTELLIGENCEENABLED ]
-            - Name: MAY_2025_REBRAND_ENABLED
-              Value: !FindInMap [EnvironmentVariables, !Ref Environment, MAY2025REBRANDENABLED ]
-            - Name: ANALYTICS_DATA_SENSITIVE
-              Value: !FindInMap [EnvironmentVariables, !Ref Environment, ANALYTICSDATASENSITIVE ]
 
           Secrets:
             - Name: DT_TENANT
