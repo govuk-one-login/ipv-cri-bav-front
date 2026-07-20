@@ -611,6 +611,8 @@ Resources:
               Value: !FindInMap [ EnvironmentVariables, !Ref Environment, DEVICEINTELLIGENCEDOMAIN ]
             - Name: LOG_LEVEL
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, LOGLEVEL ]
+            - Name: MAY_2025_REBRAND_ENABLED
+              Value: true
 
           Secrets:
             - Name: DT_TENANT
