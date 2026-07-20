@@ -139,7 +139,6 @@ Mappings:
       DNSSUFFIX: "review-bav.dev.account.gov.uk"
       CLOUDFRONTDOMAIN: "d17j8dpxnaezxj.cloudfront.net"
       SESSIONTABLENAME: "bav-front-sessions-dev"
-      GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
       LOGLEVEL: "debug"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
@@ -155,7 +154,6 @@ Mappings:
       DNSSUFFIX: "review-bav.build.account.gov.uk"
       CLOUDFRONTDOMAIN: "d1mxjkhzwnn7rp.cloudfront.net"
       SESSIONTABLENAME: "bav-front-sessions-build"
-      GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
       LOGLEVEL: "warn"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
@@ -171,7 +169,6 @@ Mappings:
       DNSSUFFIX: "review-bav.staging.account.gov.uk"
       CLOUDFRONTDOMAIN: "d3li6eih3gei2k.cloudfront.net"
       SESSIONTABLENAME: "bav-front-sessions-staging"
-      GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
       LOGLEVEL: "warn"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
@@ -183,7 +180,6 @@ Mappings:
       DNSSUFFIX: "review-bav.integration.account.gov.uk"
       CLOUDFRONTDOMAIN: "d38g947wht95l2.cloudfront.net"
       SESSIONTABLENAME: "bav-front-sessions-integration"
-      GTMIDUA: "GTM-TK92W68"
       GTMIDGA4: "GTM-KD86CMZ"
       LOGLEVEL: "warn"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
@@ -195,7 +191,6 @@ Mappings:
       DNSSUFFIX: "review-bav.account.gov.uk"
       CLOUDFRONTDOMAIN: "d30vzur3x0l8yq.cloudfront.net"
       SESSIONTABLENAME: "bav-front-sessions-production"
-      GTMIDUA: "GTM-TT5HDKV"
       GTMIDGA4: "GTM-K4PBJH3"
       LOGLEVEL: "warn"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
@@ -603,8 +598,6 @@ Resources:
               Value: !FindInMap [EnvironmentVariables, !Ref Environment, EXTERNALWEBSITEHOST ]
             - Name: SESSION_TABLE_NAME
               Value: !Ref BavFrontSessionsTable
-            - Name: UNIVERSAL_ANALYTICS_GTM_CONTAINER_ID
-              Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTMIDUA ]
             - Name: GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID
               Value: !FindInMap [ EnvironmentVariables, !Ref Environment, GTMIDGA4 ]
             - Name: FRONT_END_URL

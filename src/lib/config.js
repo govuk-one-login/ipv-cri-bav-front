@@ -32,7 +32,6 @@ module.exports = {
     },
     GTM: {
       GA4_ID: process.env.GOOGLE_ANALYTICS_4_GTM_CONTAINER_ID || "GTM-XXXXXXX",
-      UA_ID: "",
       ANALYTICS_COOKIE_DOMAIN: process.env.FRONTEND_DOMAIN || "localhost",
       GA4_ENABLED: true,
       UA_ENABLED: false,
@@ -45,7 +44,6 @@ module.exports = {
       GA4_SELECT_CONTENT_ENABLED:
         process.env.GA4_SELECT_CONTENT_ENABLED || true,
     },
-    LANGUAGE_TOGGLE_DISABLED: false,
     DEVICE_INTELLIGENCE_ENABLED: true,
     DEVICE_INTELLIGENCE_DOMAIN:
       process.env.DEVICE_INTELLIGENCE_DOMAIN || "localhost",
