@@ -4,12 +4,12 @@
   "description": "Frontend for the identify proving and bank account verification CRI",
   "main": "index.js",
   "engines": {
-    "node": "22.*",
+    "node": "24.*",
     "yarn": "1.22.*"
   },
   "scripts": {
     "start": "node src/app.js",
-    "start:ci": "REDIS_SESSION_URL= NODE_ENV=development node src/app.js",
+    "start:ci": "REDIS_SESSION_URL= NODE_ENV=development USE_PINO_LOGGER=true node src/app.js",
     "start:debug": "DEBUG=* node src/app.js",
     "build": "yarn build-sass && yarn build-js && yarn copy-assets",
     "dev": "nodemon src/app.js",
