@@ -24,18 +24,41 @@
           "provider": "GitHub",
           "config": {
             "file": ".github/workflows/pre-merge-checks.yml",
-            "path": "$.jobs.run-checks"
+            "path": "$.jobs.run-checks.steps[?@.run=='yarn lint']"
           },
           "checks": [
             {
               "name": "code style and linting"
-            },
+            }
+          ]
+        },
+        {
+          "phase": "pre-merge",
+          "provider": "GitHub",
+          "config": {
+            "file": ".github/workflows/pre-merge-checks.yml",
+            "path": "$.jobs.run-checks.steps[?@.run=='yarn test']"
+          },
+          "checks": [
             {
               "name": "unit"
             },
             {
               "name": "unit test coverage"
             },
+            {
+              "name": "regression"
+            }
+          ]
+        },
+        {
+          "phase": "pre-merge",
+          "provider": "GitHub",
+          "config": {
+            "file": ".github/workflows/pre-merge-checks.yml",
+            "path": "$.jobs.run-checks.steps[?@.id=='bavBrowserTests']"
+          },
+          "checks": [
             {
               "name": "accessibility"
             },
