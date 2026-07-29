@@ -20,7 +20,6 @@ const logger =
   require("@govuk-one-login/di-ipv-cri-common-express/src/bootstrap/lib/logger").get(
     PACKAGE_NAME,
   );
-const isPinoLoggerEnabled = () => process.env.USE_PINO_LOGGER === "true";
 
 const commonExpress = require("@govuk-one-login/di-ipv-cri-common-express");
 const frontendUi = require("@govuk-one-login/frontend-ui");
@@ -251,14 +250,10 @@ const wizardOptions = {
 router.use(wizard(steps, fields, wizardOptions));
 
 router.use((err, req, res, next) => {
-  const message =
-    "Error caught by Express handler - redirecting to Callback with server_error";
-
-  if (isPinoLoggerEnabled()) {
-    logger.error({ err }, message);
-  } else {
-    logger.error(message, { err });
-  }
+  logger.error(
+    "Error caught by Express handler - redirecting to Callback with server_error",
+    { err },
+  );
 
   const REDIRECT_URI = req.session?.authParams?.redirect_uri;
   if (REDIRECT_URI) {
