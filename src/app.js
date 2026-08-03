@@ -172,7 +172,7 @@ setGTM({
 
 setDeviceIntelligence({
   app,
-  deviceIntelligenceEnabled: true,
+  deviceIntelligenceEnabled: "true",
   deviceIntelligenceDomain: APP.DEVICE_INTELLIGENCE_DOMAIN,
 });
 
