@@ -62,5 +62,5 @@ Then("the {string} cookie has been set", async function (cookieName) {
   await this.page.waitForLoadState("networkidle", { timeout: 5000 });
   const cookies = await this.page.context().cookies();
   const expectedCookie = cookies.find((cookie) => cookie.name === cookieName);
-  expect(expectedCookie).to.exist;
+  expect(expectedCookie).toBeDefined();
 });
