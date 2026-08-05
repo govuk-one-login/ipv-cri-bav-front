@@ -1,6 +1,10 @@
 const BaseController = require("hmpo-form-wizard").Controller;
-const { API } = require("../../../lib/config");
-const logger = require("hmpo-logger").get();
+const { API, PACKAGE_NAME } = require("../../../lib/config");
+const logger =
+  require("@govuk-one-login/di-ipv-cri-common-express/src/bootstrap/lib/logger").get(
+    PACKAGE_NAME,
+  );
+const isPinoLoggerEnabled = () => process.env.USE_PINO_LOGGER === "true";
 const {
   createPersonalDataHeaders,
 } = require("@govuk-one-login/frontend-passthrough-headers");
@@ -30,10 +34,16 @@ class AbortController extends BaseController {
 
     if (response.status === 200 && response.headers.location) {
       const REDIRECT_URL = decodeURIComponent(response.headers.location);
-
-      logger.warn("Session aborted successfully - now redirecting", {
+      const message = "Session aborted successfully - now redirecting";
+      const metadata = {
         location: REDIRECT_URL,
-      });
+      };
+
+      if (isPinoLoggerEnabled()) {
+        logger.warn(metadata, message);
+      } else {
+        logger.warn(message, metadata);
+      }
 
       res.redirect(REDIRECT_URL);
     }
