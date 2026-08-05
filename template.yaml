@@ -174,7 +174,7 @@ Mappings:
       GTMIDGA4: "GTM-KD86CMZ"
       LOGLEVEL: "warn"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
-      USEPINOLOGGER: "false"
+      USEPINOLOGGER: "true"
       minECSCount: 2
       maxECSCount: 4
     integration:
@@ -186,7 +186,7 @@ Mappings:
       GTMIDGA4: "GTM-KD86CMZ"
       LOGLEVEL: "warn"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
-      USEPINOLOGGER: "false"
+      USEPINOLOGGER: "true"
       minECSCount: 2
       maxECSCount: 4
     production:
@@ -198,7 +198,7 @@ Mappings:
       GTMIDGA4: "GTM-K4PBJH3"
       LOGLEVEL: "warn"
       DEVICEINTELLIGENCEDOMAIN: "account.gov.uk"
-      USEPINOLOGGER: "false"
+      USEPINOLOGGER: "true"
       minECSCount: 6
       maxECSCount: 60
 
