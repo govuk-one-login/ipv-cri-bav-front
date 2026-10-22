@@ -1179,13 +1179,6 @@
   dependencies:
     loglevel "^1.9.2"
 
-"@govuk-one-login/frontend-analytics@^4.0.7":
-  version "4.0.8"
-  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-analytics/-/frontend-analytics-4.0.8.tgz#6e699be2bfd8b64cbf9cd35364cb4147206d937e"
-  integrity sha512-ZyEDONMbUStEOJzHnPiejGqbYqrc/KQ6fZjnyCvTtjdATjDACNRwBGkl/i8UXmhROkzvG9yaQjaOGXe0Mg0Etg==
-  dependencies:
-    loglevel "^1.9.2"
-
 "@govuk-one-login/frontend-device-intelligence@1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-device-intelligence/-/frontend-device-intelligence-1.2.0.tgz#17142d0da29fa388ba609bdb289f7d043776bf6a"
@@ -1198,6 +1191,11 @@
   resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-language-toggle/-/frontend-language-toggle-1.1.0.tgz#d1a55f39aaae0fb65ed891b5e6cb4cf8cd6265ce"
   integrity sha512-vfik6DuCeAE8JlA2aN58TF4zipHW5/gMffkljMIuarol9qZk5+JUA+xpAyFx3Vq3jLRUsgzmbP/00/OW/xr2Fw==
 
+"@govuk-one-login/frontend-logger@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-logger/-/frontend-logger-0.0.2.tgz#352eac13f87359465ecf6e787492ca95a2c1180d"
+  integrity sha512-2ygSN0ibLoMsZIYXEaXBQTaRbHLsocHG/iRCh7POS1Tb62sBIAvv08GuiOIhY5d68jSLJZ4aeLD3RJ+oJWOAYw==
+
 "@govuk-one-login/frontend-passthrough-headers@1.3.2":
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-passthrough-headers/-/frontend-passthrough-headers-1.3.2.tgz#c8a4faff793ecfe998da958a5cdd2b51d24c9ac9"
@@ -1207,14 +1205,17 @@
     forwarded-parse "^2.1.2"
     pino "^10.1.0"
 
-"@govuk-one-login/frontend-ui@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-ui/-/frontend-ui-5.0.1.tgz#6885f868b7219e8ba17e2407c57e3f49baa1a785"
-  integrity sha512-Uk9MnPtT3ukuO8naDdCpJXQnd6Xin1zFXgAFsV+gWv7qeF/nVZOTzD8R8jKbNQP0SjxCbLVfJR/O4nUy+vOE1w==
+"@govuk-one-login/frontend-ui@5.3.6":
+  version "5.3.6"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-ui/-/frontend-ui-5.3.6.tgz#7b6d2b0d2b9d0b7d4a94aef6428eda8470b0785e"
+  integrity sha512-OCrdmAT63AXGtuKR6W1gagDXHZ6ybiJiNM65SJXncyWBSi7L9FHfxqYNlw2WFiaW93bIewEYd2Nv8VTrKwBHuw==
   dependencies:
+    "@govuk-one-login/frontend-logger" "^0.0.2"
+    deep-clone-merge "^1.5.5"
+    lodash-es "^4.18.1"
+    moment "^2.31.0"
     pino "^10.1.0"
-  optionalDependencies:
-    "@govuk-one-login/frontend-analytics" "^4.0.7"
+    underscore "^1.13.8"
 
 "@govuk-one-login/frontend-vital-signs@0.1.4":
   version "0.1.4"
@@ -4977,6 +4978,11 @@ locate-path@^6.0.0:
   dependencies:
     p-locate "^5.0.0"
 
+lodash-es@^4.18.1:
+  version "4.18.1"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.18.1.tgz#b962eeb80d9d983a900bf342961fb7418ca10b1d"
+  integrity sha512-J8xewKD/Gk22OZbhpOVSwcs60zhd95ESDwezOFuA3/099925PdHJ7OFHNTGtajL3AlZkykD32HykiMo+BIBI8A==
+
 lodash.differencewith@4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.differencewith/-/lodash.differencewith-4.5.0.tgz#bafafbc918b55154e179176a00bb0aefaac854b7"
@@ -5201,6 +5207,11 @@ moment@^2.30.1:
   version "2.30.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.30.1.tgz#f8c91c07b7a786e30c59926df530b4eac96974ae"
   integrity sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how==
+
+moment@^2.31.0:
+  version "2.31.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.31.0.tgz#6e19184e8005a9dfc61c9351263d4d6ea2ace7aa"
+  integrity sha512-0acOTfMiWOheYS4eoWb80yYMb/JLvVv9SHbs2PehaDzfUG0Bw855SKyk0IKTnPGa5+U2bmi3W68l1+sGLX/pvw==
 
 ms@2.0.0:
   version "2.0.0"
@@ -6614,7 +6625,7 @@ undefsafe@^2.0.5:
   resolved "https://registry.yarnpkg.com/undefsafe/-/undefsafe-2.0.5.tgz#38733b9327bdcd226db889fb723a6efd162e6e2c"
   integrity sha512-WxONCrssBM8TSPRqN5EmsjVrsv4A8X12J4ArBiiayv3DyyG3ZlIg6yysuuSYdZsVz3TKcTg2fd//Ujd4CHV1iA==
 
-underscore@^1.13.7:
+underscore@^1.13.7, underscore@^1.13.8:
   version "1.13.8"
   resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.13.8.tgz#a93a21186c049dbf0e847496dba72b7bd8c1e92b"
   integrity sha512-DXtD3ZtEQzc7M8m4cXotyHR+FAS18C64asBYY5vqZexfYryNNnDc02W4hKg3rdQuqOYas1jkseX0+nZXjTXnvQ==
