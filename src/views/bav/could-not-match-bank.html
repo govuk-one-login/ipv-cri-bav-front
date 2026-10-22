@@ -4,9 +4,10 @@
 {% set gtmJourney = "bav - howContinueBank" %}
 {% set backLink = false %}
 
-{% from "hmpo-text/macro.njk" import hmpoText %}
-{% from "hmpo-radios/macro.njk" import hmpoRadios %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "frontend-ui/build/components/text/macro.njk" import text %}
+{% from "frontend-ui/build/components/radios/macro.njk" import radios %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 
 {% set isPageDataSensitive = false %}
@@ -30,8 +31,8 @@
       <p>{{ content }}</p>
 
 
-  {% call hmpoForm(ctx) %}
-          {{ hmpoRadios(ctx, {
+  {% call form(ctx) %}
+          {{ radios(ctx, {
             id: "couldNotMatchChoice",
             namePrefix: "couldNotMatchChoice",
             fieldset: {
@@ -42,7 +43,7 @@
             }
         }) }}
 
-  {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"),
+  {{ submit(ctx, {id: "continue", text: translate("buttons.next"),
   attributes: {
     "data-nav": true,
     "data-link": "/undefined"
