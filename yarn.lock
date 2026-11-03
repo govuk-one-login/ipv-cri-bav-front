@@ -935,10 +935,10 @@
     forwarded-parse "^2.1.2"
     pino "^10.1.0"
 
-"@govuk-one-login/frontend-ui@^5.3.8":
-  version "5.3.8"
-  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-ui/-/frontend-ui-5.3.8.tgz#e85335e4c4e4f98f89afeecad7300aaee93f9073"
-  integrity sha512-b8/eJpFtvFselw/M7lGthy7DhGra3Ad/A+SilyX3OoHEAVUFOupP7cCs/FZIzWpv7mlHPWUiV+SwEXhN+uoi/g==
+"@govuk-one-login/frontend-ui@^5.3.9":
+  version "5.3.9"
+  resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-ui/-/frontend-ui-5.3.9.tgz#5aec66db6924e66f693ebc62bb3bc84071681085"
+  integrity sha512-tvsyrGTgKBR4di/iBT1ibHm7W45XhJeQqixlmoxN/MBkFRjQdXzrxs/yFXVOQ2AC1Fea3uD81Iu0lVXiqbChlA==
   dependencies:
     "@govuk-one-login/frontend-logger" "^0.0.2"
     deep-clone-merge "^1.5.5"
