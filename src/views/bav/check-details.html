@@ -7,7 +7,8 @@
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 
 {% set isPageDataSensitive = false %}
 {% set statusCode = '200' %}
@@ -81,8 +82,8 @@
   html: insetBody
 }) }}
 
-{% call hmpoForm(ctx) %}
-    {{ hmpoSubmit(ctx, {id: "submitDetails", 
+{% call form(ctx) %}
+    {{ submit(ctx, {id: "submitDetails", 
      text: translate("checkDetails.submitDetails"),
      attributes: {
       "data-testid": "confirm-details-continue-btn", 

@@ -4,8 +4,9 @@
 {% set hmpoPageKey = "enterAccountDetails" %}
 {% set gtmJourney = "bav - enterAccountDetails" %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
-{% from "hmpo-text/macro.njk" import hmpoText %}
-{% from "hmpo-form/macro.njk" import hmpoForm %}
+{% from "frontend-ui/build/components/text/macro.njk" import text %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 
 {% set isPageDataSensitive = false %}
 {% set statusCode = '200' %}
@@ -26,19 +27,19 @@
         {{ translate("enterAccountDetails.title") }}
     </h1>
     
-    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
+    {% call form(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
 
-    {{ hmpoText(ctx, {
+    {{ text(ctx, {
         id: "sortCode",
         classes: "govuk-input--width-5 govuk-input--extra-letter-spacing"
     })}}
 
-    {{ hmpoText(ctx, {
+    {{ text(ctx, {
       id: "accountNumber",
       classes: "govuk-input--width-10 govuk-input--extra-letter-spacing"
     })}}
 
-    {{ hmpoSubmit(ctx, {id: "continue", text: translate("buttons.next"),
+    {{ submit(ctx, {id: "continue", text: translate("buttons.next"),
      attributes: {
         "data-nav": true,
         "data-link": "/check-details"
