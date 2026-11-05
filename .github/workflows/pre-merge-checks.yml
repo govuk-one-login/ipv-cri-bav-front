@@ -19,7 +19,8 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 22
-      - run: yarn install --frozen-lockfile
+          # HACK for pre-release testing do not merge
+      - run: yarn install --frozen-lockfile --ignore-engines
       - run: yarn lint
       - run: yarn build
       - run: yarn prettier
@@ -46,7 +47,8 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 22
-      - run: yarn install --frozen-lockfile
+          # HACK for pre-release testing do not merge
+      - run: yarn install --frozen-lockfile --ignore-engines
       - run: yarn build
       - run: yarn test
       - name: "Run SonarCloud Scan"
