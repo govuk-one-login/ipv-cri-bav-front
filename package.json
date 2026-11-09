@@ -91,5 +91,9 @@
     "hmpo-i18n": "7.0.1",
     "node-rsa": "1.1.1",
     "nunjucks": "3.2.4"
+  },
+  "resolutions": {
+    "hmpo-i18n": "7.0.1",
+    "hmpo-logger": "7.0.0"
   }
 }
