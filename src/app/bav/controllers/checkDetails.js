@@ -34,14 +34,14 @@ class CheckDetailsController extends BaseController {
         ),
         account_number: req.sessionModel.get("accountNumber"),
       };
-      await this.saveBavData(req.axios, bavData, req);
+      await this.saveBavData(bavData, req);
       callback();
     } catch (error) {
       callback(error);
     }
   }
 
-  async saveBavData(axios, bavData, req) {
+  async saveBavData(bavData, req) {
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId,
       ...createPersonalDataHeaders(
@@ -50,7 +50,8 @@ class CheckDetailsController extends BaseController {
       ),
     };
 
-    const res = await axios.post(`${API.PATHS.SAVE_BAVDATA}`, bavData, {
+    const res = await req.customFetch(`${API.PATHS.SAVE_BAVDATA}`
+      , bavData, {
       headers,
     });
 

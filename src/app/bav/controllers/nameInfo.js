@@ -8,8 +8,8 @@ const {
 class NameInfoController extends BaseController {
   async saveValues(req, res, next) {
     try {
-      const encryptedJSON = await this.getNameInfo(req.axios, req);
-      const key = await this.getDecryptKey(req.axios, req);
+      const encryptedJSON = await this.getNameInfo(req);
+      const key = await this.getDecryptKey(req);
       const decryptKey = new rsa(key);
       const decryptedJSON = decryptKey.decrypt(encryptedJSON, "utf8");
       const decryptedObject = JSON.parse(decryptedJSON);
@@ -24,7 +24,7 @@ class NameInfoController extends BaseController {
     super.saveValues(req, res, next);
   }
 
-  async getNameInfo(axios, req) {
+  async getNameInfo(req) {
     const headers = {
       "x-govuk-signin-session-id": req.session.tokenId,
       ...createPersonalDataHeaders(
@@ -38,7 +38,7 @@ class NameInfoController extends BaseController {
     return res.data;
   }
 
-  async getDecryptKey(axios, req) {
+  async getDecryptKey(req) {
     const headers = {
       ...createPersonalDataHeaders(
         `${API.BASE_URL}${API.PATHS.GET_NAME_INFO_DECRYPT_KEY}`,

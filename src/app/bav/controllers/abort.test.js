@@ -30,21 +30,20 @@ describe("AbortController", () => {
     it("should call abort endpoint successfully", async () => {
       await abortController.saveValues(req, res, next);
       expect(next).toHaveBeenCalledTimes(1);
-      expect(req.axios.post).toHaveBeenCalledWith(
+      expect(req.customFetch).toHaveBeenCalledWith(
         ABORT,
-        { reason: "session_expired" },
-        {
+        { method: "POST",
           headers: {
             "txma-audit-encoded": "dummy-txma-header",
             "x-govuk-signin-session-id": req.session.tokenId,
           },
-        },
+          body: JSON.stringify({ reason: "session_expired" }) },
       );
     });
 
     it("should handle Axios failure and call 'next' with the error", async () => {
       const error = new Error("Axios request failed");
-      req.axios.post = jest.fn().mockRejectedValue(error);
+      req.customFetch = jest.fn().mockRejectedValue(error);
 
       await abortController.saveValues(req, res, next);
       expect(next).toHaveBeenCalledTimes(1);

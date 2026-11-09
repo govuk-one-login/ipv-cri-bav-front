@@ -27,7 +27,7 @@ const frontendUi = require("@govuk-one-login/frontend-ui");
 
 const setHeaders = commonExpress.lib.headers;
 const setScenarioHeaders = commonExpress.lib.scenarioHeaders;
-const setAxiosDefaults = commonExpress.lib.axios;
+const customFetchMiddleware = commonExpress.lib.customFetch.customFetchMiddleware;
 
 const { setAPIConfig, setOAuthPaths } = require("./lib/settings");
 const { setGTM, setLanguageToggle, setDeviceIntelligence } =
@@ -125,6 +125,7 @@ const { app, router } = setup({
       ],
     });
     app.use(setHeaders);
+    app.use(customFetchMiddleware);
     app.use((req, res, next) => {
       res.locals.query = req.query; // Makes ?edit=true available as query.edit
       next();
@@ -239,7 +240,6 @@ router.use(frontendUi.frontendUiMiddlewareIdentityBypass);
 router.use(getDeviceIntelligence);
 
 router.use(setScenarioHeaders);
-// router.use(setAxiosDefaults);
 router.use("/oauth2", commonExpress.routes.oauth2);
 
 const wizardOptions = {

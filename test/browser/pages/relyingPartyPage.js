@@ -12,7 +12,7 @@ module.exports = class PlaywrightDevPage {
     const axios = require("axios");
     if (process.env.CUSTOM_FE_URL)
       claim.frontendURL = process.env.CUSTOM_FE_URL;
-    const postRequest = await axios.post(
+    const postRequest = await req.customFetch(
       process.env.IPV_STUB_URL + "start",
       claim,
     );

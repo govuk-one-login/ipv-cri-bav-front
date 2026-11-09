@@ -35,28 +35,27 @@ describe("CheckDetailsController", () => {
 
   describe("#saveValues", () => {
     it("should save the BAV data", async () => {
-      jest.spyOn(req.axios, "post");
+      jest.spyOn(req.customFetch, "mockResolvedValue").mockResolvedValue({});
       jest.spyOn(req.sessionModel, "get").mockReturnValueOnce("00-00-00");
       jest.spyOn(req.sessionModel, "get").mockReturnValueOnce("1234567");
 
       await checkDetailsController.saveValues(req, res, callback);
 
-      expect(req.axios.post).toHaveBeenCalledWith(
+      expect(req.customFetch).toHaveBeenCalledWith(
         `${API.PATHS.SAVE_BAVDATA}`,
-        { sort_code: "000000", account_number: "1234567" },
-        {
+        { method: "POST",
           headers: {
             "txma-audit-encoded": "dummy-txma-header",
             "x-govuk-signin-session-id": req.session.tokenId,
           },
-        },
+          body: JSON.stringify({ sort_code: "000000", account_number: "1234567" }) },
       );
     });
-  });
 
   describe("#saveBavData", () => {
     it("should increment the attemptCount sessionModel property when attemptCount returned in API call", async () => {
-      axios.post.mockResolvedValue({
+      req.customFetch.mockResolvedValue({
+
         data: {
           message: "Success",
           attemptCount: 1,
@@ -70,7 +69,7 @@ describe("CheckDetailsController", () => {
     });
 
     it("should return undefined for attemptCount sessionModel property when attemptCount returned in API call as undefined", async () => {
-      axios.post.mockResolvedValue({
+      req.customFetch.mockResolvedValue({
         data: {
           message: "Success",
         },

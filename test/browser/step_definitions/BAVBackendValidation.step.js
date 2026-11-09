@@ -31,15 +31,15 @@ When(
     const authGetRequest = await axios.get(`${baseUrl}/authorization`, {
       headers: { "session-id": this.sessionId },
     });
-    const requestTokenRequest = await axios.post(
+    const requestTokenRequest = await req.customFetch(
       `${stubUrl}generate-token-request`,
     );
-    const tokenPostRequest = await axios.post(
+    const tokenPostRequest = await req.customFetch(
       `${baseUrl}/token`,
       `code=${authGetRequest.data.authorizationCode.value}&grant_type=authorization_code&redirect_uri=${authGetRequest.data.redirect_uri}&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion=${requestTokenRequest.data}`,
       { headers: { "Content-Type": "text/plain" } },
     );
-    this.userInfoPostRequest = await axios.post(`${baseUrl}/userinfo`, null, {
+    this.userInfoPostRequest = await req.customFetch(`${baseUrl}/userinfo`, null, {
       headers: {
         Authorization: `Bearer ${tokenPostRequest.data.access_token}`,
       },

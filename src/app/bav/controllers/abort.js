@@ -24,12 +24,11 @@ class AbortController extends BaseController {
       ...createPersonalDataHeaders(`${API.BASE_URL}${API.PATHS.ABORT}`, req),
     };
 
-    const response = await req.axios.post(
+    const response = await req.customFetch(
       `${API.PATHS.ABORT}`,
-      { reason: "session_expired" },
-      {
+      { method: "POST",
         headers,
-      },
+        body: JSON.stringify({ reason: "session_expired" }) },
     );
 
     if (response.status === 200 && response.headers.location) {
