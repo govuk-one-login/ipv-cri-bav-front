@@ -239,7 +239,7 @@ router.use(frontendUi.frontendUiMiddlewareIdentityBypass);
 router.use(getDeviceIntelligence);
 
 router.use(setScenarioHeaders);
-router.use(setAxiosDefaults);
+// router.use(setAxiosDefaults);
 router.use("/oauth2", commonExpress.routes.oauth2);
 
 const wizardOptions = {
