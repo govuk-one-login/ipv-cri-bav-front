@@ -28,7 +28,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 22
-          cache: 'yarn'
+          cache: 'npm'
 
       - name: Checks if commiting secrets to repo
         uses: pre-commit/action@v3.0.1
@@ -36,19 +36,19 @@ jobs:
           extra_args: "detect-secrets --all-files"
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Install Playwright browsers
-        run: yarn playwright install --with-deps
+        run: npx playwright install --with-deps
 
       - name: Run lint
-        run: yarn lint
+        run: npm run lint
 
       - name: Run build
-        run: yarn build
+        run: npm run build
 
       - name: Run test and write coverage
-        run: yarn test
+        run: npm test
 
       - name: Run SonarCloud Scan
         if: ${{ success() && github.actor != 'dependabot[bot]' }}
@@ -60,18 +60,18 @@ jobs:
       - name: Build Test CIC Front Image
         env:
           NODE_AUTH_TOKEN: ${{ secrets.SH_BAV_ACCESS_TOKEN }}
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Build production bundle
-        run: yarn build
+        run: npm run build
 
       - name: Test the app
         id: bavBrowserTests
-        run: yarn test:browser:ci
+        run: npm run test:browser:ci
 
       - name: Generate HTML Report
         if: always() && steps.bavBrowserTests.outcome == 'failure'
-        run: yarn test:browser:report
+        run: npm run test:browser:report
 
       - name: Upload browser report artifact
         if: always() && steps.bavBrowserTests.outcome == 'failure'
