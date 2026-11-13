@@ -51,6 +51,11 @@ const {
 const { setup } =
   require("@govuk-one-login/di-ipv-cri-common-express").bootstrap;
 
+const {
+  addFrontendUiGlobals,
+  localsMiddleware,
+} = require("@govuk-one-login/frontend-ui");
+
 const loggerConfig = {
   console: true,
   consoleLevel: process.env.LOG_LEVEL || "warn",
@@ -105,6 +110,11 @@ const { app, router } = setup({
     cookie: { name: "lng" },
   },
   middlewareSetupFn: (app) => {
+    const nunjucksEnv = app.get("nunjucks");
+    if (nunjucksEnv) {
+      addFrontendUiGlobals(nunjucksEnv);
+      app.use(localsMiddleware(app, nunjucksEnv));
+    }
     frontendVitalSignsInitFromApp(app, {
       interval: 60000,
       logLevel: "info",
