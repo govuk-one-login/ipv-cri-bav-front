@@ -935,7 +935,7 @@
     forwarded-parse "^2.1.2"
     pino "^10.1.0"
 
-"@govuk-one-login/frontend-ui@^5.3.10":
+"@govuk-one-login/frontend-ui@5.3.10":
   version "5.3.10"
   resolved "https://registry.yarnpkg.com/@govuk-one-login/frontend-ui/-/frontend-ui-5.3.10.tgz#a322f94c216b84389ff152048ae160995c1209fd"
   integrity sha512-oqiJxJ3dXELOVbgKeNDBnOgyFeljFOJ9VGYklpwZYxqHG1HJNtI3C1/V/CLGGCxqnIPp8agBMvU9nlr6xWIA4A==
