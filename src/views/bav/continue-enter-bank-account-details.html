@@ -5,6 +5,8 @@
 {% from "govuk/components/inset-text/macro.njk" import govukInsetText %}
 {% from "govuk/components/header/macro.njk" import govukHeader %}
 {% from "govuk/components/details/macro.njk" import govukDetails %}
+{% from "frontend-ui/build/components/form/macro.njk" import form %}
+{% from "frontend-ui/build/components/submit/macro.njk" import submit %}
 
 {% set isPageDataSensitive = false %}
 {% set statusCode = '200' %}
@@ -52,9 +54,9 @@
       html: translate("landingPage.detailDropdown.detailContent")
     }) }}
 
-    {% call hmpoForm(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
+    {% call form(ctx, {attributes: {onsubmit: 'window.disableFormSubmit()'} }) %}
     {% block submitButton %}
-      {{ hmpoSubmit(ctx, {
+      {{ submit(ctx, {
         id: "landingPageContinue",
         text: translate("buttons.next"),
         attributes: {
