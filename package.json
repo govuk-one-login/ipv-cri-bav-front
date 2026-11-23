@@ -44,8 +44,8 @@
   "homepage": "https://github.com/govuk-one-login/ipv-cri-bav-front#readme",
   "packageManager": "yarn@1.22.22",
   "devDependencies": {
-    "@aws-sdk/credential-providers": "3.1062.0",
-    "@aws-sdk/util-dynamodb": "3.996.2",
+    "@aws-sdk/credential-providers": "3.1173.0",
+    "@aws-sdk/util-dynamodb": "3.996.9",
     "@cucumber/cucumber": "12.7.0",
     "@eslint/eslintrc": "3.3.6",
     "@eslint/js": "10.0.1",
@@ -68,7 +68,7 @@
     "wait-on": "9.0.10"
   },
   "dependencies": {
-    "@aws-sdk/client-dynamodb": "3.1062.0",
+    "@aws-sdk/client-dynamodb": "3.1173.0",
     "@govuk-one-login/di-ipv-cri-common-express": "15.2.1",
     "@govuk-one-login/frontend-analytics": "4.2.0",
     "@govuk-one-login/frontend-device-intelligence": "1.2.0",
